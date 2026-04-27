@@ -4,8 +4,6 @@ import { authOptions } from '@/lib/auth'
 import prisma from '@/lib/prisma'
 import { generateQuoteNumber } from '@/lib/utils'
 import { z } from 'zod'
-export const dynamic = 'force-dynamic'
-
 
 const quoteSchema = z.object({
   customerEmail: z.string().email(),
@@ -54,3 +52,4 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
+export const dynamic = 'force-dynamic'

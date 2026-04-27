@@ -5,7 +5,6 @@ import { authOptions } from '@/lib/auth'
 
 // GET /api/admin/quotes - 获取询价列表
 export async function GET(req: NextRequest) {
-export const dynamic = 'force-dynamic'
 
   const session = await getServerSession(authOptions)
   if (!session || (session.user as any)?.role !== 'admin') {
@@ -46,3 +45,4 @@ export const dynamic = 'force-dynamic'
 
   return NextResponse.json({ quotes, total, page, pages: Math.ceil(total / limit) })
 }
+export const dynamic = 'force-dynamic'

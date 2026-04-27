@@ -5,7 +5,6 @@ import { authOptions } from '@/lib/auth'
 
 // GET /api/admin/suppliers/[id] - 获取供应商详情
 export async function GET(
-export const dynamic = 'force-dynamic'
 
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -106,3 +105,4 @@ export async function DELETE(
   await prisma.supplier.delete({ where: { id } })
   return NextResponse.json({ success: true })
 }
+export const dynamic = 'force-dynamic'

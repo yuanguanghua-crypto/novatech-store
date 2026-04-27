@@ -5,7 +5,6 @@ import prisma from '@/lib/prisma'
 
 // GET /api/admin/orders - List orders with filters
 export async function GET(request: NextRequest) {
-export const dynamic = 'force-dynamic'
 
   try {
     const session = await getServerSession(authOptions)
@@ -50,3 +49,4 @@ export const dynamic = 'force-dynamic'
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
+export const dynamic = 'force-dynamic'

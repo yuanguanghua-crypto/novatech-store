@@ -5,7 +5,6 @@ import { authOptions } from '@/lib/auth'
 
 // GET /api/admin/suppliers - 获取供应商列表
 export async function GET(req: NextRequest) {
-export const dynamic = 'force-dynamic'
 
   const session = await getServerSession(authOptions)
   if (!session || (session.user as any)?.role !== 'admin') {
@@ -78,3 +77,4 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json(supplier, { status: 201 })
 }
+export const dynamic = 'force-dynamic'

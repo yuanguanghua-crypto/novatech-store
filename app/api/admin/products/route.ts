@@ -7,7 +7,6 @@ import { z } from 'zod'
 
 // GET /api/admin/products - List products
 export async function GET(request: NextRequest) {
-export const dynamic = 'force-dynamic'
 
   try {
     const session = await getServerSession(authOptions)
@@ -154,3 +153,4 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
+export const dynamic = 'force-dynamic'

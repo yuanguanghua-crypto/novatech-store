@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 
 export async function GET(request: NextRequest) {
-export const dynamic = 'force-dynamic'
 
   const { searchParams } = new URL(request.url)
   const q = searchParams.get('q') || ''
@@ -41,3 +40,4 @@ export const dynamic = 'force-dynamic'
 
   return NextResponse.json({ products, total })
 }
+export const dynamic = 'force-dynamic'

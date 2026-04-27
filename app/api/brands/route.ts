@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 
-export const dynamic = 'force-dynamic'
-
 // GET /api/brands - List all brands
 export async function GET(request: NextRequest) {
   try {
@@ -16,3 +14,4 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
+export const dynamic = 'force-dynamic'
