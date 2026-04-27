@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: 'Browse all product categories',
 }
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 async function getCategories() {
   try {
     return await prisma.category.findMany({

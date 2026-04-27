@@ -1,6 +1,9 @@
 import prisma from '@/lib/prisma'
 import { HomeClient } from '@/components/store/home-client'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 // 每个分类对应的 emoji 图标
 const CATEGORY_ICONS: Record<string, string> = {
   'diaphragm-metering-pumps': '⚙️',

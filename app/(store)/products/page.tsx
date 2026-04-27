@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: 'Browse 15,000+ industrial and laboratory products',
 }
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 interface ProductsPageProps {
   searchParams: {
     page?: string

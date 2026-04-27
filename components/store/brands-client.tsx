@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n/context'
 
@@ -12,13 +13,50 @@ interface Brand {
 }
 
 interface BrandsClientProps {
-  brands: Brand[]
-  grouped: Record<string, Brand[]>
-  letters: string[]
+  brands?: Brand[]
+  grouped?: Record<string, Brand[]>
+  letters?: string[]
 }
 
-export function BrandsClient({ brands, grouped, letters }: BrandsClientProps) {
+export function BrandsClient({ brands: initialBrands = [], grouped: initialGrouped = {}, letters: initialLetters = [] }: BrandsClientProps) {
   const { t } = useI18n()
+  const [brands, setBrands] = useState<Brand[]>(initialBrands.length > 0 ? initialBrands : [])
+  const [grouped, setGrouped] = useState<Record<string, Brand[]>>(Object.keys(initialGrouped).length > 0 ? initialGrouped : {})
+  const [letters, setLetters] = useState<string[]>(initialLetters.length > 0 ? initialLetters : [])
+  const [loading, setLoading] = useState(initialBrands.length === 0)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (brands.length > 0) return // Already have data
+
+    async function fetchBrands() {
+      try {
+        setLoading(true)
+        const res = await fetch('/api/brands')
+        if (!res.ok) throw new Error('Failed to fetch brands')
+        const data = await res.json()
+        
+        // Group by first letter
+        const grp: Record<string, Brand[]> = {}
+        for (const brand of data) {
+          const letter = brand.name.charAt(0).toUpperCase()
+          if (!grp[letter]) grp[letter] = []
+          grp[letter].push(brand)
+        }
+        const lets = Object.keys(grp).sort()
+        
+        setBrands(data)
+        setGrouped(grp)
+        setLetters(lets)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchBrands()
+  }, [brands.length])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -33,7 +71,16 @@ export function BrandsClient({ brands, grouped, letters }: BrandsClientProps) {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {brands.length === 0 ? (
+        {loading ? (
+          <div className="flex justify-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600"></div>
+          </div>
+        ) : error ? (
+          <div className="text-center py-20">
+            <div className="text-5xl mb-4">⚠️</div>
+            <p className="text-red-500">{error}</p>
+          </div>
+        ) : brands.length === 0 ? (
           <div className="text-center py-20">
             <div className="text-5xl mb-4">🔬</div>
             <p className="text-gray-500">{t.brands_no_brands}</p>
@@ -81,7 +128,7 @@ export function BrandsClient({ brands, grouped, letters }: BrandsClientProps) {
                                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                 </svg>
-                                {t.brands_products.replace('{count}', brand._count.products.toString())}
+                                {t.brands_products.replace('{count}', brand._count?.products?.toString() || '0')}
                               </span>
                               {brand.country && (
                                 <span>{brand.country}</span>
