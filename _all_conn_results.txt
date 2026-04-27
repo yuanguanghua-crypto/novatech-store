@@ -1,0 +1,7 @@
+FAIL|pgbouncer project host SSL|Connection terminated unexpectedly
+FAIL|pgbouncer project host noSSL|Connection terminated unexpectedly
+FAIL|pooler ap-south-1 SSL|Connection terminated unexpectedly
+FAIL|pooler sa-east-1 SSL|Tenant or user not found
+FAIL|pooler me-central-1 SSL|Connection terminated unexpectedly
+FAIL|pooler eu-north-1 SSL|(ENOTFOUND) tenant/user postgres.gncatdyagmelyiawrqai not found
+FAIL|direct db.*.supabase.co:5432 SSL|Connection terminated unexpectedly

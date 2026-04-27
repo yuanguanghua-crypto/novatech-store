@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LabProGlobal Logo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: Arial, sans-serif; }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 48px;
+    background: #ffffff;
+  }
+  
+  .logo-icon {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .logo-main {
+    font-size: 32px;
+    font-weight: 900;
+    color: #0c2340;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  
+  .logo-main .lab {
+    color: #0c2340;
+  }
+  
+  .logo-main .pro {
+    color: #0891b2;
+  }
+  
+  .logo-sub {
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="logo-container">
+  <!-- Icon: Flask + Globe combined -->
+  <svg class="logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer circle / globe -->
+    <circle cx="40" cy="40" r="38" fill="#f0f9ff" stroke="#0c2340" stroke-width="2.5"/>
+    
+    <!-- Globe grid lines -->
+    <ellipse cx="40" cy="40" rx="20" ry="38" stroke="#cbd5e1" stroke-width="1" fill="none"/>
+    <line x1="22" y1="40" x2="58" y2="40" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="40" y1="2" x2="40" y2="78" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M22 20 Q40 30 58 20" stroke="#cbd5e1" stroke-width="1" fill="none"/>
+    <path d="M22 60 Q40 50 58 60" stroke="#cbd5e1" stroke-width="1" fill="none"/>
+    
+    <!-- Flask / test tube in center -->
+    <path d="M33 16 L33 35 Q33 38 36 38 L44 38 Q47 38 47 35 L47 16" 
+          stroke="#0891b2" stroke-width="2.5" fill="#e0f7fa" stroke-linecap="round"/>
+    
+    <!-- Flask stopper -->
+    <rect x="30" y="12" width="20" height="5" rx="2" fill="#0c2340"/>
+    
+    <!-- Flask bottom bulb -->
+    <ellipse cx="40" cy="54" rx="14" ry="12" fill="#0891b2"/>
+    
+    <!-- Liquid in flask -->
+    <ellipse cx="40" cy="55" rx="12" ry="10" fill="#0ea5e9" opacity="0.8"/>
+    
+    <!-- Bubbles -->
+    <circle cx="36" cy="48" r="2" fill="#7dd3fc" opacity="0.9"/>
+    <circle cx="44" cy="46" r="1.5" fill="#7dd3fc" opacity="0.7"/>
+    <circle cx="40" cy="44" r="1" fill="#7dd3fc" opacity="0.6"/>
+    
+    <!-- Globe label: "GLOBAL" arc text simulated with dots -->
+    <circle cx="40" cy="8" r="3" fill="#0c2340"/>
+    <circle cx="55" cy="12" r="3" fill="#0891b2"/>
+    <circle cx="64" cy="22" r="3" fill="#0c2340"/>
+    <circle cx="65" cy="38" r="3" fill="#0891b2"/>
+    <circle cx="58" cy="52" r="3" fill="#0c2340"/>
+  </svg>
+  
+  <div class="logo-text">
+    <div class="logo-main">
+      <span class="lab">Lab</span><span class="pro">Pro</span>Global
+    </div>
+    <div class="logo-sub">Industrial Laboratory Equipment</div>
+  </div>
+</div>
+</body>
+</html>

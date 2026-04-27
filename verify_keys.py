@@ -1,0 +1,8 @@
+f=open(r'E:\novatech-store\lib\i18n\translations.ts',encoding='utf-8')
+c=f.read(); f.close()
+val_count = c.count("auth_join_desc: '") + c.count('auth_join_desc: "')
+type_count = c.count('auth_join_desc: string')
+env_count = c.count("auth_env_setup_notice: '") + c.count('auth_env_setup_notice: "')
+print('auth_join_desc values:', val_count, '/7 expected')
+print('auth_join_desc types:', type_count, '/1 expected')
+print('auth_env_setup_notice values:', env_count, '/7 expected')

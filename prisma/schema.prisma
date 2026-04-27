@@ -1,0 +1,401 @@
+// Prisma Schema - NovatechStore Database
+// PostgreSQL on AWS RDS
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================
+// 产品相关
+// ============================================================
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  imageUrl    String?
+  parentId    String?
+  parent      Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryTree")
+  products    Product[]
+  sortOrder   Int        @default(0)
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([slug])
+  @@index([parentId])
+}
+
+model Brand {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  logoUrl     String?
+  description String?
+  website     String?
+  country     String?   @default("USA")
+  isActive    Boolean   @default(true)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+}
+
+model Product {
+  id            String    @id @default(cuid())
+  sku           String    @unique
+  internalId    String?   @unique   // Novatech internal ID
+  name          String
+  slug          String    @unique
+  description   String?   @db.Text
+  
+  // 分类 & 品牌
+  categoryId    String
+  category      Category  @relation(fields: [categoryId], references: [id])
+  brandId       String?
+  brand         Brand?    @relation(fields: [brandId], references: [id])
+  
+  // 定价
+  ourPrice      Decimal   @db.Decimal(10, 2)
+  listPrice     Decimal?  @db.Decimal(10, 2)
+  costPrice     Decimal?  @db.Decimal(10, 2)    // 采购成本（不对外展示）
+  currency      String    @default("USD")
+  
+  // 库存
+  availability  String    @default("in_stock")   // in_stock / out_of_stock / lead_time
+  stockQty      Int       @default(0)
+  leadTimeDays  Int?
+  
+  // 物理属性
+  weight        Decimal?  @db.Decimal(8, 3)
+  weightUnit    String?   @default("lbs")
+  dimension     String?
+  
+  // 媒体
+  images        ProductImage[]
+  
+  // 规格参数（JSON 存储，灵活扩展）
+  specs         Json?
+  specsFlat     String?   @db.Text
+  
+  // SEO
+  metaTitle     String?
+  metaDesc      String?
+  
+  // 源数据
+  sourceUrl     String?
+  
+  // 状态
+  isActive      Boolean   @default(true)
+  isFeatured    Boolean   @default(false)
+  isNew         Boolean   @default(false)
+  
+  // 关联
+  orderItems    OrderItem[]
+  quoteItems    QuoteItem[]
+  suppliers     ProductSupplier[]
+  
+  // 搜索
+  searchVector  String?   @db.Text   // 全文搜索预处理字段
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([sku])
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([isActive])
+  @@index([isFeatured])
+}
+
+model ProductImage {
+  id         String   @id @default(cuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url        String
+  altText    String?
+  sortOrder  Int      @default(0)
+  isPrimary  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  @@index([productId])
+}
+
+// ============================================================
+// 供应商管理
+// ============================================================
+
+model Supplier {
+  id           String    @id @default(cuid())
+  name         String
+  nameEn       String?
+  contactName  String?
+  email        String?
+  phone        String?
+  wechat       String?
+  address      String?
+  city         String?
+  province     String?
+  country      String    @default("China")
+  website      String?
+  notes        String?   @db.Text
+  rating       Int?      @default(3)    // 1-5 星评级
+  isActive     Boolean   @default(true)
+  products     ProductSupplier[]
+  purchaseOrders PurchaseOrder[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model ProductSupplier {
+  id           String    @id @default(cuid())
+  productId    String
+  product      Product   @relation(fields: [productId], references: [id])
+  supplierId   String
+  supplier     Supplier  @relation(fields: [supplierId], references: [id])
+  supplierSku  String?   // 供应商的产品编码
+  costPrice    Decimal?  @db.Decimal(10, 2)
+  currency     String    @default("CNY")
+  leadTimeDays Int?
+  moq          Int?      @default(1)   // 最小起订量
+  notes        String?
+  isPrimary    Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@unique([productId, supplierId])
+  @@index([productId])
+  @@index([supplierId])
+}
+
+model PurchaseOrder {
+  id           String    @id @default(cuid())
+  poNumber     String    @unique
+  supplierId   String
+  supplier     Supplier  @relation(fields: [supplierId], references: [id])
+  status       String    @default("draft")  // draft/sent/confirmed/shipped/received
+  totalAmount  Decimal   @db.Decimal(12, 2)
+  currency     String    @default("CNY")
+  notes        String?   @db.Text
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+// ============================================================
+// 用户 & 认证
+// ============================================================
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  name          String?
+  passwordHash  String?
+  image         String?
+  role          String    @default("customer")  // customer / admin / staff
+  
+  // 公司信息（B2B）
+  company       String?
+  jobTitle      String?
+  country       String?
+  phone         String?
+  
+  // 关联
+  accounts      Account[]
+  sessions      Session[]
+  orders        Order[]
+  quotes        Quote[]
+  addresses     Address[]
+  
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([email])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Address {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label      String?  @default("Home")
+  firstName  String
+  lastName   String
+  company    String?
+  address1   String
+  address2   String?
+  city       String
+  state      String?
+  postalCode String
+  country    String
+  phone      String?
+  isDefault  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([userId])
+}
+
+// ============================================================
+// 订单
+// ============================================================
+
+model Order {
+  id              String      @id @default(cuid())
+  orderNumber     String      @unique
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id])
+  
+  // 客户信息（快照）
+  customerEmail   String
+  customerName    String
+  customerCompany String?
+  
+  // 地址
+  shippingAddress Json
+  billingAddress  Json?
+  
+  // 金额
+  subtotal        Decimal     @db.Decimal(10, 2)
+  shippingCost    Decimal     @db.Decimal(10, 2) @default(0)
+  taxAmount       Decimal     @db.Decimal(10, 2) @default(0)
+  total           Decimal     @db.Decimal(10, 2)
+  currency        String      @default("USD")
+  
+  // 状态
+  status          String      @default("pending")
+  // pending / payment_pending / paid / processing / shipped / delivered / cancelled / refunded
+  
+  paymentStatus   String      @default("unpaid")   // unpaid / paid / refunded
+  paymentMethod   String?     // stripe / paypal / wire
+  stripePaymentId String?
+  
+  // 物流
+  shippingMethod  String?
+  trackingNumber  String?
+  shippedAt       DateTime?
+  deliveredAt     DateTime?
+  
+  notes           String?     @db.Text
+  
+  items           OrderItem[]
+  
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  @@index([orderNumber])
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id])
+  
+  // 快照（防止产品信息变更影响历史订单）
+  sku         String
+  name        String
+  imageUrl    String?
+  unitPrice   Decimal  @db.Decimal(10, 2)
+  quantity    Int
+  total       Decimal  @db.Decimal(10, 2)
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+// ============================================================
+// 询价/报价系统
+// ============================================================
+
+model Quote {
+  id            String      @id @default(cuid())
+  quoteNumber   String      @unique
+  userId        String?
+  user          User?       @relation(fields: [userId], references: [id])
+  
+  // 客户信息
+  customerEmail String
+  customerName  String
+  customerCompany String?
+  customerPhone String?
+  message       String?     @db.Text
+  
+  // 状态
+  status        String      @default("pending")
+  // pending / reviewing / quoted / accepted / declined / expired
+  
+  // 报价回复
+  quotedPrice   Decimal?    @db.Decimal(10, 2)
+  quotedAt      DateTime?
+  expiresAt     DateTime?
+  adminNotes    String?     @db.Text
+  
+  items         QuoteItem[]
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([status])
+  @@index([customerEmail])
+}
+
+model QuoteItem {
+  id          String   @id @default(cuid())
+  quoteId     String
+  quote       Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id])
+  quantity    Int      @default(1)
+  notes       String?
+  unitPrice   Decimal? @db.Decimal(10, 2)   // 报价后填写
+
+  @@index([quoteId])
+}

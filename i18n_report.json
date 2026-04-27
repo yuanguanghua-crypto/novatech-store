@@ -1,0 +1,635 @@
+{
+  "summary": {
+    "total_pages": 34,
+    "pages_with_i18n": 9,
+    "pages_missing_i18n": 0,
+    "total_components": 27,
+    "components_with_i18n": 23,
+    "components_missing_i18n": 4,
+    "translation_keys_count": 376,
+    "supported_locales": 0
+  },
+  "pages_missing": [],
+  "components_missing": [
+    "components/store/add-to-cart-button.tsx",
+    "components/store/add-to-quote-button.tsx",
+    "components/store/pagination.tsx",
+    "components/store/sort-bar.tsx"
+  ],
+  "pages_needing_review": [
+    {
+      "path": "app/(store)/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "HomeClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/account/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "AccountClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/account/addresses/page.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 5,
+      "issues": [
+        {
+          "lineno": 28,
+          "type": "string_prop",
+          "text": "Shipping Address",
+          "sample": "label: 'Shipping Address',"
+        },
+        {
+          "lineno": 28,
+          "type": "status_label",
+          "text": "Shipping Address",
+          "sample": "label: 'Shipping Address',"
+        },
+        {
+          "lineno": 50,
+          "type": "string_prop",
+          "text": "Shipping Address",
+          "sample": "setForm({ label: 'Shipping Address', country: 'United States' })"
+        },
+        {
+          "lineno": 50,
+          "type": "status_label",
+          "text": "Shipping Address",
+          "sample": "setForm({ label: 'Shipping Address', country: 'United States' })"
+        },
+        {
+          "lineno": 85,
+          "type": "placeholder",
+          "text": "e.g. Office, Warehouse",
+          "sample": "placeholder=\"e.g. Office, Warehouse\""
+        }
+      ],
+      "status": "[!] 部分硬编码"
+    },
+    {
+      "path": "app/(store)/account/orders/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "AccountOrdersClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/account/quotes/page.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "app/(store)/auth/login/page.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "app/(store)/auth/register/page.tsx",
+      "is_client": false,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "app/(store)/brands/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "BrandsClient",
+      "hardcoded_count": 1,
+      "issues": [
+        {
+          "lineno": 6,
+          "type": "string_prop",
+          "text": "All Brands",
+          "sample": "title: 'All Brands',"
+        }
+      ],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/brands/[slug]/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "BrandDetailClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/cart/page.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "app/(store)/categories/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "CategoriesClient",
+      "hardcoded_count": 1,
+      "issues": [
+        {
+          "lineno": 6,
+          "type": "string_prop",
+          "text": "All Categories",
+          "sample": "title: 'All Categories',"
+        }
+      ],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/categories/[slug]/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "CategoryDetailClient",
+      "hardcoded_count": 1,
+      "issues": [
+        {
+          "lineno": 66,
+          "type": "string_prop",
+          "text": "Category Not Found",
+          "sample": "if (!cat) return { title: 'Category Not Found' }"
+        }
+      ],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/checkout/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "CheckoutClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/privacy/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "PrivacyClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/products/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "ProductsClient",
+      "hardcoded_count": 1,
+      "issues": [
+        {
+          "lineno": 6,
+          "type": "string_prop",
+          "text": "All Products",
+          "sample": "title: 'All Products',"
+        }
+      ],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/products/[slug]/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "ProductDetailClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/quote/page.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 5,
+      "issues": [
+        {
+          "lineno": 111,
+          "type": "placeholder",
+          "text": "John Smith",
+          "sample": "placeholder=\"John Smith\""
+        },
+        {
+          "lineno": 122,
+          "type": "placeholder",
+          "text": "john@company.com",
+          "sample": "placeholder=\"john@company.com\""
+        },
+        {
+          "lineno": 132,
+          "type": "placeholder",
+          "text": "Acme Corp",
+          "sample": "placeholder=\"Acme Corp\""
+        },
+        {
+          "lineno": 142,
+          "type": "placeholder",
+          "text": "+1 (555) 123-4567",
+          "sample": "placeholder=\"+1 (555) 123-4567\""
+        },
+        {
+          "lineno": 153,
+          "type": "placeholder",
+          "text": "Shipping address, special requirements, etc.",
+          "sample": "placeholder=\"Shipping address, special requirements, etc.\""
+        }
+      ],
+      "status": "[!] 部分硬编码"
+    },
+    {
+      "path": "app/(store)/returns/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "ReturnsClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/search/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "SearchClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/shipping/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "ShippingClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/support/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "SupportClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/(store)/terms/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "TermsClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "DashboardClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/analytics/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "AnalyticsClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/customers/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "CustomersClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/orders/page.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "app/admin/orders/[id]/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "OrderDetailClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/products/page.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "app/admin/products/new/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "ProductHeaderClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/products/[id]/edit/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "ProductHeaderClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/quotes/page.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "delegated_to": null,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "app/admin/quotes/[id]/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "QuoteDetailClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/settings/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "SettingsClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    },
+    {
+      "path": "app/admin/suppliers/page.tsx",
+      "is_client": false,
+      "has_i18n": false,
+      "delegated_to": "SupplierListClient",
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[->] 委托给 Client"
+    }
+  ],
+  "components_needing_review": [
+    {
+      "path": "components/store/account-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/account-orders-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/add-to-cart-button.tsx",
+      "is_client": true,
+      "has_i18n": false,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[X] Client无i18n"
+    },
+    {
+      "path": "components/store/add-to-quote-button.tsx",
+      "is_client": true,
+      "has_i18n": false,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[X] Client无i18n"
+    },
+    {
+      "path": "components/store/brand-detail-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/brands-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/categories-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/category-detail-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/checkout-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/footer.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/home-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/language-switcher.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/navbar.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/pagination.tsx",
+      "is_client": true,
+      "has_i18n": false,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[X] Client无i18n"
+    },
+    {
+      "path": "components/store/privacy-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/product-detail-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/product-filters.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/product-grid.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/products-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/register-form.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/search-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/shipping-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/sort-bar.tsx",
+      "is_client": true,
+      "has_i18n": false,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[X] Client无i18n"
+    },
+    {
+      "path": "components/store/sort-selector.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/static-page-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/support-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    },
+    {
+      "path": "components/store/terms-client.tsx",
+      "is_client": true,
+      "has_i18n": true,
+      "hardcoded_count": 0,
+      "issues": [],
+      "status": "[OK] OK"
+    }
+  ]
+}
