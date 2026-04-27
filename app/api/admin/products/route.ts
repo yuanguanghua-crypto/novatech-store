@@ -7,6 +7,8 @@ import { z } from 'zod'
 
 // GET /api/admin/products - List products
 export async function GET(request: NextRequest) {
+export const dynamic = 'force-dynamic'
+
   try {
     const session = await getServerSession(authOptions)
     if (!session || (session.user as any)?.role !== 'admin') {

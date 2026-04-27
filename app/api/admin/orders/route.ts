@@ -5,6 +5,8 @@ import prisma from '@/lib/prisma'
 
 // GET /api/admin/orders - List orders with filters
 export async function GET(request: NextRequest) {
+export const dynamic = 'force-dynamic'
+
   try {
     const session = await getServerSession(authOptions)
     if (!session || (session.user as any)?.role !== 'admin') {

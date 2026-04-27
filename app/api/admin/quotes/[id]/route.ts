@@ -5,6 +5,8 @@ import { authOptions } from '@/lib/auth'
 
 // GET /api/admin/quotes/[id] - 获取询价详情
 export async function GET(
+export const dynamic = 'force-dynamic'
+
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {

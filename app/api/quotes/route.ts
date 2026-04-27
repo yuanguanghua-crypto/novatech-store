@@ -4,6 +4,8 @@ import { authOptions } from '@/lib/auth'
 import prisma from '@/lib/prisma'
 import { generateQuoteNumber } from '@/lib/utils'
 import { z } from 'zod'
+export const dynamic = 'force-dynamic'
+
 
 const quoteSchema = z.object({
   customerEmail: z.string().email(),

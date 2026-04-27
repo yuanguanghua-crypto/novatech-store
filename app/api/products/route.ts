@@ -3,6 +3,8 @@ import prisma from '@/lib/prisma'
 
 // GET /api/products - 公开产品列表（供前端页面使用）
 export async function GET(req: NextRequest) {
+export const dynamic = 'force-dynamic'
+
   const { searchParams } = new URL(req.url)
   const limit = Math.min(parseInt(searchParams.get('limit') || '12'), 100)
   const offset = parseInt(searchParams.get('offset') || '0')

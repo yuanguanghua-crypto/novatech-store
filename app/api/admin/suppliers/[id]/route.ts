@@ -5,6 +5,8 @@ import { authOptions } from '@/lib/auth'
 
 // GET /api/admin/suppliers/[id] - 获取供应商详情
 export async function GET(
+export const dynamic = 'force-dynamic'
+
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
