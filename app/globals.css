@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
+/* =====================================
    Novatech Store Design System v1.2
    Brand Colors, Typography, Animations
-   ============================================ */
+   ===================================== */
 
 @layer base {
   :root {
@@ -124,15 +124,21 @@
     @apply py-12 md:py-16 lg:py-20;
   }
 
-  /* Container max-width */
-  .container-narrow {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+
+  /* Container - Consistent horizontal padding */
+  .container-custom {
+    @apply mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  /* Section spacing */
+  .section-sm {
+    @apply py-8 md:py-12;
   }
 }
 
-/* ============================================
+/* =====================================
    Animations
-   ============================================ */
+   ===================================== */
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -196,9 +202,9 @@
 .stagger-4 { animation-delay: 400ms; }
 .stagger-5 { animation-delay: 500ms; }
 
-/* ============================================
+/* =====================================
    Custom Scrollbar
-   ============================================ */
+   ===================================== */
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -217,17 +223,17 @@
   @apply bg-gray-400;
 }
 
-/* ============================================
+/* =====================================
    Selection Colors
-   ============================================ */
+   ===================================== */
 
 ::selection {
   @apply bg-brand-200 text-brand-900;
 }
 
-/* ============================================
+/* =====================================
    Focus Visible Styles
-   ============================================ */
+   ===================================== */
 
 *:focus-visible {
   @apply outline-none ring-2 ring-brand-500 ring-offset-2;

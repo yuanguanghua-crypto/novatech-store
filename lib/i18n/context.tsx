@@ -16,35 +16,34 @@ interface I18nContextValue {
   t: TranslationKeys
   dir: 'ltr' | 'rtl'
   isRTL: boolean
-  isInitialized: boolean  // 新增：标记是否已从 localStorage 读取
+  isInitialized: boolean  // 标记是否已从 localStorage 读取
 }
 
 const I18nContext = createContext<I18nContextValue | null>(null)
 
+// ---- Helper: 同步获取 localStorage（避免 hydration mismatch）----
+function getInitialLocale(): Locale {
+  if (typeof window === 'undefined') return DEFAULT_LOCALE
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY) as Locale | null
+    if (saved && saved in translations) return saved
+  } catch {}
+  return DEFAULT_LOCALE
+}
+
 // ---- Provider ----
 export function I18nProvider({ children }: { children: ReactNode }) {
-  // 用 null 表示"未初始化"，初始化后填入实际语言
-  const [locale, setLocaleState] = useState<Locale | null>(null)
+  // 初始化时同步读取 localStorage，避免 hydration mismatch
+  const [locale, setLocaleState] = useState<Locale>(() => getInitialLocale())
   const [isInitialized, setIsInitialized] = useState(false)
 
-  // 初始化：从 localStorage 读取上次选择的语言
+  // 组件挂载后标记初始化完成
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY) as Locale | null
-      if (saved && saved in translations) {
-        setLocaleState(saved)
-      } else {
-        setLocaleState(DEFAULT_LOCALE)
-      }
-    } catch {
-      setLocaleState(DEFAULT_LOCALE)
-    }
     setIsInitialized(true)
   }, [])
 
   // 切换语言时更新 document 的 lang 和 dir 属性
   useEffect(() => {
-    if (!locale) return
     const localeInfo = LOCALES.find(l => l.code === locale)
     const dir = localeInfo?.dir === 'rtl' ? 'rtl' : 'ltr'
     document.documentElement.lang = locale
@@ -58,18 +57,15 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     } catch {}
   }, [])
 
-  // 在 locale 初始化完成前，先渲染带 suppressHydrationWarning 的占位
-  // 使用 DEFAULT_LOCALE 确保 SSR 和首屏一致
-  const resolvedLocale = locale ?? DEFAULT_LOCALE
-  const localeInfo = LOCALES.find(l => l.code === resolvedLocale)
+  const localeInfo = LOCALES.find(l => l.code === locale)
   const dir = localeInfo?.dir === 'rtl' ? 'rtl' : 'ltr'
 
   return (
     <I18nContext.Provider
       value={{
-        locale: resolvedLocale,
+        locale,
         setLocale,
-        t: translations[resolvedLocale],
+        t: translations[locale],
         dir,
         isRTL: dir === 'rtl',
         isInitialized,
