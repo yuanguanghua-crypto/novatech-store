@@ -13,7 +13,7 @@ export async function GET() {
     } catch { return '(parse error)' }
   }
 
-  return NextResponse.text(`DB_ENV_STATUS:
+  return new NextResponse(`DB_ENV_STATUS:
   DATABASE_URL host: ${parseHost(dbUrl)}
   PRISMA_DATABASE_URL host: ${parseHost(pdbUrl)}
   POSTGRES_URL host: ${parseHost(pgUrl)}
