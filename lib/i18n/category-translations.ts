@@ -1,7 +1,44 @@
 // Auto-generated category translations
-// 136+ categories x 6 languages
+// 140+ categories x 6 languages
+
+// 新增父分类翻译
+const parentCategoryTranslations: Record<string, Record<string, string>> = {
+  "Balances & Scales": {
+    zh: "天平和台秤",
+    es: "Balanzas y Básculas",
+    ja: "天びんとスケール",
+    hi: "बैलेंस और स्केल",
+    ar: "المقاييل والمقاييس",
+    pt: "Balanças e Escalas",
+  },
+  "Hydrometers & Refractometers": {
+    zh: "比重计和折射仪",
+    es: "Hidrómetros y Refractómetros",
+    ja: "比重計と屈折計",
+    hi: "हाइड्रोमीटर और रिफ्रैक्टोमीटर",
+    ar: "مقاييس الثقل النوعي ومقاييس الانكسار",
+    pt: "Higrômetros e Refratômetros",
+  },
+  "Optical Instruments": {
+    zh: "光学仪器",
+    es: "Instrumentos Ópticos",
+    ja: "光学機器",
+    hi: "ऑप्टिकल इंस्ट्रूमेंट्स",
+    ar: "الأدوات البصرية",
+    pt: "Instrumentos Ópticos",
+  },
+  "Water Quality Testing": {
+    zh: "水质检测",
+    es: "Pruebas de Calidad del Agua",
+    ja: "水質試験",
+    hi: "पानी की गुणवत्ता परीक्षण",
+    ar: "اختبار جودة المياه",
+    pt: "Teste de Qualidade da Água",
+  },
+}
 
 export const categoryTranslations: Record<string, Record<string, string>> = {
+  ...parentCategoryTranslations,
   "API Hydrometers": {
     zh: "API 比重计",
     es: "Hidrómetros API",
@@ -1958,7 +1995,18 @@ export const categoryTranslations: Record<string, Record<string, string>> = {
 
 // Get translated category name
 export function getCategoryName(name: string, lang: string): string {
+  // Check parent category translations first
+  const parentT = parentCategoryTranslations[name]
+  if (parentT && parentT[lang]) {
+    return parentT[lang]
+  }
+  
+  // Then check regular category translations
   const t = categoryTranslations[name]
-  if (!t) return name
-  return t[lang] || name
+  if (t && t[lang]) {
+    return t[lang]
+  }
+  
+  // Fallback to English name
+  return name
 }

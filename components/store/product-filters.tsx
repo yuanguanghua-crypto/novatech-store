@@ -22,16 +22,22 @@ export function ProductFilters({ brands, searchParams }: ProductFiltersProps) {
   const router = useRouter()
   const pathname = usePathname()
 
-  const updateFilter = useCallback((key: string, value: string | null) => {
+  const updateFilters = useCallback((updates: Record<string, string | null>) => {
     const params = new URLSearchParams(searchParams as any)
-    if (value) {
-      params.set(key, value)
-    } else {
-      params.delete(key)
+    for (const [key, value] of Object.entries(updates)) {
+      if (value) {
+        params.set(key, value)
+      } else {
+        params.delete(key)
+      }
     }
     params.delete('page')
     router.push(`${pathname}?${params.toString()}`)
   }, [router, pathname, searchParams])
+
+  const updateFilter = useCallback((key: string, value: string | null) => {
+    updateFilters({ [key]: value })
+  }, [updateFilters])
 
   return (
     <div className="space-y-6">
@@ -78,10 +84,7 @@ export function ProductFilters({ brands, searchParams }: ProductFiltersProps) {
             ['$500–$2K', '500', '2000'], ['$2K+', '2000', '']].map(([label, min, max]) => (
             <button
               key={label}
-              onClick={() => {
-                updateFilter('minPrice', min || null)
-                updateFilter('maxPrice', max || null)
-              }}
+              onClick={() => updateFilters({ minPrice: min || null, maxPrice: max || null })}
               className="text-xs border border-gray-300 rounded px-2 py-1 hover:bg-gray-50 text-gray-600"
             >
               {label}

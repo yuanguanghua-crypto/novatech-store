@@ -10,3 +10,4 @@ build
 prisma/dev.db
 prisma/migrations
 uploads/
+.vercel
