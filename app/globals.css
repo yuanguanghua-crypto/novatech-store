@@ -32,11 +32,15 @@
 
   html {
     scroll-behavior: smooth;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-white text-gray-900 antialiased;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    /* Ensure horizontal scrolling is prevented */
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

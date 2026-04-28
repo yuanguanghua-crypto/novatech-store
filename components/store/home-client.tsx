@@ -79,7 +79,7 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
             </div>
             
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-display animate-slide-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-display animate-slide-up px-4">
               {t.hero_title}
             </h1>
             
@@ -343,122 +343,126 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
         
         {/* Marquee Track - First Row (Left to Right) */}
         <div className="relative mb-6">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
           
-          <div className="flex animate-marquee-slow hover:pause">
-            {/* First set of brand cards */}
-            {[
-              { name: 'Pulsafeeder', color: 'from-blue-500 to-blue-700', initial: 'PF' },
-              { name: 'LMI', color: 'from-cyan-500 to-cyan-700', initial: 'LM' },
-              { name: 'Lovibond', color: 'from-amber-500 to-orange-600', initial: 'LV' },
-              { name: 'Hach', color: 'from-emerald-500 to-teal-600', initial: 'HC' },
-              { name: 'Ohaus', color: 'from-violet-500 to-purple-600', initial: 'OH' },
-              { name: 'Mettler Toledo', color: 'from-rose-500 to-pink-600', initial: 'MT' },
-            ].map((brand) => (
-              <div key={brand.name} className="flex-shrink-0 mx-3 group cursor-pointer">
-                <div className="w-40 h-24 bg-white rounded-2xl border border-gray-200 shadow-sm 
-                                hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
-                                transition-all duration-300 flex flex-col items-center justify-center
-                                relative overflow-hidden">
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
-                  
-                  {/* Brand Initial Badge */}
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                    <span className="text-white font-bold text-sm">{brand.initial}</span>
+          <div className="flex overflow-hidden">
+            <div className="flex gap-3 sm:gap-4 animate-marquee-slow hover:pause" style={{ width: 'max-content' }}>
+              {/* First set of brand cards */}
+              {[
+                { name: 'Pulsafeeder', color: 'from-blue-500 to-blue-700', initial: 'PF' },
+                { name: 'LMI', color: 'from-cyan-500 to-cyan-700', initial: 'LM' },
+                { name: 'Lovibond', color: 'from-amber-500 to-orange-600', initial: 'LV' },
+                { name: 'Hach', color: 'from-emerald-500 to-teal-600', initial: 'HC' },
+                { name: 'Ohaus', color: 'from-violet-500 to-purple-600', initial: 'OH' },
+                { name: 'Mettler Toledo', color: 'from-rose-500 to-pink-600', initial: 'MT' },
+              ].map((brand) => (
+                <div key={brand.name} className="flex-shrink-0 group cursor-pointer">
+                  <div className="w-28 sm:w-40 h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm 
+                                  hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
+                                  transition-all duration-300 flex flex-col items-center justify-center
+                                  relative overflow-hidden p-2 sm:p-0">
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
+                    
+                    {/* Brand Initial Badge */}
+                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-1 sm:mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                      <span className="text-white font-bold text-xs sm:text-sm">{brand.initial}</span>
+                    </div>
+                    
+                    {/* Brand Name */}
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10 text-center leading-tight">
+                      {brand.name}
+                    </span>
                   </div>
-                  
-                  {/* Brand Name */}
-                  <span className="text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10">
-                    {brand.name}
-                  </span>
                 </div>
-              </div>
-            ))}
-            
-            {/* Duplicate for seamless loop */}
-            {[
-              { name: 'Pulsafeeder', color: 'from-blue-500 to-blue-700', initial: 'PF' },
-              { name: 'LMI', color: 'from-cyan-500 to-cyan-700', initial: 'LM' },
-              { name: 'Lovibond', color: 'from-amber-500 to-orange-600', initial: 'LV' },
-              { name: 'Hach', color: 'from-emerald-500 to-teal-600', initial: 'HC' },
-              { name: 'Ohaus', color: 'from-violet-500 to-purple-600', initial: 'OH' },
-              { name: 'Mettler Toledo', color: 'from-rose-500 to-pink-600', initial: 'MT' },
-            ].map((brand) => (
-              <div key={`dup1-${brand.name}`} className="flex-shrink-0 mx-3 group cursor-pointer">
-                <div className="w-40 h-24 bg-white rounded-2xl border border-gray-200 shadow-sm 
-                                hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
-                                transition-all duration-300 flex flex-col items-center justify-center
-                                relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                    <span className="text-white font-bold text-sm">{brand.initial}</span>
+              ))}
+              
+              {/* Duplicate for seamless loop */}
+              {[
+                { name: 'Pulsafeeder', color: 'from-blue-500 to-blue-700', initial: 'PF' },
+                { name: 'LMI', color: 'from-cyan-500 to-cyan-700', initial: 'LM' },
+                { name: 'Lovibond', color: 'from-amber-500 to-orange-600', initial: 'LV' },
+                { name: 'Hach', color: 'from-emerald-500 to-teal-600', initial: 'HC' },
+                { name: 'Ohaus', color: 'from-violet-500 to-purple-600', initial: 'OH' },
+                { name: 'Mettler Toledo', color: 'from-rose-500 to-pink-600', initial: 'MT' },
+              ].map((brand) => (
+                <div key={`dup1-${brand.name}`} className="flex-shrink-0 group cursor-pointer">
+                  <div className="w-28 sm:w-40 h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm 
+                                  hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
+                                  transition-all duration-300 flex flex-col items-center justify-center
+                                  relative overflow-hidden p-2 sm:p-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
+                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-1 sm:mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                      <span className="text-white font-bold text-xs sm:text-sm">{brand.initial}</span>
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10 text-center leading-tight">
+                      {brand.name}
+                    </span>
                   </div>
-                  <span className="text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10">
-                    {brand.name}
-                  </span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         
         {/* Marquee Track - Second Row (Right to Left) */}
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
           
-          <div className="flex animate-marquee-reverse hover:pause">
-            {/* First set of brand cards */}
-            {[
-              { name: 'Sartorius', color: 'from-indigo-500 to-indigo-700', initial: 'SR' },
-              { name: 'Eppendorf', color: 'from-red-500 to-red-700', initial: 'EP' },
-              { name: 'Thermo Fisher', color: 'from-orange-500 to-orange-700', initial: 'TF' },
-              { name: 'Shimadzu', color: 'from-yellow-500 to-yellow-700', initial: 'SH' },
-              { name: 'Denver Instr.', color: 'from-green-500 to-green-700', initial: 'DI' },
-              { name: 'A&D Weighing', color: 'from-blue-400 to-blue-600', initial: 'AD' },
-            ].map((brand) => (
-              <div key={brand.name} className="flex-shrink-0 mx-3 group cursor-pointer">
-                <div className="w-40 h-24 bg-white rounded-2xl border border-gray-200 shadow-sm 
-                                hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
-                                transition-all duration-300 flex flex-col items-center justify-center
-                                relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                    <span className="text-white font-bold text-sm">{brand.initial}</span>
+          <div className="flex overflow-hidden">
+            <div className="flex gap-3 sm:gap-4 animate-marquee-reverse hover:pause" style={{ width: 'max-content' }}>
+              {/* First set of brand cards */}
+              {[
+                { name: 'Sartorius', color: 'from-indigo-500 to-indigo-700', initial: 'SR' },
+                { name: 'Eppendorf', color: 'from-red-500 to-red-700', initial: 'EP' },
+                { name: 'Thermo Fisher', color: 'from-orange-500 to-orange-700', initial: 'TF' },
+                { name: 'Shimadzu', color: 'from-yellow-500 to-yellow-700', initial: 'SH' },
+                { name: 'Denver Instr.', color: 'from-green-500 to-green-700', initial: 'DI' },
+                { name: 'A&D Weighing', color: 'from-blue-400 to-blue-600', initial: 'AD' },
+              ].map((brand) => (
+                <div key={brand.name} className="flex-shrink-0 group cursor-pointer">
+                  <div className="w-28 sm:w-40 h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm 
+                                  hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
+                                  transition-all duration-300 flex flex-col items-center justify-center
+                                  relative overflow-hidden p-2 sm:p-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
+                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-1 sm:mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                      <span className="text-white font-bold text-xs sm:text-sm">{brand.initial}</span>
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10 text-center leading-tight">
+                      {brand.name}
+                    </span>
                   </div>
-                  <span className="text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10">
-                    {brand.name}
-                  </span>
                 </div>
-              </div>
-            ))}
-            
-            {/* Duplicate for seamless loop */}
-            {[
-              { name: 'Sartorius', color: 'from-indigo-500 to-indigo-700', initial: 'SR' },
-              { name: 'Eppendorf', color: 'from-red-500 to-red-700', initial: 'EP' },
-              { name: 'Thermo Fisher', color: 'from-orange-500 to-orange-700', initial: 'TF' },
-              { name: 'Shimadzu', color: 'from-yellow-500 to-yellow-700', initial: 'SH' },
-              { name: 'Denver Instr.', color: 'from-green-500 to-green-700', initial: 'DI' },
-              { name: 'A&D Weighing', color: 'from-blue-400 to-blue-600', initial: 'AD' },
-            ].map((brand) => (
-              <div key={`dup2-${brand.name}`} className="flex-shrink-0 mx-3 group cursor-pointer">
-                <div className="w-40 h-24 bg-white rounded-2xl border border-gray-200 shadow-sm 
-                                hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
-                                transition-all duration-300 flex flex-col items-center justify-center
-                                relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                    <span className="text-white font-bold text-sm">{brand.initial}</span>
+              ))}
+              
+              {/* Duplicate for seamless loop */}
+              {[
+                { name: 'Sartorius', color: 'from-indigo-500 to-indigo-700', initial: 'SR' },
+                { name: 'Eppendorf', color: 'from-red-500 to-red-700', initial: 'EP' },
+                { name: 'Thermo Fisher', color: 'from-orange-500 to-orange-700', initial: 'TF' },
+                { name: 'Shimadzu', color: 'from-yellow-500 to-yellow-700', initial: 'SH' },
+                { name: 'Denver Instr.', color: 'from-green-500 to-green-700', initial: 'DI' },
+                { name: 'A&D Weighing', color: 'from-blue-400 to-blue-600', initial: 'AD' },
+              ].map((brand) => (
+                <div key={`dup2-${brand.name}`} className="flex-shrink-0 group cursor-pointer">
+                  <div className="w-28 sm:w-40 h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm 
+                                  hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
+                                  transition-all duration-300 flex flex-col items-center justify-center
+                                  relative overflow-hidden p-2 sm:p-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
+                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-1 sm:mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                      <span className="text-white font-bold text-xs sm:text-sm">{brand.initial}</span>
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10 text-center leading-tight">
+                      {brand.name}
+                    </span>
                   </div>
-                  <span className="text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10">
-                    {brand.name}
-                  </span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         

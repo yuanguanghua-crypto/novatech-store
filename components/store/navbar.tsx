@@ -67,11 +67,11 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       {/* Top Bar */}
       <div className="bg-brand-800 text-white text-xs py-1.5">
-        <div className="container-custom flex justify-between items-center">
-          <span>{t.nav_free_shipping}</span>
-          <div className="flex items-center gap-4">
-            <a href="tel:+1-800-000-0000" className="hover:text-brand-200">+1 (800) 000-0000</a>
-            <a href="mailto:sales@novatechstore.com" className="hover:text-brand-200">sales@novatechstore.com</a>
+        <div className="container-custom flex justify-between items-center gap-2">
+          <span className="hidden sm:inline">{t.nav_free_shipping}</span>
+          <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-xs">
+            <a href="tel:+1-800-000-0000" className="hover:text-brand-200 whitespace-nowrap">+1 (800) 000-0000</a>
+            <a href="mailto:sales@novatechstore.com" className="hover:text-brand-200 hidden sm:inline">sales@novatechstore.com</a>
           </div>
         </div>
       </div>
