@@ -1,10 +1,28 @@
 import type { Metadata } from 'next'
 import prisma from '@/lib/prisma'
 import { ProductsClient } from '@/components/store/products-client'
+import { ProductCategoryExplain } from '@/components/store/product-category-explain'
+import { generateOrganizationSchema } from '@/lib/structured-data'
+import Script from 'next/script'
+
+const BASE_URL = 'https://novatech-store-inky.vercel.app'
 
 export const metadata: Metadata = {
-  title: 'All Products',
-  description: 'Browse 15,000+ industrial and laboratory products',
+  title: 'Industrial & Laboratory Equipment | NovaTech-USA',
+  description:
+    'Browse 15,000+ industrial detection and laboratory instruments. Official distributor of LMI, Pulsafeeder, Lovibond. pH meters, dosing pumps, conductivity analyzers for water treatment, pharmaceutical, and food industries.',
+  keywords: [
+    'industrial equipment',
+    'laboratory instruments',
+    'pH meter',
+    'dosing pump',
+    'conductivity analyzer',
+    'water treatment equipment',
+    'LMI',
+    'Pulsafeeder',
+    'Lovibond',
+    'NovaTech-USA',
+  ],
 }
 
 // Force dynamic rendering
@@ -41,10 +59,13 @@ async function getProducts(searchParams: ProductsPageProps['searchParams']) {
   }
 
   const orderBy: any =
-    searchParams.sort === 'price_asc' ? { ourPrice: 'asc' }
-    : searchParams.sort === 'price_desc' ? { ourPrice: 'desc' }
-    : searchParams.sort === 'newest' ? { createdAt: 'desc' }
-    : { isFeatured: 'desc' }
+    searchParams.sort === 'price_asc'
+      ? { ourPrice: 'asc' }
+      : searchParams.sort === 'price_desc'
+      ? { ourPrice: 'desc' }
+      : searchParams.sort === 'newest'
+      ? { createdAt: 'desc' }
+      : { isFeatured: 'desc' }
 
   const [products, total] = await Promise.all([
     prisma.product.findMany({
@@ -72,20 +93,56 @@ async function getBrands() {
   })
 }
 
+async function getTopCategories() {
+  return prisma.category.findMany({
+    where: { isActive: true, parentId: null },
+    include: {
+      _count: { select: { products: { where: { isActive: true } } } },
+      children: {
+        where: { isActive: true },
+        include: {
+          _count: { select: { products: { where: { isActive: true } } } },
+        },
+        take: 5,
+        orderBy: { name: 'asc' },
+      },
+    },
+    orderBy: { name: 'asc' },
+    take: 8,
+  })
+}
+
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
-  const [{ products, total, page, pageSize }, brands] = await Promise.all([
+  const [{ products, total, page, pageSize }, brands, categories] = await Promise.all([
     getProducts(searchParams),
     getBrands(),
+    getTopCategories(),
   ])
 
+  // Organization Schema for AEO
+  const orgSchema = generateOrganizationSchema(BASE_URL)
+
   return (
-    <ProductsClient
-      products={products}
-      brands={brands}
-      total={total}
-      page={page}
-      pageSize={pageSize}
-      searchParams={searchParams}
-    />
+    <>
+      {/* Organization Schema */}
+      <Script
+        id="org-schema-products"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+
+      {/* AEO: Product Center Explanation Layer */}
+      <ProductCategoryExplain totalProducts={total} categories={categories} />
+
+      {/* Products List */}
+      <ProductsClient
+        products={products}
+        brands={brands}
+        total={total}
+        page={page}
+        pageSize={pageSize}
+        searchParams={searchParams}
+      />
+    </>
   )
 }

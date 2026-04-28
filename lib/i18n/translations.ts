@@ -664,6 +664,33 @@ export type TranslationKeys = {
   support_ticket: string
   support_warranty: string
   privacy_item2d: string
+  // AEO FAQ Section
+  faq_title: string
+  faq_question_prefix: string
+  faq_applications: string
+  faq_accuracy: string
+  faq_industrial: string
+  faq_differences: string
+  faq_warranty: string
+  // AEO Products Page
+  aeo_hero_h1: string
+  aeo_hero_subtitle: string
+  aeo_what_offer_title: string
+  aeo_what_offer_desc: string
+  aeo_how_choose_title: string
+  aeo_how_choose_desc: string
+  aeo_brand_diff_title: string
+  aeo_brand_diff_desc: string
+  aeo_popular_cats: string
+  // AEO Knowledge Pages
+  knowledge_what_is: string
+  knowledge_how_choose: string
+  knowledge_compare: string
+  // Quote Page Knowledge
+  quote_when_need: string
+  quote_process: string
+  quote_delivery: string
+  quote_faq_title: string
 }
 
 // =========================================================
@@ -1326,6 +1353,33 @@ export const translations: Record<Locale, TranslationKeys> = {
     support_ticket: 'Submit a Ticket',
     support_warranty: 'Warranty Terms',
     privacy_item2d: 'Send order updates and promotional information',
+    // AEO FAQ Section
+    faq_title: 'Frequently Asked Questions',
+    faq_question_prefix: 'Questions about',
+    faq_applications: 'What are the main applications?',
+    faq_accuracy: 'What is the measurement accuracy?',
+    faq_industrial: 'Is it suitable for industrial environments?',
+    faq_differences: 'How does it differ from similar models?',
+    faq_warranty: 'What is the warranty and delivery time?',
+    // AEO Products Page
+    aeo_hero_h1: 'Industrial & Laboratory Equipment Product Center',
+    aeo_hero_subtitle: 'Browse {count} professional-grade instruments for industrial detection and laboratory analysis',
+    aeo_what_offer_title: 'What Equipment Do We Offer?',
+    aeo_what_offer_desc: 'We provide industrial detection and laboratory instruments including pH meters, conductivity analyzers, dosing pumps, turbidity meters, and more.',
+    aeo_how_choose_title: 'How to Choose the Right Instrument?',
+    aeo_how_choose_desc: 'Select based on your measurement parameter, required accuracy, interface type, and installation environment.',
+    aeo_brand_diff_title: 'Understanding Brand Differences',
+    aeo_brand_diff_desc: 'LMI specializes in electromagnetic metering pumps. Pulsafeeder leads in industrial diaphragm pumps. Lovibond offers water quality analysis.',
+    aeo_popular_cats: 'Popular Product Categories',
+    // AEO Knowledge Pages
+    knowledge_what_is: 'What is',
+    knowledge_how_choose: 'How to Choose',
+    knowledge_compare: 'Comparison:',
+    // Quote Page Knowledge
+    quote_when_need: 'When Do You Need a Quote?',
+    quote_process: 'Quote Process',
+    quote_delivery: 'Delivery Time',
+    quote_faq_title: 'Common Questions',
   },
 
 // =========================================================
@@ -1982,6 +2036,33 @@ export const translations: Record<Locale, TranslationKeys> = {
     quote_response_value: 'Within 24 hours',
     quote_within_24h: 'We will contact you within 24 hours',
     quote_name: 'Full Name',
+    // AEO FAQ Section
+    faq_title: '常见问题解答',
+    faq_question_prefix: '关于',
+    faq_applications: '主要应用场景是什么？',
+    faq_accuracy: '测量精度是多少？',
+    faq_industrial: '是否适合工业环境使用？',
+    faq_differences: '与其他型号有什么区别？',
+    faq_warranty: '保修和交付周期是多少？',
+    // AEO Products Page
+    aeo_hero_h1: '工业检测与实验室设备产品中心',
+    aeo_hero_subtitle: '浏览 {count} 种专业级工业检测和实验室仪器',
+    aeo_what_offer_title: '我们提供哪些设备？',
+    aeo_what_offer_desc: '我们提供工业检测和实验室仪器，包括pH计、电导率分析仪、计量泵、浊度仪等。',
+    aeo_how_choose_title: '如何选择合适的检测仪器？',
+    aeo_how_choose_desc: '根据测量参数、精度要求、接口类型和安装环境进行选择。',
+    aeo_brand_diff_title: '不同品牌差异说明',
+    aeo_brand_diff_desc: 'LMI专注电磁计量泵，Pulsafeeder专注工业隔膜泵，Lovibond提供水质分析。',
+    aeo_popular_cats: '热门产品分类',
+    // AEO Knowledge Pages
+    knowledge_what_is: '什么是',
+    knowledge_how_choose: '如何选择',
+    knowledge_compare: '对比：',
+    // Quote Page Knowledge
+    quote_when_need: '什么情况下需要报价？',
+    quote_process: '报价流程',
+    quote_delivery: '交付周期',
+    quote_faq_title: '常见问题',
   },
   es: {
     account_addresses: 'Direcciones',
@@ -2343,6 +2424,33 @@ export const translations: Record<Locale, TranslationKeys> = {
     support_ticket: 'Enviar ticket',
     support_title: 'Soporte tecnico',
     support_warranty: 'Garantia',
+    // AEO FAQ Section
+    faq_title: 'Preguntas Frecuentes',
+    faq_question_prefix: 'Preguntas sobre',
+    faq_applications: 'Cuales son las aplicaciones principales?',
+    faq_accuracy: 'Cual es la precision de medicion?',
+    faq_industrial: 'Es adecuado para entornos industriales?',
+    faq_differences: 'En que se diferencia de modelos similares?',
+    faq_warranty: 'Cual es la garantia y el tiempo de entrega?',
+    // AEO Products Page
+    aeo_hero_h1: 'Centro de Productos de Equipos Industriales y de Laboratorio',
+    aeo_hero_subtitle: 'Explore {count} instrumentos de grado profesional',
+    aeo_what_offer_title: 'Que equipos ofrecemos?',
+    aeo_what_offer_desc: 'Ofrecemos instrumentos de deteccion industrial y laboratorio incluyendo medidores de pH, analizadores de conductividad, bombas de dosificacion y mas.',
+    aeo_how_choose_title: 'Como elegir el instrumento correcto?',
+    aeo_how_choose_desc: 'Seleccione segun su parametro de medicion, precision requerida, tipo de interfaz y entorno de instalacion.',
+    aeo_brand_diff_title: 'Diferencias entre marcas',
+    aeo_brand_diff_desc: 'LMI se especializa en bombas de medicion electromagneticas. Pulsafeeder lidera en bombas de diafragma industriales. Lovibond ofrece analisis de calidad del agua.',
+    aeo_popular_cats: 'Categorias populares de productos',
+    // AEO Knowledge Pages
+    knowledge_what_is: 'Que es',
+    knowledge_how_choose: 'Como elegir',
+    knowledge_compare: 'Comparacion:',
+    // Quote Page Knowledge
+    quote_when_need: 'Cuando necesita una cotizacion?',
+    quote_process: 'Proceso de cotizacion',
+    quote_delivery: 'Tiempo de entrega',
+    quote_faq_title: 'Preguntas frecuentes',
     aria_language_options: 'Opciones de idioma',
     aria_select_language: 'Seleccionar idioma',
     auth_company_optional: 'Empresa (opcional)',
@@ -3286,6 +3394,29 @@ export const translations: Record<Locale, TranslationKeys> = {
     quote_response_value: 'Within 24 hours',
     quote_within_24h: 'We will contact you within 24 hours',
     quote_name: 'Full Name',
+    faq_title: 'よくある質問',
+    faq_question_prefix: '製品について',
+    faq_applications: '主な用途は？',
+    faq_accuracy: '測定精度は？',
+    faq_industrial: '産業環境に対応？',
+    faq_differences: '類似モデルとの違いは？',
+    faq_warranty: '保証と納期は？',
+    aeo_hero_h1: '産業検査・実験室機器製品センター',
+    aeo_hero_subtitle: '{count}種以上のプロフェッショナルグレード機器',
+    aeo_what_offer_title: '取り扱い機器は？',
+    aeo_what_offer_desc: 'pH計、電導率分析計、計量ポンプ、濁度計など産業検査・実験室機器を取り扱い。',
+    aeo_how_choose_title: '適切な機器の選び方は？',
+    aeo_how_choose_desc: '測定パラメータ、精度要求、インターフェース種類、設置環境で選択。',
+    aeo_brand_diff_title: 'ブランドの違いについて',
+    aeo_brand_diff_desc: 'LMIは電磁式計量ポンプ、Pulsafeederは産業用ダイヤフラムポンプ、Lovibondは水質分析を的专业。',
+    aeo_popular_cats: '人気の製品カテゴリー',
+    knowledge_what_is: 'とは？',
+    knowledge_how_choose: '選び方',
+    knowledge_compare: '比較：',
+    quote_when_need: '見積が必要な場合は？',
+    quote_process: '見積フロー',
+    quote_delivery: '納期',
+    quote_faq_title: 'よくある質問',
   },
   hi: {
     account_addresses: 'पते',
@@ -3938,6 +4069,29 @@ export const translations: Record<Locale, TranslationKeys> = {
     quote_response_value: 'Within 24 hours',
     quote_within_24h: 'We will contact you within 24 hours',
     quote_name: 'Full Name',
+    faq_title: 'अक्सर पूछे जाने वाले प्रश्न',
+    faq_question_prefix: 'के बारे में',
+    faq_applications: 'मुख्य अनुप्रयोग क्या हैं?',
+    faq_accuracy: 'माप सटीकता कितनी है?',
+    faq_industrial: 'क्या यह औद्योगिक वातावरण के लिए उपयुक्त है?',
+    faq_differences: 'इसका समान मॉडलों से क्या अंतर है?',
+    faq_warranty: 'वारंटी और डिलीवरी समय क्या है?',
+    aeo_hero_h1: 'औद्योगिक और प्रयोगशाला उपकरण केंद्र',
+    aeo_hero_subtitle: '{count}+ पेशेवर ग्रेड उपकरण ब्राउज़ करें',
+    aeo_what_offer_title: 'हम क्या उपकरण प्रदान करते हैं?',
+    aeo_what_offer_desc: 'हम pH मीटर, चालकता विश्लेषक, डोजिंग पंप, टर्बिडिटी मीटर आदि प्रदान करते हैं।',
+    aeo_how_choose_title: 'सही उपकरण कैसे चुनें?',
+    aeo_how_choose_desc: 'माप मापदंड, सटीकता आवश्यकताओं, इंटरफ़ेस प्रकार और स्थापना वातावरण के अनुसार चुनें।',
+    aeo_brand_diff_title: 'ब्रांड अंतर को समझें',
+    aeo_brand_diff_desc: 'LMI इलेक्ट्रोमैग्नेटिक मीटरिंग पंप में विशेषज्ञ। Pulsafeeder औद्योगिक डायाफ्राम पंप में अग्रणी। Lovibond जल गुणवत्ता विश्लेषण प्रदान करता है।',
+    aeo_popular_cats: 'लोकप्रिय उत्पाद श्रेणियां',
+    knowledge_what_is: 'क्या है',
+    knowledge_how_choose: 'कैसे चुनें',
+    knowledge_compare: 'तुलना:',
+    quote_when_need: 'आपको उद्धरण कब चाहिए?',
+    quote_process: 'उद्धरण प्रक्रिया',
+    quote_delivery: 'डिलीवरी समय',
+    quote_faq_title: 'सामान्य प्रश्न',
   },
   ar: {
     account_addresses: 'العناوين',
@@ -4590,6 +4744,29 @@ export const translations: Record<Locale, TranslationKeys> = {
     quote_response_value: 'Within 24 hours',
     quote_within_24h: 'We will contact you within 24 hours',
     quote_name: 'Full Name',
+    faq_title: 'الاسئلة الشائعة',
+    faq_question_prefix: 'حول',
+    faq_applications: 'ما هي التطبيقات الرئيسية؟',
+    faq_accuracy: 'ما هي دقة القياس؟',
+    faq_industrial: 'هل هو مناسب للبيئات الصناعية؟',
+    faq_differences: 'كيف يختلف عن النماذج المماثلة؟',
+    faq_warranty: 'ما هي مدة الضمان ووقت التسليم؟',
+    aeo_hero_h1: 'مركز معدات الكشف الصناعي والمختبر',
+    aeo_hero_subtitle: 'تصفح {count}+ من المعدات المهنية',
+    aeo_what_offer_title: 'ما هي المعدات التي نقدمها؟',
+    aeo_what_offer_desc: 'نقدم أجهزة قياس الأس الهيدروجيني، ومحليلات التوصيل، ومضخات الجرعات، ومقاييس العكارة والمزيد.',
+    aeo_how_choose_title: 'كيفية اختيار الجهاز المناسب؟',
+    aeo_how_choose_desc: 'اختر بناءً على معامل القياس المطلوب ودقة القياس المطلوبة ونوع الواجهة وبيئة التثبيت.',
+    aeo_brand_diff_title: 'فهم اختلافات العلامات التجارية',
+    aeo_brand_diff_desc: 'تتميز LMI بمضخات القياس الكهرومغناطيسية. تقود Pulsafeeder مضخات الحجاب الحاجز الصناعية. توفر Lovibond تحليل جودة المياه.',
+    aeo_popular_cats: 'فئات المنتجات الشائعة',
+    knowledge_what_is: 'ما هو',
+    knowledge_how_choose: 'كيفية الاختيار',
+    knowledge_compare: 'مقارنة:',
+    quote_when_need: 'متى تحتاج عرض اسعار؟',
+    quote_process: 'عملية عرض الاسعار',
+    quote_delivery: 'وقت التسليم',
+    quote_faq_title: 'الاسئلة الشائعة',
   },
   pt: {
     account_addresses: 'Enderecos',
@@ -5242,5 +5419,28 @@ export const translations: Record<Locale, TranslationKeys> = {
     quote_response_value: 'Within 24 hours',
     quote_within_24h: 'We will contact you within 24 hours',
     quote_name: 'Full Name',
+    faq_title: 'Perguntas Frequentes',
+    faq_question_prefix: 'Sobre',
+    faq_applications: 'Quais sao as aplicacoes principais?',
+    faq_accuracy: 'Qual e a precisao de medicao?',
+    faq_industrial: 'E adequado para ambientes industriais?',
+    faq_differences: 'Como differe de modelos similares?',
+    faq_warranty: 'Qual e a garantia e tempo de entrega?',
+    aeo_hero_h1: 'Centro de Produtos de Equipamentos Industriais e de Laboratorio',
+    aeo_hero_subtitle: 'Browse {count}+ instrumentos de grau profissional',
+    aeo_what_offer_title: 'Que equipamentos oferecemos?',
+    aeo_what_offer_desc: 'Oferecemos medidores de pH, analisadores de condutividade, bombas de dosagem, medidores de turbidez e mais.',
+    aeo_how_choose_title: 'Como escolher o instrumento certo?',
+    aeo_how_choose_desc: 'Selecione com base no seu parametro de medicao, precisao necessaria, tipo de interface e ambiente de instalacao.',
+    aeo_brand_diff_title: 'Entendendo diferencas entre marcas',
+    aeo_brand_diff_desc: 'LMI e especializada em bombas de medicao eletromagneticas. Pulsafeeder lidera em bombas de diafragma industriais. Lovibond oferece analise de qualidade da agua.',
+    aeo_popular_cats: 'Categorias populares de produtos',
+    knowledge_what_is: 'O que e',
+    knowledge_how_choose: 'Como escolher',
+    knowledge_compare: 'Comparacao:',
+    quote_when_need: 'Quando voce precisa de uma cotacao?',
+    quote_process: 'Processo de cotacao',
+    quote_delivery: 'Tempo de entrega',
+    quote_faq_title: 'Perguntas frequentes',
   },
 };
