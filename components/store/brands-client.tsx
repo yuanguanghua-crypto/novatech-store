@@ -27,7 +27,7 @@ export function BrandsClient({ brands: initialBrands = [], grouped: initialGroup
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (brands.length > 0) return // Already have data
+    if (brands.length > 0) return
 
     async function fetchBrands() {
       try {
@@ -62,18 +62,18 @@ export function BrandsClient({ brands: initialBrands = [], grouped: initialGroup
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <h1 className="text-3xl font-bold text-gray-900">{t.brands_title}</h1>
+        <div className="container-custom py-10">
+          <h1 className="text-3xl font-bold text-gray-900 font-display">{t.brands_title}</h1>
           <p className="mt-2 text-gray-600">
             {t.brands_subtitle.replace('{count}', brands.length.toString())}
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="container-custom py-8">
         {loading ? (
           <div className="flex justify-center py-20">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
           </div>
         ) : error ? (
           <div className="text-center py-20">
@@ -93,7 +93,7 @@ export function BrandsClient({ brands: initialBrands = [], grouped: initialGroup
                 <a
                   key={letter}
                   href={`#letter-${letter}`}
-                  className="w-9 h-9 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-brand-50 hover:text-brand-700 hover:border-brand-300 transition"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 transition-all duration-200"
                 >
                   {letter}
                 </a>
@@ -101,14 +101,14 @@ export function BrandsClient({ brands: initialBrands = [], grouped: initialGroup
             </div>
 
             {/* Brands by letter */}
-            <div className="space-y-10">
+            <div className="space-y-12">
               {letters.map(letter => (
                 <div key={letter} id={`letter-${letter}`}>
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="text-3xl font-bold text-brand-700">{letter}</span>
+                    <span className="text-3xl font-bold text-blue-600">{letter}</span>
                     <div className="flex-1 h-px bg-gray-200" />
                     <span className="text-sm text-gray-500">
-                      {t.brands_count.replace('{count}', grouped[letter].length.toString())}
+                      {grouped[letter].length} {grouped[letter].length === 1 ? 'brand' : 'brands'}
                     </span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -116,26 +116,23 @@ export function BrandsClient({ brands: initialBrands = [], grouped: initialGroup
                       <Link
                         key={brand.id}
                         href={`/brands/${brand.slug}`}
-                        className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-brand-300 transition group"
+                        className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-lg hover:border-blue-300 transition-all duration-200 hover:-translate-y-1 group"
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0 flex-1">
-                            <h3 className="font-semibold text-gray-900 group-hover:text-brand-700 transition truncate">
+                            <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors truncate">
                               {brand.name}
                             </h3>
                             <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
-                              <span className="flex items-center gap-1">
-                                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                                </svg>
-                                {t.brands_products.replace('{count}', brand._count?.products?.toString() || '0')}
+                              <span className="flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded-full">
+                                📦 {brand._count?.products?.toLocaleString() || '0'} products
                               </span>
                               {brand.country && (
-                                <span>{brand.country}</span>
+                                <span className="bg-gray-100 px-2 py-1 rounded-full">{brand.country}</span>
                               )}
                             </div>
                           </div>
-                          <div className="flex-shrink-0 w-5 h-5 text-gray-300 group-hover:text-brand-400 transition">
+                          <div className="flex-shrink-0 w-5 h-5 text-gray-300 group-hover:text-blue-500 transition-colors">
                             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>

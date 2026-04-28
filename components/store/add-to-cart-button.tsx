@@ -1,6 +1,6 @@
 'use client'
 
-import { ShoppingCart } from 'lucide-react'
+import { ShoppingCart, Check } from 'lucide-react'
 import { useCartStore } from '@/hooks/use-cart'
 import { useI18n } from '@/lib/i18n/context'
 import { useState } from 'react'
@@ -27,31 +27,45 @@ export function AddToCartButton({ productId, sku, name, price, imageUrl }: AddTo
 
   return (
     <div className="flex items-center gap-3 flex-1">
-      <div className="flex items-center border border-gray-300 rounded-md">
+      {/* Quantity Selector */}
+      <div className="flex items-center border-2 border-gray-200 rounded-lg overflow-hidden">
         <button
           onClick={() => setQty(q => Math.max(1, q - 1))}
-          className="px-3 py-2.5 text-gray-600 hover:bg-gray-50 text-lg font-medium"
+          className="px-3 py-2.5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 text-lg font-medium transition-colors"
         >
           −
         </button>
-        <span className="px-4 py-2.5 text-sm font-medium min-w-[40px] text-center">{qty}</span>
+        <span className="px-4 py-2.5 text-sm font-semibold min-w-[48px] text-center border-x-2 border-gray-100">
+          {qty}
+        </span>
         <button
           onClick={() => setQty(q => q + 1)}
-          className="px-3 py-2.5 text-gray-600 hover:bg-gray-50 text-lg font-medium"
+          className="px-3 py-2.5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 text-lg font-medium transition-colors"
         >
           +
         </button>
       </div>
+      
+      {/* Add to Cart Button */}
       <button
         onClick={handleAdd}
-        className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-6 rounded-md font-medium text-sm transition-colors ${
+        className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-6 rounded-lg font-semibold text-sm transition-all duration-200 ${
           added
-            ? 'bg-green-600 text-white'
-            : 'bg-brand-700 text-white hover:bg-brand-800'
+            ? 'bg-green-600 text-white hover:bg-green-700'
+            : 'bg-blue-600 text-white hover:bg-blue-700 active:scale-[0.98]'
         }`}
       >
-        <ShoppingCart className="w-4 h-4" />
-        {added ? t.cart_item_added : t.products_add_to_cart}
+        {added ? (
+          <>
+            <Check className="w-4 h-4" />
+            {t.cart_item_added}
+          </>
+        ) : (
+          <>
+            <ShoppingCart className="w-4 h-4" />
+            {t.products_add_to_cart}
+          </>
+        )}
       </button>
     </div>
   )

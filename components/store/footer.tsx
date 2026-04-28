@@ -33,25 +33,25 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-16">
-      <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company */}
+    <footer className="bg-gray-800 text-gray-300 mt-16">
+      <div className="container-custom py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
           <div>
             <div className="mb-4">
-              <img src="/logo.png" alt="LabProGlobal" className="h-10 w-auto" />
+              <img src="/logo.png" alt="LabProGlobal" className="h-10 w-auto brightness-0 invert" />
             </div>
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed text-gray-400">
               {t.footer_description}
             </p>
             <div className="mt-4 space-y-2 text-sm">
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 flex-shrink-0" />
+                <Phone className="w-4 h-4 flex-shrink-0 text-blue-400" />
                 <span>+1 (800) 000-0000</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:sales@novatechstore.com" className="hover:text-white">
+                <Mail className="w-4 h-4 flex-shrink-0 text-blue-400" />
+                <a href="mailto:sales@novatechstore.com" className="hover:text-white transition-colors">
                   sales@novatechstore.com
                 </a>
               </div>
@@ -60,17 +60,17 @@ export function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="font-semibold text-white mb-4">{t.footer_products_col}</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-semibold text-white mb-4 font-display">{t.footer_products_col}</h3>
+            <ul className="space-y-2.5 text-sm">
               {productLinks.map(([name, href]) => (
                 <li key={href}>
-                  <Link href={href} className="hover:text-white transition-colors">
+                  <Link href={href} className="hover:text-white transition-colors duration-200">
                     {getCategoryName(name, locale)}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/products" className="hover:text-white transition-colors">
+                <Link href="/products" className="hover:text-white transition-colors duration-200">
                   {t.footer_all_products}
                 </Link>
               </li>
@@ -79,11 +79,11 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-white mb-4">{t.footer_services_col}</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-semibold text-white mb-4 font-display">{t.footer_services_col}</h3>
+            <ul className="space-y-2.5 text-sm">
               {serviceLinks.map(([name, href]) => (
                 <li key={href}>
-                  <Link href={href} className="hover:text-white transition-colors">
+                  <Link href={href} className="hover:text-white transition-colors duration-200">
                     {name}
                   </Link>
                 </li>
@@ -93,11 +93,11 @@ export function Footer() {
 
           {/* Account */}
           <div>
-            <h3 className="font-semibold text-white mb-4">{t.footer_account_col}</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-semibold text-white mb-4 font-display">{t.footer_account_col}</h3>
+            <ul className="space-y-2.5 text-sm">
               {accountLinks.map(([name, href]) => (
                 <li key={href}>
-                  <Link href={href} className="hover:text-white transition-colors">
+                  <Link href={href} className="hover:text-white transition-colors duration-200">
                     {name}
                   </Link>
                 </li>
@@ -107,12 +107,13 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-gray-800">
-        <div className="container py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-700">
+        <div className="container-custom py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
           <p>© {new Date().getFullYear()} LabProGlobal. {t.footer_rights}</p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-gray-300">{t.footer_privacy}</Link>
-            <Link href="/terms" className="hover:text-gray-300">{t.footer_terms}</Link>
+            <Link href="/privacy" className="hover:text-gray-300 transition-colors">{t.footer_privacy}</Link>
+            <Link href="/terms" className="hover:text-gray-300 transition-colors">{t.footer_terms}</Link>
           </div>
         </div>
       </div>

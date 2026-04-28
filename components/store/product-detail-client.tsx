@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Package, Shield, Truck, RefreshCw, Headphones } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/context'
 import { formatPrice, formatSpecs, getAvailabilityBadge } from '@/lib/utils'
 import { AddToCartButton } from '@/components/store/add-to-cart-button'
@@ -46,24 +46,24 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
   const primaryImage = product.images.find(i => i.isPrimary) || product.images[0]
 
   return (
-    <div className="container py-8">
+    <div className="container-custom py-8">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-6">
-        <Link href="/" className="hover:text-brand-700">{t.product_home}</Link>
+        <Link href="/" className="hover:text-blue-600 transition-colors">{t.product_home}</Link>
         <ChevronRight className="w-3.5 h-3.5" />
-        <Link href="/products" className="hover:text-brand-700">{t.product_products}</Link>
+        <Link href="/products" className="hover:text-blue-600 transition-colors">{t.product_products}</Link>
         <ChevronRight className="w-3.5 h-3.5" />
-        <Link href={`/categories/${product.category.slug}`} className="hover:text-brand-700">
+        <Link href={`/categories/${product.category.slug}`} className="hover:text-blue-600 transition-colors">
           {product.category.name}
         </Link>
         <ChevronRight className="w-3.5 h-3.5" />
-        <span className="text-gray-900 font-medium truncate max-w-[200px]">{product.sku}</span>
+        <span className="text-gray-900 font-medium font-mono truncate max-w-[200px]">{product.sku}</span>
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Image Gallery */}
         <div>
-          <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden mb-3 border border-gray-200">
+          <div className="aspect-square bg-gray-50 rounded-xl overflow-hidden mb-4 border border-gray-200 shadow-sm">
             {primaryImage ? (
               <img
                 src={primaryImage.url}
@@ -71,8 +71,8 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
                 className="w-full h-full object-contain p-6"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-gray-300 text-6xl">
-                📦
+              <div className="w-full h-full flex items-center justify-center text-gray-300">
+                <Package className="w-20 h-20" />
               </div>
             )}
           </div>
@@ -81,8 +81,9 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
               {product.images.slice(0, 5).map((img, i) => (
                 <div
                   key={img.id}
-                  className={`aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 cursor-pointer
-                             ${i === 0 ? 'border-brand-500' : 'border-transparent hover:border-gray-300'}`}
+                  className={`aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
+                    i === 0 ? 'border-blue-500 shadow-sm' : 'border-transparent hover:border-gray-300'
+                  }`}
                 >
                   <img src={img.url} alt={`${product.name} ${i + 1}`} className="w-full h-full object-contain p-1" />
                 </div>
@@ -93,12 +94,17 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
 
         {/* Product Info */}
         <div>
+          {/* Brand */}
           {product.brand && (
-            <Link href={`/brands/${product.brand.slug}`} className="text-sm font-semibold text-brand-600 uppercase tracking-wide hover:text-brand-800">
+            <Link href={`/brands/${product.brand.slug}`} className="text-sm font-semibold text-blue-600 uppercase tracking-wide hover:text-blue-700 transition-colors">
               {product.brand.name}
             </Link>
           )}
-          <h1 className="text-2xl font-bold text-gray-900 mt-1 mb-2">{product.name}</h1>
+          
+          {/* Product Name */}
+          <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mt-1 mb-2 font-display">{product.name}</h1>
+          
+          {/* SKU */}
           <p className="text-sm text-gray-500 mb-4">
             {t.product_sku_label} <span className="font-mono font-medium text-gray-700">{product.sku}</span>
           </p>
@@ -118,6 +124,7 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
                 {formatPrice(product.listPrice.toString())}
               </span>
             )}
+            <span className="ml-2 text-sm text-green-600 font-medium">Save 15%</span>
           </div>
 
           {/* Description */}
@@ -127,11 +134,11 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
 
           {/* Quick Specs Preview */}
           {specs.length > 0 && (
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
+            <div className="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-200">
               <h3 className="text-sm font-semibold text-gray-700 mb-3">{t.product_key_specs}</h3>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 {specs.slice(0, 6).map(({ key, value }) => (
-                  <div key={key}>
+                  <div key={key} className="bg-white rounded-lg p-2.5 border border-gray-100">
                     <dt className="text-xs text-gray-500">{key}</dt>
                     <dd className="text-sm font-medium text-gray-800">{value}</dd>
                   </div>
@@ -157,11 +164,23 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
           </div>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap gap-4 text-xs text-gray-500 border-t border-gray-200 pt-4">
-            <span>{t.product_secure_payment}</span>
-            <span>{t.product_fast_shipping}</span>
-            <span>{t.product_returns}</span>
-            <span>{t.product_expert_support}</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-gray-500 border-t border-gray-200 pt-4">
+            <div className="flex items-center gap-1.5">
+              <Shield className="w-4 h-4 text-blue-500" />
+              <span>Secure Payment</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Truck className="w-4 h-4 text-blue-500" />
+              <span>Fast Shipping</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <RefreshCw className="w-4 h-4 text-blue-500" />
+              <span>Easy Returns</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Headphones className="w-4 h-4 text-blue-500" />
+              <span>Expert Support</span>
+            </div>
           </div>
         </div>
       </div>
@@ -169,8 +188,8 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
       {/* Full Specs Table */}
       {specs.length > 0 && (
         <div className="mt-12">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">{t.product_full_specs}</h2>
-          <div className="card overflow-hidden">
+          <h2 className="text-xl font-bold text-gray-900 mb-4 font-display">{t.product_full_specs}</h2>
+          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <table className="w-full text-sm">
               <tbody>
                 {specs.map(({ key, value }, i) => (
@@ -188,21 +207,27 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
       {/* Related Products */}
       {related.length > 0 && (
         <div className="mt-12">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">{t.product_related}</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4 font-display">{t.product_related}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {related.map((p) => (
               <Link key={p.id} href={`/products/${p.slug}`} className="card-hover group">
-                <div className="aspect-square bg-gray-100 overflow-hidden">
+                <div className="aspect-square bg-gray-100 overflow-hidden rounded-lg">
                   {p.images[0] ? (
-                    <img src={p.images[0].url} alt={p.name} className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform" />
+                    <img 
+                      src={p.images[0].url} 
+                      alt={p.name} 
+                      className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-300" 
+                    />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-3xl">📦</div>
+                    <div className="w-full h-full flex items-center justify-center text-gray-300">
+                      <Package className="w-10 h-10" />
+                    </div>
                   )}
                 </div>
                 <div className="p-3">
-                  <p className="text-xs text-brand-600 font-medium">{p.brand?.name}</p>
-                  <p className="text-sm font-medium text-gray-800 line-clamp-2 group-hover:text-brand-700">{p.name}</p>
-                  <p className="font-semibold text-gray-900 mt-1">{formatPrice(p.ourPrice?.toString())}</p>
+                  <p className="text-xs text-blue-600 font-semibold uppercase tracking-wide">{p.brand?.name}</p>
+                  <p className="text-sm font-medium text-gray-800 line-clamp-2 group-hover:text-blue-600 mt-1 transition-colors">{p.name}</p>
+                  <p className="font-bold text-gray-900 mt-2">{formatPrice(p.ourPrice?.toString())}</p>
                 </div>
               </Link>
             ))}

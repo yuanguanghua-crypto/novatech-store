@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { Package } from 'lucide-react'
 import { formatPrice } from '@/lib/utils'
 import { useI18n } from '@/lib/i18n/context'
 
@@ -18,14 +19,18 @@ interface Product {
 export function ProductGrid({ products }: { products: Product[] }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+      {products.map((product, index) => (
+        <ProductCard 
+          key={product.id} 
+          product={product}
+          index={index}
+        />
       ))}
     </div>
   )
 }
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
   const { t } = useI18n()
   const image = product.images?.[0]?.url
 
@@ -40,11 +45,17 @@ function ProductCard({ product }: { product: Product }) {
   const stockClass = product.availability === 'in_stock'
     ? 'bg-green-100 text-green-700'
     : product.availability === 'out_of_stock'
-    ? 'bg-red-100 text-red-600'
+    ? 'bg-red-100 text-red-700'
     : 'bg-yellow-100 text-yellow-700'
 
   return (
-    <Link href={`/products/${product.slug}`} className="card-hover group overflow-hidden">
+    <Link 
+      href={`/products/${product.slug}`} 
+      className="group bg-white rounded-xl border border-gray-200 overflow-hidden
+                 hover:border-blue-300 hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
+      style={{ animationDelay: `${index * 50}ms` }}
+    >
+      {/* Product Image */}
       <div className="aspect-square bg-gray-50 overflow-hidden">
         {image ? (
           <img
@@ -54,23 +65,27 @@ function ProductCard({ product }: { product: Product }) {
             loading="lazy"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-gray-300 text-4xl">
-            📦
+          <div className="w-full h-full flex items-center justify-center text-gray-300">
+            <Package className="w-12 h-12" />
           </div>
         )}
       </div>
-      <div className="p-3">
+      
+      {/* Product Info */}
+      <div className="p-4">
         {product.brand && (
-          <p className="text-xs text-brand-600 font-semibold uppercase tracking-wide mb-1">
+          <p className="text-xs text-blue-600 font-semibold uppercase tracking-wide mb-1">
             {product.brand.name}
           </p>
         )}
-        <h3 className="text-sm font-medium text-gray-800 line-clamp-2 group-hover:text-brand-700 leading-snug mb-1">
+        <h3 className="text-sm font-medium text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors leading-snug mb-1">
           {product.name}
         </h3>
-        <p className="text-xs text-gray-400 font-mono mb-2">{product.sku}</p>
+        <p className="text-xs text-gray-400 font-mono mb-3">{product.sku}</p>
+        
+        {/* Price and Stock */}
         <div className="flex items-center justify-between">
-          <span className="font-bold text-gray-900 text-sm">
+          <span className="text-lg font-bold text-gray-900">
             {formatPrice(product.ourPrice?.toString())}
           </span>
           <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${stockClass}`}>
