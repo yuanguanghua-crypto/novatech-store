@@ -316,19 +316,161 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
         </div>
       </section>
 
-      {/* ===== Brands Showcase ===== */}
-      <section className="py-12 bg-gray-50 border-t border-gray-100">
-        <div className="container">
-          <div className="text-center mb-8">
-            <p className="text-sm text-gray-500 uppercase tracking-wider font-semibold">Trusted Brands</p>
+      {/* ===== Brands Showcase - Premium Marquee ===== */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-brand-500/5 via-accent-400/5 to-brand-500/5 rounded-full blur-3xl" />
+        </div>
+        
+        {/* Section Header */}
+        <div className="container relative z-10 mb-12">
+          <div className="text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 rounded-full px-4 py-1.5 mb-4">
+              <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-pulse"></span>
+              <span className="text-xs text-brand-700 font-semibold tracking-wide uppercase">Global Partnerships</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 font-display">
+              Trusted by Industry Leaders
+            </h2>
+            <p className="text-gray-500 max-w-lg mx-auto">
+              We partner with the world's most renowned manufacturers to bring you premium laboratory equipment
+            </p>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {['Pulsafeeder', 'LMI', 'Lovibond', 'Hach', 'Ohaus', 'Mettler Toledo'].map((brand) => (
-              <div key={brand} className="text-xl font-bold text-gray-400 hover:text-brand-600 transition-colors cursor-default">
-                {brand}
+        </div>
+        
+        {/* Marquee Track - First Row (Left to Right) */}
+        <div className="relative mb-6">
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+          
+          <div className="flex animate-marquee-slow hover:pause">
+            {/* First set of brand cards */}
+            {[
+              { name: 'Pulsafeeder', color: 'from-blue-500 to-blue-700', initial: 'PF' },
+              { name: 'LMI', color: 'from-cyan-500 to-cyan-700', initial: 'LM' },
+              { name: 'Lovibond', color: 'from-amber-500 to-orange-600', initial: 'LV' },
+              { name: 'Hach', color: 'from-emerald-500 to-teal-600', initial: 'HC' },
+              { name: 'Ohaus', color: 'from-violet-500 to-purple-600', initial: 'OH' },
+              { name: 'Mettler Toledo', color: 'from-rose-500 to-pink-600', initial: 'MT' },
+            ].map((brand) => (
+              <div key={brand.name} className="flex-shrink-0 mx-3 group cursor-pointer">
+                <div className="w-40 h-24 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                                hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
+                                transition-all duration-300 flex flex-col items-center justify-center
+                                relative overflow-hidden">
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
+                  
+                  {/* Brand Initial Badge */}
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                    <span className="text-white font-bold text-sm">{brand.initial}</span>
+                  </div>
+                  
+                  {/* Brand Name */}
+                  <span className="text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10">
+                    {brand.name}
+                  </span>
+                </div>
+              </div>
+            ))}
+            
+            {/* Duplicate for seamless loop */}
+            {[
+              { name: 'Pulsafeeder', color: 'from-blue-500 to-blue-700', initial: 'PF' },
+              { name: 'LMI', color: 'from-cyan-500 to-cyan-700', initial: 'LM' },
+              { name: 'Lovibond', color: 'from-amber-500 to-orange-600', initial: 'LV' },
+              { name: 'Hach', color: 'from-emerald-500 to-teal-600', initial: 'HC' },
+              { name: 'Ohaus', color: 'from-violet-500 to-purple-600', initial: 'OH' },
+              { name: 'Mettler Toledo', color: 'from-rose-500 to-pink-600', initial: 'MT' },
+            ].map((brand) => (
+              <div key={`dup1-${brand.name}`} className="flex-shrink-0 mx-3 group cursor-pointer">
+                <div className="w-40 h-24 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                                hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
+                                transition-all duration-300 flex flex-col items-center justify-center
+                                relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                    <span className="text-white font-bold text-sm">{brand.initial}</span>
+                  </div>
+                  <span className="text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10">
+                    {brand.name}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+        
+        {/* Marquee Track - Second Row (Right to Left) */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+          
+          <div className="flex animate-marquee-reverse hover:pause">
+            {/* First set of brand cards */}
+            {[
+              { name: 'Sartorius', color: 'from-indigo-500 to-indigo-700', initial: 'SR' },
+              { name: 'Eppendorf', color: 'from-red-500 to-red-700', initial: 'EP' },
+              { name: 'Thermo Fisher', color: 'from-orange-500 to-orange-700', initial: 'TF' },
+              { name: 'Shimadzu', color: 'from-yellow-500 to-yellow-700', initial: 'SH' },
+              { name: 'Denver Instr.', color: 'from-green-500 to-green-700', initial: 'DI' },
+              { name: 'A&D Weighing', color: 'from-blue-400 to-blue-600', initial: 'AD' },
+            ].map((brand) => (
+              <div key={brand.name} className="flex-shrink-0 mx-3 group cursor-pointer">
+                <div className="w-40 h-24 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                                hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
+                                transition-all duration-300 flex flex-col items-center justify-center
+                                relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                    <span className="text-white font-bold text-sm">{brand.initial}</span>
+                  </div>
+                  <span className="text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10">
+                    {brand.name}
+                  </span>
+                </div>
+              </div>
+            ))}
+            
+            {/* Duplicate for seamless loop */}
+            {[
+              { name: 'Sartorius', color: 'from-indigo-500 to-indigo-700', initial: 'SR' },
+              { name: 'Eppendorf', color: 'from-red-500 to-red-700', initial: 'EP' },
+              { name: 'Thermo Fisher', color: 'from-orange-500 to-orange-700', initial: 'TF' },
+              { name: 'Shimadzu', color: 'from-yellow-500 to-yellow-700', initial: 'SH' },
+              { name: 'Denver Instr.', color: 'from-green-500 to-green-700', initial: 'DI' },
+              { name: 'A&D Weighing', color: 'from-blue-400 to-blue-600', initial: 'AD' },
+            ].map((brand) => (
+              <div key={`dup2-${brand.name}`} className="flex-shrink-0 mx-3 group cursor-pointer">
+                <div className="w-40 h-24 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                                hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
+                                transition-all duration-300 flex flex-col items-center justify-center
+                                relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                    <span className="text-white font-bold text-sm">{brand.initial}</span>
+                  </div>
+                  <span className="text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10">
+                    {brand.name}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* View All Brands Link */}
+        <div className="container relative z-10 mt-10 text-center">
+          <Link
+            href="/brands"
+            className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-semibold transition-colors group"
+          >
+            View All 50+ Partners
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </section>
     </>

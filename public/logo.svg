@@ -1,58 +1,59 @@
-<svg viewBox="0 0 200 56" xmlns="http://www.w3.org/2000/svg" width="200" height="56">
+<svg width="760" height="160" viewBox="0 0 760 160" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="flaskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0891b2"/>
-      <stop offset="100%" stop-color="#0ea5e9"/>
-    </linearGradient>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#f0f9ff"/>
-      <stop offset="100%" stop-color="#e0f2fe"/>
-    </linearGradient>
+    <style>
+      .main { fill:#0A2540; }
+      .sub  { fill:#3A556A; }
+      .accent { fill:#2EE6D6; }
+    </style>
   </defs>
 
-  <!-- Icon background circle -->
-  <circle cx="28" cy="28" r="26" fill="url(#bgGrad)" stroke="#0c2340" stroke-width="2"/>
+  <!-- ===== ICON（极简工业块）===== -->
+  <g transform="translate(24,24)">
+    <rect x="0" y="0" width="88" height="88" rx="14" class="main"></rect>
+    <!-- 统一45°切角语言 -->
+    <path d="M18 66 L66 18 L72 24 L24 72 Z" fill="#FFFFFF"></path>
+    <!-- 唯一跳点 -->
+    <circle cx="70" cy="20" r="4.5" class="accent"></circle>
+  </g>
 
-  <!-- Globe grid lines -->
-  <ellipse cx="28" cy="28" rx="14" ry="26" fill="none" stroke="#94a3b8" stroke-width="0.8" opacity="0.5"/>
-  <line x1="14" y1="28" x2="42" y2="28" stroke="#94a3b8" stroke-width="0.8" opacity="0.5"/>
-  <line x1="28" y1="2" x2="28" y2="54" stroke="#94a3b8" stroke-width="0.8" opacity="0.5"/>
+  <!-- 分隔线 -->
+  <line x1="140" y1="28" x2="140" y2="116" stroke="#0A2540" stroke-width="3.5"></line>
 
-  <!-- Flask body -->
-  <path d="M22 10 L22 23 Q22 25.5 25 25.5 L31 25.5 Q34 25.5 34 23 L34 10" 
-        fill="#e0f7fa" stroke="#0891b2" stroke-width="1.8" stroke-linecap="round"/>
-  
-  <!-- Flask stopper -->
-  <rect x="19" y="6.5" width="18" height="4" rx="2" fill="#0c2340"/>
-  
-  <!-- Flask bottom bulb -->
-  <ellipse cx="28" cy="38" rx="11" ry="9.5" fill="#0891b2"/>
-  
-  <!-- Liquid -->
-  <ellipse cx="28" cy="39" rx="9" ry="8" fill="#0ea5e9" opacity="0.85"/>
-  
-  <!-- Bubbles -->
-  <circle cx="25" cy="33" r="1.8" fill="#7dd3fc" opacity="0.9"/>
-  <circle cx="31" cy="31" r="1.3" fill="#7dd3fc" opacity="0.75"/>
-  <circle cx="28" cy="29" r="0.9" fill="#7dd3fc" opacity="0.6"/>
+  <!-- ===== WORDMARK（定制字形）===== -->
+  <g transform="translate(165,0)">
 
-  <!-- Globe accent dots -->
-  <circle cx="28" cy="5" r="2.2" fill="#0c2340"/>
-  <circle cx="40" cy="9" r="2.2" fill="#0891b2"/>
-  <circle cx="47" cy="18" r="2.2" fill="#0c2340"/>
-  <circle cx="47" cy="38" r="2.2" fill="#0891b2"/>
-  <circle cx="40" cy="48" r="2.2" fill="#0c2340"/>
+    <!-- LAB（基座：更重） -->
+    <!-- L：底部加长，工业感 -->
+    <path d="M0 30 L0 100 L34 100 L34 92 L10 92 L10 30 Z" class="main"></path>
 
-  <!-- Text: Lab -->
-  <text x="62" y="26" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900" fill="#0c2340" letter-spacing="-0.5">Lab</text>
-  
-  <!-- Text: Pro -->
-  <text x="102" y="26" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900" fill="#0891b2" letter-spacing="-0.5">Pro</text>
-  
-  <!-- Text: Global -->
-  <text x="62" y="42" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="900" fill="#0c2340" letter-spacing="-0.5">Global</text>
+    <!-- A：无横杠 + 内切角 -->
+    <path d="M50 100 L70 30 L90 100 L80 100 L75 84 L65 84 L60 100 Z" class="main"></path>
+    <!-- A内部切口 -->
+    <polygon points="66,84 74,84 70,74" class="accent"></polygon>
 
-  <!-- Subtitle line -->
-  <line x1="62" y1="47" x2="198" y2="47" stroke="#0891b2" stroke-width="1.2" opacity="0.5"/>
-  <text x="62" y="53" font-family="Arial, Helvetica, sans-serif" font-size="7.5" font-weight="600" fill="#64748b" letter-spacing="3.5">INDUSTRIAL LABORATORY EQUIPMENT</text>
+    <!-- B：更紧凑、更厚 -->
+    <path d="M105 30 L105 100 L135 100 Q150 100 150 85 Q150 75 140 72 Q150 68 150 55 Q150 30 125 30 Z
+             M115 40 L125 40 Q140 40 140 55 Q140 65 125 65 L115 65 Z
+             M115 75 L130 75 Q140 75 140 85 Q140 95 125 95 L115 95 Z" class="main"></path>
+
+    <!-- PRO（节奏：略轻） -->
+    <!-- P -->
+    <path d="M180 30 L180 100 L190 100 L190 70 L210 70 Q230 70 230 50 Q230 30 210 30 Z
+             M190 40 L210 40 Q220 40 220 50 Q220 60 210 60 L190 60 Z" class="main"></path>
+
+    <!-- R（腿部切角，统一语言） -->
+    <path d="M245 30 L245 100 L255 100 L255 70 L270 70 L285 100 L297 100 L280 68
+             Q295 62 295 50 Q295 30 270 30 Z
+             M255 40 L270 40 Q285 40 285 50 Q285 60 270 60 L255 60 Z" class="main"></path>
+
+    <!-- O -->
+    <circle cx="335" cy="65" r="35" fill="none" stroke="#0A2540" stroke-width="10"></circle>
+
+  </g>
+
+  <!-- ===== GLOBAL（与 LABPRO 严格对齐）===== -->
+  <text x="165" y="132" font-family="Arial, sans-serif" font-size="18" letter-spacing="10" class="sub">
+    GLOBAL
+  </text>
+
 </svg>
