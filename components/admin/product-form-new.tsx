@@ -16,6 +16,7 @@ interface Category {
   id: string
   name: string
   slug: string
+  parentId?: string
   children?: Category[]
 }
 
@@ -956,7 +957,7 @@ export function ProductForm({ product, mode }: Props) {
           Basic Information
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className={form.groupClass}>
+          <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               <span className="text-red-500 mr-1">*</span>
               SKU

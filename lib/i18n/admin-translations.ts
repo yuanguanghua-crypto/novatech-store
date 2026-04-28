@@ -120,6 +120,7 @@ export type AdminTranslationKeys = {
   products_page_of: string
   products_previous: string
   products_next: string
+  products_bulk_import: string
   // Product New/Edit
   products_add_new_title: string
   products_edit_title: string
@@ -297,6 +298,7 @@ export const adminTranslations: Record<AdminLocale, AdminTranslationKeys> = {
     products_page_of: 'Page {page} of {total} ({count} total)',
     products_previous: 'Previous',
     products_next: 'Next',
+    products_bulk_import: 'Bulk Import',
     // Product New/Edit
     products_add_new_title: 'Add New Product',
     products_edit_title: 'Edit Product',
@@ -473,6 +475,7 @@ export const adminTranslations: Record<AdminLocale, AdminTranslationKeys> = {
     products_page_of: '第 {page} 页，共 {total} 页（{count} 条）',
     products_previous: '上一页',
     products_next: '下一页',
+    products_bulk_import: '批量导入',
     // Product New/Edit
     products_add_new_title: '添加新产品',
     products_edit_title: '编辑产品',

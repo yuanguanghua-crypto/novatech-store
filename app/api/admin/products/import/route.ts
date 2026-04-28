@@ -345,28 +345,32 @@ export async function POST(request: NextRequest) {
             where: { sku: validated.sku },
           })
 
+          let productId: string
+
           if (existing) {
             // Update existing product
             await prisma.product.update({
               where: { sku: validated.sku },
               data: productData,
             })
+            productId = existing.id
           } else {
             // Create new product
-            await prisma.product.create({ data: productData })
+            const newProduct = await prisma.product.create({ data: productData })
+            productId = newProduct.id
           }
 
           // Handle images (only for new products or if images provided)
           if (images.length > 0) {
             // Delete existing images for this product
             await prisma.productImage.deleteMany({
-              where: { product: { sku: validated.sku } },
+              where: { productId },
             })
 
             // Create new images
             await prisma.productImage.createMany({
               data: images.map((img, idx) => ({
-                product: { connect: { sku: validated.sku } },
+                productId,
                 url: img.url,
                 altText: img.altText,
                 isPrimary: img.isPrimary,
@@ -415,11 +419,52 @@ export async function GET() {
     'is_active', 'is_featured', 'is_new', 'source_url'
   ]
 
-  const exampleRows = [
-    'SKU-001,"Sample Product Name","Product description","BrandName","Parent Cat","Child Cat",299.99,399.99,,in_stock,100,,,,,,,,"Max Flow","100 GPH","Voltage","120V',,,,,,,,,,TRUE,FALSE,FALSE,https://example.com',
+  const exampleRow = [
+    'SKU-001',
+    'Sample Product Name',
+    'Product description',
+    'BrandName',
+    'Parent Cat',
+    'Child Cat',
+    '299.99',
+    '399.99',
+    '',
+    'in_stock',
+    '100',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    'Max Flow',
+    '100 GPH',
+    'Voltage',
+    '120V',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    'https://example.com/image.jpg',
+    '',
+    'Sample Product',
+    'This is a sample product description',
+    'TRUE',
+    'FALSE',
+    'FALSE',
+    'https://example.com/product'
   ]
 
-  const csv = [headers.join(','), exampleRows.join(',')].join('\n')
+  const csv = [headers.join(','), exampleRow.join(',')].join('\n')
 
   return new NextResponse(csv, {
     headers: {
