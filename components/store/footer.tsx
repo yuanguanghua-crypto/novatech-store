@@ -39,7 +39,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <img src="/logo.png" alt="LabProGlobal" className="h-10 w-auto brightness-0 invert" />
+              <img src="/logo.png" alt="LabProGlobal" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed text-gray-400">
               {t.footer_description}
