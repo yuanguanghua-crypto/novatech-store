@@ -3,6 +3,55 @@ import prisma from '@/lib/prisma'
 
 const BASE_URL = 'https://novatech-store-inky.vercel.app'
 
+// AEO: Knowledge pages for AI reference and SEO
+const knowledgePages: MetadataRoute.Sitemap = [
+  // What-is pages
+  {
+    url: `${BASE_URL}/knowledge/what-is/ph-meter`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  },
+  {
+    url: `${BASE_URL}/knowledge/what-is/dosing-pump`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  },
+  {
+    url: `${BASE_URL}/knowledge/what-is/conductivity-meter`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  },
+  {
+    url: `${BASE_URL}/knowledge/what-is/tds-meter`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  },
+  // How-to-choose pages
+  {
+    url: `${BASE_URL}/knowledge/how-to-choose/dosing-pump`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  },
+  // Compare pages
+  {
+    url: `${BASE_URL}/knowledge/compare/ph-meter-vs-orp-meter`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
+    url: `${BASE_URL}/knowledge/compare/digital-vs-analog-ph-meter`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+]
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -114,7 +163,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     }))
 
-    return [...staticPages, ...productPages, ...categoryPages, ...brandPages]
+    return [...staticPages, ...knowledgePages, ...productPages, ...categoryPages, ...brandPages]
   } catch (error) {
     console.error('Error generating sitemap:', error)
     return staticPages

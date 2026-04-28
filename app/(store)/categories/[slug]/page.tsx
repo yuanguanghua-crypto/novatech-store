@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import prisma from '@/lib/prisma'
 import { CategoryDetailClient } from '@/components/store/category-detail-client'
+import { getCategoryProfile } from '@/lib/category-profiles'
+import { getCategoryName } from '@/lib/i18n/category-translations'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -64,9 +66,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const cat = await getCategory(slug)
   if (!cat) return { title: 'Category Not Found' }
+  const profile = getCategoryProfile(slug)
   return {
-    title: cat.name,
-    description: `Browse ${cat.name} products. ${cat._count?.products || 0} products available.`,
+    title: `${cat.name} - ${profile?.keyParameters?.[0]?.name || 'Professional Equipment'}`,
+    description: profile?.definition || `Browse ${cat.name} products. ${cat._count?.products || 0} products available.`,
   }
 }
 
@@ -79,6 +82,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
 
   const pageNum = parseInt(page)
   const isParent = category.children.length > 0
+  const categoryProfile = getCategoryProfile(slug)
 
   if (isParent) {
     return (
@@ -103,6 +107,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       sort={sort}
       slug={slug}
       isParent={false}
+      categoryProfile={categoryProfile}
     />
   )
 }
