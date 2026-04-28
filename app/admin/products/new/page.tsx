@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ProductForm } from '@/components/admin/product-form'
+import { ProductForm } from '@/components/admin/product-form-new'
 import { ProductHeaderClient } from '@/components/admin/product-header-client'
 
 export const metadata: Metadata = { title: 'Add Product - Admin' }

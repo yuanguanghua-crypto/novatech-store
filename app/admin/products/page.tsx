@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import { formatPrice } from '@/lib/utils'
 import { useAdminI18n } from '@/components/admin/admin-i18n-provider'
+import { FileSpreadsheet, Upload } from 'lucide-react'
 
 interface Product {
   id: string
@@ -88,9 +89,19 @@ export default function AdminProductsPage() {
             {t.products_total.replace('{count}', total.toLocaleString())}
           </p>
         </div>
-        <Link href="/admin/products/new" className="btn-primary px-4 py-2 text-sm">
-          {t.products_add_new}
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/admin/products/import"
+            className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50 transition-colors"
+          >
+            <FileSpreadsheet className="w-4 h-4" />
+            {t.products_bulk_import || 'Bulk Import'}
+          </Link>
+          <Link href="/admin/products/new" className="btn-primary px-4 py-2 text-sm flex items-center gap-2">
+            <Upload className="w-4 h-4" />
+            {t.products_add_new}
+          </Link>
+        </div>
       </div>
 
       <form onSubmit={handleSearch} className="mb-4 flex gap-2">

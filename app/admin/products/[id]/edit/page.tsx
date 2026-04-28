@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import prisma from '@/lib/prisma'
-import { ProductForm } from '@/components/admin/product-form'
+import { ProductForm } from '@/components/admin/product-form-new'
 import { ProductHeaderClient } from '@/components/admin/product-header-client'
 
 interface Props {
@@ -23,10 +23,19 @@ export default async function AdminEditProductPage({ params }: Props) {
     where: { id },
     include: {
       images: { orderBy: [{ isPrimary: 'desc' }, { sortOrder: 'asc' }] },
+      category: true,
     },
   })
 
   if (!product) notFound()
+
+  // Get parent category if this is a child category
+  let parentCategory = null
+  if (product.category.parentId) {
+    parentCategory = await prisma.category.findUnique({
+      where: { id: product.category.parentId },
+    })
+  }
 
   return (
     <div>
@@ -41,20 +50,23 @@ export default async function AdminEditProductPage({ params }: Props) {
           name: product.name,
           slug: product.slug,
           description: product.description || '',
-          categoryId: product.categoryId,
+          categoryId: parentCategory?.id || product.categoryId,
+          subcategoryId: parentCategory ? product.categoryId : '',
           brandId: product.brandId || '',
           ourPrice: Number(product.ourPrice),
-          listPrice: product.listPrice ? Number(product.listPrice) : 0,
-          costPrice: product.costPrice ? Number(product.costPrice) : 0,
+          listPrice: product.listPrice ? Number(product.listPrice) : '',
+          costPrice: product.costPrice ? Number(product.costPrice) : '',
           currency: product.currency,
-          availability: product.availability,
-          stockQty: product.stockQty,
-          leadTimeDays: product.leadTimeDays || 0,
-          weight: product.weight ? Number(product.weight) : 0,
-          weightUnit: product.weightUnit || 'lbs',
+          availability: product.availability as 'in_stock' | 'out_of_stock' | 'lead_time',
+          stockQty: product.stockQty.toString(),
+          leadTimeDays: product.leadTimeDays?.toString() || '',
+          weight: product.weight ? Number(product.weight).toString() : '',
+          weightUnit: (product.weightUnit || 'lbs') as 'lbs' | 'kg' | 'oz',
           dimension: product.dimension || '',
           specs: (product.specs as Record<string, string>) || {},
           sourceUrl: product.sourceUrl || '',
+          metaTitle: product.metaTitle || '',
+          metaDesc: product.metaDesc || '',
           isActive: product.isActive,
           isFeatured: product.isFeatured,
           isNew: product.isNew,

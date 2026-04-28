@@ -45,6 +45,13 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
   const availability = getAvailabilityBadge(product.availability)
   const primaryImage = product.images.find(i => i.isPrimary) || product.images[0]
 
+  // Calculate discount percentage dynamically
+  const ourPrice = parseFloat(product.ourPrice?.toString() || '0')
+  const listPrice = parseFloat(product.listPrice?.toString() || '0')
+  const discountPercent = listPrice > 0 && ourPrice < listPrice
+    ? Math.round(((listPrice - ourPrice) / listPrice) * 100)
+    : 0
+
   return (
     <div className="container-custom py-8">
       {/* Breadcrumb */}
@@ -119,12 +126,16 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
             <span className="text-3xl font-bold text-gray-900">
               {formatPrice(product.ourPrice?.toString())}
             </span>
-            {product.listPrice && parseFloat(product.listPrice.toString()) > 0 && (
+            {listPrice > 0 && (
               <span className="ml-3 text-lg text-gray-400 line-through">
                 {formatPrice(product.listPrice.toString())}
               </span>
             )}
-            <span className="ml-2 text-sm text-green-600 font-medium">Save 15%</span>
+            {discountPercent > 0 && (
+              <span className="ml-2 text-sm text-green-600 font-semibold bg-green-50 px-2 py-0.5 rounded">
+                Save {discountPercent}%
+              </span>
+            )}
           </div>
 
           {/* Description */}
