@@ -78,13 +78,13 @@ export function Navbar() {
 
       {/* Main Navbar */}
       <div className="container-custom py-3 flex items-center gap-4">
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
+        {/* Logo - Right side in RTL */}
+        <Link href="/" className="flex-shrink-0 order-2 lg:order-1 rtl:order-2">
           <img src="/logo.png" alt="LabProGlobal" className="h-10 w-auto" />
         </Link>
 
         {/* Search Bar */}
-        <div className="flex-1 max-w-2xl">
+        <div className="flex-1 max-w-2xl order-1 lg:order-2 rtl:order-1">
           <div className="relative">
             <input
               type="text"
@@ -96,13 +96,13 @@ export function Navbar() {
                   window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`
                 }
               }}
-              className="w-full pl-4 pr-12 py-2.5 border border-gray-300 rounded-lg text-sm
+              className="w-full pl-4 pr-12 py-2.5 border border-gray-300 rounded-lg text-sm rtl:pl-12 rtl:pr-4
                          focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none
                          transition-all duration-200"
             />
             <button
               onClick={() => searchQuery.trim() && (window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`)}
-              className="absolute right-0 top-0 bottom-0 px-4 bg-blue-600 text-white rounded-r-lg
+              className="absolute ltr:right-0 rtl:left-0 top-0 bottom-0 px-4 bg-blue-600 text-white rounded-r-lg rtl:rounded-l-lg rtl:rounded-r-none
                          hover:bg-blue-700 transition-colors duration-200"
             >
               <Search className="w-4 h-4" />
@@ -111,7 +111,7 @@ export function Navbar() {
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 order-3">
           {/* Language Switcher */}
           <LanguageSwitcher />
 
