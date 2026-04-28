@@ -1,0 +1,751 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: Free Shipping on orders over $500
+        - generic [ref=e7]:
+          - link "+1 (800) 000-0000" [ref=e8] [cursor=pointer]:
+            - /url: tel:+1-800-000-0000
+          - link "sales@novatechstore.com" [ref=e9] [cursor=pointer]:
+            - /url: mailto:sales@novatechstore.com
+      - generic [ref=e10]:
+        - link "Novatech" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Novatech" [ref=e12]
+        - generic [ref=e14]:
+          - textbox "Search by product name, SKU, or brand..." [ref=e15]
+          - button [ref=e16] [cursor=pointer]:
+            - img [ref=e17]
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - button "Select language" [expanded] [active] [ref=e22] [cursor=pointer]:
+              - img [ref=e23]
+              - generic [ref=e26]: 🇺🇸 English
+              - img [ref=e27]
+            - listbox "Language options" [ref=e696]:
+              - generic [ref=e697]: Language / 语言
+              - option "🇺🇸 English" [selected] [ref=e698] [cursor=pointer]:
+                - generic [ref=e699]:
+                  - generic [ref=e700]: 🇺🇸
+                  - generic [ref=e701]: English
+                - img [ref=e702]
+              - option "🇨🇳 中文" [ref=e704] [cursor=pointer]:
+                - generic [ref=e705]:
+                  - generic [ref=e706]: 🇨🇳
+                  - generic [ref=e707]: 中文
+              - option "🇪🇸 Español" [ref=e708] [cursor=pointer]:
+                - generic [ref=e709]:
+                  - generic [ref=e710]: 🇪🇸
+                  - generic [ref=e711]: Español
+              - option "🇯🇵 日本語" [ref=e712] [cursor=pointer]:
+                - generic [ref=e713]:
+                  - generic [ref=e714]: 🇯🇵
+                  - generic [ref=e715]: 日本語
+              - option "🇮🇳 हिन्दी" [ref=e716] [cursor=pointer]:
+                - generic [ref=e717]:
+                  - generic [ref=e718]: 🇮🇳
+                  - generic [ref=e719]: हिन्दी
+              - option "🇸🇦 العربية" [ref=e720] [cursor=pointer]:
+                - generic [ref=e721]:
+                  - generic [ref=e722]: 🇸🇦
+                  - generic [ref=e723]: العربية
+              - option "🇧🇷 Português" [ref=e724] [cursor=pointer]:
+                - generic [ref=e725]:
+                  - generic [ref=e726]: 🇧🇷
+                  - generic [ref=e727]: Português
+          - link "Get a Quote" [ref=e29] [cursor=pointer]:
+            - /url: /quote
+            - img [ref=e30]
+            - generic [ref=e33]: Get a Quote
+          - link "Sign In" [ref=e34] [cursor=pointer]:
+            - /url: /auth/login
+            - img [ref=e35]
+            - generic [ref=e38]: Sign In
+          - link "Cart" [ref=e39] [cursor=pointer]:
+            - /url: /cart
+            - img [ref=e40]
+            - generic [ref=e44]: Cart
+      - navigation [ref=e45]:
+        - list [ref=e47]:
+          - listitem [ref=e48]:
+            - link "All Products" [ref=e49] [cursor=pointer]:
+              - /url: /products
+          - listitem [ref=e660]:
+            - link "Balances & Scales" [ref=e661] [cursor=pointer]:
+              - /url: /categories/balances-scales
+              - text: Balances & Scales
+              - img [ref=e662]
+          - listitem [ref=e664]:
+            - link "Hydrometers & Refractometers" [ref=e665] [cursor=pointer]:
+              - /url: /categories/hydrometers-refractometers
+              - text: Hydrometers & Refractometers
+              - img [ref=e666]
+          - listitem [ref=e668]:
+            - link "Lab Supplies" [ref=e669] [cursor=pointer]:
+              - /url: /categories/lab-supplies
+              - text: Lab Supplies
+              - img [ref=e670]
+          - listitem [ref=e672]:
+            - link "Laboratory Equipment" [ref=e673] [cursor=pointer]:
+              - /url: /categories/laboratory-equipment
+              - text: Laboratory Equipment
+              - img [ref=e674]
+          - listitem [ref=e676]:
+            - link "Liquid Handling" [ref=e677] [cursor=pointer]:
+              - /url: /categories/liquid-handling
+              - text: Liquid Handling
+              - img [ref=e678]
+          - listitem [ref=e680]:
+            - link "Metering Pumps" [ref=e681] [cursor=pointer]:
+              - /url: /categories/metering-pumps
+              - text: Metering Pumps
+              - img [ref=e682]
+          - listitem [ref=e684]:
+            - link "Optical Instruments" [ref=e685] [cursor=pointer]:
+              - /url: /categories/optical-instruments
+              - text: Optical Instruments
+              - img [ref=e686]
+          - listitem [ref=e688]:
+            - link "Pump Accessories" [ref=e689] [cursor=pointer]:
+              - /url: /categories/pump-accessories
+              - text: Pump Accessories
+              - img [ref=e690]
+          - listitem [ref=e692]:
+            - link "Water Quality Testing" [ref=e693] [cursor=pointer]:
+              - /url: /categories/water-quality-testing
+              - text: Water Quality Testing
+              - img [ref=e694]
+          - listitem [ref=e50]:
+            - link "All Categories" [ref=e51] [cursor=pointer]:
+              - /url: /categories
+    - main [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e55]:
+          - heading "All Products" [level=1] [ref=e56]
+          - paragraph [ref=e57]: 15,198 products found
+        - generic [ref=e58]:
+          - complementary [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e61]:
+                - heading "Availability" [level=3] [ref=e62]
+                - generic [ref=e64] [cursor=pointer]:
+                  - checkbox "In Stock Only" [ref=e65]
+                  - generic [ref=e66]: In Stock Only
+              - generic [ref=e67]:
+                - heading "Price Range" [level=3] [ref=e68]
+                - generic [ref=e69]:
+                  - spinbutton [ref=e70]
+                  - generic [ref=e71]: –
+                  - spinbutton [ref=e72]
+                - generic [ref=e73]:
+                  - button "< $100" [ref=e74] [cursor=pointer]
+                  - button "$100–$500" [ref=e75] [cursor=pointer]
+                  - button "$500–$2K" [ref=e76] [cursor=pointer]
+                  - button "$2K+" [ref=e77] [cursor=pointer]
+              - generic [ref=e78]:
+                - heading "Brand" [level=3] [ref=e79]
+                - generic [ref=e80]:
+                  - generic [ref=e81] [cursor=pointer]:
+                    - generic [ref=e82]:
+                      - checkbox "A&F Machine Products (284)" [ref=e83]
+                      - generic [ref=e84]: A&F Machine Products
+                    - generic [ref=e85]: (284)
+                  - generic [ref=e86] [cursor=pointer]:
+                    - generic [ref=e87]:
+                      - checkbox "Adam Equipment (478)" [ref=e88]
+                      - generic [ref=e89]: Adam Equipment
+                    - generic [ref=e90]: (478)
+                  - generic [ref=e91] [cursor=pointer]:
+                    - generic [ref=e92]:
+                      - checkbox "ATAGO (11)" [ref=e93]
+                      - generic [ref=e94]: ATAGO
+                    - generic [ref=e95]: (11)
+                  - generic [ref=e96] [cursor=pointer]:
+                    - generic [ref=e97]:
+                      - checkbox "Bee-Safe (9)" [ref=e98]
+                      - generic [ref=e99]: Bee-Safe
+                    - generic [ref=e100]: (9)
+                  - generic [ref=e101] [cursor=pointer]:
+                    - generic [ref=e102]:
+                      - checkbox "Bel-Art (226)" [ref=e103]
+                      - generic [ref=e104]: Bel-Art
+                    - generic [ref=e105]: (226)
+                  - generic [ref=e106] [cursor=pointer]:
+                    - generic [ref=e107]:
+                      - checkbox "Benchmark Scientific (119)" [ref=e108]
+                      - generic [ref=e109]: Benchmark Scientific
+                    - generic [ref=e110]: (119)
+                  - generic [ref=e111] [cursor=pointer]:
+                    - generic [ref=e112]:
+                      - checkbox "Body Scientific (45)" [ref=e113]
+                      - generic [ref=e114]: Body Scientific
+                    - generic [ref=e115]: (45)
+                  - generic [ref=e116] [cursor=pointer]:
+                    - generic [ref=e117]:
+                      - checkbox "Breakwood (8)" [ref=e118]
+                      - generic [ref=e119]: Breakwood
+                    - generic [ref=e120]: (8)
+                  - generic [ref=e121] [cursor=pointer]:
+                    - generic [ref=e122]:
+                      - checkbox "Carlon Meter (15)" [ref=e123]
+                      - generic [ref=e124]: Carlon Meter
+                    - generic [ref=e125]: (15)
+                  - generic [ref=e126] [cursor=pointer]:
+                    - generic [ref=e127]:
+                      - checkbox "CELLTREAT (235)" [ref=e128]
+                      - generic [ref=e129]: CELLTREAT
+                    - generic [ref=e130]: (235)
+                  - generic [ref=e131] [cursor=pointer]:
+                    - generic [ref=e132]:
+                      - checkbox "COBALT BLUE (2)" [ref=e133]
+                      - generic [ref=e134]: COBALT BLUE
+                    - generic [ref=e135]: (2)
+                  - generic [ref=e136] [cursor=pointer]:
+                    - generic [ref=e137]:
+                      - checkbox "Cole-Parmer (151)" [ref=e138]
+                      - generic [ref=e139]: Cole-Parmer
+                    - generic [ref=e140]: (151)
+                  - generic [ref=e141] [cursor=pointer]:
+                    - generic [ref=e142]:
+                      - checkbox "Cole-Parmer Essentials (11)" [ref=e143]
+                      - generic [ref=e144]: Cole-Parmer Essentials
+                    - generic [ref=e145]: (11)
+                  - generic [ref=e146] [cursor=pointer]:
+                    - generic [ref=e147]:
+                      - checkbox "Controlled Release Technologies (40)" [ref=e148]
+                      - generic [ref=e149]: Controlled Release Technologies
+                    - generic [ref=e150]: (40)
+                  - generic [ref=e151] [cursor=pointer]:
+                    - generic [ref=e152]:
+                      - checkbox "Digi-Sense (261)" [ref=e153]
+                      - generic [ref=e154]: Digi-Sense
+                    - generic [ref=e155]: (261)
+                  - generic [ref=e156] [cursor=pointer]:
+                    - generic [ref=e157]:
+                      - checkbox "Dynalon (16)" [ref=e158]
+                      - generic [ref=e159]: Dynalon
+                    - generic [ref=e160]: (16)
+                  - generic [ref=e161] [cursor=pointer]:
+                    - generic [ref=e162]:
+                      - checkbox "Eisco Scientific (61)" [ref=e163]
+                      - generic [ref=e164]: Eisco Scientific
+                    - generic [ref=e165]: (61)
+                  - generic [ref=e166] [cursor=pointer]:
+                    - generic [ref=e167]:
+                      - checkbox "Environmental Express (11)" [ref=e168]
+                      - generic [ref=e169]: Environmental Express
+                    - generic [ref=e170]: (11)
+                  - generic [ref=e171] [cursor=pointer]:
+                    - generic [ref=e172]:
+                      - checkbox "Fi-Streem (175)" [ref=e173]
+                      - generic [ref=e174]: Fi-Streem
+                    - generic [ref=e175]: (175)
+                  - generic [ref=e176] [cursor=pointer]:
+                    - generic [ref=e177]:
+                      - checkbox "Fischer Technical (1)" [ref=e178]
+                      - generic [ref=e179]: Fischer Technical
+                    - generic [ref=e180]: (1)
+                  - generic [ref=e181] [cursor=pointer]:
+                    - generic [ref=e182]:
+                      - checkbox "Foxx Life Sciences (130)" [ref=e183]
+                      - generic [ref=e184]: Foxx Life Sciences
+                    - generic [ref=e185]: (130)
+                  - generic [ref=e186] [cursor=pointer]:
+                    - generic [ref=e187]:
+                      - checkbox "FREE-SAT (2)" [ref=e188]
+                      - generic [ref=e189]: FREE-SAT
+                    - generic [ref=e190]: (2)
+                  - generic [ref=e191] [cursor=pointer]:
+                    - generic [ref=e192]:
+                      - checkbox "Globe Scientific (30)" [ref=e193]
+                      - generic [ref=e194]: Globe Scientific
+                    - generic [ref=e195]: (30)
+                  - generic [ref=e196] [cursor=pointer]:
+                    - generic [ref=e197]:
+                      - checkbox "Heathrow Scientific (3)" [ref=e198]
+                      - generic [ref=e199]: Heathrow Scientific
+                    - generic [ref=e200]: (3)
+                  - generic [ref=e201] [cursor=pointer]:
+                    - generic [ref=e202]:
+                      - checkbox "J.G. Finneran (502)" [ref=e203]
+                      - generic [ref=e204]: J.G. Finneran
+                    - generic [ref=e205]: (502)
+                  - generic [ref=e206] [cursor=pointer]:
+                    - generic [ref=e207]:
+                      - checkbox "Jeio Tech (4)" [ref=e208]
+                      - generic [ref=e209]: Jeio Tech
+                    - generic [ref=e210]: (4)
+                  - generic [ref=e211] [cursor=pointer]:
+                    - generic [ref=e212]:
+                      - checkbox "LabExact (12)" [ref=e213]
+                      - generic [ref=e214]: LabExact
+                    - generic [ref=e215]: (12)
+                  - generic [ref=e216] [cursor=pointer]:
+                    - generic [ref=e217]:
+                      - checkbox "LabStrong (90)" [ref=e218]
+                      - generic [ref=e219]: LabStrong
+                    - generic [ref=e220]: (90)
+                  - generic [ref=e221] [cursor=pointer]:
+                    - generic [ref=e222]:
+                      - checkbox "LevGo (14)" [ref=e223]
+                      - generic [ref=e224]: LevGo
+                    - generic [ref=e225]: (14)
+                  - generic [ref=e226] [cursor=pointer]:
+                    - generic [ref=e227]:
+                      - checkbox "LMI (3333)" [ref=e228]
+                      - generic [ref=e229]: LMI
+                    - generic [ref=e230]: (3333)
+                  - generic [ref=e231] [cursor=pointer]:
+                    - generic [ref=e232]:
+                      - checkbox "Lovibond (933)" [ref=e233]
+                      - generic [ref=e234]: Lovibond
+                    - generic [ref=e235]: (933)
+                  - generic [ref=e236] [cursor=pointer]:
+                    - generic [ref=e237]:
+                      - checkbox "Monti & Associates (1)" [ref=e238]
+                      - generic [ref=e239]: Monti & Associates
+                    - generic [ref=e240]: (1)
+                  - generic [ref=e241] [cursor=pointer]:
+                    - generic [ref=e242]:
+                      - checkbox "MTC Bio (98)" [ref=e243]
+                      - generic [ref=e244]: MTC Bio
+                    - generic [ref=e245]: (98)
+                  - generic [ref=e246] [cursor=pointer]:
+                    - generic [ref=e247]:
+                      - checkbox "Myron L (7)" [ref=e248]
+                      - generic [ref=e249]: Myron L
+                    - generic [ref=e250]: (7)
+                  - generic [ref=e251] [cursor=pointer]:
+                    - generic [ref=e252]:
+                      - checkbox "Mystaire (15)" [ref=e253]
+                      - generic [ref=e254]: Mystaire
+                    - generic [ref=e255]: (15)
+                  - generic [ref=e256] [cursor=pointer]:
+                    - generic [ref=e257]:
+                      - checkbox "NOVA-TECH (8)" [ref=e258]
+                      - generic [ref=e259]: NOVA-TECH
+                    - generic [ref=e260]: (8)
+                  - generic [ref=e261] [cursor=pointer]:
+                    - generic [ref=e262]:
+                      - checkbox "Nova-Tech International (15)" [ref=e263]
+                      - generic [ref=e264]: Nova-Tech International
+                    - generic [ref=e265]: (15)
+                  - generic [ref=e266] [cursor=pointer]:
+                    - generic [ref=e267]:
+                      - checkbox "Oakton (359)" [ref=e268]
+                      - generic [ref=e269]: Oakton
+                    - generic [ref=e270]: (359)
+                  - generic [ref=e271] [cursor=pointer]:
+                    - generic [ref=e272]:
+                      - checkbox "OBL Pumps (162)" [ref=e273]
+                      - generic [ref=e274]: OBL Pumps
+                    - generic [ref=e275]: (162)
+                  - generic [ref=e276] [cursor=pointer]:
+                    - generic [ref=e277]:
+                      - checkbox "Ohaus (276)" [ref=e278]
+                      - generic [ref=e279]: Ohaus
+                    - generic [ref=e280]: (276)
+                  - generic [ref=e281] [cursor=pointer]:
+                    - generic [ref=e282]:
+                      - checkbox "Primary Fluid Systems (20)" [ref=e283]
+                      - generic [ref=e284]: Primary Fluid Systems
+                    - generic [ref=e285]: (20)
+                  - generic [ref=e286] [cursor=pointer]:
+                    - generic [ref=e287]:
+                      - checkbox "Pulsafeeder (4259)" [ref=e288]
+                      - generic [ref=e289]: Pulsafeeder
+                    - generic [ref=e290]: (4259)
+                  - generic [ref=e291] [cursor=pointer]:
+                    - generic [ref=e292]:
+                      - checkbox "SCILOGEX (32)" [ref=e293]
+                      - generic [ref=e294]: SCILOGEX
+                    - generic [ref=e295]: (32)
+                  - generic [ref=e296] [cursor=pointer]:
+                    - generic [ref=e297]:
+                      - checkbox "SELECT-SAT (1)" [ref=e298]
+                      - generic [ref=e299]: SELECT-SAT
+                    - generic [ref=e300]: (1)
+                  - generic [ref=e301] [cursor=pointer]:
+                    - generic [ref=e302]:
+                      - checkbox "Tacky Traxx (15)" [ref=e303]
+                      - generic [ref=e304]: Tacky Traxx
+                    - generic [ref=e305]: (15)
+                  - generic [ref=e306] [cursor=pointer]:
+                    - generic [ref=e307]:
+                      - checkbox "Taylor Technologies (680)" [ref=e308]
+                      - generic [ref=e309]: Taylor Technologies
+                    - generic [ref=e310]: (680)
+                  - generic [ref=e311] [cursor=pointer]:
+                    - generic [ref=e312]:
+                      - checkbox "Traceable (53)" [ref=e313]
+                      - generic [ref=e314]: Traceable
+                    - generic [ref=e315]: (53)
+                  - generic [ref=e316] [cursor=pointer]:
+                    - generic [ref=e317]:
+                      - checkbox "Troemner (660)" [ref=e318]
+                      - generic [ref=e319]: Troemner
+                    - generic [ref=e320]: (660)
+                  - generic [ref=e321] [cursor=pointer]:
+                    - generic [ref=e322]:
+                      - checkbox "United Scientific (927)" [ref=e323]
+                      - generic [ref=e324]: United Scientific
+                    - generic [ref=e325]: (927)
+                  - generic [ref=e326] [cursor=pointer]:
+                    - generic [ref=e327]:
+                      - checkbox "VEE GEE Scientific (297)" [ref=e328]
+                      - generic [ref=e329]: VEE GEE Scientific
+                    - generic [ref=e330]: (297)
+                  - generic [ref=e331] [cursor=pointer]:
+                    - generic [ref=e332]:
+                      - checkbox "VELAB (68)" [ref=e333]
+                      - generic [ref=e334]: VELAB
+                    - generic [ref=e335]: (68)
+                  - generic [ref=e336] [cursor=pointer]:
+                    - generic [ref=e337]:
+                      - checkbox "Yamato (33)" [ref=e338]
+                      - generic [ref=e339]: Yamato
+                    - generic [ref=e340]: (33)
+          - generic [ref=e341]:
+            - generic [ref=e342]:
+              - paragraph [ref=e343]: Showing 1-24 of 15,198
+              - combobox [ref=e344]:
+                - option "Featured" [selected]
+                - option "Newest"
+                - 'option "Price: Low to High"'
+                - 'option "Price: High to Low"'
+            - generic [ref=e345]:
+              - link "PUL-XP009HF3X Pulsafeeder PUL-XP009HF3X PUL-XP009HF3X $849.00 Out of Stock" [ref=e346] [cursor=pointer]:
+                - /url: /products/pul-xp009hf3x
+                - img "PUL-XP009HF3X" [ref=e348]
+                - generic [ref=e349]:
+                  - paragraph [ref=e350]: Pulsafeeder
+                  - heading "PUL-XP009HF3X" [level=3] [ref=e351]
+                  - paragraph [ref=e352]: PUL-XP009HF3X
+                  - generic [ref=e353]:
+                    - generic [ref=e354]: $849.00
+                    - generic [ref=e355]: Out of Stock
+              - link "PUL-XP007LA3X Pulsafeeder PUL-XP007LA3X PUL-XP007LA3X $1,192.00 Out of Stock" [ref=e356] [cursor=pointer]:
+                - /url: /products/pul-xp007la3x
+                - img "PUL-XP007LA3X" [ref=e358]
+                - generic [ref=e359]:
+                  - paragraph [ref=e360]: Pulsafeeder
+                  - heading "PUL-XP007LA3X" [level=3] [ref=e361]
+                  - paragraph [ref=e362]: PUL-XP007LA3X
+                  - generic [ref=e363]:
+                    - generic [ref=e364]: $1,192.00
+                    - generic [ref=e365]: Out of Stock
+              - link "PUL-XP015LFHX Pulsafeeder PUL-XP015LFHX PUL-XP015LFHX $742.00 Out of Stock" [ref=e366] [cursor=pointer]:
+                - /url: /products/pul-xp015lfhx
+                - img "PUL-XP015LFHX" [ref=e368]
+                - generic [ref=e369]:
+                  - paragraph [ref=e370]: Pulsafeeder
+                  - heading "PUL-XP015LFHX" [level=3] [ref=e371]
+                  - paragraph [ref=e372]: PUL-XP015LFHX
+                  - generic [ref=e373]:
+                    - generic [ref=e374]: $742.00
+                    - generic [ref=e375]: Out of Stock
+              - link "PUL-XP009HALX Pulsafeeder PUL-XP009HALX PUL-XP009HALX $1,120.00 Out of Stock" [ref=e376] [cursor=pointer]:
+                - /url: /products/pul-xp009halx
+                - img "PUL-XP009HALX" [ref=e378]
+                - generic [ref=e379]:
+                  - paragraph [ref=e380]: Pulsafeeder
+                  - heading "PUL-XP009HALX" [level=3] [ref=e381]
+                  - paragraph [ref=e382]: PUL-XP009HALX
+                  - generic [ref=e383]:
+                    - generic [ref=e384]: $1,120.00
+                    - generic [ref=e385]: Out of Stock
+              - link "PUL-XP008LGLX Pulsafeeder PUL-XP008LGLX PUL-XP008LGLX $1,728.00 Out of Stock" [ref=e386] [cursor=pointer]:
+                - /url: /products/pul-xp008lglx
+                - img "PUL-XP008LGLX" [ref=e388]
+                - generic [ref=e389]:
+                  - paragraph [ref=e390]: Pulsafeeder
+                  - heading "PUL-XP008LGLX" [level=3] [ref=e391]
+                  - paragraph [ref=e392]: PUL-XP008LGLX
+                  - generic [ref=e393]:
+                    - generic [ref=e394]: $1,728.00
+                    - generic [ref=e395]: Out of Stock
+              - link "PUL-XP007HALX Pulsafeeder PUL-XP007HALX PUL-XP007HALX $1,120.00 Out of Stock" [ref=e396] [cursor=pointer]:
+                - /url: /products/pul-xp007halx
+                - img "PUL-XP007HALX" [ref=e398]
+                - generic [ref=e399]:
+                  - paragraph [ref=e400]: Pulsafeeder
+                  - heading "PUL-XP007HALX" [level=3] [ref=e401]
+                  - paragraph [ref=e402]: PUL-XP007HALX
+                  - generic [ref=e403]:
+                    - generic [ref=e404]: $1,120.00
+                    - generic [ref=e405]: Out of Stock
+              - link "PUL-XP004LF3X Pulsafeeder PUL-XP004LF3X PUL-XP004LF3X $849.00 Out of Stock" [ref=e406] [cursor=pointer]:
+                - /url: /products/pul-xp004lf3x
+                - img "PUL-XP004LF3X" [ref=e408]
+                - generic [ref=e409]:
+                  - paragraph [ref=e410]: Pulsafeeder
+                  - heading "PUL-XP004LF3X" [level=3] [ref=e411]
+                  - paragraph [ref=e412]: PUL-XP004LF3X
+                  - generic [ref=e413]:
+                    - generic [ref=e414]: $849.00
+                    - generic [ref=e415]: Out of Stock
+              - link "PUL-XP017HVHX Pulsafeeder PUL-XP017HVHX PUL-XP017HVHX $1,367.00 Out of Stock" [ref=e416] [cursor=pointer]:
+                - /url: /products/pul-xp017hvhx
+                - img "PUL-XP017HVHX" [ref=e418]
+                - generic [ref=e419]:
+                  - paragraph [ref=e420]: Pulsafeeder
+                  - heading "PUL-XP017HVHX" [level=3] [ref=e421]
+                  - paragraph [ref=e422]: PUL-XP017HVHX
+                  - generic [ref=e423]:
+                    - generic [ref=e424]: $1,367.00
+                    - generic [ref=e425]: Out of Stock
+              - link "PUL-XP015L8HX Pulsafeeder PUL-XP015L8HX PUL-XP015L8HX $1,000.00 Out of Stock" [ref=e426] [cursor=pointer]:
+                - /url: /products/pul-xp015l8hx
+                - img "PUL-XP015L8HX" [ref=e428]
+                - generic [ref=e429]:
+                  - paragraph [ref=e430]: Pulsafeeder
+                  - heading "PUL-XP015L8HX" [level=3] [ref=e431]
+                  - paragraph [ref=e432]: PUL-XP015L8HX
+                  - generic [ref=e433]:
+                    - generic [ref=e434]: $1,000.00
+                    - generic [ref=e435]: Out of Stock
+              - link "PUL-XP023HALX Pulsafeeder PUL-XP023HALX PUL-XP023HALX $1,120.00 Out of Stock" [ref=e436] [cursor=pointer]:
+                - /url: /products/pul-xp023halx
+                - img "PUL-XP023HALX" [ref=e438]
+                - generic [ref=e439]:
+                  - paragraph [ref=e440]: Pulsafeeder
+                  - heading "PUL-XP023HALX" [level=3] [ref=e441]
+                  - paragraph [ref=e442]: PUL-XP023HALX
+                  - generic [ref=e443]:
+                    - generic [ref=e444]: $1,120.00
+                    - generic [ref=e445]: Out of Stock
+              - link "PUL-XP050LF3X Pulsafeeder PUL-XP050LF3X PUL-XP050LF3X $849.00 Out of Stock" [ref=e446] [cursor=pointer]:
+                - /url: /products/pul-xp050lf3x
+                - img "PUL-XP050LF3X" [ref=e448]
+                - generic [ref=e449]:
+                  - paragraph [ref=e450]: Pulsafeeder
+                  - heading "PUL-XP050LF3X" [level=3] [ref=e451]
+                  - paragraph [ref=e452]: PUL-XP050LF3X
+                  - generic [ref=e453]:
+                    - generic [ref=e454]: $849.00
+                    - generic [ref=e455]: Out of Stock
+              - link "PUL-XP017LVLX Pulsafeeder PUL-XP017LVLX PUL-XP017LVLX $1,367.00 Out of Stock" [ref=e456] [cursor=pointer]:
+                - /url: /products/pul-xp017lvlx
+                - img "PUL-XP017LVLX" [ref=e458]
+                - generic [ref=e459]:
+                  - paragraph [ref=e460]: Pulsafeeder
+                  - heading "PUL-XP017LVLX" [level=3] [ref=e461]
+                  - paragraph [ref=e462]: PUL-XP017LVLX
+                  - generic [ref=e463]:
+                    - generic [ref=e464]: $1,367.00
+                    - generic [ref=e465]: Out of Stock
+              - link "PUL-XP023LAHX055 Pulsafeeder PUL-XP023LAHX055 PUL-XP023LAHX055 $1,120.00 Out of Stock" [ref=e466] [cursor=pointer]:
+                - /url: /products/pul-xp023lahx055
+                - img "PUL-XP023LAHX055" [ref=e468]
+                - generic [ref=e469]:
+                  - paragraph [ref=e470]: Pulsafeeder
+                  - heading "PUL-XP023LAHX055" [level=3] [ref=e471]
+                  - paragraph [ref=e472]: PUL-XP023LAHX055
+                  - generic [ref=e473]:
+                    - generic [ref=e474]: $1,120.00
+                    - generic [ref=e475]: Out of Stock
+              - link "PUL-XP009LFHX Pulsafeeder PUL-XP009LFHX PUL-XP009LFHX $742.00 Out of Stock" [ref=e476] [cursor=pointer]:
+                - /url: /products/pul-xp009lfhx
+                - img "PUL-XP009LFHX" [ref=e478]
+                - generic [ref=e479]:
+                  - paragraph [ref=e480]: Pulsafeeder
+                  - heading "PUL-XP009LFHX" [level=3] [ref=e481]
+                  - paragraph [ref=e482]: PUL-XP009LFHX
+                  - generic [ref=e483]:
+                    - generic [ref=e484]: $742.00
+                    - generic [ref=e485]: Out of Stock
+              - link "PUL-XP055HVHX Pulsafeeder PUL-XP055HVHX PUL-XP055HVHX $1,367.00 Out of Stock" [ref=e486] [cursor=pointer]:
+                - /url: /products/pul-xp055hvhx
+                - img "PUL-XP055HVHX" [ref=e488]
+                - generic [ref=e489]:
+                  - paragraph [ref=e490]: Pulsafeeder
+                  - heading "PUL-XP055HVHX" [level=3] [ref=e491]
+                  - paragraph [ref=e492]: PUL-XP055HVHX
+                  - generic [ref=e493]:
+                    - generic [ref=e494]: $1,367.00
+                    - generic [ref=e495]: Out of Stock
+              - link "PUL-UVSP20XRLLAUSB3 Pulsafeeder PUL-UVSP20XRLLAUSB3 PUL-UVSP20XRLLAUSB3 $817.00 Out of Stock" [ref=e496] [cursor=pointer]:
+                - /url: /products/pul-uvsp20xrllausb3
+                - img "PUL-UVSP20XRLLAUSB3" [ref=e498]
+                - generic [ref=e499]:
+                  - paragraph [ref=e500]: Pulsafeeder
+                  - heading "PUL-UVSP20XRLLAUSB3" [level=3] [ref=e501]
+                  - paragraph [ref=e502]: PUL-UVSP20XRLLAUSB3
+                  - generic [ref=e503]:
+                    - generic [ref=e504]: $817.00
+                    - generic [ref=e505]: Out of Stock
+              - link "PUL-XP017LGLX Pulsafeeder PUL-XP017LGLX PUL-XP017LGLX $1,728.00 Out of Stock" [ref=e506] [cursor=pointer]:
+                - /url: /products/pul-xp017lglx
+                - img "PUL-XP017LGLX" [ref=e508]
+                - generic [ref=e509]:
+                  - paragraph [ref=e510]: Pulsafeeder
+                  - heading "PUL-XP017LGLX" [level=3] [ref=e511]
+                  - paragraph [ref=e512]: PUL-XP017LGLX
+                  - generic [ref=e513]:
+                    - generic [ref=e514]: $1,728.00
+                    - generic [ref=e515]: Out of Stock
+              - link "PUL-XP015HA4X Pulsafeeder PUL-XP015HA4X PUL-XP015HA4X $1,145.00 Out of Stock" [ref=e516] [cursor=pointer]:
+                - /url: /products/pul-xp015ha4x
+                - img "PUL-XP015HA4X" [ref=e518]
+                - generic [ref=e519]:
+                  - paragraph [ref=e520]: Pulsafeeder
+                  - heading "PUL-XP015HA4X" [level=3] [ref=e521]
+                  - paragraph [ref=e522]: PUL-XP015HA4X
+                  - generic [ref=e523]:
+                    - generic [ref=e524]: $1,145.00
+                    - generic [ref=e525]: Out of Stock
+              - link "PUL-XP008LV3X Pulsafeeder PUL-XP008LV3X PUL-XP008LV3X $1,451.00 Out of Stock" [ref=e526] [cursor=pointer]:
+                - /url: /products/pul-xp008lv3x
+                - img "PUL-XP008LV3X" [ref=e528]
+                - generic [ref=e529]:
+                  - paragraph [ref=e530]: Pulsafeeder
+                  - heading "PUL-XP008LV3X" [level=3] [ref=e531]
+                  - paragraph [ref=e532]: PUL-XP008LV3X
+                  - generic [ref=e533]:
+                    - generic [ref=e534]: $1,451.00
+                    - generic [ref=e535]: Out of Stock
+              - link "PUL-XP015H2HX Pulsafeeder PUL-XP015H2HX PUL-XP015H2HX $1,119.00 Out of Stock" [ref=e536] [cursor=pointer]:
+                - /url: /products/pul-xp015h2hx
+                - img "PUL-XP015H2HX" [ref=e538]
+                - generic [ref=e539]:
+                  - paragraph [ref=e540]: Pulsafeeder
+                  - heading "PUL-XP015H2HX" [level=3] [ref=e541]
+                  - paragraph [ref=e542]: PUL-XP015H2HX
+                  - generic [ref=e543]:
+                    - generic [ref=e544]: $1,119.00
+                    - generic [ref=e545]: Out of Stock
+              - link "PUL-LPH8S2-PTCB-365 Pulsafeeder PUL-LPH8S2-PTCB-365 PUL-LPH8S2-PTCB-365 $3,321.00 Out of Stock" [ref=e546] [cursor=pointer]:
+                - /url: /products/pul-lph8s2-ptcb-365
+                - img "PUL-LPH8S2-PTCB-365" [ref=e548]
+                - generic [ref=e549]:
+                  - paragraph [ref=e550]: Pulsafeeder
+                  - heading "PUL-LPH8S2-PTCB-365" [level=3] [ref=e551]
+                  - paragraph [ref=e552]: PUL-LPH8S2-PTCB-365
+                  - generic [ref=e553]:
+                    - generic [ref=e554]: $3,321.00
+                    - generic [ref=e555]: Out of Stock
+              - link "PUL-XP015HAHX055 Pulsafeeder PUL-XP015HAHX055 PUL-XP015HAHX055 $1,120.00 Out of Stock" [ref=e556] [cursor=pointer]:
+                - /url: /products/pul-xp015hahx055
+                - img "PUL-XP015HAHX055" [ref=e558]
+                - generic [ref=e559]:
+                  - paragraph [ref=e560]: Pulsafeeder
+                  - heading "PUL-XP015HAHX055" [level=3] [ref=e561]
+                  - paragraph [ref=e562]: PUL-XP015HAHX055
+                  - generic [ref=e563]:
+                    - generic [ref=e564]: $1,120.00
+                    - generic [ref=e565]: Out of Stock
+              - link "PUL-XP009L1HX Pulsafeeder PUL-XP009L1HX PUL-XP009L1HX $1,171.00 Out of Stock" [ref=e566] [cursor=pointer]:
+                - /url: /products/pul-xp009l1hx
+                - img "PUL-XP009L1HX" [ref=e568]
+                - generic [ref=e569]:
+                  - paragraph [ref=e570]: Pulsafeeder
+                  - heading "PUL-XP009L1HX" [level=3] [ref=e571]
+                  - paragraph [ref=e572]: PUL-XP009L1HX
+                  - generic [ref=e573]:
+                    - generic [ref=e574]: $1,171.00
+                    - generic [ref=e575]: Out of Stock
+              - link "PUL-XP023LF4X Pulsafeeder PUL-XP023LF4X PUL-XP023LF4X $849.00 Out of Stock" [ref=e576] [cursor=pointer]:
+                - /url: /products/pul-xp023lf4x
+                - img "PUL-XP023LF4X" [ref=e578]
+                - generic [ref=e579]:
+                  - paragraph [ref=e580]: Pulsafeeder
+                  - heading "PUL-XP023LF4X" [level=3] [ref=e581]
+                  - paragraph [ref=e582]: PUL-XP023LF4X
+                  - generic [ref=e583]:
+                    - generic [ref=e584]: $849.00
+                    - generic [ref=e585]: Out of Stock
+            - generic [ref=e586]:
+              - link "1" [ref=e587] [cursor=pointer]:
+                - /url: /products?page=1
+              - link "2" [ref=e588] [cursor=pointer]:
+                - /url: /products?page=2
+              - link "3" [ref=e589] [cursor=pointer]:
+                - /url: /products?page=3
+              - link "4" [ref=e590] [cursor=pointer]:
+                - /url: /products?page=4
+              - link "5" [ref=e591] [cursor=pointer]:
+                - /url: /products?page=5
+              - link "6" [ref=e592] [cursor=pointer]:
+                - /url: /products?page=6
+              - link "7" [ref=e593] [cursor=pointer]:
+                - /url: /products?page=7
+              - link "Next" [ref=e594] [cursor=pointer]:
+                - /url: /products?page=2
+    - contentinfo [ref=e595]:
+      - generic [ref=e597]:
+        - generic [ref=e598]:
+          - img "Novatech" [ref=e600]
+          - paragraph [ref=e601]: Your trusted partner for laboratory equipment.
+          - generic [ref=e602]:
+            - generic [ref=e603]:
+              - img [ref=e604]
+              - generic [ref=e606]: +1 (800) 000-0000
+            - generic [ref=e607]:
+              - img [ref=e608]
+              - link "sales@novatechstore.com" [ref=e611] [cursor=pointer]:
+                - /url: mailto:sales@novatechstore.com
+        - generic [ref=e612]:
+          - heading "Products" [level=3] [ref=e613]
+          - list [ref=e614]:
+            - listitem [ref=e615]:
+              - link "Diaphragm Metering Pumps" [ref=e616] [cursor=pointer]:
+                - /url: /categories/diaphragm-metering-pumps
+            - listitem [ref=e617]:
+              - link "pH & ORP Controllers" [ref=e618] [cursor=pointer]:
+                - /url: /categories/ph-orp-controllers
+            - listitem [ref=e619]:
+              - link "Precision Balances" [ref=e620] [cursor=pointer]:
+                - /url: /categories/precision-balances
+            - listitem [ref=e621]:
+              - link "Autoclaves" [ref=e622] [cursor=pointer]:
+                - /url: /categories/autoclaves
+            - listitem [ref=e623]:
+              - link "Compound Microscopes" [ref=e624] [cursor=pointer]:
+                - /url: /categories/compound-microscopes
+            - listitem [ref=e625]:
+              - link "All Products" [ref=e626] [cursor=pointer]:
+                - /url: /products
+        - generic [ref=e627]:
+          - heading "Services" [level=3] [ref=e628]
+          - list [ref=e629]:
+            - listitem [ref=e630]:
+              - link "Request Quote" [ref=e631] [cursor=pointer]:
+                - /url: /quote
+            - listitem [ref=e632]:
+              - link "Bulk Orders" [ref=e633] [cursor=pointer]:
+                - /url: /quote?type=bulk
+            - listitem [ref=e634]:
+              - link "Technical Support" [ref=e635] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e636]:
+              - link "Returns & Refunds" [ref=e637] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e638]:
+              - link "Shipping Policy" [ref=e639] [cursor=pointer]:
+                - /url: /shipping
+        - generic [ref=e640]:
+          - heading "My Account" [level=3] [ref=e641]
+          - list [ref=e642]:
+            - listitem [ref=e643]:
+              - link "Sign In" [ref=e644] [cursor=pointer]:
+                - /url: /auth/login
+            - listitem [ref=e645]:
+              - link "Create Account" [ref=e646] [cursor=pointer]:
+                - /url: /auth/register
+            - listitem [ref=e647]:
+              - link "My Orders" [ref=e648] [cursor=pointer]:
+                - /url: /account/orders
+            - listitem [ref=e649]:
+              - link "My Quotes" [ref=e650] [cursor=pointer]:
+                - /url: /account/quotes
+            - listitem [ref=e651]:
+              - link "Address Book" [ref=e652] [cursor=pointer]:
+                - /url: /account/addresses
+      - generic [ref=e654]:
+        - paragraph [ref=e655]: © 2026 LabProGlobal. All rights reserved
+        - generic [ref=e656]:
+          - link "Privacy Policy" [ref=e657] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms of Service" [ref=e658] [cursor=pointer]:
+            - /url: /terms
+  - alert [ref=e659]

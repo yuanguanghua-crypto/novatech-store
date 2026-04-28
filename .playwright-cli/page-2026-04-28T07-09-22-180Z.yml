@@ -1,0 +1,245 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: 订单满 $500 免费送货
+        - generic [ref=e7]:
+          - link "+1 (800) 000-0000" [ref=e8] [cursor=pointer]:
+            - /url: tel:+1-800-000-0000
+          - link "sales@novatechstore.com" [ref=e9] [cursor=pointer]:
+            - /url: mailto:sales@novatechstore.com
+      - generic [ref=e10]:
+        - link "Novatech" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Novatech" [ref=e12]
+        - generic [ref=e14]:
+          - textbox "按产品名称、SKU 或品牌搜索..." [ref=e15]
+          - button [ref=e16] [cursor=pointer]:
+            - img [ref=e17]
+        - generic [ref=e20]:
+          - button "选择语言" [ref=e22] [cursor=pointer]:
+            - img [ref=e23]
+            - generic [ref=e26]: 🇨🇳 中文
+            - img [ref=e27]
+          - link "获取报价" [ref=e29] [cursor=pointer]:
+            - /url: /quote
+            - img [ref=e30]
+            - generic [ref=e33]: 获取报价
+          - link "登录" [ref=e34] [cursor=pointer]:
+            - /url: /auth/login
+            - img [ref=e35]
+            - generic [ref=e38]: 登录
+          - link "购物车" [ref=e39] [cursor=pointer]:
+            - /url: /cart
+            - img [ref=e40]
+            - generic [ref=e44]: 购物车
+      - navigation [ref=e45]:
+        - list [ref=e47]:
+          - listitem [ref=e48]:
+            - link "全部产品" [ref=e49] [cursor=pointer]:
+              - /url: /products
+          - listitem [ref=e50]:
+            - link "全部分类" [ref=e51] [cursor=pointer]:
+              - /url: /categories
+    - main [ref=e52]:
+      - generic [ref=e53]:
+        - navigation [ref=e54]:
+          - link "首页" [ref=e55] [cursor=pointer]:
+            - /url: /
+          - img [ref=e56]
+          - link "产品" [ref=e58] [cursor=pointer]:
+            - /url: /products
+          - img [ref=e59]
+          - link "Peristaltic Metering Pumps" [ref=e61] [cursor=pointer]:
+            - /url: /categories/peristaltic-metering-pumps
+          - img [ref=e62]
+          - generic [ref=e64]: PUL-XP009HF3X
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - img "PUL-XP009HF3X" [ref=e68]
+            - generic [ref=e69]:
+              - img "PUL-XP009HF3X 1" [ref=e71] [cursor=pointer]
+              - img "PUL-XP009HF3X 2" [ref=e73] [cursor=pointer]
+          - generic [ref=e74]:
+            - link "Pulsafeeder" [ref=e75] [cursor=pointer]:
+              - /url: /brands/pulsafeeder
+            - heading "PUL-XP009HF3X" [level=1] [ref=e76]
+            - paragraph [ref=e77]: SKU PUL-XP009HF3X
+            - generic [ref=e79]: Out of Stock
+            - generic [ref=e80]: $849.00
+            - paragraph [ref=e81]: CHEM-TECH XP Series Peristaltic Metering Pump, 9 GPD @ 70 PSI, 230 VAC (Manual Control, Fixed Rate)
+            - generic [ref=e82]:
+              - heading "主要规格" [level=3] [ref=e83]
+              - generic [ref=e84]:
+                - generic [ref=e85]:
+                  - term [ref=e86]: Brand
+                  - definition [ref=e87]: Pulsafeeder
+                - generic [ref=e88]:
+                  - term [ref=e89]: Max Flow (GPD)
+                  - definition [ref=e90]: "9"
+                - generic [ref=e91]:
+                  - term [ref=e92]: Max Flow (GPH)
+                  - definition [ref=e93]: "0.38"
+                - generic [ref=e94]:
+                  - term [ref=e95]: Model Number
+                  - definition [ref=e96]: XP009HF3X
+                - generic [ref=e97]:
+                  - term [ref=e98]: Product Line
+                  - definition [ref=e99]: Chem-Tech Series XP
+                - generic [ref=e100]:
+                  - term [ref=e101]: Product Type
+                  - definition [ref=e102]: Peristaltic Metering Pump
+            - generic [ref=e103]:
+              - generic [ref=e104]:
+                - generic [ref=e105]:
+                  - button "−" [ref=e106] [cursor=pointer]
+                  - generic [ref=e107]: "1"
+                  - button "+" [ref=e108] [cursor=pointer]
+                - button "加入购物车" [ref=e109] [cursor=pointer]:
+                  - img [ref=e110]
+                  - text: 加入购物车
+              - button "申请报价" [ref=e114] [cursor=pointer]:
+                - img [ref=e115]
+                - text: 申请报价
+            - generic [ref=e118]:
+              - generic [ref=e119]: 安全支付
+              - generic [ref=e120]: 快速发货
+              - generic [ref=e121]: 退货政策
+              - generic [ref=e122]: 专家支持
+        - generic [ref=e123]:
+          - heading "完整规格" [level=2] [ref=e124]
+          - table [ref=e126]:
+            - rowgroup [ref=e127]:
+              - row "Brand Pulsafeeder" [ref=e128]:
+                - cell "Brand" [ref=e129]
+                - cell "Pulsafeeder" [ref=e130]
+              - row "Max Flow (GPD) 9" [ref=e131]:
+                - cell "Max Flow (GPD)" [ref=e132]
+                - cell "9" [ref=e133]
+              - row "Max Flow (GPH) 0.38" [ref=e134]:
+                - cell "Max Flow (GPH)" [ref=e135]
+                - cell "0.38" [ref=e136]
+              - row "Model Number XP009HF3X" [ref=e137]:
+                - cell "Model Number" [ref=e138]
+                - cell "XP009HF3X" [ref=e139]
+              - row "Product Line Chem-Tech Series XP" [ref=e140]:
+                - cell "Product Line" [ref=e141]
+                - cell "Chem-Tech Series XP" [ref=e142]
+              - row "Product Type Peristaltic Metering Pump" [ref=e143]:
+                - cell "Product Type" [ref=e144]
+                - cell "Peristaltic Metering Pump" [ref=e145]
+              - row "Product Group Pumps" [ref=e146]:
+                - cell "Product Group" [ref=e147]
+                - cell "Pumps" [ref=e148]
+              - row "Max Pressure (PSI) 70" [ref=e149]:
+                - cell "Max Pressure (PSI)" [ref=e150]
+                - cell "70" [ref=e151]
+        - generic [ref=e152]:
+          - heading "相关产品" [level=2] [ref=e153]
+          - generic [ref=e154]:
+            - link "PUL-XP007LA3X Pulsafeeder PUL-XP007LA3X $1,192.00" [ref=e155] [cursor=pointer]:
+              - /url: /products/pul-xp007la3x
+              - img "PUL-XP007LA3X" [ref=e157]
+              - generic [ref=e158]:
+                - paragraph [ref=e159]: Pulsafeeder
+                - paragraph [ref=e160]: PUL-XP007LA3X
+                - paragraph [ref=e161]: $1,192.00
+            - link "PUL-XP015LFHX Pulsafeeder PUL-XP015LFHX $742.00" [ref=e162] [cursor=pointer]:
+              - /url: /products/pul-xp015lfhx
+              - img "PUL-XP015LFHX" [ref=e164]
+              - generic [ref=e165]:
+                - paragraph [ref=e166]: Pulsafeeder
+                - paragraph [ref=e167]: PUL-XP015LFHX
+                - paragraph [ref=e168]: $742.00
+            - link "PUL-XP009HALX Pulsafeeder PUL-XP009HALX $1,120.00" [ref=e169] [cursor=pointer]:
+              - /url: /products/pul-xp009halx
+              - img "PUL-XP009HALX" [ref=e171]
+              - generic [ref=e172]:
+                - paragraph [ref=e173]: Pulsafeeder
+                - paragraph [ref=e174]: PUL-XP009HALX
+                - paragraph [ref=e175]: $1,120.00
+            - link "PUL-XP008LGLX Pulsafeeder PUL-XP008LGLX $1,728.00" [ref=e176] [cursor=pointer]:
+              - /url: /products/pul-xp008lglx
+              - img "PUL-XP008LGLX" [ref=e178]
+              - generic [ref=e179]:
+                - paragraph [ref=e180]: Pulsafeeder
+                - paragraph [ref=e181]: PUL-XP008LGLX
+                - paragraph [ref=e182]: $1,728.00
+    - contentinfo [ref=e183]:
+      - generic [ref=e185]:
+        - generic [ref=e186]:
+          - img "Novatech" [ref=e188]
+          - paragraph [ref=e189]: LabProGlobal 是值得信赖的实验室和工业设备供应商，专注于化学计量泵、水质分析仪、精密天平和工业仪器的分销。
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - img [ref=e192]
+              - generic [ref=e194]: +1 (800) 000-0000
+            - generic [ref=e195]:
+              - img [ref=e196]
+              - link "sales@novatechstore.com" [ref=e199] [cursor=pointer]:
+                - /url: mailto:sales@novatechstore.com
+        - generic [ref=e200]:
+          - heading "产品" [level=3] [ref=e201]
+          - list [ref=e202]:
+            - listitem [ref=e203]:
+              - link "隔膜计量泵" [ref=e204] [cursor=pointer]:
+                - /url: /categories/diaphragm-metering-pumps
+            - listitem [ref=e205]:
+              - link "pH 和 ORP 控制器" [ref=e206] [cursor=pointer]:
+                - /url: /categories/ph-orp-controllers
+            - listitem [ref=e207]:
+              - link "精密天平" [ref=e208] [cursor=pointer]:
+                - /url: /categories/precision-balances
+            - listitem [ref=e209]:
+              - link "高压灭菌器" [ref=e210] [cursor=pointer]:
+                - /url: /categories/autoclaves
+            - listitem [ref=e211]:
+              - link "复式显微镜" [ref=e212] [cursor=pointer]:
+                - /url: /categories/compound-microscopes
+            - listitem [ref=e213]:
+              - link "全部产品" [ref=e214] [cursor=pointer]:
+                - /url: /products
+        - generic [ref=e215]:
+          - heading "服务" [level=3] [ref=e216]
+          - list [ref=e217]:
+            - listitem [ref=e218]:
+              - link "申请报价" [ref=e219] [cursor=pointer]:
+                - /url: /quote
+            - listitem [ref=e220]:
+              - link "批量订购" [ref=e221] [cursor=pointer]:
+                - /url: /quote?type=bulk
+            - listitem [ref=e222]:
+              - link "技术支持" [ref=e223] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e224]:
+              - link "退货与退款" [ref=e225] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e226]:
+              - link "运输政策" [ref=e227] [cursor=pointer]:
+                - /url: /shipping
+        - generic [ref=e228]:
+          - heading "我的账户" [level=3] [ref=e229]
+          - list [ref=e230]:
+            - listitem [ref=e231]:
+              - link "登录" [ref=e232] [cursor=pointer]:
+                - /url: /auth/login
+            - listitem [ref=e233]:
+              - link "创建账户" [ref=e234] [cursor=pointer]:
+                - /url: /auth/register
+            - listitem [ref=e235]:
+              - link "我的订单" [ref=e236] [cursor=pointer]:
+                - /url: /account/orders
+            - listitem [ref=e237]:
+              - link "我的报价" [ref=e238] [cursor=pointer]:
+                - /url: /account/quotes
+            - listitem [ref=e239]:
+              - link "地址簿" [ref=e240] [cursor=pointer]:
+                - /url: /account/addresses
+      - generic [ref=e242]:
+        - paragraph [ref=e243]: © 2026 LabProGlobal. 版权所有
+        - generic [ref=e244]:
+          - link "隐私政策" [ref=e245] [cursor=pointer]:
+            - /url: /privacy
+          - link "使用条款" [ref=e246] [cursor=pointer]:
+            - /url: /terms
+  - alert [ref=e247]

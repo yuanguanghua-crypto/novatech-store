@@ -80,7 +80,7 @@ export function Navbar() {
       <div className="container py-3 flex items-center gap-4">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <img src="/logo.png" alt="Novatech" className="h-10 w-auto" />
+          <img src="/logo.png" alt="LabProGlobal" className="h-10 w-auto" />
         </Link>
 
         {/* Search Bar */}

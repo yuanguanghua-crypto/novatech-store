@@ -1,0 +1,383 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: 订单满 $500 免费送货
+        - generic [ref=e7]:
+          - link "+1 (800) 000-0000" [ref=e8] [cursor=pointer]:
+            - /url: tel:+1-800-000-0000
+          - link "sales@novatechstore.com" [ref=e9] [cursor=pointer]:
+            - /url: mailto:sales@novatechstore.com
+      - generic [ref=e10]:
+        - link "Novatech" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Novatech" [ref=e12]
+        - generic [ref=e14]:
+          - textbox "按产品名称、SKU 或品牌搜索..." [ref=e15]
+          - button [ref=e16] [cursor=pointer]:
+            - img [ref=e17]
+        - generic [ref=e20]:
+          - button "选择语言" [ref=e22] [cursor=pointer]:
+            - img [ref=e23]
+            - generic [ref=e26]: 🇨🇳 中文
+            - img [ref=e27]
+          - link "获取报价" [ref=e29] [cursor=pointer]:
+            - /url: /quote
+            - img [ref=e30]
+            - generic [ref=e33]: 获取报价
+          - link "登录" [ref=e34] [cursor=pointer]:
+            - /url: /auth/login
+            - img [ref=e35]
+            - generic [ref=e38]: 登录
+          - link "购物车" [ref=e39] [cursor=pointer]:
+            - /url: /cart
+            - img [ref=e40]
+            - generic [ref=e44]: 购物车
+      - navigation [ref=e45]:
+        - list [ref=e47]:
+          - listitem [ref=e48]:
+            - link "全部产品" [ref=e49] [cursor=pointer]:
+              - /url: /products
+          - listitem [ref=e50]:
+            - link "全部分类" [ref=e51] [cursor=pointer]:
+              - /url: /categories
+    - main [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - heading "\" Pulsafeeder \" 的搜索结果" [level=1] [ref=e55]
+          - paragraph [ref=e56]: 找到 4,259 个结果
+        - generic [ref=e57]:
+          - paragraph [ref=e58]: Showing 1–24 of 4,259
+          - combobox [ref=e59]:
+            - option "推荐" [selected]
+            - option "最新"
+            - option "价格：从低到高"
+            - option "价格：从高到低"
+        - generic [ref=e60]:
+          - link "PUL-XP009HF3X Pulsafeeder PUL-XP009HF3X PUL-XP009HF3X $849.00 缺货" [ref=e61] [cursor=pointer]:
+            - /url: /products/pul-xp009hf3x
+            - img "PUL-XP009HF3X" [ref=e63]
+            - generic [ref=e64]:
+              - paragraph [ref=e65]: Pulsafeeder
+              - heading "PUL-XP009HF3X" [level=3] [ref=e66]
+              - paragraph [ref=e67]: PUL-XP009HF3X
+              - generic [ref=e68]:
+                - generic [ref=e69]: $849.00
+                - generic [ref=e70]: 缺货
+          - link "PUL-XP007LA3X Pulsafeeder PUL-XP007LA3X PUL-XP007LA3X $1,192.00 缺货" [ref=e71] [cursor=pointer]:
+            - /url: /products/pul-xp007la3x
+            - img "PUL-XP007LA3X" [ref=e73]
+            - generic [ref=e74]:
+              - paragraph [ref=e75]: Pulsafeeder
+              - heading "PUL-XP007LA3X" [level=3] [ref=e76]
+              - paragraph [ref=e77]: PUL-XP007LA3X
+              - generic [ref=e78]:
+                - generic [ref=e79]: $1,192.00
+                - generic [ref=e80]: 缺货
+          - link "PUL-XP015LFHX Pulsafeeder PUL-XP015LFHX PUL-XP015LFHX $742.00 缺货" [ref=e81] [cursor=pointer]:
+            - /url: /products/pul-xp015lfhx
+            - img "PUL-XP015LFHX" [ref=e83]
+            - generic [ref=e84]:
+              - paragraph [ref=e85]: Pulsafeeder
+              - heading "PUL-XP015LFHX" [level=3] [ref=e86]
+              - paragraph [ref=e87]: PUL-XP015LFHX
+              - generic [ref=e88]:
+                - generic [ref=e89]: $742.00
+                - generic [ref=e90]: 缺货
+          - link "PUL-XP009HALX Pulsafeeder PUL-XP009HALX PUL-XP009HALX $1,120.00 缺货" [ref=e91] [cursor=pointer]:
+            - /url: /products/pul-xp009halx
+            - img "PUL-XP009HALX" [ref=e93]
+            - generic [ref=e94]:
+              - paragraph [ref=e95]: Pulsafeeder
+              - heading "PUL-XP009HALX" [level=3] [ref=e96]
+              - paragraph [ref=e97]: PUL-XP009HALX
+              - generic [ref=e98]:
+                - generic [ref=e99]: $1,120.00
+                - generic [ref=e100]: 缺货
+          - link "PUL-XP008LGLX Pulsafeeder PUL-XP008LGLX PUL-XP008LGLX $1,728.00 缺货" [ref=e101] [cursor=pointer]:
+            - /url: /products/pul-xp008lglx
+            - img "PUL-XP008LGLX" [ref=e103]
+            - generic [ref=e104]:
+              - paragraph [ref=e105]: Pulsafeeder
+              - heading "PUL-XP008LGLX" [level=3] [ref=e106]
+              - paragraph [ref=e107]: PUL-XP008LGLX
+              - generic [ref=e108]:
+                - generic [ref=e109]: $1,728.00
+                - generic [ref=e110]: 缺货
+          - link "PUL-XP007HALX Pulsafeeder PUL-XP007HALX PUL-XP007HALX $1,120.00 缺货" [ref=e111] [cursor=pointer]:
+            - /url: /products/pul-xp007halx
+            - img "PUL-XP007HALX" [ref=e113]
+            - generic [ref=e114]:
+              - paragraph [ref=e115]: Pulsafeeder
+              - heading "PUL-XP007HALX" [level=3] [ref=e116]
+              - paragraph [ref=e117]: PUL-XP007HALX
+              - generic [ref=e118]:
+                - generic [ref=e119]: $1,120.00
+                - generic [ref=e120]: 缺货
+          - link "PUL-XP004LF3X Pulsafeeder PUL-XP004LF3X PUL-XP004LF3X $849.00 缺货" [ref=e121] [cursor=pointer]:
+            - /url: /products/pul-xp004lf3x
+            - img "PUL-XP004LF3X" [ref=e123]
+            - generic [ref=e124]:
+              - paragraph [ref=e125]: Pulsafeeder
+              - heading "PUL-XP004LF3X" [level=3] [ref=e126]
+              - paragraph [ref=e127]: PUL-XP004LF3X
+              - generic [ref=e128]:
+                - generic [ref=e129]: $849.00
+                - generic [ref=e130]: 缺货
+          - link "PUL-XP017HVHX Pulsafeeder PUL-XP017HVHX PUL-XP017HVHX $1,367.00 缺货" [ref=e131] [cursor=pointer]:
+            - /url: /products/pul-xp017hvhx
+            - img "PUL-XP017HVHX" [ref=e133]
+            - generic [ref=e134]:
+              - paragraph [ref=e135]: Pulsafeeder
+              - heading "PUL-XP017HVHX" [level=3] [ref=e136]
+              - paragraph [ref=e137]: PUL-XP017HVHX
+              - generic [ref=e138]:
+                - generic [ref=e139]: $1,367.00
+                - generic [ref=e140]: 缺货
+          - link "PUL-XP015L8HX Pulsafeeder PUL-XP015L8HX PUL-XP015L8HX $1,000.00 缺货" [ref=e141] [cursor=pointer]:
+            - /url: /products/pul-xp015l8hx
+            - img "PUL-XP015L8HX" [ref=e143]
+            - generic [ref=e144]:
+              - paragraph [ref=e145]: Pulsafeeder
+              - heading "PUL-XP015L8HX" [level=3] [ref=e146]
+              - paragraph [ref=e147]: PUL-XP015L8HX
+              - generic [ref=e148]:
+                - generic [ref=e149]: $1,000.00
+                - generic [ref=e150]: 缺货
+          - link "PUL-XP023HALX Pulsafeeder PUL-XP023HALX PUL-XP023HALX $1,120.00 缺货" [ref=e151] [cursor=pointer]:
+            - /url: /products/pul-xp023halx
+            - img "PUL-XP023HALX" [ref=e153]
+            - generic [ref=e154]:
+              - paragraph [ref=e155]: Pulsafeeder
+              - heading "PUL-XP023HALX" [level=3] [ref=e156]
+              - paragraph [ref=e157]: PUL-XP023HALX
+              - generic [ref=e158]:
+                - generic [ref=e159]: $1,120.00
+                - generic [ref=e160]: 缺货
+          - link "PUL-XP050LF3X Pulsafeeder PUL-XP050LF3X PUL-XP050LF3X $849.00 缺货" [ref=e161] [cursor=pointer]:
+            - /url: /products/pul-xp050lf3x
+            - img "PUL-XP050LF3X" [ref=e163]
+            - generic [ref=e164]:
+              - paragraph [ref=e165]: Pulsafeeder
+              - heading "PUL-XP050LF3X" [level=3] [ref=e166]
+              - paragraph [ref=e167]: PUL-XP050LF3X
+              - generic [ref=e168]:
+                - generic [ref=e169]: $849.00
+                - generic [ref=e170]: 缺货
+          - link "PUL-XP017LVLX Pulsafeeder PUL-XP017LVLX PUL-XP017LVLX $1,367.00 缺货" [ref=e171] [cursor=pointer]:
+            - /url: /products/pul-xp017lvlx
+            - img "PUL-XP017LVLX" [ref=e173]
+            - generic [ref=e174]:
+              - paragraph [ref=e175]: Pulsafeeder
+              - heading "PUL-XP017LVLX" [level=3] [ref=e176]
+              - paragraph [ref=e177]: PUL-XP017LVLX
+              - generic [ref=e178]:
+                - generic [ref=e179]: $1,367.00
+                - generic [ref=e180]: 缺货
+          - link "PUL-XP023LAHX055 Pulsafeeder PUL-XP023LAHX055 PUL-XP023LAHX055 $1,120.00 缺货" [ref=e181] [cursor=pointer]:
+            - /url: /products/pul-xp023lahx055
+            - img "PUL-XP023LAHX055" [ref=e183]
+            - generic [ref=e184]:
+              - paragraph [ref=e185]: Pulsafeeder
+              - heading "PUL-XP023LAHX055" [level=3] [ref=e186]
+              - paragraph [ref=e187]: PUL-XP023LAHX055
+              - generic [ref=e188]:
+                - generic [ref=e189]: $1,120.00
+                - generic [ref=e190]: 缺货
+          - link "PUL-XP009LFHX Pulsafeeder PUL-XP009LFHX PUL-XP009LFHX $742.00 缺货" [ref=e191] [cursor=pointer]:
+            - /url: /products/pul-xp009lfhx
+            - img "PUL-XP009LFHX" [ref=e193]
+            - generic [ref=e194]:
+              - paragraph [ref=e195]: Pulsafeeder
+              - heading "PUL-XP009LFHX" [level=3] [ref=e196]
+              - paragraph [ref=e197]: PUL-XP009LFHX
+              - generic [ref=e198]:
+                - generic [ref=e199]: $742.00
+                - generic [ref=e200]: 缺货
+          - link "PUL-XP055HVHX Pulsafeeder PUL-XP055HVHX PUL-XP055HVHX $1,367.00 缺货" [ref=e201] [cursor=pointer]:
+            - /url: /products/pul-xp055hvhx
+            - img "PUL-XP055HVHX" [ref=e203]
+            - generic [ref=e204]:
+              - paragraph [ref=e205]: Pulsafeeder
+              - heading "PUL-XP055HVHX" [level=3] [ref=e206]
+              - paragraph [ref=e207]: PUL-XP055HVHX
+              - generic [ref=e208]:
+                - generic [ref=e209]: $1,367.00
+                - generic [ref=e210]: 缺货
+          - link "PUL-UVSP20XRLLAUSB3 Pulsafeeder PUL-UVSP20XRLLAUSB3 PUL-UVSP20XRLLAUSB3 $817.00 缺货" [ref=e211] [cursor=pointer]:
+            - /url: /products/pul-uvsp20xrllausb3
+            - img "PUL-UVSP20XRLLAUSB3" [ref=e213]
+            - generic [ref=e214]:
+              - paragraph [ref=e215]: Pulsafeeder
+              - heading "PUL-UVSP20XRLLAUSB3" [level=3] [ref=e216]
+              - paragraph [ref=e217]: PUL-UVSP20XRLLAUSB3
+              - generic [ref=e218]:
+                - generic [ref=e219]: $817.00
+                - generic [ref=e220]: 缺货
+          - link "PUL-XP017LGLX Pulsafeeder PUL-XP017LGLX PUL-XP017LGLX $1,728.00 缺货" [ref=e221] [cursor=pointer]:
+            - /url: /products/pul-xp017lglx
+            - img "PUL-XP017LGLX" [ref=e223]
+            - generic [ref=e224]:
+              - paragraph [ref=e225]: Pulsafeeder
+              - heading "PUL-XP017LGLX" [level=3] [ref=e226]
+              - paragraph [ref=e227]: PUL-XP017LGLX
+              - generic [ref=e228]:
+                - generic [ref=e229]: $1,728.00
+                - generic [ref=e230]: 缺货
+          - link "PUL-XP015HA4X Pulsafeeder PUL-XP015HA4X PUL-XP015HA4X $1,145.00 缺货" [ref=e231] [cursor=pointer]:
+            - /url: /products/pul-xp015ha4x
+            - img "PUL-XP015HA4X" [ref=e233]
+            - generic [ref=e234]:
+              - paragraph [ref=e235]: Pulsafeeder
+              - heading "PUL-XP015HA4X" [level=3] [ref=e236]
+              - paragraph [ref=e237]: PUL-XP015HA4X
+              - generic [ref=e238]:
+                - generic [ref=e239]: $1,145.00
+                - generic [ref=e240]: 缺货
+          - link "PUL-XP008LV3X Pulsafeeder PUL-XP008LV3X PUL-XP008LV3X $1,451.00 缺货" [ref=e241] [cursor=pointer]:
+            - /url: /products/pul-xp008lv3x
+            - img "PUL-XP008LV3X" [ref=e243]
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: Pulsafeeder
+              - heading "PUL-XP008LV3X" [level=3] [ref=e246]
+              - paragraph [ref=e247]: PUL-XP008LV3X
+              - generic [ref=e248]:
+                - generic [ref=e249]: $1,451.00
+                - generic [ref=e250]: 缺货
+          - link "PUL-XP015H2HX Pulsafeeder PUL-XP015H2HX PUL-XP015H2HX $1,119.00 缺货" [ref=e251] [cursor=pointer]:
+            - /url: /products/pul-xp015h2hx
+            - img "PUL-XP015H2HX" [ref=e253]
+            - generic [ref=e254]:
+              - paragraph [ref=e255]: Pulsafeeder
+              - heading "PUL-XP015H2HX" [level=3] [ref=e256]
+              - paragraph [ref=e257]: PUL-XP015H2HX
+              - generic [ref=e258]:
+                - generic [ref=e259]: $1,119.00
+                - generic [ref=e260]: 缺货
+          - link "PUL-LPH8S2-PTCB-365 Pulsafeeder PUL-LPH8S2-PTCB-365 PUL-LPH8S2-PTCB-365 $3,321.00 缺货" [ref=e261] [cursor=pointer]:
+            - /url: /products/pul-lph8s2-ptcb-365
+            - img "PUL-LPH8S2-PTCB-365" [ref=e263]
+            - generic [ref=e264]:
+              - paragraph [ref=e265]: Pulsafeeder
+              - heading "PUL-LPH8S2-PTCB-365" [level=3] [ref=e266]
+              - paragraph [ref=e267]: PUL-LPH8S2-PTCB-365
+              - generic [ref=e268]:
+                - generic [ref=e269]: $3,321.00
+                - generic [ref=e270]: 缺货
+          - link "PUL-XP015HAHX055 Pulsafeeder PUL-XP015HAHX055 PUL-XP015HAHX055 $1,120.00 缺货" [ref=e271] [cursor=pointer]:
+            - /url: /products/pul-xp015hahx055
+            - img "PUL-XP015HAHX055" [ref=e273]
+            - generic [ref=e274]:
+              - paragraph [ref=e275]: Pulsafeeder
+              - heading "PUL-XP015HAHX055" [level=3] [ref=e276]
+              - paragraph [ref=e277]: PUL-XP015HAHX055
+              - generic [ref=e278]:
+                - generic [ref=e279]: $1,120.00
+                - generic [ref=e280]: 缺货
+          - link "PUL-XP009L1HX Pulsafeeder PUL-XP009L1HX PUL-XP009L1HX $1,171.00 缺货" [ref=e281] [cursor=pointer]:
+            - /url: /products/pul-xp009l1hx
+            - img "PUL-XP009L1HX" [ref=e283]
+            - generic [ref=e284]:
+              - paragraph [ref=e285]: Pulsafeeder
+              - heading "PUL-XP009L1HX" [level=3] [ref=e286]
+              - paragraph [ref=e287]: PUL-XP009L1HX
+              - generic [ref=e288]:
+                - generic [ref=e289]: $1,171.00
+                - generic [ref=e290]: 缺货
+          - link "PUL-XP023LF4X Pulsafeeder PUL-XP023LF4X PUL-XP023LF4X $849.00 缺货" [ref=e291] [cursor=pointer]:
+            - /url: /products/pul-xp023lf4x
+            - img "PUL-XP023LF4X" [ref=e293]
+            - generic [ref=e294]:
+              - paragraph [ref=e295]: Pulsafeeder
+              - heading "PUL-XP023LF4X" [level=3] [ref=e296]
+              - paragraph [ref=e297]: PUL-XP023LF4X
+              - generic [ref=e298]:
+                - generic [ref=e299]: $849.00
+                - generic [ref=e300]: 缺货
+        - generic [ref=e301]:
+          - button "1" [ref=e302] [cursor=pointer]
+          - button "2" [ref=e303] [cursor=pointer]
+          - button "3" [ref=e304] [cursor=pointer]
+          - button "4" [ref=e305] [cursor=pointer]
+          - button "5" [ref=e306] [cursor=pointer]
+          - button "6" [ref=e307] [cursor=pointer]
+          - button "7" [ref=e308] [cursor=pointer]
+          - button "Next →" [ref=e309] [cursor=pointer]
+    - contentinfo [ref=e310]:
+      - generic [ref=e312]:
+        - generic [ref=e313]:
+          - img "Novatech" [ref=e315]
+          - paragraph [ref=e316]: LabProGlobal 是值得信赖的实验室和工业设备供应商，专注于化学计量泵、水质分析仪、精密天平和工业仪器的分销。
+          - generic [ref=e317]:
+            - generic [ref=e318]:
+              - img [ref=e319]
+              - generic [ref=e321]: +1 (800) 000-0000
+            - generic [ref=e322]:
+              - img [ref=e323]
+              - link "sales@novatechstore.com" [ref=e326] [cursor=pointer]:
+                - /url: mailto:sales@novatechstore.com
+        - generic [ref=e327]:
+          - heading "产品" [level=3] [ref=e328]
+          - list [ref=e329]:
+            - listitem [ref=e330]:
+              - link "隔膜计量泵" [ref=e331] [cursor=pointer]:
+                - /url: /categories/diaphragm-metering-pumps
+            - listitem [ref=e332]:
+              - link "pH 和 ORP 控制器" [ref=e333] [cursor=pointer]:
+                - /url: /categories/ph-orp-controllers
+            - listitem [ref=e334]:
+              - link "精密天平" [ref=e335] [cursor=pointer]:
+                - /url: /categories/precision-balances
+            - listitem [ref=e336]:
+              - link "高压灭菌器" [ref=e337] [cursor=pointer]:
+                - /url: /categories/autoclaves
+            - listitem [ref=e338]:
+              - link "复式显微镜" [ref=e339] [cursor=pointer]:
+                - /url: /categories/compound-microscopes
+            - listitem [ref=e340]:
+              - link "全部产品" [ref=e341] [cursor=pointer]:
+                - /url: /products
+        - generic [ref=e342]:
+          - heading "服务" [level=3] [ref=e343]
+          - list [ref=e344]:
+            - listitem [ref=e345]:
+              - link "申请报价" [ref=e346] [cursor=pointer]:
+                - /url: /quote
+            - listitem [ref=e347]:
+              - link "批量订购" [ref=e348] [cursor=pointer]:
+                - /url: /quote?type=bulk
+            - listitem [ref=e349]:
+              - link "技术支持" [ref=e350] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e351]:
+              - link "退货与退款" [ref=e352] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e353]:
+              - link "运输政策" [ref=e354] [cursor=pointer]:
+                - /url: /shipping
+        - generic [ref=e355]:
+          - heading "我的账户" [level=3] [ref=e356]
+          - list [ref=e357]:
+            - listitem [ref=e358]:
+              - link "登录" [ref=e359] [cursor=pointer]:
+                - /url: /auth/login
+            - listitem [ref=e360]:
+              - link "创建账户" [ref=e361] [cursor=pointer]:
+                - /url: /auth/register
+            - listitem [ref=e362]:
+              - link "我的订单" [ref=e363] [cursor=pointer]:
+                - /url: /account/orders
+            - listitem [ref=e364]:
+              - link "我的报价" [ref=e365] [cursor=pointer]:
+                - /url: /account/quotes
+            - listitem [ref=e366]:
+              - link "地址簿" [ref=e367] [cursor=pointer]:
+                - /url: /account/addresses
+      - generic [ref=e369]:
+        - paragraph [ref=e370]: © 2026 LabProGlobal. 版权所有
+        - generic [ref=e371]:
+          - link "隐私政策" [ref=e372] [cursor=pointer]:
+            - /url: /privacy
+          - link "使用条款" [ref=e373] [cursor=pointer]:
+            - /url: /terms
+  - alert [ref=e374]

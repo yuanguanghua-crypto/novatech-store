@@ -1,0 +1,160 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: Free Shipping on orders over $500
+        - generic [ref=e7]:
+          - link "+1 (800) 000-0000" [ref=e8] [cursor=pointer]:
+            - /url: tel:+1-800-000-0000
+          - link "sales@novatechstore.com" [ref=e9] [cursor=pointer]:
+            - /url: mailto:sales@novatechstore.com
+      - generic [ref=e10]:
+        - link "Novatech" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Novatech" [ref=e12]
+        - generic [ref=e14]:
+          - textbox "Search by product name, SKU, or brand..." [ref=e15]
+          - button [ref=e16] [cursor=pointer]:
+            - img [ref=e17]
+        - generic [ref=e20]:
+          - button "Select language" [ref=e22] [cursor=pointer]:
+            - img [ref=e23]
+            - generic [ref=e26]: 🇺🇸 English
+            - img [ref=e27]
+          - link "Get a Quote" [ref=e29] [cursor=pointer]:
+            - /url: /quote
+            - img [ref=e30]
+            - generic [ref=e33]: Get a Quote
+          - link "Sign In" [ref=e34] [cursor=pointer]:
+            - /url: /auth/login
+            - img [ref=e35]
+            - generic [ref=e38]: Sign In
+          - link "Cart" [ref=e39] [cursor=pointer]:
+            - /url: /cart
+            - img [ref=e40]
+            - generic [ref=e44]: Cart
+      - navigation [ref=e45]:
+        - list [ref=e47]:
+          - listitem [ref=e48]:
+            - link "All Products" [ref=e49] [cursor=pointer]:
+              - /url: /products
+          - listitem [ref=e50]:
+            - link "All Categories" [ref=e51] [cursor=pointer]:
+              - /url: /categories
+    - main [ref=e52]:
+      - generic [ref=e56]:
+        - heading "High-Quality Laboratory Equipment" [level=1] [ref=e57]
+        - paragraph [ref=e58]: Find everything you need for your laboratory
+        - generic [ref=e59]:
+          - link "Shop Now" [ref=e60] [cursor=pointer]:
+            - /url: /products
+            - text: Shop Now
+            - img [ref=e61]
+          - link "Request a Quote" [ref=e63] [cursor=pointer]:
+            - /url: /quote
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - img [ref=e69]
+          - generic [ref=e72]:
+            - generic [ref=e73]: Quality
+            - generic [ref=e74]: Guaranteed high-quality products
+        - generic [ref=e75]:
+          - img [ref=e77]
+          - generic [ref=e82]:
+            - generic [ref=e83]: Shipping
+            - generic [ref=e84]: Fast and secure delivery
+        - generic [ref=e85]:
+          - img [ref=e87]
+          - generic [ref=e89]:
+            - generic [ref=e90]: Support
+            - generic [ref=e91]: Expert assistance 24/7
+        - generic [ref=e92]:
+          - img [ref=e94]
+          - generic [ref=e97]:
+            - generic [ref=e98]: Pricing
+            - generic [ref=e99]: Competitive and transparent pricing
+      - generic [ref=e101]:
+        - heading "Need a Custom Quote?" [level=2] [ref=e102]
+        - paragraph [ref=e103]: Contact us today and we will respond within 24 hours
+        - link "Request a Quote" [ref=e104] [cursor=pointer]:
+          - /url: /quote
+          - text: Request a Quote
+          - img [ref=e105]
+    - contentinfo [ref=e107]:
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - img "Novatech" [ref=e112]
+          - paragraph [ref=e113]: Your trusted partner for laboratory equipment.
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - img [ref=e116]
+              - generic [ref=e118]: +1 (800) 000-0000
+            - generic [ref=e119]:
+              - img [ref=e120]
+              - link "sales@novatechstore.com" [ref=e123] [cursor=pointer]:
+                - /url: mailto:sales@novatechstore.com
+        - generic [ref=e124]:
+          - heading "Products" [level=3] [ref=e125]
+          - list [ref=e126]:
+            - listitem [ref=e127]:
+              - link "Diaphragm Metering Pumps" [ref=e128] [cursor=pointer]:
+                - /url: /categories/diaphragm-metering-pumps
+            - listitem [ref=e129]:
+              - link "pH & ORP Controllers" [ref=e130] [cursor=pointer]:
+                - /url: /categories/ph-orp-controllers
+            - listitem [ref=e131]:
+              - link "Precision Balances" [ref=e132] [cursor=pointer]:
+                - /url: /categories/precision-balances
+            - listitem [ref=e133]:
+              - link "Autoclaves" [ref=e134] [cursor=pointer]:
+                - /url: /categories/autoclaves
+            - listitem [ref=e135]:
+              - link "Compound Microscopes" [ref=e136] [cursor=pointer]:
+                - /url: /categories/compound-microscopes
+            - listitem [ref=e137]:
+              - link "All Products" [ref=e138] [cursor=pointer]:
+                - /url: /products
+        - generic [ref=e139]:
+          - heading "Services" [level=3] [ref=e140]
+          - list [ref=e141]:
+            - listitem [ref=e142]:
+              - link "Request Quote" [ref=e143] [cursor=pointer]:
+                - /url: /quote
+            - listitem [ref=e144]:
+              - link "Bulk Orders" [ref=e145] [cursor=pointer]:
+                - /url: /quote?type=bulk
+            - listitem [ref=e146]:
+              - link "Technical Support" [ref=e147] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e148]:
+              - link "Returns & Refunds" [ref=e149] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e150]:
+              - link "Shipping Policy" [ref=e151] [cursor=pointer]:
+                - /url: /shipping
+        - generic [ref=e152]:
+          - heading "My Account" [level=3] [ref=e153]
+          - list [ref=e154]:
+            - listitem [ref=e155]:
+              - link "Sign In" [ref=e156] [cursor=pointer]:
+                - /url: /auth/login
+            - listitem [ref=e157]:
+              - link "Create Account" [ref=e158] [cursor=pointer]:
+                - /url: /auth/register
+            - listitem [ref=e159]:
+              - link "My Orders" [ref=e160] [cursor=pointer]:
+                - /url: /account/orders
+            - listitem [ref=e161]:
+              - link "My Quotes" [ref=e162] [cursor=pointer]:
+                - /url: /account/quotes
+            - listitem [ref=e163]:
+              - link "Address Book" [ref=e164] [cursor=pointer]:
+                - /url: /account/addresses
+      - generic [ref=e166]:
+        - paragraph [ref=e167]: © 2026 LabProGlobal. All rights reserved
+        - generic [ref=e168]:
+          - link "Privacy Policy" [ref=e169] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms of Service" [ref=e170] [cursor=pointer]:
+            - /url: /terms
+  - alert [ref=e171]

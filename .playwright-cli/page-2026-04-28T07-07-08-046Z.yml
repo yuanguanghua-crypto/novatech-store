@@ -1,0 +1,720 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: Free Shipping on orders over $500
+        - generic [ref=e7]:
+          - link "+1 (800) 000-0000" [ref=e8] [cursor=pointer]:
+            - /url: tel:+1-800-000-0000
+          - link "sales@novatechstore.com" [ref=e9] [cursor=pointer]:
+            - /url: mailto:sales@novatechstore.com
+      - generic [ref=e10]:
+        - link "Novatech" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Novatech" [ref=e12]
+        - generic [ref=e14]:
+          - textbox "Search by product name, SKU, or brand..." [ref=e15]
+          - button [ref=e16] [cursor=pointer]:
+            - img [ref=e17]
+        - generic [ref=e20]:
+          - button "Select language" [ref=e22] [cursor=pointer]:
+            - img [ref=e23]
+            - generic [ref=e26]: 🇺🇸 English
+            - img [ref=e27]
+          - link "Get a Quote" [ref=e29] [cursor=pointer]:
+            - /url: /quote
+            - img [ref=e30]
+            - generic [ref=e33]: Get a Quote
+          - link "Sign In" [ref=e34] [cursor=pointer]:
+            - /url: /auth/login
+            - img [ref=e35]
+            - generic [ref=e38]: Sign In
+          - link "Cart" [ref=e39] [cursor=pointer]:
+            - /url: /cart
+            - img [ref=e40]
+            - generic [ref=e44]: Cart
+      - navigation [ref=e45]:
+        - list [ref=e47]:
+          - listitem [ref=e48]:
+            - link "All Products" [ref=e49] [cursor=pointer]:
+              - /url: /products
+          - listitem [ref=e172]:
+            - link "Balances & Scales" [ref=e173] [cursor=pointer]:
+              - /url: /categories/balances-scales
+              - text: Balances & Scales
+              - img [ref=e174]
+          - listitem [ref=e176]:
+            - link "Hydrometers & Refractometers" [ref=e177] [cursor=pointer]:
+              - /url: /categories/hydrometers-refractometers
+              - text: Hydrometers & Refractometers
+              - img [ref=e178]
+          - listitem [ref=e180]:
+            - link "Lab Supplies" [ref=e181] [cursor=pointer]:
+              - /url: /categories/lab-supplies
+              - text: Lab Supplies
+              - img [ref=e182]
+          - listitem [ref=e184]:
+            - link "Laboratory Equipment" [ref=e185] [cursor=pointer]:
+              - /url: /categories/laboratory-equipment
+              - text: Laboratory Equipment
+              - img [ref=e186]
+          - listitem [ref=e188]:
+            - link "Liquid Handling" [ref=e189] [cursor=pointer]:
+              - /url: /categories/liquid-handling
+              - text: Liquid Handling
+              - img [ref=e190]
+          - listitem [ref=e192]:
+            - link "Metering Pumps" [ref=e193] [cursor=pointer]:
+              - /url: /categories/metering-pumps
+              - text: Metering Pumps
+              - img [ref=e194]
+          - listitem [ref=e196]:
+            - link "Optical Instruments" [ref=e197] [cursor=pointer]:
+              - /url: /categories/optical-instruments
+              - text: Optical Instruments
+              - img [ref=e198]
+          - listitem [ref=e200]:
+            - link "Pump Accessories" [ref=e201] [cursor=pointer]:
+              - /url: /categories/pump-accessories
+              - text: Pump Accessories
+              - img [ref=e202]
+          - listitem [ref=e204]:
+            - link "Water Quality Testing" [ref=e205] [cursor=pointer]:
+              - /url: /categories/water-quality-testing
+              - text: Water Quality Testing
+              - img [ref=e206]
+          - listitem [ref=e50]:
+            - link "All Categories" [ref=e51] [cursor=pointer]:
+              - /url: /categories
+    - main [ref=e52]:
+      - generic [ref=e208]:
+        - generic [ref=e210]:
+          - heading "All Products" [level=1] [ref=e211]
+          - paragraph [ref=e212]: 3,436 products found
+        - generic [ref=e213]:
+          - complementary [ref=e214]:
+            - generic [ref=e215]:
+              - generic [ref=e216]:
+                - heading "Availability" [level=3] [ref=e217]
+                - generic [ref=e219] [cursor=pointer]:
+                  - checkbox "In Stock Only" [ref=e220]
+                  - generic [ref=e221]: In Stock Only
+              - generic [ref=e222]:
+                - heading "Price Range" [level=3] [ref=e223]
+                - generic [ref=e224]:
+                  - spinbutton [ref=e225]: "100"
+                  - generic [ref=e226]: –
+                  - spinbutton [ref=e227]: "500"
+                - generic [ref=e228]:
+                  - button "< $100" [ref=e229] [cursor=pointer]
+                  - button "$100–$500" [active] [ref=e230] [cursor=pointer]
+                  - button "$500–$2K" [ref=e231] [cursor=pointer]
+                  - button "$2K+" [ref=e232] [cursor=pointer]
+              - generic [ref=e233]:
+                - heading "Brand" [level=3] [ref=e234]
+                - generic [ref=e235]:
+                  - generic [ref=e236] [cursor=pointer]:
+                    - generic [ref=e237]:
+                      - checkbox "A&F Machine Products (284)" [ref=e238]
+                      - generic [ref=e239]: A&F Machine Products
+                    - generic [ref=e240]: (284)
+                  - generic [ref=e241] [cursor=pointer]:
+                    - generic [ref=e242]:
+                      - checkbox "Adam Equipment (478)" [ref=e243]
+                      - generic [ref=e244]: Adam Equipment
+                    - generic [ref=e245]: (478)
+                  - generic [ref=e246] [cursor=pointer]:
+                    - generic [ref=e247]:
+                      - checkbox "ATAGO (11)" [ref=e248]
+                      - generic [ref=e249]: ATAGO
+                    - generic [ref=e250]: (11)
+                  - generic [ref=e251] [cursor=pointer]:
+                    - generic [ref=e252]:
+                      - checkbox "Bee-Safe (9)" [ref=e253]
+                      - generic [ref=e254]: Bee-Safe
+                    - generic [ref=e255]: (9)
+                  - generic [ref=e256] [cursor=pointer]:
+                    - generic [ref=e257]:
+                      - checkbox "Bel-Art (226)" [ref=e258]
+                      - generic [ref=e259]: Bel-Art
+                    - generic [ref=e260]: (226)
+                  - generic [ref=e261] [cursor=pointer]:
+                    - generic [ref=e262]:
+                      - checkbox "Benchmark Scientific (119)" [ref=e263]
+                      - generic [ref=e264]: Benchmark Scientific
+                    - generic [ref=e265]: (119)
+                  - generic [ref=e266] [cursor=pointer]:
+                    - generic [ref=e267]:
+                      - checkbox "Body Scientific (45)" [ref=e268]
+                      - generic [ref=e269]: Body Scientific
+                    - generic [ref=e270]: (45)
+                  - generic [ref=e271] [cursor=pointer]:
+                    - generic [ref=e272]:
+                      - checkbox "Breakwood (8)" [ref=e273]
+                      - generic [ref=e274]: Breakwood
+                    - generic [ref=e275]: (8)
+                  - generic [ref=e276] [cursor=pointer]:
+                    - generic [ref=e277]:
+                      - checkbox "Carlon Meter (15)" [ref=e278]
+                      - generic [ref=e279]: Carlon Meter
+                    - generic [ref=e280]: (15)
+                  - generic [ref=e281] [cursor=pointer]:
+                    - generic [ref=e282]:
+                      - checkbox "CELLTREAT (235)" [ref=e283]
+                      - generic [ref=e284]: CELLTREAT
+                    - generic [ref=e285]: (235)
+                  - generic [ref=e286] [cursor=pointer]:
+                    - generic [ref=e287]:
+                      - checkbox "COBALT BLUE (2)" [ref=e288]
+                      - generic [ref=e289]: COBALT BLUE
+                    - generic [ref=e290]: (2)
+                  - generic [ref=e291] [cursor=pointer]:
+                    - generic [ref=e292]:
+                      - checkbox "Cole-Parmer (151)" [ref=e293]
+                      - generic [ref=e294]: Cole-Parmer
+                    - generic [ref=e295]: (151)
+                  - generic [ref=e296] [cursor=pointer]:
+                    - generic [ref=e297]:
+                      - checkbox "Cole-Parmer Essentials (11)" [ref=e298]
+                      - generic [ref=e299]: Cole-Parmer Essentials
+                    - generic [ref=e300]: (11)
+                  - generic [ref=e301] [cursor=pointer]:
+                    - generic [ref=e302]:
+                      - checkbox "Controlled Release Technologies (40)" [ref=e303]
+                      - generic [ref=e304]: Controlled Release Technologies
+                    - generic [ref=e305]: (40)
+                  - generic [ref=e306] [cursor=pointer]:
+                    - generic [ref=e307]:
+                      - checkbox "Digi-Sense (261)" [ref=e308]
+                      - generic [ref=e309]: Digi-Sense
+                    - generic [ref=e310]: (261)
+                  - generic [ref=e311] [cursor=pointer]:
+                    - generic [ref=e312]:
+                      - checkbox "Dynalon (16)" [ref=e313]
+                      - generic [ref=e314]: Dynalon
+                    - generic [ref=e315]: (16)
+                  - generic [ref=e316] [cursor=pointer]:
+                    - generic [ref=e317]:
+                      - checkbox "Eisco Scientific (61)" [ref=e318]
+                      - generic [ref=e319]: Eisco Scientific
+                    - generic [ref=e320]: (61)
+                  - generic [ref=e321] [cursor=pointer]:
+                    - generic [ref=e322]:
+                      - checkbox "Environmental Express (11)" [ref=e323]
+                      - generic [ref=e324]: Environmental Express
+                    - generic [ref=e325]: (11)
+                  - generic [ref=e326] [cursor=pointer]:
+                    - generic [ref=e327]:
+                      - checkbox "Fi-Streem (175)" [ref=e328]
+                      - generic [ref=e329]: Fi-Streem
+                    - generic [ref=e330]: (175)
+                  - generic [ref=e331] [cursor=pointer]:
+                    - generic [ref=e332]:
+                      - checkbox "Fischer Technical (1)" [ref=e333]
+                      - generic [ref=e334]: Fischer Technical
+                    - generic [ref=e335]: (1)
+                  - generic [ref=e336] [cursor=pointer]:
+                    - generic [ref=e337]:
+                      - checkbox "Foxx Life Sciences (130)" [ref=e338]
+                      - generic [ref=e339]: Foxx Life Sciences
+                    - generic [ref=e340]: (130)
+                  - generic [ref=e341] [cursor=pointer]:
+                    - generic [ref=e342]:
+                      - checkbox "FREE-SAT (2)" [ref=e343]
+                      - generic [ref=e344]: FREE-SAT
+                    - generic [ref=e345]: (2)
+                  - generic [ref=e346] [cursor=pointer]:
+                    - generic [ref=e347]:
+                      - checkbox "Globe Scientific (30)" [ref=e348]
+                      - generic [ref=e349]: Globe Scientific
+                    - generic [ref=e350]: (30)
+                  - generic [ref=e351] [cursor=pointer]:
+                    - generic [ref=e352]:
+                      - checkbox "Heathrow Scientific (3)" [ref=e353]
+                      - generic [ref=e354]: Heathrow Scientific
+                    - generic [ref=e355]: (3)
+                  - generic [ref=e356] [cursor=pointer]:
+                    - generic [ref=e357]:
+                      - checkbox "J.G. Finneran (502)" [ref=e358]
+                      - generic [ref=e359]: J.G. Finneran
+                    - generic [ref=e360]: (502)
+                  - generic [ref=e361] [cursor=pointer]:
+                    - generic [ref=e362]:
+                      - checkbox "Jeio Tech (4)" [ref=e363]
+                      - generic [ref=e364]: Jeio Tech
+                    - generic [ref=e365]: (4)
+                  - generic [ref=e366] [cursor=pointer]:
+                    - generic [ref=e367]:
+                      - checkbox "LabExact (12)" [ref=e368]
+                      - generic [ref=e369]: LabExact
+                    - generic [ref=e370]: (12)
+                  - generic [ref=e371] [cursor=pointer]:
+                    - generic [ref=e372]:
+                      - checkbox "LabStrong (90)" [ref=e373]
+                      - generic [ref=e374]: LabStrong
+                    - generic [ref=e375]: (90)
+                  - generic [ref=e376] [cursor=pointer]:
+                    - generic [ref=e377]:
+                      - checkbox "LevGo (14)" [ref=e378]
+                      - generic [ref=e379]: LevGo
+                    - generic [ref=e380]: (14)
+                  - generic [ref=e381] [cursor=pointer]:
+                    - generic [ref=e382]:
+                      - checkbox "LMI (3333)" [ref=e383]
+                      - generic [ref=e384]: LMI
+                    - generic [ref=e385]: (3333)
+                  - generic [ref=e386] [cursor=pointer]:
+                    - generic [ref=e387]:
+                      - checkbox "Lovibond (933)" [ref=e388]
+                      - generic [ref=e389]: Lovibond
+                    - generic [ref=e390]: (933)
+                  - generic [ref=e391] [cursor=pointer]:
+                    - generic [ref=e392]:
+                      - checkbox "Monti & Associates (1)" [ref=e393]
+                      - generic [ref=e394]: Monti & Associates
+                    - generic [ref=e395]: (1)
+                  - generic [ref=e396] [cursor=pointer]:
+                    - generic [ref=e397]:
+                      - checkbox "MTC Bio (98)" [ref=e398]
+                      - generic [ref=e399]: MTC Bio
+                    - generic [ref=e400]: (98)
+                  - generic [ref=e401] [cursor=pointer]:
+                    - generic [ref=e402]:
+                      - checkbox "Myron L (7)" [ref=e403]
+                      - generic [ref=e404]: Myron L
+                    - generic [ref=e405]: (7)
+                  - generic [ref=e406] [cursor=pointer]:
+                    - generic [ref=e407]:
+                      - checkbox "Mystaire (15)" [ref=e408]
+                      - generic [ref=e409]: Mystaire
+                    - generic [ref=e410]: (15)
+                  - generic [ref=e411] [cursor=pointer]:
+                    - generic [ref=e412]:
+                      - checkbox "NOVA-TECH (8)" [ref=e413]
+                      - generic [ref=e414]: NOVA-TECH
+                    - generic [ref=e415]: (8)
+                  - generic [ref=e416] [cursor=pointer]:
+                    - generic [ref=e417]:
+                      - checkbox "Nova-Tech International (15)" [ref=e418]
+                      - generic [ref=e419]: Nova-Tech International
+                    - generic [ref=e420]: (15)
+                  - generic [ref=e421] [cursor=pointer]:
+                    - generic [ref=e422]:
+                      - checkbox "Oakton (359)" [ref=e423]
+                      - generic [ref=e424]: Oakton
+                    - generic [ref=e425]: (359)
+                  - generic [ref=e426] [cursor=pointer]:
+                    - generic [ref=e427]:
+                      - checkbox "OBL Pumps (162)" [ref=e428]
+                      - generic [ref=e429]: OBL Pumps
+                    - generic [ref=e430]: (162)
+                  - generic [ref=e431] [cursor=pointer]:
+                    - generic [ref=e432]:
+                      - checkbox "Ohaus (276)" [ref=e433]
+                      - generic [ref=e434]: Ohaus
+                    - generic [ref=e435]: (276)
+                  - generic [ref=e436] [cursor=pointer]:
+                    - generic [ref=e437]:
+                      - checkbox "Primary Fluid Systems (20)" [ref=e438]
+                      - generic [ref=e439]: Primary Fluid Systems
+                    - generic [ref=e440]: (20)
+                  - generic [ref=e441] [cursor=pointer]:
+                    - generic [ref=e442]:
+                      - checkbox "Pulsafeeder (4259)" [ref=e443]
+                      - generic [ref=e444]: Pulsafeeder
+                    - generic [ref=e445]: (4259)
+                  - generic [ref=e446] [cursor=pointer]:
+                    - generic [ref=e447]:
+                      - checkbox "SCILOGEX (32)" [ref=e448]
+                      - generic [ref=e449]: SCILOGEX
+                    - generic [ref=e450]: (32)
+                  - generic [ref=e451] [cursor=pointer]:
+                    - generic [ref=e452]:
+                      - checkbox "SELECT-SAT (1)" [ref=e453]
+                      - generic [ref=e454]: SELECT-SAT
+                    - generic [ref=e455]: (1)
+                  - generic [ref=e456] [cursor=pointer]:
+                    - generic [ref=e457]:
+                      - checkbox "Tacky Traxx (15)" [ref=e458]
+                      - generic [ref=e459]: Tacky Traxx
+                    - generic [ref=e460]: (15)
+                  - generic [ref=e461] [cursor=pointer]:
+                    - generic [ref=e462]:
+                      - checkbox "Taylor Technologies (680)" [ref=e463]
+                      - generic [ref=e464]: Taylor Technologies
+                    - generic [ref=e465]: (680)
+                  - generic [ref=e466] [cursor=pointer]:
+                    - generic [ref=e467]:
+                      - checkbox "Traceable (53)" [ref=e468]
+                      - generic [ref=e469]: Traceable
+                    - generic [ref=e470]: (53)
+                  - generic [ref=e471] [cursor=pointer]:
+                    - generic [ref=e472]:
+                      - checkbox "Troemner (660)" [ref=e473]
+                      - generic [ref=e474]: Troemner
+                    - generic [ref=e475]: (660)
+                  - generic [ref=e476] [cursor=pointer]:
+                    - generic [ref=e477]:
+                      - checkbox "United Scientific (927)" [ref=e478]
+                      - generic [ref=e479]: United Scientific
+                    - generic [ref=e480]: (927)
+                  - generic [ref=e481] [cursor=pointer]:
+                    - generic [ref=e482]:
+                      - checkbox "VEE GEE Scientific (297)" [ref=e483]
+                      - generic [ref=e484]: VEE GEE Scientific
+                    - generic [ref=e485]: (297)
+                  - generic [ref=e486] [cursor=pointer]:
+                    - generic [ref=e487]:
+                      - checkbox "VELAB (68)" [ref=e488]
+                      - generic [ref=e489]: VELAB
+                    - generic [ref=e490]: (68)
+                  - generic [ref=e491] [cursor=pointer]:
+                    - generic [ref=e492]:
+                      - checkbox "Yamato (33)" [ref=e493]
+                      - generic [ref=e494]: Yamato
+                    - generic [ref=e495]: (33)
+              - button "Clear All" [ref=e750] [cursor=pointer]
+          - generic [ref=e496]:
+            - generic [ref=e497]:
+              - paragraph [ref=e498]: Showing 1-24 of 3,436
+              - combobox [ref=e499]:
+                - option "Featured" [selected]
+                - option "Newest"
+                - 'option "Price: Low to High"'
+                - 'option "Price: High to Low"'
+            - generic [ref=e500]:
+              - link "USS-MOMS07 United Scientific USS-MOMS07 USS-MOMS07 $141.00 Lead Time" [ref=e751] [cursor=pointer]:
+                - /url: /products/uss-moms07
+                - img "USS-MOMS07" [ref=e753]
+                - generic [ref=e754]:
+                  - paragraph [ref=e755]: United Scientific
+                  - heading "USS-MOMS07" [level=3] [ref=e756]
+                  - paragraph [ref=e757]: USS-MOMS07
+                  - generic [ref=e758]:
+                    - generic [ref=e759]: $141.00
+                    - generic [ref=e760]: Lead Time
+              - link "USS-INPL01 United Scientific USS-INPL01 USS-INPL01 $109.00 Lead Time" [ref=e761] [cursor=pointer]:
+                - /url: /products/uss-inpl01
+                - img "USS-INPL01" [ref=e763]
+                - generic [ref=e764]:
+                  - paragraph [ref=e765]: United Scientific
+                  - heading "USS-INPL01" [level=3] [ref=e766]
+                  - paragraph [ref=e767]: USS-INPL01
+                  - generic [ref=e768]:
+                    - generic [ref=e769]: $109.00
+                    - generic [ref=e770]: Lead Time
+              - link "USS-HRDKIT1 United Scientific USS-HRDKIT1 USS-HRDKIT1 $147.50 Lead Time" [ref=e771] [cursor=pointer]:
+                - /url: /products/uss-hrdkit1
+                - img "USS-HRDKIT1" [ref=e773]
+                - generic [ref=e774]:
+                  - paragraph [ref=e775]: United Scientific
+                  - heading "USS-HRDKIT1" [level=3] [ref=e776]
+                  - paragraph [ref=e777]: USS-HRDKIT1
+                  - generic [ref=e778]:
+                    - generic [ref=e779]: $147.50
+                    - generic [ref=e780]: Lead Time
+              - link "USS-FTE001 United Scientific USS-FTE001 USS-FTE001 $239.50 Lead Time" [ref=e781] [cursor=pointer]:
+                - /url: /products/uss-fte001
+                - img "USS-FTE001" [ref=e783]
+                - generic [ref=e784]:
+                  - paragraph [ref=e785]: United Scientific
+                  - heading "USS-FTE001" [level=3] [ref=e786]
+                  - paragraph [ref=e787]: USS-FTE001
+                  - generic [ref=e788]:
+                    - generic [ref=e789]: $239.50
+                    - generic [ref=e790]: Lead Time
+              - link "FTC-BS332 Body Scientific FTC-BS332 FTC-BS332 $147.29 Lead Time" [ref=e791] [cursor=pointer]:
+                - /url: /products/ftc-bs332
+                - img "FTC-BS332" [ref=e793]
+                - generic [ref=e794]:
+                  - paragraph [ref=e795]: Body Scientific
+                  - heading "FTC-BS332" [level=3] [ref=e796]
+                  - paragraph [ref=e797]: FTC-BS332
+                  - generic [ref=e798]:
+                    - generic [ref=e799]: $147.29
+                    - generic [ref=e800]: Lead Time
+              - link "USS-FFA001 United Scientific USS-FFA001 USS-FFA001 $223.00 Lead Time" [ref=e801] [cursor=pointer]:
+                - /url: /products/uss-ffa001
+                - img "USS-FFA001" [ref=e803]
+                - generic [ref=e804]:
+                  - paragraph [ref=e805]: United Scientific
+                  - heading "USS-FFA001" [level=3] [ref=e806]
+                  - paragraph [ref=e807]: USS-FFA001
+                  - generic [ref=e808]:
+                    - generic [ref=e809]: $223.00
+                    - generic [ref=e810]: Lead Time
+              - link "FTC-BS331 Body Scientific FTC-BS331 FTC-BS331 $147.29 Lead Time" [ref=e811] [cursor=pointer]:
+                - /url: /products/ftc-bs331
+                - img "FTC-BS331" [ref=e813]
+                - generic [ref=e814]:
+                  - paragraph [ref=e815]: Body Scientific
+                  - heading "FTC-BS331" [level=3] [ref=e816]
+                  - paragraph [ref=e817]: FTC-BS331
+                  - generic [ref=e818]:
+                    - generic [ref=e819]: $147.29
+                    - generic [ref=e820]: Lead Time
+              - link "FTC-BS304 Body Scientific FTC-BS304 FTC-BS304 $147.29 Lead Time" [ref=e821] [cursor=pointer]:
+                - /url: /products/ftc-bs304
+                - img "FTC-BS304" [ref=e823]
+                - generic [ref=e824]:
+                  - paragraph [ref=e825]: Body Scientific
+                  - heading "FTC-BS304" [level=3] [ref=e826]
+                  - paragraph [ref=e827]: FTC-BS304
+                  - generic [ref=e828]:
+                    - generic [ref=e829]: $147.29
+                    - generic [ref=e830]: Lead Time
+              - link "FTC-BS335 Body Scientific FTC-BS335 FTC-BS335 $147.29 Lead Time" [ref=e831] [cursor=pointer]:
+                - /url: /products/ftc-bs335
+                - img "FTC-BS335" [ref=e833]
+                - generic [ref=e834]:
+                  - paragraph [ref=e835]: Body Scientific
+                  - heading "FTC-BS335" [level=3] [ref=e836]
+                  - paragraph [ref=e837]: FTC-BS335
+                  - generic [ref=e838]:
+                    - generic [ref=e839]: $147.29
+                    - generic [ref=e840]: Lead Time
+              - link "FTC-BS333 Body Scientific FTC-BS333 FTC-BS333 $147.29 Lead Time" [ref=e841] [cursor=pointer]:
+                - /url: /products/ftc-bs333
+                - img "FTC-BS333" [ref=e843]
+                - generic [ref=e844]:
+                  - paragraph [ref=e845]: Body Scientific
+                  - heading "FTC-BS333" [level=3] [ref=e846]
+                  - paragraph [ref=e847]: FTC-BS333
+                  - generic [ref=e848]:
+                    - generic [ref=e849]: $147.29
+                    - generic [ref=e850]: Lead Time
+              - link "OHA-30390211 Troemner OHA-30390211 OHA-30390211 $186.00 Lead Time" [ref=e851] [cursor=pointer]:
+                - /url: /products/oha-30390211
+                - img "OHA-30390211" [ref=e853]
+                - generic [ref=e854]:
+                  - paragraph [ref=e855]: Troemner
+                  - heading "OHA-30390211" [level=3] [ref=e856]
+                  - paragraph [ref=e857]: OHA-30390211
+                  - generic [ref=e858]:
+                    - generic [ref=e859]: $186.00
+                    - generic [ref=e860]: Lead Time
+              - link "OHA-30390213 Troemner OHA-30390213 OHA-30390213 $186.00 Lead Time" [ref=e861] [cursor=pointer]:
+                - /url: /products/oha-30390213
+                - img "OHA-30390213" [ref=e863]
+                - generic [ref=e864]:
+                  - paragraph [ref=e865]: Troemner
+                  - heading "OHA-30390213" [level=3] [ref=e866]
+                  - paragraph [ref=e867]: OHA-30390213
+                  - generic [ref=e868]:
+                    - generic [ref=e869]: $186.00
+                    - generic [ref=e870]: Lead Time
+              - link "OHA-30390216 Troemner OHA-30390216 OHA-30390216 $210.00 Lead Time" [ref=e871] [cursor=pointer]:
+                - /url: /products/oha-30390216
+                - img "OHA-30390216" [ref=e873]
+                - generic [ref=e874]:
+                  - paragraph [ref=e875]: Troemner
+                  - heading "OHA-30390216" [level=3] [ref=e876]
+                  - paragraph [ref=e877]: OHA-30390216
+                  - generic [ref=e878]:
+                    - generic [ref=e879]: $210.00
+                    - generic [ref=e880]: Lead Time
+              - link "OHA-30390219 Troemner OHA-30390219 OHA-30390219 $226.00 Lead Time" [ref=e881] [cursor=pointer]:
+                - /url: /products/oha-30390219
+                - img "OHA-30390219" [ref=e883]
+                - generic [ref=e884]:
+                  - paragraph [ref=e885]: Troemner
+                  - heading "OHA-30390219" [level=3] [ref=e886]
+                  - paragraph [ref=e887]: OHA-30390219
+                  - generic [ref=e888]:
+                    - generic [ref=e889]: $226.00
+                    - generic [ref=e890]: Lead Time
+              - link "OHA-30390221 Troemner OHA-30390221 OHA-30390221 $226.00 Lead Time" [ref=e891] [cursor=pointer]:
+                - /url: /products/oha-30390221
+                - img "OHA-30390221" [ref=e893]
+                - generic [ref=e894]:
+                  - paragraph [ref=e895]: Troemner
+                  - heading "OHA-30390221" [level=3] [ref=e896]
+                  - paragraph [ref=e897]: OHA-30390221
+                  - generic [ref=e898]:
+                    - generic [ref=e899]: $226.00
+                    - generic [ref=e900]: Lead Time
+              - link "DYN-797303-6302 Dynalon DYN-797303-6302 DYN-797303-6302 $212.65 Lead Time" [ref=e901] [cursor=pointer]:
+                - /url: /products/dyn-797303-6302
+                - img "DYN-797303-6302" [ref=e903]
+                - generic [ref=e904]:
+                  - paragraph [ref=e905]: Dynalon
+                  - heading "DYN-797303-6302" [level=3] [ref=e906]
+                  - paragraph [ref=e907]: DYN-797303-6302
+                  - generic [ref=e908]:
+                    - generic [ref=e909]: $212.65
+                    - generic [ref=e910]: Lead Time
+              - link "OHA-30390223 Troemner OHA-30390223 OHA-30390223 $245.00 Lead Time" [ref=e911] [cursor=pointer]:
+                - /url: /products/oha-30390223
+                - img "OHA-30390223" [ref=e913]
+                - generic [ref=e914]:
+                  - paragraph [ref=e915]: Troemner
+                  - heading "OHA-30390223" [level=3] [ref=e916]
+                  - paragraph [ref=e917]: OHA-30390223
+                  - generic [ref=e918]:
+                    - generic [ref=e919]: $245.00
+                    - generic [ref=e920]: Lead Time
+              - link "OHA-30390224 Troemner OHA-30390224 OHA-30390224 $250.00 Lead Time" [ref=e921] [cursor=pointer]:
+                - /url: /products/oha-30390224
+                - img "OHA-30390224" [ref=e923]
+                - generic [ref=e924]:
+                  - paragraph [ref=e925]: Troemner
+                  - heading "OHA-30390224" [level=3] [ref=e926]
+                  - paragraph [ref=e927]: OHA-30390224
+                  - generic [ref=e928]:
+                    - generic [ref=e929]: $250.00
+                    - generic [ref=e930]: Lead Time
+              - link "OHA-30390227 Troemner OHA-30390227 OHA-30390227 $500.00 Lead Time" [ref=e931] [cursor=pointer]:
+                - /url: /products/oha-30390227
+                - img "OHA-30390227" [ref=e933]
+                - generic [ref=e934]:
+                  - paragraph [ref=e935]: Troemner
+                  - heading "OHA-30390227" [level=3] [ref=e936]
+                  - paragraph [ref=e937]: OHA-30390227
+                  - generic [ref=e938]:
+                    - generic [ref=e939]: $500.00
+                    - generic [ref=e940]: Lead Time
+              - link "OHA-30390172 Troemner OHA-30390172 OHA-30390172 $138.00 Lead Time" [ref=e941] [cursor=pointer]:
+                - /url: /products/oha-30390172
+                - img "OHA-30390172" [ref=e943]
+                - generic [ref=e944]:
+                  - paragraph [ref=e945]: Troemner
+                  - heading "OHA-30390172" [level=3] [ref=e946]
+                  - paragraph [ref=e947]: OHA-30390172
+                  - generic [ref=e948]:
+                    - generic [ref=e949]: $138.00
+                    - generic [ref=e950]: Lead Time
+              - link "OHA-30390178 Troemner OHA-30390178 OHA-30390178 $138.00 Lead Time" [ref=e951] [cursor=pointer]:
+                - /url: /products/oha-30390178
+                - img "OHA-30390178" [ref=e953]
+                - generic [ref=e954]:
+                  - paragraph [ref=e955]: Troemner
+                  - heading "OHA-30390178" [level=3] [ref=e956]
+                  - paragraph [ref=e957]: OHA-30390178
+                  - generic [ref=e958]:
+                    - generic [ref=e959]: $138.00
+                    - generic [ref=e960]: Lead Time
+              - link "OHA-30390183 Troemner OHA-30390183 OHA-30390183 $138.00 Lead Time" [ref=e961] [cursor=pointer]:
+                - /url: /products/oha-30390183
+                - img "OHA-30390183" [ref=e963]
+                - generic [ref=e964]:
+                  - paragraph [ref=e965]: Troemner
+                  - heading "OHA-30390183" [level=3] [ref=e966]
+                  - paragraph [ref=e967]: OHA-30390183
+                  - generic [ref=e968]:
+                    - generic [ref=e969]: $138.00
+                    - generic [ref=e970]: Lead Time
+              - link "OHA-30390185 Troemner OHA-30390185 OHA-30390185 $141.00 Lead Time" [ref=e971] [cursor=pointer]:
+                - /url: /products/oha-30390185
+                - img "OHA-30390185" [ref=e973]
+                - generic [ref=e974]:
+                  - paragraph [ref=e975]: Troemner
+                  - heading "OHA-30390185" [level=3] [ref=e976]
+                  - paragraph [ref=e977]: OHA-30390185
+                  - generic [ref=e978]:
+                    - generic [ref=e979]: $141.00
+                    - generic [ref=e980]: Lead Time
+              - link "OHA-30390186 Troemner OHA-30390186 OHA-30390186 $156.00 Lead Time" [ref=e981] [cursor=pointer]:
+                - /url: /products/oha-30390186
+                - img "OHA-30390186" [ref=e983]
+                - generic [ref=e984]:
+                  - paragraph [ref=e985]: Troemner
+                  - heading "OHA-30390186" [level=3] [ref=e986]
+                  - paragraph [ref=e987]: OHA-30390186
+                  - generic [ref=e988]:
+                    - generic [ref=e989]: $156.00
+                    - generic [ref=e990]: Lead Time
+            - generic [ref=e741]:
+              - link "1" [ref=e742] [cursor=pointer]:
+                - /url: /products?minPrice=100&maxPrice=500&page=1
+              - link "2" [ref=e743] [cursor=pointer]:
+                - /url: /products?minPrice=100&maxPrice=500&page=2
+              - link "3" [ref=e744] [cursor=pointer]:
+                - /url: /products?minPrice=100&maxPrice=500&page=3
+              - link "4" [ref=e745] [cursor=pointer]:
+                - /url: /products?minPrice=100&maxPrice=500&page=4
+              - link "5" [ref=e746] [cursor=pointer]:
+                - /url: /products?minPrice=100&maxPrice=500&page=5
+              - link "6" [ref=e747] [cursor=pointer]:
+                - /url: /products?minPrice=100&maxPrice=500&page=6
+              - link "7" [ref=e748] [cursor=pointer]:
+                - /url: /products?minPrice=100&maxPrice=500&page=7
+              - link "Next" [ref=e749] [cursor=pointer]:
+                - /url: /products?minPrice=100&maxPrice=500&page=2
+    - contentinfo [ref=e107]:
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - img "Novatech" [ref=e112]
+          - paragraph [ref=e113]: Your trusted partner for laboratory equipment.
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - img [ref=e116]
+              - generic [ref=e118]: +1 (800) 000-0000
+            - generic [ref=e119]:
+              - img [ref=e120]
+              - link "sales@novatechstore.com" [ref=e123] [cursor=pointer]:
+                - /url: mailto:sales@novatechstore.com
+        - generic [ref=e124]:
+          - heading "Products" [level=3] [ref=e125]
+          - list [ref=e126]:
+            - listitem [ref=e127]:
+              - link "Diaphragm Metering Pumps" [ref=e128] [cursor=pointer]:
+                - /url: /categories/diaphragm-metering-pumps
+            - listitem [ref=e129]:
+              - link "pH & ORP Controllers" [ref=e130] [cursor=pointer]:
+                - /url: /categories/ph-orp-controllers
+            - listitem [ref=e131]:
+              - link "Precision Balances" [ref=e132] [cursor=pointer]:
+                - /url: /categories/precision-balances
+            - listitem [ref=e133]:
+              - link "Autoclaves" [ref=e134] [cursor=pointer]:
+                - /url: /categories/autoclaves
+            - listitem [ref=e135]:
+              - link "Compound Microscopes" [ref=e136] [cursor=pointer]:
+                - /url: /categories/compound-microscopes
+            - listitem [ref=e137]:
+              - link "All Products" [ref=e138] [cursor=pointer]:
+                - /url: /products
+        - generic [ref=e139]:
+          - heading "Services" [level=3] [ref=e140]
+          - list [ref=e141]:
+            - listitem [ref=e142]:
+              - link "Request Quote" [ref=e143] [cursor=pointer]:
+                - /url: /quote
+            - listitem [ref=e144]:
+              - link "Bulk Orders" [ref=e145] [cursor=pointer]:
+                - /url: /quote?type=bulk
+            - listitem [ref=e146]:
+              - link "Technical Support" [ref=e147] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e148]:
+              - link "Returns & Refunds" [ref=e149] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e150]:
+              - link "Shipping Policy" [ref=e151] [cursor=pointer]:
+                - /url: /shipping
+        - generic [ref=e152]:
+          - heading "My Account" [level=3] [ref=e153]
+          - list [ref=e154]:
+            - listitem [ref=e155]:
+              - link "Sign In" [ref=e156] [cursor=pointer]:
+                - /url: /auth/login
+            - listitem [ref=e157]:
+              - link "Create Account" [ref=e158] [cursor=pointer]:
+                - /url: /auth/register
+            - listitem [ref=e159]:
+              - link "My Orders" [ref=e160] [cursor=pointer]:
+                - /url: /account/orders
+            - listitem [ref=e161]:
+              - link "My Quotes" [ref=e162] [cursor=pointer]:
+                - /url: /account/quotes
+            - listitem [ref=e163]:
+              - link "Address Book" [ref=e164] [cursor=pointer]:
+                - /url: /account/addresses
+      - generic [ref=e166]:
+        - paragraph [ref=e167]: © 2026 LabProGlobal. All rights reserved
+        - generic [ref=e168]:
+          - link "Privacy Policy" [ref=e169] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms of Service" [ref=e170] [cursor=pointer]:
+            - /url: /terms
+  - alert [ref=e171]: All Products | LabProGlobal
