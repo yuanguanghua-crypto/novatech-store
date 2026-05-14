@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Script from 'next/script'
 import prisma from '@/lib/prisma'
 import { ProductDetailClient } from '@/components/store/product-detail-client'
-import { ProductFAQ, generateProductFAQs } from '@/components/store/product-faq'
+import { ProductFAQ, generateProductFAQs, type ProductFAQItem } from '@/components/store/product-faq'
 import {
   generateProductSchema,
   generateFAQSchema,
@@ -75,38 +75,56 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   const related = await getRelatedProducts(product.categoryId, product.id)
 
+  // Safely parse specs
+  let specsObj: Record<string, string> = {}
+  try {
+    if (product.specs && typeof product.specs === 'object' && !Array.isArray(product.specs)) {
+      specsObj = product.specs as Record<string, string>
+    }
+  } catch {}
+
   // Format specs for FAQ generation
-  const specs = formatSpecs(product.specs as Record<string, string>)
+  const specs = formatSpecs(specsObj)
 
-  // Generate FAQs based on product data
-  const faqs = generateProductFAQs({
-    productName: product.name,
-    sku: product.sku,
-    brand: product.brand?.name,
-    category: product.category?.name,
-    availability: product.availability,
-    specs: Object.fromEntries(specs.map((s) => [s.key, s.value])),
-    price: `$${parseFloat(product.ourPrice.toString()).toFixed(2)}`,
-  })
-
-  // Generate JSON-LD Schemas
-  const productSchema = generateProductSchema(
-    {
-      name: product.name,
+  // Generate FAQs based on product data (with fallbacks)
+  let faqs: ProductFAQItem[] = []
+  try {
+    faqs = generateProductFAQs({
+      productName: product.name,
       sku: product.sku,
-      description: product.description,
-      brandName: product.brand?.name,
-      imageUrl: product.images[0]?.url,
-      price: product.ourPrice.toString(),
-      currency: product.currency || 'USD',
+      brand: product.brand?.name,
+      category: product.category?.name,
       availability: product.availability,
-      slug: product.slug,
-      categoryName: product.category?.name,
-      ratingValue: '4.8',
-      reviewCount: '126',
-    },
-    BASE_URL
-  )
+      specs: Object.fromEntries(specs.map((s) => [s.key, s.value])),
+      price: product.ourPrice != null ? `$${parseFloat(product.ourPrice.toString()).toFixed(2)}` : 'Request a Quote',
+    })
+  } catch (e) {
+    console.error('FAQ generation failed:', e)
+  }
+
+  // Generate JSON-LD Schemas (with fallbacks)
+  let productSchema: any = {}
+  try {
+    productSchema = generateProductSchema(
+      {
+        name: product.name,
+        sku: product.sku,
+        description: product.description,
+        brandName: product.brand?.name,
+        imageUrl: product.images[0]?.url,
+        price: product.ourPrice != null ? product.ourPrice.toString() : '0',
+        currency: product.currency || 'USD',
+        availability: product.availability,
+        slug: product.slug,
+        categoryName: product.category?.name,
+        ratingValue: '4.8',
+        reviewCount: '126',
+      },
+      BASE_URL
+    )
+  } catch (e) {
+    console.error('Product schema generation failed:', e)
+  }
 
   const faqSchema = generateFAQSchema(faqs, BASE_URL)
 

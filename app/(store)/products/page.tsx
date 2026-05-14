@@ -10,18 +10,20 @@ const BASE_URL = 'https://novatech-store-inky.vercel.app'
 export const metadata: Metadata = {
   title: 'Industrial & Laboratory Equipment | NovaTech-USA',
   description:
-    'Browse 15,000+ industrial detection and laboratory instruments. Official distributor of LMI, Pulsafeeder, Lovibond. pH meters, dosing pumps, conductivity analyzers for water treatment, pharmaceutical, and food industries.',
+    'Browse laboratory borosilicate glassware: beakers, flasks, cylinders, burettes, pipettes, condensers, and filtration systems. Precision instruments for analytical chemistry, research labs, and industrial QC.',
   keywords: [
-    'industrial equipment',
-    'laboratory instruments',
-    'pH meter',
-    'dosing pump',
-    'conductivity analyzer',
-    'water treatment equipment',
-    'LMI',
-    'Pulsafeeder',
-    'Lovibond',
-    'NovaTech-USA',
+    'laboratory glassware',
+    'borosilicate 3.3',
+    'beaker',
+    'erlenmeyer flask',
+    'graduated cylinder',
+    'burette',
+    'volumetric flask',
+    'round bottom flask',
+    'condenser',
+    'filtration kit',
+    'NovaTech',
+    'laboratory equipment',
   ],
 }
 

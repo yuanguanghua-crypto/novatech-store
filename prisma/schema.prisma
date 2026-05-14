@@ -15,9 +15,9 @@ datasource db {
 // ============================================================
 
 model Category {
-  id          String    @id @default(cuid())
-  name        String    @unique
-  slug        String    @unique
+  id          String     @id @default(cuid())
+  name        String     @unique
+  slug        String     @unique
   description String?
   imageUrl    String?
   parentId    String?
@@ -50,64 +50,76 @@ model Brand {
 }
 
 model Product {
-  id            String    @id @default(cuid())
-  sku           String    @unique
-  internalId    String?   @unique   // Novatech internal ID
-  name          String
-  slug          String    @unique
-  description   String?   @db.Text
-  
+  id          String  @id @default(cuid())
+  sku         String  @unique
+  internalId  String? @unique // Novatech internal ID
+  name        String
+  slug        String  @unique
+  description String? @db.Text
+
   // 分类 & 品牌
-  categoryId    String
-  category      Category  @relation(fields: [categoryId], references: [id])
-  brandId       String?
-  brand         Brand?    @relation(fields: [brandId], references: [id])
-  
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+  brandId    String?
+  brand      Brand?   @relation(fields: [brandId], references: [id])
+
   // 定价
-  ourPrice      Decimal   @db.Decimal(10, 2)
-  listPrice     Decimal?  @db.Decimal(10, 2)
-  costPrice     Decimal?  @db.Decimal(10, 2)    // 采购成本（不对外展示）
-  currency      String    @default("USD")
-  
+  ourPrice  Decimal  @db.Decimal(10, 2)
+  listPrice Decimal? @db.Decimal(10, 2)
+  costPrice Decimal? @db.Decimal(10, 2) // 采购成本（不对外展示）
+  currency  String   @default("USD")
+
   // 库存
-  availability  String    @default("in_stock")   // in_stock / out_of_stock / lead_time
-  stockQty      Int       @default(0)
-  leadTimeDays  Int?
-  
+  availability String @default("in_stock") // in_stock / out_of_stock / lead_time
+  stockQty     Int    @default(0)
+  leadTimeDays Int?
+
   // 物理属性
-  weight        Decimal?  @db.Decimal(8, 3)
-  weightUnit    String?   @default("lbs")
-  dimension     String?
-  
+  weight     Decimal? @db.Decimal(8, 3)
+  weightUnit String?  @default("lbs")
+  dimension  String?
+
   // 媒体
-  images        ProductImage[]
-  
+  images ProductImage[]
+
   // 规格参数（JSON 存储，灵活扩展）
-  specs         Json?
-  specsFlat     String?   @db.Text
-  
+  specs     Json?
+  specsFlat String? @db.Text
+
   // SEO
-  metaTitle     String?
-  metaDesc      String?
-  
+  metaTitle String?
+  metaDesc  String?
+
   // 源数据
-  sourceUrl     String?
-  
+  sourceUrl String?
+
   // 状态
-  isActive      Boolean   @default(true)
-  isFeatured    Boolean   @default(false)
-  isNew         Boolean   @default(false)
-  
+  isActive   Boolean @default(true)
+  isFeatured Boolean @default(false)
+  isNew      Boolean @default(false)
+
   // 关联
-  orderItems    OrderItem[]
-  quoteItems    QuoteItem[]
-  suppliers     ProductSupplier[]
-  
+  orderItems OrderItem[]
+  quoteItems QuoteItem[]
+  suppliers  ProductSupplier[]
+
+  // V3.2 映射字段（渐进式适配）
+  supplierMasterId String? @map("supplier_master_id") @db.VarChar(20)
+  spuId            String? @map("spu_id") @db.VarChar(20)
+  variantId        String? @map("variant_id") @db.VarChar(50)
+  erpSkuCode       String? @map("erp_sku_code") @db.VarChar(30)
+  businessSku      String? @map("business_sku") @db.VarChar(30)
+
+  // V3.2 关系
+  supplierMaster SupplierMaster? @relation(fields: [supplierMasterId], references: [supplierId])
+  spu            SPU?            @relation(fields: [spuId], references: [spuId])
+  v32variant     ProductVariant? @relation(fields: [variantId], references: [variantId])
+
   // 搜索
-  searchVector  String?   @db.Text   // 全文搜索预处理字段
-  
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  searchVector String? @db.Text // 全文搜索预处理字段
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([slug])
   @@index([sku])
@@ -115,17 +127,20 @@ model Product {
   @@index([brandId])
   @@index([isActive])
   @@index([isFeatured])
+  @@index([supplierMasterId])
+  @@index([spuId])
+  @@index([variantId])
 }
 
 model ProductImage {
-  id         String   @id @default(cuid())
-  productId  String
-  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url        String
-  altText    String?
-  sortOrder  Int      @default(0)
-  isPrimary  Boolean  @default(false)
-  createdAt  DateTime @default(now())
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  altText   String?
+  sortOrder Int      @default(0)
+  isPrimary Boolean  @default(false)
+  createdAt DateTime @default(now())
 
   @@index([productId])
 }
@@ -135,42 +150,42 @@ model ProductImage {
 // ============================================================
 
 model Supplier {
-  id           String    @id @default(cuid())
-  name         String
-  nameEn       String?
-  contactName  String?
-  email        String?
-  phone        String?
-  wechat       String?
-  address      String?
-  city         String?
-  province     String?
-  country      String    @default("China")
-  website      String?
-  notes        String?   @db.Text
-  rating       Int?      @default(3)    // 1-5 星评级
-  isActive     Boolean   @default(true)
-  products     ProductSupplier[]
+  id             String            @id @default(cuid())
+  name           String
+  nameEn         String?
+  contactName    String?
+  email          String?
+  phone          String?
+  wechat         String?
+  address        String?
+  city           String?
+  province       String?
+  country        String            @default("China")
+  website        String?
+  notes          String?           @db.Text
+  rating         Int?              @default(3) // 1-5 星评级
+  isActive       Boolean           @default(true)
+  products       ProductSupplier[]
   purchaseOrders PurchaseOrder[]
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
 }
 
 model ProductSupplier {
-  id           String    @id @default(cuid())
+  id           String   @id @default(cuid())
   productId    String
-  product      Product   @relation(fields: [productId], references: [id])
+  product      Product  @relation(fields: [productId], references: [id])
   supplierId   String
-  supplier     Supplier  @relation(fields: [supplierId], references: [id])
-  supplierSku  String?   // 供应商的产品编码
-  costPrice    Decimal?  @db.Decimal(10, 2)
-  currency     String    @default("CNY")
+  supplier     Supplier @relation(fields: [supplierId], references: [id])
+  supplierSku  String? // 供应商的产品编码
+  costPrice    Decimal? @db.Decimal(10, 2)
+  currency     String   @default("CNY")
   leadTimeDays Int?
-  moq          Int?      @default(1)   // 最小起订量
+  moq          Int?     @default(1) // 最小起订量
   notes        String?
-  isPrimary    Boolean   @default(false)
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  isPrimary    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   @@unique([productId, supplierId])
   @@index([productId])
@@ -178,16 +193,16 @@ model ProductSupplier {
 }
 
 model PurchaseOrder {
-  id           String    @id @default(cuid())
-  poNumber     String    @unique
-  supplierId   String
-  supplier     Supplier  @relation(fields: [supplierId], references: [id])
-  status       String    @default("draft")  // draft/sent/confirmed/shipped/received
-  totalAmount  Decimal   @db.Decimal(12, 2)
-  currency     String    @default("CNY")
-  notes        String?   @db.Text
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  id          String   @id @default(cuid())
+  poNumber    String   @unique
+  supplierId  String
+  supplier    Supplier @relation(fields: [supplierId], references: [id])
+  status      String   @default("draft") // draft/sent/confirmed/shipped/received
+  totalAmount Decimal  @db.Decimal(12, 2)
+  currency    String   @default("CNY")
+  notes       String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 // ============================================================
@@ -201,24 +216,24 @@ model User {
   name          String?
   passwordHash  String?
   image         String?
-  role          String    @default("customer")  // customer / admin / staff
-  
+  role          String    @default("customer") // customer / admin / staff
+
   // 公司信息（B2B）
-  company       String?
-  jobTitle      String?
-  country       String?
-  phone         String?
-  
+  company  String?
+  jobTitle String?
+  country  String?
+  phone    String?
+
   // 关联
-  accounts      Account[]
-  sessions      Session[]
-  orders        Order[]
-  quotes        Quote[]
-  addresses     Address[]
-  
-  isActive      Boolean   @default(true)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  accounts  Account[]
+  sessions  Session[]
+  orders    Order[]
+  quotes    Quote[]
+  addresses Address[]
+
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([email])
 }
@@ -284,47 +299,47 @@ model Address {
 // ============================================================
 
 model Order {
-  id              String      @id @default(cuid())
-  orderNumber     String      @unique
-  userId          String?
-  user            User?       @relation(fields: [userId], references: [id])
-  
+  id          String  @id @default(cuid())
+  orderNumber String  @unique
+  userId      String?
+  user        User?   @relation(fields: [userId], references: [id])
+
   // 客户信息（快照）
   customerEmail   String
   customerName    String
   customerCompany String?
-  
+
   // 地址
   shippingAddress Json
   billingAddress  Json?
-  
+
   // 金额
-  subtotal        Decimal     @db.Decimal(10, 2)
-  shippingCost    Decimal     @db.Decimal(10, 2) @default(0)
-  taxAmount       Decimal     @db.Decimal(10, 2) @default(0)
-  total           Decimal     @db.Decimal(10, 2)
-  currency        String      @default("USD")
-  
+  subtotal     Decimal @db.Decimal(10, 2)
+  shippingCost Decimal @default(0) @db.Decimal(10, 2)
+  taxAmount    Decimal @default(0) @db.Decimal(10, 2)
+  total        Decimal @db.Decimal(10, 2)
+  currency     String  @default("USD")
+
   // 状态
-  status          String      @default("pending")
+  status String @default("pending")
   // pending / payment_pending / paid / processing / shipped / delivered / cancelled / refunded
-  
-  paymentStatus   String      @default("unpaid")   // unpaid / paid / refunded
-  paymentMethod   String?     // stripe / paypal / wire
+
+  paymentStatus   String  @default("unpaid") // unpaid / paid / refunded
+  paymentMethod   String? // stripe / paypal / wire
   stripePaymentId String?
-  
+
   // 物流
-  shippingMethod  String?
-  trackingNumber  String?
-  shippedAt       DateTime?
-  deliveredAt     DateTime?
-  
-  notes           String?     @db.Text
-  
-  items           OrderItem[]
-  
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  shippingMethod String?
+  trackingNumber String?
+  shippedAt      DateTime?
+  deliveredAt    DateTime?
+
+  notes String? @db.Text
+
+  items OrderItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([orderNumber])
   @@index([userId])
@@ -333,19 +348,19 @@ model Order {
 }
 
 model OrderItem {
-  id          String   @id @default(cuid())
-  orderId     String
-  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  productId   String
-  product     Product  @relation(fields: [productId], references: [id])
-  
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
   // 快照（防止产品信息变更影响历史订单）
-  sku         String
-  name        String
-  imageUrl    String?
-  unitPrice   Decimal  @db.Decimal(10, 2)
-  quantity    Int
-  total       Decimal  @db.Decimal(10, 2)
+  sku       String
+  name      String
+  imageUrl  String?
+  unitPrice Decimal @db.Decimal(10, 2)
+  quantity  Int
+  total     Decimal @db.Decimal(10, 2)
 
   @@index([orderId])
   @@index([productId])
@@ -356,46 +371,231 @@ model OrderItem {
 // ============================================================
 
 model Quote {
-  id            String      @id @default(cuid())
-  quoteNumber   String      @unique
-  userId        String?
-  user          User?       @relation(fields: [userId], references: [id])
-  
+  id          String  @id @default(cuid())
+  quoteNumber String  @unique
+  userId      String?
+  user        User?   @relation(fields: [userId], references: [id])
+
   // 客户信息
-  customerEmail String
-  customerName  String
+  customerEmail   String
+  customerName    String
   customerCompany String?
-  customerPhone String?
-  message       String?     @db.Text
-  
+  customerPhone   String?
+  message         String? @db.Text
+
   // 状态
-  status        String      @default("pending")
+  status String @default("pending")
   // pending / reviewing / quoted / accepted / declined / expired
-  
+
   // 报价回复
-  quotedPrice   Decimal?    @db.Decimal(10, 2)
-  quotedAt      DateTime?
-  expiresAt     DateTime?
-  adminNotes    String?     @db.Text
-  
-  items         QuoteItem[]
-  
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+  quotedPrice Decimal?  @db.Decimal(10, 2)
+  quotedAt    DateTime?
+  expiresAt   DateTime?
+  adminNotes  String?   @db.Text
+
+  items QuoteItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([status])
   @@index([customerEmail])
 }
 
 model QuoteItem {
-  id          String   @id @default(cuid())
-  quoteId     String
-  quote       Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
-  productId   String
-  product     Product  @relation(fields: [productId], references: [id])
-  quantity    Int      @default(1)
-  notes       String?
-  unitPrice   Decimal? @db.Decimal(10, 2)   // 报价后填写
+  id        String   @id @default(cuid())
+  quoteId   String
+  quote     Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int      @default(1)
+  notes     String?
+  unitPrice Decimal? @db.Decimal(10, 2) // 报价后填写
 
   @@index([quoteId])
+}
+
+// ============================================================
+// V3.2 PIM/MDM 四层产品架构
+// ============================================================
+
+// L0: 供应商主表（替代Brand用于前端展示）
+model SupplierMaster {
+  supplierId   String   @id @map("supplier_id") @db.VarChar(20)
+  supplierName String   @map("supplier_name") @db.VarChar(100)
+  country      String   @db.VarChar(2)
+  leadTimeDays Int      @default(30) @map("lead_time_days")
+  rating       Decimal  @default(0.0) @db.Decimal(2, 1)
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  variants VariantSupplierMap[]
+  products Product[]
+
+  @@map("supplier_master")
+}
+
+// L1: 标准产品单元（产品族）
+model SPU {
+  spuId             String   @id @map("spu_id") @db.VarChar(20)
+  productFamilyName String   @map("product_family_name") @db.VarChar(100)
+  categoryL1        String   @map("category_l1") @db.VarChar(50)
+  seoTitle          String?  @map("seo_title") @db.VarChar(200)
+  metadata          Json?    @default("{}")
+  isActive          Boolean  @default(true) @map("is_active")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  variants ProductVariant[]
+  products Product[]
+
+  @@map("spu")
+}
+
+// L2: 变体（核心规格实体 — 最重要的表）
+model ProductVariant {
+  variantId       String   @id @map("variant_id") @db.VarChar(50)
+  spuId           String   @map("spu_id") @db.VarChar(20)
+  variantName     String   @map("variant_name") @db.VarChar(200)
+  volumeMl        Int?     @map("volume_ml")
+  lengthMm        Int?     @map("length_mm")
+  jointType       String?  @map("joint_type") @db.VarChar(20)
+  jointSize       String?  @map("joint_size") @db.VarChar(20)
+  wallType        String?  @map("wall_type") @db.VarChar(30)
+  materialFamily  String   @map("material_family") @db.VarChar(50)
+  color           String?  @db.VarChar(20)
+  accuracyClass   String?  @map("accuracy_class") @db.VarChar(20)
+  sellingPriceUsd Decimal  @map("selling_price_usd") @db.Decimal(8, 2)
+  costPriceUsd    Decimal  @map("cost_price_usd") @db.Decimal(8, 2)
+  grossMarginPct  Decimal? @map("gross_margin_pct") @db.Decimal(5, 2)
+  weightGrams     Int?     @map("weight_grams")
+  dimensionsJson  Json?    @default("{}") @map("dimensions_json")
+  shippingClass   String?  @map("shipping_class") @db.VarChar(30)
+  taxClass        String?  @map("tax_class") @db.VarChar(30)
+  metaTitle       String?  @map("meta_title") @db.VarChar(200)
+  metaDescription String?  @map("meta_description")
+  slug            String?  @unique @db.VarChar(200)
+  isActive        Boolean  @default(true) @map("is_active")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  spu            SPU                   @relation(fields: [spuId], references: [spuId])
+  erpSkus        ERPSKU[]
+  supplierMaps   VariantSupplierMap[]
+  standards      ProductStandard[]
+  kits           AssemblyKit[]
+  kitComponents  KitBOM[]              @relation("KitComponents")
+  compatibilityA CompatibilityMatrix[] @relation("VariantA")
+  compatibilityB CompatibilityMatrix[] @relation("VariantB")
+  products       Product[]
+
+  @@index([spuId])
+  @@index([materialFamily])
+  @@index([jointType])
+  @@index([accuracyClass])
+  @@index([sellingPriceUsd])
+  @@map("variant")
+}
+
+// L3: ERP SKU 映射
+model ERPSKU {
+  erpSku           String   @id @map("erp_sku") @db.VarChar(30)
+  variantId        String   @map("variant_id") @db.VarChar(50)
+  businessSku      String   @map("business_sku") @db.VarChar(30)
+  initialStockQty  Int      @default(0) @map("initial_stock_qty")
+  lowStockAlertQty Int      @default(0) @map("low_stock_alert_qty")
+  isActive         Boolean  @default(true) @map("is_active")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  variant ProductVariant @relation(fields: [variantId], references: [variantId])
+
+  @@index([variantId])
+  @@index([businessSku])
+  @@map("erp_sku")
+}
+
+// 多供应商映射
+model VariantSupplierMap {
+  variantId    String   @map("variant_id") @db.VarChar(50)
+  supplierId   String   @map("supplier_id") @db.VarChar(20)
+  supplierSku  String?  @map("supplier_sku") @db.VarChar(30)
+  unitCostUsd  Decimal  @map("unit_cost_usd") @db.Decimal(8, 2)
+  moq          Int      @default(100)
+  leadTimeDays Int      @default(25) @map("lead_time_days")
+  isPreferred  Boolean  @default(false) @map("is_preferred")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  variant  ProductVariant @relation(fields: [variantId], references: [variantId])
+  supplier SupplierMaster @relation(fields: [supplierId], references: [supplierId])
+
+  @@id([variantId, supplierId])
+  @@map("variant_supplier_map")
+}
+
+// 产品标准/认证
+model ProductStandard {
+  variantId     String   @map("variant_id") @db.VarChar(50)
+  standardName  String   @map("standard_name") @db.VarChar(50)
+  standardCode  String?  @map("standard_code") @db.VarChar(30)
+  accuracyClass String?  @map("accuracy_class") @db.VarChar(20)
+  isCertified   Boolean  @default(false) @map("is_certified")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  variant ProductVariant @relation(fields: [variantId], references: [variantId])
+
+  @@id([variantId, standardName])
+  @@map("product_standards")
+}
+
+// 套件产品
+model AssemblyKit {
+  kitId           String   @id @map("kit_id") @db.VarChar(30)
+  kitName         String   @map("kit_name") @db.VarChar(200)
+  kitType         String   @map("kit_type") @db.VarChar(30)
+  variantId       String?  @map("variant_id") @db.VarChar(50)
+  sellingPriceUsd Decimal? @map("selling_price_usd") @db.Decimal(8, 2)
+  costPriceUsd    Decimal? @map("cost_price_usd") @db.Decimal(8, 2)
+  isActive        Boolean  @default(true) @map("is_active")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  variant    ProductVariant? @relation(fields: [variantId], references: [variantId])
+  components KitBOM[]
+
+  @@map("assembly_kit")
+}
+
+// 套件物料清单
+model KitBOM {
+  kitId              String   @map("kit_id") @db.VarChar(30)
+  componentVariantId String   @map("component_variant_id") @db.VarChar(50)
+  componentErpSku    String?  @map("component_erp_sku") @db.VarChar(30)
+  quantity           Int      @default(1)
+  componentName      String?  @map("component_name") @db.VarChar(100)
+  createdAt          DateTime @default(now()) @map("created_at")
+
+  kit       AssemblyKit    @relation(fields: [kitId], references: [kitId])
+  component ProductVariant @relation("KitComponents", fields: [componentVariantId], references: [variantId])
+
+  @@id([kitId, componentVariantId])
+  @@map("kit_bom")
+}
+
+// 兼容性矩阵
+model CompatibilityMatrix {
+  variantIdA        String   @map("variant_id_a") @db.VarChar(50)
+  variantIdB        String   @map("variant_id_b") @db.VarChar(50)
+  compatibilityType String   @map("compatibility_type") @db.VarChar(30)
+  notes             String?
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  variantA ProductVariant @relation("VariantA", fields: [variantIdA], references: [variantId])
+  variantB ProductVariant @relation("VariantB", fields: [variantIdB], references: [variantId])
+
+  @@id([variantIdA, variantIdB])
+  @@map("compatibility_matrix")
 }
