@@ -3,140 +3,234 @@
 @tailwind utilities;
 
 /* =====================================
-   Novatech Store Design System v1.2
-   Brand Colors, Typography, Animations
+   LABPRO Design System v2.0
+   Modern Minimalism - Professional Lab Equipment
    ===================================== */
 
 @layer base {
   :root {
-    /* Brand Colors - CSS Variables */
-    --brand-50:  #eff6ff;
-    --brand-100: #dbeafe;
-    --brand-200: #bfdbfe;
-    --brand-300: #93c5fd;
-    --brand-400: #60a5fa;
-    --brand-500: #3b82f6;
-    --brand-600: #2563eb;  /* Primary Brand Color */
-    --brand-700: #1d4ed8;
-    --brand-800: #1e40af;  /* Deep Brand Blue */
-    --brand-900: #1e3a8a;
-    --brand-950: #172554;
+    /* Brand Colors - LABPRO Deep Tech Blue */
+    --brand-50:  #EDF5FB;
+    --brand-100: #D5E8F5;
+    --brand-200: #B0D4ED;
+    --brand-300: #7BB8DF;
+    --brand-400: #4A9AD0;
+    --brand-500: #2A7FBA;
+    --brand-600: #0F4C81;  /* Primary Brand Color */
+    --brand-700: #0A3A63;
+    --brand-800: #0D3259;
+    --brand-900: #0A2747;
+    --brand-950: #061A30;
 
-    /* Accent Colors */
-    --accent-50:  #ecfeff;
-    --accent-100: #cffafe;
-    --accent-400: #22d3ee;
-    --accent-500: #06b6d4;  /* Cyan - Tech Accent */
-    --accent-600: #0891b2;
+    /* Accent Colors - Fresh Cyan */
+    --accent-50:  #E6FAFB;
+    --accent-100: #C0F2F5;
+    --accent-400: #0ABFCC;
+    --accent-500: #00A8B5;  /* Cyan - Tech Accent */
+    --accent-600: #008A94;
+    --accent-700: #006D75;
+
+    /* Surface Colors */
+    --surface-50:  #FAFBFC;
+    --surface-100: #F1F5F9;
+    --surface-200: #E2E8F0;
+    --surface-300: #CBD5E1;
+
+    /* Text Colors */
+    --text-primary: #1F2A44;
+    --text-secondary: #64748B;
+    --text-tertiary: #94A3B8;
+
+    /* Semantic Colors */
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
   }
 
   html {
     scroll-behavior: smooth;
-    /* Prevent horizontal overflow on mobile */
     overflow-x: hidden;
   }
 
   body {
-    @apply bg-white text-gray-900 antialiased;
+    @apply antialiased;
+    background-color: var(--surface-50);
+    color: var(--text-primary);
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-    /* Ensure horizontal scrolling is prevented */
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight text-gray-900;
+    @apply font-display tracking-tight;
+    color: var(--text-primary);
   }
 }
 
 @layer components {
-  /* Primary Button - Blue Theme */
+  /* =====================================
+     Buttons
+     ===================================== */
+
+  /* Primary Button - LABPRO Blue */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-md
-           bg-brand-600 text-white font-medium text-sm
-           hover:bg-brand-700 active:bg-brand-800
-           transition-all duration-150 ease-out
+    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg
+           font-medium text-sm
+           transition-all duration-200
            disabled:opacity-50 disabled:cursor-not-allowed;
+    background-color: var(--brand-600);
+    color: white;
   }
 
   .btn-primary:hover {
-    @apply shadow-lg -translate-y-0.5;
+    @apply -translate-y-0.5;
+    background-color: var(--brand-700);
+    box-shadow: 0 4px 12px rgba(15,76,129,0.2);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+    background-color: var(--brand-800);
   }
 
   /* Secondary Button */
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-md
-           border border-gray-300 bg-white text-gray-700 font-medium text-sm
-           hover:bg-gray-50 active:bg-gray-100
-           transition-colors duration-150;
+    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg
+           border font-medium text-sm
+           transition-all duration-200;
+    border-color: var(--surface-200);
+    color: var(--text-primary);
+    background: white;
   }
 
-  /* Outline Button - Blue Border */
+  .btn-secondary:hover {
+    background-color: var(--surface-50);
+    border-color: var(--surface-300);
+  }
+
+  /* Outline Button - Cyan Accent */
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-md
-           border-2 border-brand-600 text-brand-600 font-medium text-sm
-           hover:bg-brand-600 hover:text-white transition-all duration-200;
+    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg
+           border-2 font-medium text-sm
+           transition-all duration-200;
+    border-color: var(--accent-500);
+    color: var(--accent-600);
   }
 
-  /* Input Fields - Blue Focus */
+  .btn-outline:hover {
+    background-color: var(--accent-500);
+    color: white;
+  }
+
+  /* Ghost Button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg
+           font-medium text-sm
+           transition-all duration-200;
+    color: var(--text-secondary);
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--surface-100);
+    color: var(--text-primary);
+  }
+
+  /* =====================================
+     Input Fields
+     ===================================== */
   .input {
-    @apply block w-full rounded-md border border-gray-300 px-3 py-2
-           text-sm shadow-sm placeholder-gray-400
-           focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20
-           disabled:cursor-not-allowed disabled:bg-gray-50;
+    @apply block w-full rounded-lg border px-3 py-2.5
+           text-sm shadow-sm
+           transition-all duration-200;
+    border-color: var(--surface-200);
+    background: white;
   }
 
-  /* Cards */
+  .input::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: var(--brand-500);
+    box-shadow: 0 0 0 3px rgba(15,76,129,0.1);
+  }
+
+  /* =====================================
+     Cards
+     ===================================== */
   .card {
-    @apply bg-white rounded-lg border border-gray-200 shadow-card;
+    @apply bg-white rounded-xl;
+    border: 1px solid var(--surface-200);
+    box-shadow: 0 1px 2px rgba(15,76,129,0.04);
   }
 
   .card-hover {
-    @apply card hover:shadow-card-hover transition-all duration-200 cursor-pointer;
+    @apply card transition-all duration-300 cursor-pointer;
   }
 
   .card-hover:hover {
     @apply -translate-y-1;
+    box-shadow: 0 8px 24px rgba(15,76,129,0.08);
+    border-color: var(--brand-200);
   }
 
-  /* Badges */
+  /* =====================================
+     Badges
+     ===================================== */
   .badge {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
   }
 
-  .badge-green {
-    @apply badge bg-green-100 text-green-800;
+  .badge-success {
+    @apply badge;
+    background-color: #D1FAE5;
+    color: #065F46;
   }
 
-  .badge-red {
-    @apply badge bg-red-100 text-red-800;
+  .badge-danger {
+    @apply badge;
+    background-color: #FEE2E2;
+    color: #991B1B;
   }
 
-  .badge-yellow {
-    @apply badge bg-yellow-100 text-yellow-800;
+  .badge-warning {
+    @apply badge;
+    background-color: #FEF3C7;
+    color: #92400E;
   }
 
-  .badge-blue {
-    @apply badge bg-brand-100 text-brand-800;
+  .badge-info {
+    @apply badge;
+    background-color: var(--brand-100);
+    color: var(--brand-700);
   }
 
-  .badge-gray {
-    @apply badge bg-gray-100 text-gray-700;
+  .badge-neutral {
+    @apply badge;
+    background-color: var(--surface-100);
+    color: var(--text-secondary);
   }
 
-  /* Section spacing */
+  /* =====================================
+     Section & Container
+     ===================================== */
   .section-padding {
     @apply py-12 md:py-16 lg:py-20;
   }
 
-
-  /* Container - Consistent horizontal padding */
   .container-custom {
     @apply mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 xl:px-12;
   }
 
-  /* Section spacing */
   .section-sm {
     @apply py-8 md:py-12;
+  }
+
+  /* =====================================
+     Divider
+     ===================================== */
+  .divider {
+    border-top: 1px solid var(--surface-200);
   }
 }
 
@@ -207,45 +301,6 @@
 .stagger-5 { animation-delay: 500ms; }
 
 /* =====================================
-   Marquee Animations
-   ===================================== */
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.animate-marquee {
-  animation: marquee 35s linear infinite;
-}
-
-.animate-marquee-slow {
-  animation: marquee 45s linear infinite;
-}
-
-.animate-marquee-fast {
-  animation: marquee 20s linear infinite;
-}
-
-.animate-marquee-reverse {
-  animation: marquee-reverse 40s linear infinite;
-}
-
-/* Pause marquee on hover */
-.group:hover .pause,
-.animate-marquee:hover,
-.animate-marquee-slow:hover,
-.animate-marquee-fast:hover,
-.animate-marquee-reverse:hover {
-  animation-play-state: paused;
-}
-
-/* =====================================
    Custom Scrollbar
    ===================================== */
 
@@ -255,15 +310,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100;
+  background: var(--surface-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 rounded-full;
+  background: var(--surface-300);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400;
+  background: #94A3B8;
 }
 
 /* =====================================
@@ -271,7 +327,8 @@
    ===================================== */
 
 ::selection {
-  @apply bg-brand-200 text-brand-900;
+  background-color: var(--brand-200);
+  color: var(--brand-900);
 }
 
 /* =====================================
@@ -279,5 +336,45 @@
    ===================================== */
 
 *:focus-visible {
-  @apply outline-none ring-2 ring-brand-500 ring-offset-2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15,76,129,0.2);
+}
+
+/* =====================================
+   Underline Animation for Nav Links
+   ===================================== */
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-500);
+  transition: width 0.25s ease;
+}
+
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+/* =====================================
+   Category Card Gradient Icon Background
+   ===================================== */
+.category-icon-bg {
+  background: linear-gradient(135deg, var(--brand-50) 0%, var(--brand-100) 100%);
+  transition: all 0.3s ease;
+}
+
+.group:hover .category-icon-bg {
+  background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-700) 100%);
+}
+
+.group:hover .category-icon-bg svg,
+.group:hover .category-icon-bg .icon-text {
+  color: white;
 }

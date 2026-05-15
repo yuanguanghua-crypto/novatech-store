@@ -43,12 +43,13 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
   const hasActiveFilters = Object.values(searchParams).some(Boolean)
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-200">
+    <div className="bg-white rounded-xl" style={{ border: '1px solid var(--surface-200)' }}>
       {/* Availability Filter */}
-      <div className="p-4">
+      <div className="p-4" style={{ borderBottom: '1px solid var(--surface-200)' }}>
         <button
           onClick={() => toggleSection('availability')}
-          className="flex items-center justify-between w-full font-semibold text-gray-900 mb-3"
+          className="flex items-center justify-between w-full font-semibold mb-3"
+          style={{ color: 'var(--text-primary)' }}
         >
           <span>{t.filter_availability}</span>
           <ChevronDown className={cn(
@@ -63,8 +64,9 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
                 "w-5 h-5 rounded border-2 flex items-center justify-center transition-all",
                 searchParams.availability === 'in_stock'
                   ? "bg-blue-600 border-blue-600"
-                  : "border-gray-300 group-hover:border-blue-400"
-              )}>
+                  : "group-hover:border-blue-400"
+              )}
+              style={searchParams.availability !== 'in_stock' ? { borderColor: 'var(--surface-300)' } : undefined}>
                 {searchParams.availability === 'in_stock' && (
                   <Check className="w-3 h-3 text-white" />
                 )}
@@ -75,7 +77,7 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
                 onChange={(e) => updateFilter('availability', e.target.checked ? 'in_stock' : null)}
                 className="sr-only"
               />
-              <span className="text-sm text-gray-700 group-hover:text-blue-600 transition-colors">
+              <span className="text-sm group-hover:text-blue-600 transition-colors" style={{ color: 'var(--text-secondary)' }}>
                 {t.filter_in_stock_only}
               </span>
             </label>
@@ -84,10 +86,11 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
       </div>
 
       {/* Price Range Filter */}
-      <div className="p-4">
+      <div className="p-4" style={{ borderBottom: '1px solid var(--surface-200)' }}>
         <button
           onClick={() => toggleSection('price')}
-          className="flex items-center justify-between w-full font-semibold text-gray-900 mb-3"
+          className="flex items-center justify-between w-full font-semibold mb-3"
+          style={{ color: 'var(--text-primary)' }}
         >
           <span>{t.filter_price_range}</span>
           <ChevronDown className={cn(
@@ -106,7 +109,7 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
                 className="input text-sm"
                 min="0"
               />
-              <span className="text-gray-400">–</span>
+              <span style={{ color: 'var(--text-tertiary)' }}>–</span>
               <input
                 type="number"
                 placeholder={t.filter_max}
@@ -130,8 +133,9 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
                     "text-xs border rounded-lg px-3 py-1.5 font-medium transition-all",
                     searchParams.minPrice === min && searchParams.maxPrice === max
                       ? "bg-blue-100 border-blue-500 text-blue-700"
-                      : "border-gray-200 text-gray-600 hover:border-blue-300 hover:bg-blue-50"
+                      : "hover:border-blue-300 hover:bg-blue-50"
                   )}
+                  style={searchParams.minPrice !== min || searchParams.maxPrice !== max ? { borderColor: 'var(--surface-200)', color: 'var(--text-secondary)' } : undefined}
                 >
                   {label}
                 </button>

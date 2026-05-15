@@ -16,7 +16,8 @@ export function SortSelector({ current }: { current?: string }) {
         params.delete('page')
         router.push(`/products?${params.toString()}`)
       }}
-      className="text-sm border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-brand-500"
+      className="text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-brand-500"
+      style={{ border: '1px solid var(--surface-300)', color: 'var(--text-primary)', backgroundColor: '#FFFFFF' }}
     >
       <option value="featured">{t.products_sort_featured}</option>
       <option value="newest">{t.products_sort_newest}</option>

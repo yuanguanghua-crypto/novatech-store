@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, DM_Sans } from 'next/font/google'
 import './globals.css'
 import { Providers } from '@/components/providers'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const plusJakarta = Plus_Jakarta_Sans({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-jakarta',
+  variable: '--font-dm-sans',
   weight: ['400', '500', '600', '700'],
 })
 
@@ -44,7 +44,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${plusJakarta.variable} font-sans`}>
+      <body className={`${inter.variable} ${dmSans.variable} font-sans`}>
         <Providers>{children}</Providers>
       </body>
     </html>

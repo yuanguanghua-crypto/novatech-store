@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { Package } from 'lucide-react'
 import { ProductGrid } from '@/components/store/product-grid'
 import { SortSelector } from '@/components/store/sort-selector'
 import { ProductFilters } from '@/components/store/product-filters'
@@ -36,7 +37,13 @@ function Pagination({ page, totalPages, searchParams }: { page: number; totalPag
   return (
     <div className="flex justify-center items-center gap-2 mt-8">
       {page > 1 && (
-        <a href={buildUrl(page - 1)} className="btn-secondary px-4 py-2 text-sm">{t.products_prev}</a>
+        <a
+          href={buildUrl(page - 1)}
+          className="btn-secondary px-4 py-2 text-sm"
+          style={{ borderColor: '#E2E8F0', color: '#1F2A44' }}
+        >
+          {t.products_prev}
+        </a>
       )}
       {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
         const p = page <= 4 ? i + 1 : page - 3 + i
@@ -45,16 +52,25 @@ function Pagination({ page, totalPages, searchParams }: { page: number; totalPag
           <a
             key={p}
             href={buildUrl(p)}
-            className={`px-3 py-2 text-sm rounded-md ${
-              p === page ? 'bg-brand-700 text-white' : 'btn-secondary'
-            }`}
+            className="px-3 py-2 text-sm rounded-lg transition-all duration-200"
+            style={{
+              backgroundColor: p === page ? '#0F4C81' : 'white',
+              color: p === page ? 'white' : '#1F2A44',
+              border: p === page ? 'none' : '1px solid #E2E8F0',
+            }}
           >
             {p}
           </a>
         )
       })}
       {page < totalPages && (
-        <a href={buildUrl(page + 1)} className="btn-secondary px-4 py-2 text-sm">{t.products_next}</a>
+        <a
+          href={buildUrl(page + 1)}
+          className="btn-secondary px-4 py-2 text-sm"
+          style={{ borderColor: '#E2E8F0', color: '#1F2A44' }}
+        >
+          {t.products_next}
+        </a>
       )}
     </div>
   )
@@ -68,26 +84,27 @@ export function ProductsClient({ products, total, page, pageSize, searchParams }
 
   return (
     <div className="container py-8">
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">{t.products_page_title}</h1>
-          <p className="text-sm text-gray-500 mt-1">
-            {t.products_results_count.replace('{count}', total.toLocaleString())}
-          </p>
-        </div>
+      {/* Page Header */}
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold font-display" style={{ color: '#1F2A44' }}>
+          {t.products_page_title}
+        </h1>
+        <p className="text-sm mt-1" style={{ color: '#64748B' }}>
+          {t.products_results_count.replace('{count}', total.toLocaleString())}
+        </p>
       </div>
 
       <div className="flex gap-8">
-        {/* Sidebar Filters */}
-        <aside className="hidden lg:block w-64 flex-shrink-0">
+        {/* Sidebar Filters (280px) */}
+        <aside className="hidden lg:block w-70 flex-shrink-0" style={{ width: '280px' }}>
           <ProductFilters searchParams={searchParams} />
         </aside>
 
         {/* Product Grid */}
         <div className="flex-1">
           {/* Sort Bar */}
-          <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
-            <p className="text-sm text-gray-500">
+          <div className="flex items-center justify-between mb-4 pb-4" style={{ borderBottom: '1px solid #E2E8F0' }}>
+            <p className="text-sm" style={{ color: '#64748B' }}>
               {t.products_showing_range
                 .replace('{start}', start.toLocaleString())
                 .replace('{end}', end.toLocaleString())
@@ -98,7 +115,9 @@ export function ProductsClient({ products, total, page, pageSize, searchParams }
 
           {products.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-gray-500">{t.products_no_results}</p>
+              <Package className="w-16 h-16 mx-auto mb-4" style={{ color: '#CBD5E1' }} />
+              <p className="text-lg font-medium" style={{ color: '#1F2A44' }}>{t.products_no_results}</p>
+              <p className="text-sm mt-1" style={{ color: '#64748B' }}>Try adjusting your filters or search terms</p>
             </div>
           ) : (
             <ProductGrid products={products} />

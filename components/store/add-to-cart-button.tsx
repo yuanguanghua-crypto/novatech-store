@@ -40,24 +40,30 @@ export function AddToCartButton({ productId, sku, name, price, imageUrl }: AddTo
   return (
     <div className="flex items-center gap-3 flex-1">
       {/* Quantity Selector */}
-      <div className="flex items-center border-2 border-gray-200 rounded-lg overflow-hidden">
+      <div className="flex items-center rounded-lg overflow-hidden" style={{ border: '2px solid var(--surface-200)' }}>
         <button
           onClick={() => setQty(q => Math.max(1, q - 1))}
-          className="px-3 py-2.5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 text-lg font-medium transition-colors"
+          className="px-3 py-2.5 text-lg font-medium transition-colors"
+          style={{ color: 'var(--text-secondary)' }}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--surface-100)'; e.currentTarget.style.color = 'var(--text-primary)' }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)' }}
         >
           −
         </button>
-        <span className="px-4 py-2.5 text-sm font-semibold min-w-[48px] text-center border-x-2 border-gray-100">
+        <span className="px-4 py-2.5 text-sm font-semibold min-w-[48px] text-center" style={{ borderLeft: '2px solid var(--surface-200)', borderRight: '2px solid var(--surface-200)', color: 'var(--text-primary)' }}>
           {qty}
         </span>
         <button
           onClick={() => setQty(q => q + 1)}
-          className="px-3 py-2.5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 text-lg font-medium transition-colors"
+          className="px-3 py-2.5 text-lg font-medium transition-colors"
+          style={{ color: 'var(--text-secondary)' }}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--surface-100)'; e.currentTarget.style.color = 'var(--text-primary)' }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)' }}
         >
           +
         </button>
       </div>
-      
+
       {/* Add to Cart Button */}
       <button
         onClick={handleAdd}

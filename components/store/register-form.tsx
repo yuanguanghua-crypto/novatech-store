@@ -14,38 +14,42 @@ export function RegisterForm({ tkey }: RegisterFormProps) {
   return (
     <div className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">{t.auth_name}</label>
+        <label className="block text-sm font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>{t.auth_name}</label>
         <input
           type="text"
           placeholder={t.placeholder_name_example}
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand-500"
+          style={{ border: '1px solid var(--surface-300)', color: 'var(--text-primary)' }}
           disabled
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">{t.auth_company_optional}</label>
+        <label className="block text-sm font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>{t.auth_company_optional}</label>
         <input
           type="text"
           placeholder={t.placeholder_company_example}
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand-500"
+          style={{ border: '1px solid var(--surface-300)', color: 'var(--text-primary)' }}
           disabled
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">{t.auth_email}</label>
+        <label className="block text-sm font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>{t.auth_email}</label>
         <input
           type="email"
           placeholder={t.placeholder_email_example}
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand-500"
+          style={{ border: '1px solid var(--surface-300)', color: 'var(--text-primary)' }}
           disabled
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">{t.auth_password}</label>
+        <label className="block text-sm font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>{t.auth_password}</label>
         <input
           type="password"
           placeholder={t.auth_min_password}
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand-500"
+          style={{ border: '1px solid var(--surface-300)', color: 'var(--text-primary)' }}
           disabled
         />
       </div>

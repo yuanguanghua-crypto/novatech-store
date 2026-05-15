@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { 
+import {
   ArrowRight, ShieldCheck, Truck, HeadphonesIcon, Award,
-  Package, Droplets, Scale, Microscope, Beaker, Zap
+  Package, Droplets, Scale, Microscope, Beaker, Zap,
+  FlaskConical, TestTubes, Thermometer, Filter,
 } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/context'
 import { formatPrice } from '@/lib/utils'
@@ -38,20 +39,26 @@ interface HomeClientProps {
 
 // Category icons map
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
-  pumps: <Droplets className="w-8 h-8" />,
-  analyzers: <Beaker className="w-8 h-8" />,
-  balances: <Scale className="w-8 h-8" />,
-  instruments: <Microscope className="w-8 h-8" />,
-  supplies: <Package className="w-8 h-8" />,
-  default: <Zap className="w-8 h-8" />,
+  beakers: <FlaskConical className="w-7 h-7" />,
+  flasks: <Beaker className="w-7 h-7" />,
+  cylinders: <TestTubes className="w-7 h-7" />,
+  pumps: <Droplets className="w-7 h-7" />,
+  thermometers: <Thermometer className="w-7 h-7" />,
+  filters: <Filter className="w-7 h-7" />,
+  balances: <Scale className="w-7 h-7" />,
+  microscopes: <Microscope className="w-7 h-7" />,
+  default: <Package className="w-7 h-7" />,
 }
 
 function getCategoryIcon(slug: string) {
-  if (slug.includes('pump')) return CATEGORY_ICONS.pumps
-  if (slug.includes('analyzer') || slug.includes('ph') || slug.includes('orp')) return CATEGORY_ICONS.analyzers
-  if (slug.includes('balance')) return CATEGORY_ICONS.balances
-  if (slug.includes('microscope')) return CATEGORY_ICONS.instruments
-  if (slug.includes('supply') || slug.includes('tube') || slug.includes('vial')) return CATEGORY_ICONS.supplies
+  if (slug.includes('beaker') || slug.includes('basic')) return CATEGORY_ICONS.beakers
+  if (slug.includes('flask') || slug.includes('reaction')) return CATEGORY_ICONS.flasks
+  if (slug.includes('cylinder') || slug.includes('analytical')) return CATEGORY_ICONS.cylinders
+  if (slug.includes('pump') || slug.includes('metering')) return CATEGORY_ICONS.pumps
+  if (slug.includes('distillation')) return CATEGORY_ICONS.thermometers
+  if (slug.includes('filtration')) return CATEGORY_ICONS.filters
+  if (slug.includes('balance') || slug.includes('storage')) return CATEGORY_ICONS.balances
+  if (slug.includes('microscope')) return CATEGORY_ICONS.microscopes
   return CATEGORY_ICONS.default
 }
 
@@ -60,148 +67,172 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
 
   return (
     <>
-      {/* ===== Hero Section - Full Width, Centered Content ===== */}
-      <section className="relative bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800 text-white overflow-hidden">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{ 
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.3) 0%, transparent 50%),
-                              radial-gradient(circle at 75% 75%, rgba(6,182,212,0.3) 0%, transparent 50%)` 
-          }} />
-        </div>
-        
-        <div className="container relative z-10 py-20 lg:py-32">
-          <div className="max-w-3xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6 animate-fade-in">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              <span className="text-sm text-white/90">Professional Laboratory Glassware Manufacturer</span>
-            </div>
-            
-            {/* Main Heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-display animate-slide-up px-4">
-              {t.hero_title}
-            </h1>
-            
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl text-brand-100 mb-10 max-w-2xl mx-auto leading-relaxed animate-slide-up stagger-1">
-              {t.hero_subtitle}
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap justify-center gap-4 animate-slide-up stagger-2">
-              <Link
-                href="/products"
-                className="inline-flex items-center gap-2 bg-white text-brand-700 px-8 py-4 rounded-xl
-                           font-bold text-base hover:bg-brand-50 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl shadow-lg"
+      {/* ===== Hero Section - Split View ===== */}
+      <section className="relative overflow-hidden" style={{ backgroundColor: '#FAFBFC' }}>
+        <div className="container-custom py-16 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <div className="animate-slide-up">
+              {/* Badge */}
+              <div
+                className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
+                style={{ backgroundColor: '#EDF5FB' }}
               >
-                {t.hero_cta_shop}
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/quote"
-                className="inline-flex items-center gap-2 border-2 border-white/50 text-white px-8 py-4 rounded-xl
-                           font-bold text-base hover:bg-white/10 transition-all duration-200 hover:-translate-y-1"
-              >
-                {t.hero_cta_quote}
-              </Link>
-            </div>
-          </div>
-        </div>
-        
-        {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
-          </svg>
-        </div>
-      </section>
-
-      {/* ===== Stats Section ===== */}
-      <section className="py-12 bg-white border-b border-gray-100">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: '100%', label: 'Quality Assured' },
-              { number: '7+', label: 'Product Categories' },
-              { number: '24/7', label: 'Technical Support' },
-              { number: '99%', label: 'Customer Satisfaction' },
-            ].map(({ number, label }) => (
-              <div key={label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-brand-600 font-display mb-1">{number}</div>
-                <div className="text-sm text-gray-500">{label}</div>
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#00A8B5' }} />
+                <span className="text-sm font-medium" style={{ color: '#0F4C81' }}>Professional Laboratory Glassware</span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ===== Trust Badges ===== */}
-      <section className="py-10 bg-gray-50">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { icon: ShieldCheck, title: t.home_trust_quality, desc: t.home_trust_quality_desc },
-              { icon: Truck, title: t.home_trust_shipping, desc: t.home_trust_shipping_desc },
-              { icon: HeadphonesIcon, title: t.home_trust_support, desc: t.home_trust_support_desc },
-              { icon: Award, title: t.home_trust_pricing, desc: t.home_trust_pricing_desc },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div 
-                key={title} 
-                className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200 
-                           hover:border-brand-200 hover:shadow-md transition-all duration-200"
+              {/* Title */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight font-display mb-6" style={{ color: '#1F2A44', letterSpacing: '-0.02em' }}>
+                {t.hero_title || 'Precision Glassware for Every Lab'}
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-lg md:text-xl leading-relaxed mb-10 max-w-lg" style={{ color: '#64748B' }}>
+                {t.hero_subtitle || 'Premium borosilicate glassware engineered for accuracy, durability, and performance in analytical chemistry and research.'}
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base
+                             transition-all duration-200 hover:-translate-y-1 hover:shadow-xl shadow-lg"
+                  style={{ backgroundColor: '#0F4C81', color: 'white' }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0A3A63'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0F4C81'}
+                >
+                  {t.hero_cta_shop || 'Browse All Products'}
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/quote"
+                  className="inline-flex items-center gap-2 border-2 px-8 py-4 rounded-xl font-bold text-base
+                             transition-all duration-200 hover:-translate-y-1"
+                  style={{ borderColor: '#E2E8F0', color: '#1F2A44' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#0F4C81'; e.currentTarget.style.color = '#0F4C81' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E2E8F0'; e.currentTarget.style.color = '#1F2A44' }}
+                >
+                  {t.hero_cta_quote || 'Explore System Kits'}
+                </Link>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap items-center gap-6 mt-10">
+                {[
+                  { icon: ShieldCheck, label: 'ASTM Certified' },
+                  { icon: Truck, label: 'Same-Day Shipping' },
+                  { icon: Award, label: 'ISO 9001' },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-2 text-sm" style={{ color: '#64748B' }}>
+                    <Icon className="w-4 h-4" style={{ color: '#00A8B5' }} />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Product Showcase Illustration */}
+            <div className="relative animate-fade-in hidden lg:block">
+              <div
+                className="relative rounded-2xl p-8 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #EDF5FB 0%, #E6FAFB 100%)',
+                }}
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-6 h-6 text-brand-600" />
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 w-20 h-20 rounded-full opacity-30"
+                     style={{ backgroundColor: '#00A8B5' }} />
+                <div className="absolute bottom-8 left-8 w-12 h-12 rounded-full opacity-20"
+                     style={{ backgroundColor: '#0F4C81' }} />
+
+                {/* Product Illustration */}
+                <div className="relative z-10 flex items-center justify-center py-12">
+                  <div className="text-center">
+                    <div className="w-40 h-40 mx-auto mb-6 rounded-2xl flex items-center justify-center"
+                         style={{ backgroundColor: 'white', boxShadow: '0 8px 24px rgba(15,76,129,0.08)' }}>
+                      <FlaskConical className="w-20 h-20" style={{ color: '#0F4C81' }} />
+                    </div>
+                    <p className="text-sm font-medium" style={{ color: '#0F4C81' }}>Premium Borosilicate Glass 3.3</p>
+                    <p className="text-xs mt-1" style={{ color: '#64748B' }}>ASTM E438, Type I, Class A</p>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-sm font-semibold text-gray-900">{title}</div>
-                  <div className="text-xs text-gray-500 leading-tight">{desc}</div>
+
+                {/* Floating Stats */}
+                <div className="absolute top-6 left-6 bg-white rounded-xl px-4 py-3 shadow-sm">
+                  <div className="text-2xl font-bold" style={{ color: '#0F4C81' }}>67+</div>
+                  <div className="text-xs" style={{ color: '#64748B' }}>Products</div>
+                </div>
+                <div className="absolute bottom-6 right-6 bg-white rounded-xl px-4 py-3 shadow-sm">
+                  <div className="text-2xl font-bold" style={{ color: '#00A8B5' }}>4.8</div>
+                  <div className="text-xs" style={{ color: '#64748B' }}>Rating</div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ===== Category Grid ===== */}
       {categories.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="container">
+        <section className="section-padding bg-white">
+          <div className="container-custom">
             {/* Section Header */}
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display">{t.home_categories_title}</h2>
-              <p className="text-gray-500 max-w-xl mx-auto">Browse our comprehensive selection of laboratory glassware</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 font-display" style={{ color: '#1F2A44' }}>
+                {t.home_categories_title || 'Browse by Category'}
+              </h2>
+              <p className="max-w-xl mx-auto" style={{ color: '#64748B' }}>
+                Browse our comprehensive selection of laboratory glassware
+              </p>
             </div>
-            
+
             {/* Category Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {categories.map((cat) => (
                 <Link
                   key={cat.id}
                   href={`/categories/${cat.slug}`}
-                  className="group flex flex-col items-center p-6 bg-white rounded-2xl border-2 border-gray-100
-                             hover:border-brand-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
+                  className="group flex flex-col items-center p-6 rounded-xl transition-all duration-300 hover:-translate-y-1"
+                  style={{
+                    backgroundColor: 'white',
+                    border: '1px solid #E2E8F0',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#B0D4ED'
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(15,76,129,0.08)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#E2E8F0'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
                 >
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center mb-3
-                                  text-brand-600 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-brand-100 group-hover:to-brand-200 transition-all duration-300">
-                    {getCategoryIcon(cat.slug)}
+                  <div
+                    className="category-icon-bg w-14 h-14 rounded-xl flex items-center justify-center mb-3"
+                  >
+                    <span className="icon-text" style={{ color: '#0F4C81' }}>
+                      {getCategoryIcon(cat.slug)}
+                    </span>
                   </div>
-                  <span className="text-sm font-semibold text-gray-800 group-hover:text-brand-600 leading-tight mb-1 transition-colors">
+                  <span className="text-sm font-semibold text-center leading-tight mb-1 transition-colors"
+                        style={{ color: '#1F2A44' }}>
                     {cat.name}
                   </span>
-                  <span className="text-xs text-gray-400 font-mono">
-                    {cat.totalProducts.toLocaleString()}
+                  <span className="text-xs font-mono" style={{ color: '#94A3B8' }}>
+                    {cat.totalProducts.toLocaleString()} items
                   </span>
                 </Link>
               ))}
             </div>
-            
+
             {/* View All Link */}
             <div className="text-center mt-8">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-semibold transition-colors"
+                className="inline-flex items-center gap-2 font-semibold transition-colors"
+                style={{ color: '#0F4C81' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#0A3A63'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#0F4C81'}
               >
                 View All Categories <ArrowRight className="w-4 h-4" />
               </Link>
@@ -212,73 +243,91 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
 
       {/* ===== Featured Products ===== */}
       {featuredProducts.length > 0 && (
-        <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-          <div className="container">
+        <section className="section-padding" style={{ backgroundColor: '#FAFBFC' }}>
+          <div className="container-custom">
             {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2 font-display">{t.home_featured_title}</h2>
-                <p className="text-gray-500">{t.home_featured_subtitle}</p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2 font-display" style={{ color: '#1F2A44' }}>
+                  {t.home_featured_title || 'Best Sellers'}
+                </h2>
+                <p style={{ color: '#64748B' }}>
+                  {t.home_featured_subtitle || 'Professional-grade glassware trusted by labs worldwide'}
+                </p>
               </div>
               <Link
                 href="/products"
-                className="mt-4 md:mt-0 inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-semibold transition-colors"
+                className="mt-4 md:mt-0 inline-flex items-center gap-2 font-semibold transition-colors"
+                style={{ color: '#0F4C81' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#0A3A63'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#0F4C81'}
               >
-                {t.products_view_all} <ArrowRight className="w-4 h-4" />
+                {t.products_view_all || 'View All'} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            
+
             {/* Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
               {featuredProducts.map((product, index) => (
                 <Link
                   key={product.id}
                   href={`/products/${product.slug}`}
-                  className="group bg-white rounded-2xl border-2 border-gray-100 overflow-hidden
-                             hover:border-brand-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  className="group bg-white rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
+                  style={{
+                    border: '1px solid #E2E8F0',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#B0D4ED'
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(15,76,129,0.08)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#E2E8F0'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
                 >
                   {/* Product Image */}
-                  <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden relative">
+                  <div className="aspect-square overflow-hidden relative" style={{ backgroundColor: '#F1F5F9' }}>
                     {product.images[0] ? (
                       <img
                         src={product.images[0].url}
                         alt={product.name}
-                        className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <Package className="w-16 h-16 text-gray-300" />
+                        <Package className="w-16 h-16" style={{ color: '#CBD5E1' }} />
                       </div>
                     )}
                     {/* Stock Badge */}
                     <div className="absolute top-3 right-3">
-                      <span className={`inline-flex items-center text-xs px-2.5 py-1 rounded-full font-semibold ${
+                      <span className={`badge ${
                         product.availability === 'in_stock'
-                          ? 'bg-green-100 text-green-700'
+                          ? 'badge-success'
                           : product.availability === 'out_of_stock'
-                          ? 'bg-red-100 text-red-700'
-                          : 'bg-yellow-100 text-yellow-700'
+                          ? 'badge-danger'
+                          : 'badge-warning'
                       }`}>
                         {product.availability === 'in_stock' ? 'In Stock' : product.availability === 'out_of_stock' ? 'Out of Stock' : 'On Order'}
                       </span>
                     </div>
                   </div>
-                  
+
                   {/* Product Info */}
-                  <div className="p-5">
-                    <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                  <div className="p-4">
+                    <h3 className="text-sm font-medium line-clamp-2 mb-2 leading-snug transition-colors"
+                        style={{ color: '#1F2A44' }}
+                    >
                       {product.name}
                     </h3>
-                    <div className="text-xs text-gray-400 font-mono mb-3">SKU: {product.sku}</div>
-                    
+                    <div className="text-xs font-mono mb-3" style={{ color: '#94A3B8' }}>SKU: {product.sku}</div>
+
                     {/* Price */}
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl font-bold text-gray-900">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-bold" style={{ color: '#1F2A44' }}>
                         {formatPrice(Number(product.ourPrice))}
                       </span>
                       {product.listPrice && Number(product.listPrice) > Number(product.ourPrice) && (
-                        <span className="text-sm text-gray-400 line-through">
+                        <span className="text-sm line-through" style={{ color: '#94A3B8' }}>
                           {formatPrice(Number(product.listPrice))}
                         </span>
                       )}
@@ -291,59 +340,125 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
         </section>
       )}
 
+      {/* ===== Trust Badges ===== */}
+      <section className="py-12 bg-white" style={{ borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: ShieldCheck, title: t.home_trust_quality || 'Quality Assured', desc: t.home_trust_quality_desc || 'ASTM & ISO certified products' },
+              { icon: Truck, title: t.home_trust_shipping || 'Fast Shipping', desc: t.home_trust_shipping_desc || 'Same-day dispatch available' },
+              { icon: HeadphonesIcon, title: t.home_trust_support || 'Expert Support', desc: t.home_trust_support_desc || 'Technical consultation included' },
+              { icon: Award, title: t.home_trust_pricing || 'Fair Pricing', desc: t.home_trust_pricing_desc || 'Factory-direct competitive pricing' },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="flex items-center gap-4 p-4 rounded-xl transition-all duration-200"
+                style={{
+                  backgroundColor: '#FAFBFC',
+                  border: '1px solid #E2E8F0',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#B0D4ED'
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(15,76,129,0.06)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '#E2E8F0'
+                  e.currentTarget.style.boxShadow = 'none'
+                }}
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'linear-gradient(135deg, #EDF5FB 0%, #E6FAFB 100%)' }}
+                >
+                  <Icon className="w-5 h-5" style={{ color: '#0F4C81' }} />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold" style={{ color: '#1F2A44' }}>{title}</div>
+                  <div className="text-xs leading-tight" style={{ color: '#64748B' }}>{desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== CTA Banner ===== */}
-      <section className="py-20 bg-gradient-to-r from-brand-600 via-brand-700 to-accent-500 text-white relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F4C81 0%, #0A3A63 50%, #00A8B5 100%)' }}>
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-400 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: '#00A8B5' }} />
         </div>
-        
-        <div className="container relative z-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display animate-fade-in">{t.home_cta_title}</h2>
-          <p className="text-brand-100 mb-10 max-w-xl mx-auto text-lg animate-fade-in stagger-1">{t.home_cta_subtitle}</p>
+
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display text-white animate-fade-in">
+            {t.home_cta_title || 'Need a Custom Configuration?'}
+          </h2>
+          <p className="text-lg mb-10 max-w-xl mx-auto animate-fade-in stagger-1" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            {t.home_cta_subtitle || 'Our technical team can design and build custom glassware systems for your specific requirements.'}
+          </p>
           <Link
             href="/quote"
-            className="inline-flex items-center gap-2 bg-white text-brand-700 px-10 py-4 rounded-xl
-                       font-bold text-lg hover:bg-brand-50 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl shadow-lg animate-fade-in stagger-2"
+            className="inline-flex items-center gap-2 bg-white px-10 py-4 rounded-xl
+                       font-bold text-lg hover:bg-gray-50 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl shadow-lg animate-fade-in stagger-2"
+            style={{ color: '#0F4C81' }}
           >
-            {t.home_cta_button}
+            {t.home_cta_button || 'Request a Quote'}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>
 
       {/* ===== Quality Guarantee Section ===== */}
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container">
+      <section className="section-padding" style={{ backgroundColor: '#FAFBFC' }}>
+        <div className="container-custom">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display">LABPRO Quality Guarantee</h2>
-            <p className="text-gray-500 max-w-lg mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 font-display" style={{ color: '#1F2A44' }}>
+              LABPRO Quality Guarantee
+            </h2>
+            <p className="max-w-lg mx-auto" style={{ color: '#64748B' }}>
               Every product is manufactured to the highest standards with rigorous quality control
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
-              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <ShieldCheck className="w-8 h-8 text-blue-600" />
+            {[
+              {
+                icon: ShieldCheck,
+                title: 'Premium Materials',
+                desc: 'Borosilicate glass 3.3, FDA-grade materials, and certified components',
+                color: '#0F4C81',
+                bgColor: '#EDF5FB',
+              },
+              {
+                icon: Award,
+                title: 'Factory Direct Pricing',
+                desc: 'No middlemen, no markup — professional quality at fair prices',
+                color: '#00A8B5',
+                bgColor: '#E6FAFB',
+              },
+              {
+                icon: HeadphonesIcon,
+                title: 'Expert Support',
+                desc: 'Technical consultation, product training, and after-sales service',
+                color: '#0F4C81',
+                bgColor: '#EDF5FB',
+              },
+            ].map(({ icon: Icon, title, desc, color, bgColor }) => (
+              <div
+                key={title}
+                className="bg-white rounded-xl p-6 text-center transition-all duration-200 hover:shadow-lg"
+                style={{ border: '1px solid #E2E8F0' }}
+              >
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
+                  style={{ backgroundColor: bgColor }}
+                >
+                  <Icon className="w-7 h-7" style={{ color }} />
+                </div>
+                <h3 className="font-bold mb-2" style={{ color: '#1F2A44' }}>{title}</h3>
+                <p className="text-sm" style={{ color: '#64748B' }}>{desc}</p>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Premium Materials</h3>
-              <p className="text-sm text-gray-500">Borosilicate glass 3.3, FDA-grade materials, and certified components</p>
-            </div>
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
-              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="font-bold text-gray-900 mb-2">Factory Direct Pricing</h3>
-              <p className="text-sm text-gray-500">No middlemen, no markup — professional quality at fair prices</p>
-            </div>
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
-              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <HeadphonesIcon className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="font-bold text-gray-900 mb-2">Expert Support</h3>
-              <p className="text-sm text-gray-500">Technical consultation, product training, and after-sales service</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>

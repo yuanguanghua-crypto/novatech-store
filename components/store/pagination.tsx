@@ -22,7 +22,13 @@ export function Pagination({ page, totalPages }: PaginationProps) {
   return (
     <div className="flex justify-center items-center gap-2 mt-8">
       {page > 1 && (
-        <button onClick={() => setPage(page - 1)} className="px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-50">
+        <button
+          onClick={() => setPage(page - 1)}
+          className="px-4 py-2 text-sm rounded-md transition-colors"
+          style={{ border: '1px solid var(--surface-300)', color: 'var(--text-secondary)' }}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--surface-50)' }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent' }}
+        >
           ← Prev
         </button>
       )}
@@ -33,16 +39,25 @@ export function Pagination({ page, totalPages }: PaginationProps) {
           <button
             key={p}
             onClick={() => setPage(p)}
-            className={`px-3 py-2 text-sm rounded-md ${
-              p === page ? 'bg-brand-700 text-white' : 'border border-gray-300 hover:bg-gray-50'
+            className={`px-3 py-2 text-sm rounded-md transition-colors ${
+              p === page ? 'bg-brand-700 text-white' : ''
             }`}
+            style={p !== page ? { border: '1px solid var(--surface-300)', color: 'var(--text-secondary)' } : undefined}
+            onMouseEnter={p !== page ? e => { e.currentTarget.style.backgroundColor = 'var(--surface-50)' } : undefined}
+            onMouseLeave={p !== page ? e => { e.currentTarget.style.backgroundColor = 'transparent' } : undefined}
           >
             {p}
           </button>
         )
       })}
       {page < totalPages && (
-        <button onClick={() => setPage(page + 1)} className="px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-50">
+        <button
+          onClick={() => setPage(page + 1)}
+          className="px-4 py-2 text-sm rounded-md transition-colors"
+          style={{ border: '1px solid var(--surface-300)', color: 'var(--text-secondary)' }}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--surface-50)' }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent' }}
+        >
           Next →
         </button>
       )}

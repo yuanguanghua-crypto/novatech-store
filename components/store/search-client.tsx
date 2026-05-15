@@ -44,9 +44,9 @@ export function SearchClient({
   if (!q) {
     return (
       <div className="container py-16 text-center">
-        <SearchIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">{t.search_title}</h1>
-        <p className="text-gray-500">{t.search_placeholder_hint}</p>
+        <SearchIcon className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--text-tertiary)' }} />
+        <h1 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>{t.search_title}</h1>
+        <p style={{ color: 'var(--text-tertiary)' }}>{t.search_placeholder_hint}</p>
       </div>
     )
   }
@@ -54,18 +54,18 @@ export function SearchClient({
   return (
     <div className="container py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
           {t.search_results_for.replace('{query}', q)}
         </h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm mt-1" style={{ color: 'var(--text-tertiary)' }}>
           {t.search_results_count.replace('{count}', total.toLocaleString())}
         </p>
       </div>
 
       {products.length === 0 ? (
         <div className="text-center py-16">
-          <SearchIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <p className="text-gray-500 mb-4">
+          <SearchIcon className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--text-tertiary)' }} />
+          <p className="mb-4" style={{ color: 'var(--text-tertiary)' }}>
             {t.search_no_results.replace('{query}', q)}
           </p>
           <Link href="/products" className="text-brand-600 hover:text-brand-800 font-medium">
