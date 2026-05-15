@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import prisma from '@/lib/prisma'
 import { ProductsClient } from '@/components/store/products-client'
-import { ProductCategoryExplain } from '@/components/store/product-category-explain'
 import { generateOrganizationSchema } from '@/lib/structured-data'
 import Script from 'next/script'
 
@@ -85,30 +84,8 @@ async function getProducts(searchParams: ProductsPageProps['searchParams']) {
   return { products, total, page, pageSize: PAGE_SIZE }
 }
 
-async function getTopCategories() {
-  return prisma.category.findMany({
-    where: { isActive: true, parentId: null },
-    include: {
-      _count: { select: { products: { where: { isActive: true } } } },
-      children: {
-        where: { isActive: true },
-        include: {
-          _count: { select: { products: { where: { isActive: true } } } },
-        },
-        take: 5,
-        orderBy: { name: 'asc' },
-      },
-    },
-    orderBy: { name: 'asc' },
-    take: 8,
-  })
-}
-
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
-  const [{ products, total, page, pageSize }, categories] = await Promise.all([
-    getProducts(searchParams),
-    getTopCategories(),
-  ])
+  const { products, total, page, pageSize } = await getProducts(searchParams)
 
   // Organization Schema for AEO
   const orgSchema = generateOrganizationSchema(BASE_URL)
@@ -121,9 +98,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-
-      {/* AEO: Product Center Explanation Layer */}
-      <ProductCategoryExplain totalProducts={total} categories={categories} />
 
       {/* Products List */}
       <ProductsClient
