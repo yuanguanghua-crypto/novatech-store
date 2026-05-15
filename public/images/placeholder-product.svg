@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#F8FAFC"/>
+  
+  <!-- Border -->
+  <rect x="1" y="1" width="398" height="398" rx="8" stroke="#E2E8F0" stroke-width="2"/>
+  
+  <!-- Beaker illustration -->
+  <g transform="translate(120, 80)">
+    <!-- Beaker body -->
+    <path d="M40 0 L40 160 L120 160 L120 0" 
+          stroke="#0F4C81" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Beaker top rim -->
+    <path d="M30 0 L50 0" stroke="#0F4C81" stroke-width="4" stroke-linecap="round"/>
+    <path d="M110 0 L130 0" stroke="#0F4C81" stroke-width="4" stroke-linecap="round"/>
+    <!-- Graduation marks -->
+    <line x1="45" y1="40" x2="60" y2="40" stroke="#00A8B5" stroke-width="2"/>
+    <line x1="45" y1="80" x2="75" y2="80" stroke="#00A8B5" stroke-width="2"/>
+    <line x1="45" y1="120" x2="60" y2="120" stroke="#00A8B5" stroke-width="2"/>
+    <!-- Liquid -->
+    <rect x="44" y="100" width="72" height="56" fill="#00A8B5" opacity="0.2" rx="2"/>
+    <!-- Bubbles -->
+    <circle cx="70" cy="130" r="4" fill="#00A8B5" opacity="0.4"/>
+    <circle cx="90" cy="120" r="3" fill="#00A8B5" opacity="0.3"/>
+    <circle cx="60" cy="115" r="2" fill="#00A8B5" opacity="0.5"/>
+  </g>
+  
+  <!-- LABPRO text -->
+  <text x="200" y="310" text-anchor="middle" 
+        font-family="Inter, -apple-system, sans-serif" font-size="18" font-weight="600" 
+        fill="#0F4C81">LABPRO</text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="335" text-anchor="middle" 
+        font-family="Inter, -apple-system, sans-serif" font-size="12" 
+        fill="#94A3B8">Laboratory Glassware</text>
+  
+  <!-- Decorative line -->
+  <line x1="160" y1="350" x2="240" y2="350" stroke="#00A8B5" stroke-width="2" stroke-linecap="round"/>
+</svg>
