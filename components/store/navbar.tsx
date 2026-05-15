@@ -79,7 +79,7 @@ export function Navbar() {
       <div className="container-custom py-3 flex items-center gap-4">
         {/* Logo - Right side in RTL */}
         <Link href="/" className="flex-shrink-0 order-2 lg:order-1 rtl:order-2">
-          <img src="/logo.png" alt="LabProGlobal" className="h-10 w-auto" />
+          <img src="/logo.png" alt="NovaTech" className="h-10 w-auto" />
         </Link>
 
         {/* Search Bar */}

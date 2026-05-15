@@ -42,7 +42,7 @@ function LoginForm() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-4">
-            <img src="/logo.svg" alt="LabProGlobal" className="h-10 w-auto mx-auto" />
+            <img src="/logo.svg" alt="NovaTech" className="h-10 w-auto mx-auto" />
           </Link>
           <h1 className="text-2xl font-bold text-gray-900">{t.auth_welcome_back}</h1>
           <p className="mt-2 text-gray-600">{t.auth_sign_in_subtitle}</p>

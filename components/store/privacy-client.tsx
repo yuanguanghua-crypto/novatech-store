@@ -35,7 +35,7 @@ export function PrivacyClient() {
         <p>{t.privacy_item3}</p>
 
         <h2 className="text-lg font-semibold text-gray-900">{t.privacy_section6}</h2>
-        <p>{t.privacy_item4} <a href="mailto:privacy@labproglobal.com" className="text-brand-700 underline">privacy@labproglobal.com</a>.</p>
+        <p>{t.privacy_item4} <a href="mailto:privacy@novatechstore.com" className="text-brand-700 underline">privacy@novatechstore.com</a>.</p>
       </div>
     </div>
   )

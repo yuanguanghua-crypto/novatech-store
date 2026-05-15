@@ -12,11 +12,11 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: 'LabProGlobal - Industrial & Laboratory Equipment',
-    template: '%s | LabProGlobal',
+    default: 'NovaTech - Industrial & Laboratory Equipment',
+    template: '%s | NovaTech',
   },
   description:
-    'LabProGlobal — Trusted supplier of chemical metering pumps, water quality analyzers, laboratory balances and industrial instruments. Fast shipping worldwide.',
+    'NovaTech — Trusted supplier of chemical metering pumps, water quality analyzers, laboratory balances and industrial instruments. Fast shipping worldwide.',
   keywords: [
     'metering pumps', 'chemical dosing pump', 'water quality analyzer',
     'laboratory balance', 'industrial instruments', 'Pulsafeeder', 'LMI pumps',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: process.env.NEXT_PUBLIC_APP_URL || 'https://labproglobal.com',
-    siteName: 'LabProGlobal',
+    url: process.env.NEXT_PUBLIC_APP_URL || 'https://novatechstore.com',
+    siteName: 'NovaTech',
   },
   robots: {
     index: true,
