@@ -193,7 +193,6 @@ export function CategoryDetailClient({
                     </div>
                   </div>
                   <div>
-                  <div>
                     <h3 className="font-semibold text-gray-900 mb-3">Applications</h3>
                     <ul className="text-sm text-gray-600 space-y-1">
                       {categoryProfile.commonApplications.slice(0, 4).map((app, idx) => (
