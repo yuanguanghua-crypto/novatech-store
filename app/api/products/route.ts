@@ -9,7 +9,6 @@ export async function GET(req: NextRequest) {
   const offset = parseInt(searchParams.get('offset') || '0')
   const search = searchParams.get('search')
   const categorySlug = searchParams.get('category')
-  const brandSlug = searchParams.get('brand')
   const sort = searchParams.get('sort') || 'name'
   const minPrice = parseFloat(searchParams.get('minPrice') || '0') || 0
   const maxPrice = parseFloat(searchParams.get('maxPrice') || '9999999')
@@ -30,10 +29,6 @@ export async function GET(req: NextRequest) {
 
   if (categorySlug) {
     where.category = { slug: categorySlug }
-  }
-
-  if (brandSlug) {
-    where.brand = { slug: brandSlug }
   }
 
   const orderBy: any =
@@ -59,7 +54,6 @@ export async function GET(req: NextRequest) {
         stockQty: true,
         images: { where: { isPrimary: true }, take: 1 },
         category: { select: { name: true, slug: true } },
-        brand: { select: { name: true, slug: true } },
       },
     }),
     prisma.product.count({ where }),

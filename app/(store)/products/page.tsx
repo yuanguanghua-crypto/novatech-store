@@ -34,7 +34,6 @@ interface ProductsPageProps {
   searchParams: {
     page?: string
     sort?: string
-    brand?: string
     category?: string
     minPrice?: string
     maxPrice?: string
@@ -50,7 +49,6 @@ async function getProducts(searchParams: ProductsPageProps['searchParams']) {
   const skip = (page - 1) * PAGE_SIZE
 
   const where: any = { isActive: true }
-  if (searchParams.brand) where.brand = { slug: searchParams.brand }
   if (searchParams.category) where.category = { slug: searchParams.category }
   if (searchParams.featured === 'true') where.isFeatured = true
   if (searchParams.availability === 'in_stock') where.availability = 'in_stock'
@@ -87,14 +85,6 @@ async function getProducts(searchParams: ProductsPageProps['searchParams']) {
   return { products, total, page, pageSize: PAGE_SIZE }
 }
 
-async function getBrands() {
-  return prisma.brand.findMany({
-    where: { isActive: true },
-    include: { _count: { select: { products: { where: { isActive: true } } } } },
-    orderBy: { name: 'asc' },
-  })
-}
-
 async function getTopCategories() {
   return prisma.category.findMany({
     where: { isActive: true, parentId: null },
@@ -115,9 +105,8 @@ async function getTopCategories() {
 }
 
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
-  const [{ products, total, page, pageSize }, brands, categories] = await Promise.all([
+  const [{ products, total, page, pageSize }, categories] = await Promise.all([
     getProducts(searchParams),
-    getBrands(),
     getTopCategories(),
   ])
 
@@ -139,7 +128,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
       {/* Products List */}
       <ProductsClient
         products={products}
-        brands={brands}
         total={total}
         page={page}
         pageSize={pageSize}

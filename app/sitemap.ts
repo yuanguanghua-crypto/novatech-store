@@ -7,45 +7,45 @@ const BASE_URL = 'https://novatech-store-inky.vercel.app'
 const knowledgePages: MetadataRoute.Sitemap = [
   // What-is pages
   {
-    url: `${BASE_URL}/knowledge/what-is/ph-meter`,
+    url: `${BASE_URL}/knowledge/what-is/graduated-cylinder`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
   },
   {
-    url: `${BASE_URL}/knowledge/what-is/dosing-pump`,
+    url: `${BASE_URL}/knowledge/what-is/distillation`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
   },
   {
-    url: `${BASE_URL}/knowledge/what-is/conductivity-meter`,
+    url: `${BASE_URL}/knowledge/what-is/vacuum-pump`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
   },
   {
-    url: `${BASE_URL}/knowledge/what-is/tds-meter`,
+    url: `${BASE_URL}/knowledge/what-is/glassware-care`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
   },
   // How-to-choose pages
   {
-    url: `${BASE_URL}/knowledge/how-to-choose/dosing-pump`,
+    url: `${BASE_URL}/knowledge/how-to-choose/laboratory-glassware`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
   },
   // Compare pages
   {
-    url: `${BASE_URL}/knowledge/compare/ph-meter-vs-orp-meter`,
+    url: `${BASE_URL}/knowledge/compare/borosilicate-vs-soda-lime`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
   },
   {
-    url: `${BASE_URL}/knowledge/compare/digital-vs-analog-ph-meter`,
+    url: `${BASE_URL}/knowledge/compare/class-a-vs-class-b`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
@@ -73,10 +73,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/brands`,
+      url: `${BASE_URL}/quote`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${BASE_URL}/quote`,
@@ -150,20 +150,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }))
 
-    // Get brand pages
-    const brands = await prisma.brand.findMany({
-      where: { isActive: true },
-      select: { slug: true, updatedAt: true },
-    })
-
-    const brandPages: MetadataRoute.Sitemap = brands.map((brand) => ({
-      url: `${BASE_URL}/brands/${brand.slug}`,
-      lastModified: new Date(brand.updatedAt),
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    }))
-
-    return [...staticPages, ...knowledgePages, ...productPages, ...categoryPages, ...brandPages]
+    return [...staticPages, ...knowledgePages, ...productPages, ...categoryPages]
   } catch (error) {
     console.error('Error generating sitemap:', error)
     return staticPages

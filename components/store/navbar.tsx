@@ -53,8 +53,7 @@ export function Navbar() {
   }, [])
 
   function isActive(slug: string) {
-    return pathname.includes(`/categories/${slug}`) ||
-           pathname.includes(`/brands/${slug}`)
+    return pathname.includes(`/categories/${slug}`)
   }
 
   function getTotalProducts(cat: NavCategory) {

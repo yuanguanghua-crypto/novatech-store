@@ -1,4 +1,4 @@
-// Category semantic profiles for AEO enhancement
+// Category semantic profiles for NovaTech laboratory glassware
 // This data provides AI-readable content about each product category
 
 export interface CategoryProfile {
@@ -15,152 +15,152 @@ export interface CategoryProfile {
 }
 
 export const categoryProfiles: Record<string, CategoryProfile> = {
-  'ph-meters': {
-    name: 'pH Meters',
-    slug: 'ph-meters',
-    definition: 'pH meters are scientific instruments that measure the acidity or alkalinity of water-based solutions on a scale of 0-14, where 7 is neutral.',
-    howItWorks: 'pH meters use a glass electrode to detect hydrogen ion activity and convert it to an electrical signal, which is then displayed as a pH value.',
+  'basic-glassware': {
+    name: 'Basic Glassware',
+    slug: 'basic-glassware',
+    definition: 'Everyday laboratory borosilicate 3.3 glassware including beakers, Erlenmeyer flasks, graduated cylinders, test tubes, and bottles — the foundational tools of any lab.',
+    howItWorks: 'Molded or hand-blown from borosilicate 3.3 glass, these pieces offer thermal shock resistance up to 500°C and excellent chemical durability. Volumetric markings are fired onto the surface for permanent readability.',
     keyParameters: [
-      { name: 'Accuracy', unit: '±pH', description: 'Measurement precision, typically ±0.01 to ±0.1' },
-      { name: 'Range', unit: 'pH units', description: 'Measurement range, usually 0-14' },
-      { name: 'Resolution', unit: 'pH', description: 'Smallest detectable change, typically 0.01' },
-      { name: 'Temperature', unit: '°C', description: 'Operating temperature range' }
+      { name: 'Volume', unit: 'mL', description: 'Capacity range from 5 mL to 2000 mL' },
+      { name: 'Tolerance', unit: '±%', description: 'Measurement accuracy class (A or B)' },
+      { name: 'Material', unit: '', description: 'Borosilicate 3.3 (Type I, Class A)' },
+      { name: 'Thermal Shock', unit: '°C', description: 'Max ΔT without cracking (~170°C continuous)' }
     ],
-    industries: ['Water Treatment', 'Pharmaceutical', 'Food & Beverage', 'Environmental', 'Laboratory'],
-    topBrands: ['LMI', 'Lovibond', 'United Scientific', 'GF+'],
+    industries: ['Research Laboratories', 'Education', 'Quality Control', 'Clinical Labs', 'Industrial Testing'],
+    topBrands: ['NovaTech', 'DWK Life Sciences', 'Pyrex', 'Schott'],
     selectionTips: [
-      'Choose accuracy based on application needs (laboratory: ±0.01, industrial: ±0.1)',
-      'Always select ATC (Automatic Temperature Compensation) models',
-      'Match electrode type to sample (standard, semi-micro, spear-tip)'
+      'Choose Class A (ISO 1042) for analytical work; Class B for general use',
+      'Match flask shape to application: conical for mixing, flat for evaporation',
+      'Select graduated cylinders with hexagonal base for stability'
     ],
-    commonApplications: ['Water quality testing', 'Chemical process control', 'Soil testing', 'Aquarium monitoring'],
-    relatedKnowledge: '/knowledge/what-is-ph-meter'
+    commonApplications: ['Solution preparation', 'Mixing and heating', 'Volume measurement', 'Sample storage'],
+    relatedKnowledge: '/knowledge/what-is/graduated-cylinder'
   },
-  'dosing-pumps': {
-    name: 'Dosing Pumps',
-    slug: 'dosing-pumps',
-    definition: 'Dosing pumps (metering pumps) are positive displacement pumps that inject precise, adjustable volumes of liquid into a process stream.',
-    howItWorks: 'Dosing pumps use a diaphragm or piston to create alternating suction and discharge strokes, with check valves ensuring one-way flow and precise dosing volume.',
+  'analytical-glassware': {
+    name: 'Analytical Glassware',
+    slug: 'analytical-glassware',
+    definition: 'Precision volumetric glassware including volumetric flasks, burettes, pipettes, and measuring cylinders — designed for accurate quantitative analysis.',
+    howItWorks: 'Calibrated to tight tolerances (±0.01 mL for Class A) using precision bore tubing. Single-mark volumetric flasks and burettes are calibrated "to deliver" (TD) or "to contain" (TC) per ISO 648/1042.',
     keyParameters: [
-      { name: 'Flow Rate', unit: 'L/h', description: 'Maximum output volume per hour' },
-      { name: 'Pressure', unit: 'PSI/bar', description: 'Maximum system pressure rating' },
-      { name: 'Turndown Ratio', unit: ':1', description: 'Range between max and min flow' },
-      { name: 'Accuracy', unit: '%', description: 'Dosing precision, typically ±1-2%' }
+      { name: 'Accuracy Class', unit: '', description: 'Class A (tight tolerance) or Class B (standard)' },
+      { name: 'Calibration', unit: '', description: 'TD (to deliver) or TC (to contain)' },
+      { name: 'Tolerance', unit: 'mL', description: 'Typically ±0.01 to ±0.50 mL depending on size' },
+      { name: 'Joint Type', unit: '', description: 'Standard taper ground glass joints' }
     ],
-    industries: ['Water Treatment', 'Chemical Processing', 'Oil & Gas', 'Food & Beverage', 'Agriculture'],
-    topBrands: ['LMI', 'Pulsafeeder', 'Walchem'],
+    industries: ['Analytical Chemistry', 'Pharmaceutical QC', 'Environmental Testing', 'Food Testing', 'Clinical Chemistry'],
+    topBrands: ['NovaTech', 'DURAN', 'Hirschmann', 'Kimble'],
     selectionTips: [
-      'Ensure pump pressure rating exceeds system back pressure by 25%',
-      'Select materials compatible with your chemical (PVC, PVDF, SS316)',
-      'Consider control requirements: manual, 4-20mA, or pulse signal'
+      'Always use Class A for regulatory compliance and traceable results',
+      'Burettes: choose PTFE stopcock for acid/alkali resistance',
+      'Volumetric flasks: ensure single-mark design for dilution accuracy'
     ],
-    commonApplications: ['Chlorine dosing', 'pH adjustment', 'Fertilizer injection', 'Corrosion inhibitor dosing'],
-    relatedKnowledge: '/knowledge/how-to-choose-dosing-pump'
+    commonApplications: ['Titration', 'Standard solution preparation', 'Serial dilutions', 'Sample quantification'],
+    relatedKnowledge: '/knowledge/what-is/graduated-cylinder'
   },
-  'conductivity-meters': {
-    name: 'Conductivity Meters',
-    slug: 'conductivity-meters',
-    definition: 'Conductivity meters measure the ability of water to conduct electrical current, which indicates the concentration of dissolved ions.',
-    howItWorks: 'Conductivity meters apply an AC voltage between electrodes and measure the resulting current, converting resistance to conductivity using the cell constant.',
+  'reaction-systems': {
+    name: 'Reaction Systems',
+    slug: 'reaction-systems',
+    definition: 'Borosilicate reaction vessels including round-bottom flasks, boiling flasks, Schlenk flasks, and three-neck flasks for chemical synthesis and controlled reactions.',
+    howItWorks: 'Round-bottom flasks distribute heat evenly in heating mantles or oil baths. Multiple neck configurations allow simultaneous addition, stirring, reflux, and temperature monitoring during synthesis.',
     keyParameters: [
-      { name: 'Range', unit: 'μS/cm', description: 'Measurement range from ultrapure to seawater' },
-      { name: 'Accuracy', unit: '%', description: 'Typical ±0.5-1% of reading' },
-      { name: 'Cell Constant', unit: 'cm⁻¹', description: 'K=0.1 (low), K=1 (standard), K=10 (high)' },
-      { name: 'TDS Factor', unit: '', description: 'Conversion factor for TDS calculation' }
+      { name: 'Volume', unit: 'mL', description: 'Range from 50 mL to 5000 mL' },
+      { name: 'Neck Configuration', unit: '', description: 'Single, double, or three-neck' },
+      { name: 'Joint Size', unit: 'mm', description: 'Standard taper joints (14/20, 19/22, 24/40)' },
+      { name: 'Wall Thickness', unit: 'mm', description: 'Uniform wall for even heat distribution' }
     ],
-    industries: ['Water Treatment', 'Pharmaceutical', 'Electronics', 'Environmental', 'Laboratory'],
-    topBrands: ['LMI', 'Lovibond', 'GF+'],
+    industries: ['Organic Chemistry', 'Pharmaceutical R&D', 'Materials Science', 'Catalysis Research', 'Petrochemical'],
+    topBrands: ['NovaTech', 'Corning', 'DWK Life Sciences', 'Sigma-Aldrich'],
     selectionTips: [
-      'Select cell constant based on expected conductivity (K=0.1 for pure water, K=1 for drinking water)',
-      'Choose 4-electrode cells for varying conductivity ranges',
-      'Verify temperature compensation is included'
+      'Match joint size to your condenser and addition funnel setup',
+      'Use three-neck flasks for complex reactions requiring multiple attachments',
+      'Select flask volume at 2-3x the reaction volume for safety margin'
     ],
-    commonApplications: ['Water purity monitoring', 'RO/DI system verification', 'Concentration measurement', 'Environmental monitoring'],
-    relatedKnowledge: '/knowledge/what-is-conductivity-meter'
+    commonApplications: ['Chemical synthesis', 'Reflux reactions', 'Evaporation', 'Distillation feed'],
+    relatedKnowledge: '/knowledge/what-is/distillation'
   },
-  'orp-meters': {
-    name: 'ORP Meters',
-    slug: 'orp-meters',
-    definition: 'ORP (Oxidation-Reduction Potential) meters measure the water\'s ability to oxidize or reduce substances, indicating sanitization effectiveness.',
-    howItWorks: 'ORP meters use a platinum electrode to measure the electrical potential between the sample and a reference electrode, expressed in millivolts.',
+  'distillation-systems': {
+    name: 'Distillation Systems',
+    slug: 'distillation-systems',
+    definition: 'Complete borosilicate distillation apparatus including condensers (Liebig, Graham, Allihn), distillation heads, adapters, receiving flasks, and vacuum distillation setups.',
+    howItWorks: 'Vapors rise from a heated flask through a distillation head, condense in a water-cooled condenser, and collect as purified distillate. Different condenser types optimize for different boiling point ranges and reflux requirements.',
     keyParameters: [
-      { name: 'Range', unit: 'mV', description: 'Typical range -1000 to +1000 mV' },
-      { name: 'Accuracy', unit: 'mV', description: 'Typical ±1-5 mV' },
-      { name: 'Response Time', unit: 'sec', description: 'Time to reach stable reading' },
-      { name: 'Reference', unit: '', description: 'Silver/silver chloride or calomel' }
+      { name: 'Condenser Type', unit: '', description: 'Liebig (straight), Graham (coil), Allihn (bulb)' },
+      { name: 'Condenser Length', unit: 'mm', description: 'Typical 200-600 mm effective cooling length' },
+      { name: 'Joint Compatibility', unit: '', description: 'Must match distillation head and receiver' },
+      { name: 'Cooling', unit: '', description: 'Water jacket flow rate and temperature' }
     ],
-    industries: ['Pool & Spa', 'Water Treatment', 'Aquaculture', 'Food Processing'],
-    topBrands: ['LMI', 'Pulsafeeder'],
+    industries: ['Chemical Manufacturing', 'Pharmaceutical', 'Essential Oil Extraction', 'Solvent Recovery', 'Academic Research'],
+    topBrands: ['NovaTech', 'Corning', 'Ace Glass', 'Chemglass'],
     selectionTips: [
-      'For chlorine disinfection, target ORP of 650-700 mV',
-      'Platinum electrodes are most common; gold for specific applications',
-      'Consider combined pH/ORP meters for pool applications'
+      'Liebig condenser: best for general distillation (simple, efficient)',
+      'Graham condenser: highest surface area for low-boiling solvents',
+      'Allihn condenser: for reflux (bulbs prevent flooding, NOT for distillation)'
     ],
-    commonApplications: ['Pool sanitization monitoring', 'Drinking water disinfection', 'Industrial oxidation processes'],
-    relatedKnowledge: '/knowledge/compare/ph-meter-vs-orp-meter'
+    commonApplications: ['Solvent purification', 'Essential oil distillation', 'Fractional distillation', 'Solvent recovery'],
+    relatedKnowledge: '/knowledge/what-is/distillation'
   },
-  'tds-meters': {
-    name: 'TDS Meters',
-    slug: 'tds-meters',
-    definition: 'TDS (Total Dissolved Solids) meters measure the total concentration of dissolved substances in water, expressed in mg/L or ppm.',
-    howItWorks: 'TDS meters measure electrical conductivity and apply a conversion factor to calculate TDS, which represents all dissolved ions.',
+  'filtration-systems': {
+    name: 'Filtration Systems',
+    slug: 'filtration-systems',
+    definition: 'Borosilicate filtration apparatus including Büchner funnels, vacuum flask assemblies, filter flasks, and fritted glass filters for solid-liquid separation.',
+    howItWorks: 'Vacuum filtration uses reduced pressure to accelerate liquid flow through a filter medium. The Büchner funnel sits on a filter flask connected to a vacuum source, pulling filtrate through while retaining solids.',
     keyParameters: [
-      { name: 'Range', unit: 'ppm', description: 'Measurement range up to 10,000+ ppm' },
-      { name: 'Accuracy', unit: '%', description: 'Typical ±1-2% of reading' },
-      { name: 'Conversion Factor', unit: '', description: 'Typically 0.5-0.7 for natural waters' },
-      { name: 'Resolution', unit: 'ppm', description: 'Typically 1 ppm' }
+      { name: 'Funnel Diameter', unit: 'mm', description: 'Matched to filter paper size (30-145 mm)' },
+      { name: 'Filtration Area', unit: 'cm²', description: 'Determines throughput capacity' },
+      { name: 'Fritted Glass Pore', unit: 'μm', description: 'Coarse (40-100), medium (10-40), fine (1-10)' },
+      { name: 'Vacuum Rating', unit: 'inHg', description: 'Max vacuum for filter flask (typically 25 inHg)' }
     ],
-    industries: ['Aquarium', 'Hydroponics', 'Laboratory', 'Environmental', 'Drinking Water'],
-    topBrands: ['LMI', 'Lovibond'],
+    industries: ['Analytical Chemistry', 'Environmental Testing', 'Pharmaceutical', 'Food & Beverage', 'Quality Control'],
+    topBrands: ['NovaTech', 'Sartorius', 'Whatman', 'Pall'],
     selectionTips: [
-      'Use appropriate conversion factor for your water type (0.67 for drinking water)',
-      'EPA maximum TDS for drinking water is 500 mg/L',
-      'Lower TDS may indicate aggressive water that can corrode pipes'
+      'Fritted glass funnels: reusable, no filter paper needed, choose pore by particle size',
+      'Büchner funnels: require filter paper, more economical for routine filtration',
+      'Use filter flask side-arm with thick-wall tubing for vacuum connection'
     ],
-    commonApplications: ['Aquarium monitoring', 'Hydroponics nutrient control', 'RO system verification', 'Drinking water quality'],
-    relatedKnowledge: '/knowledge/what-is-tds-meter'
+    commonApplications: ['Gravimetric analysis', 'Precipitate collection', 'Sample clarification', 'Particle size analysis'],
+    relatedKnowledge: '/knowledge/what-is/vacuum-pump'
   },
-  'turbidity-meters': {
-    name: 'Turbidity Meters',
-    slug: 'turbidity-meters',
-    definition: 'Turbidity meters measure water clarity by detecting suspended particles that scatter light, expressed in NTU (Nephelometric Turbidity Units).',
-    howItWorks: 'Turbidity meters shine a light through the sample and measure the scattered light at 90 degrees, which is proportional to turbidity.',
+  'storage-systems': {
+    name: 'Storage Systems',
+    slug: 'storage-systems',
+    definition: 'Borosilicate glass reagent bottles, media bottles, volumetric storage flasks, and desiccators for secure chemical and sample storage.',
+    howItWorks: 'Amber glass protects light-sensitive reagents from UV degradation. Borosilicate construction resists chemical attack from acids, alkalis, and organic solvents. Ground glass or PTFE-lined caps ensure leak-proof sealing.',
     keyParameters: [
-      { name: 'Range', unit: 'NTU', description: 'From 0 to 10,000+ NTU' },
-      { name: 'Accuracy', unit: '%', description: 'Typically ±2% of reading' },
-      { name: 'Resolution', unit: 'NTU', description: 'As low as 0.001 NTU for low-range' },
-      { name: 'Light Source', unit: '', description: 'LED or tungsten lamp at 860 nm' }
+      { name: 'Capacity', unit: 'mL', description: 'Range from 30 mL to 5000 mL' },
+      { name: 'Glass Type', unit: '', description: 'Clear or amber borosilicate 3.3' },
+      { name: 'Cap Type', unit: '', description: 'Ground glass stopper, GL-thread, or snap-cap' },
+      { name: 'Autoclavable', unit: '', description: 'Yes — up to 140°C' }
     ],
-    industries: ['Water Treatment', 'Environmental', 'Food & Beverage', 'Pharmaceutical'],
-    topBrands: ['Lovibond', 'LMI'],
+    industries: ['Research Labs', 'Pharmaceutical', 'Chemical Manufacturing', 'Food Testing', 'Clinical Labs'],
+    topBrands: ['NovaTech', 'DWK Life Sciences', 'Wheaton', 'Thermo Fisher'],
     selectionTips: [
-      'EPA drinking water standard: <1 NTU (0.1 NTU recommended)',
-      'Choose range based on application (low range for drinking water, high for wastewater)',
-      'Consider EPA-approved methods for compliance monitoring'
+      'Amber bottles for light-sensitive chemicals (silver nitrate, hydrogen peroxide)',
+      'GL45-thread bottles for compatibility with most dispensing caps',
+      'Media bottles with pouring rings for clean, drip-free dispensing'
     ],
-    commonApplications: ['Drinking water quality', 'Wastewater monitoring', 'Environmental compliance', 'Pool testing'],
-    relatedKnowledge: '/knowledge/what-is-tds-meter'
+    commonApplications: ['Reagent storage', 'Sample collection', 'Buffer preparation', 'Media storage'],
+    relatedKnowledge: '/knowledge/what-is/graduated-cylinder'
   },
-  'chlorine-analyzers': {
-    name: 'Chlorine Analyzers',
-    slug: 'chlorine-analyzers',
-    definition: 'Chlorine analyzers continuously measure free or total chlorine levels in water to ensure effective disinfection.',
-    howItWorks: 'Chlorine analyzers use colorimetric, amperometric, or UV absorbance methods to determine chlorine concentration in water.',
+  'kit-products': {
+    name: 'Kit Products',
+    slug: 'kit-products',
+    definition: 'Curated glassware kits bundling multiple pieces — complete setups for distillation, titration, filtration, or general-purpose lab starter collections.',
+    howItWorks: 'Kits are pre-configured with compatible glassware pieces, matched by joint size and volume. Each kit includes a parts list and assembly diagram for immediate setup.',
     keyParameters: [
-      { name: 'Range', unit: 'mg/L', description: 'Typically 0-10 or 0-200 mg/L' },
-      { name: 'Accuracy', unit: '%', description: 'Typically ±3-5% of reading' },
-      { name: 'Type', unit: '', description: 'Free, Total, or Combined chlorine' },
-      { name: 'Response Time', unit: 'sec', description: 'Continuous vs periodic measurement' }
+      { name: 'Kit Contents', unit: 'pcs', description: 'Number of pieces included' },
+      { name: 'Joint Compatibility', unit: '', description: 'All pieces use matching joint sizes' },
+      { name: 'Application', unit: '', description: 'Specific workflow (distillation, titration, etc.)' },
+      { name: 'Storage', unit: '', description: 'Some kits include foam inserts or carrying cases' }
     ],
-    industries: ['Water Treatment', 'Pool & Spa', 'Food & Beverage', 'Cooling Towers'],
-    topBrands: ['LMI', 'Pulsafeeder', 'Walchem'],
+    industries: ['Educational Labs', 'Startup Labs', 'Field Research', 'Quality Control', 'DIY Chemistry'],
+    topBrands: ['NovaTech', 'Corning', 'Chemglass', 'Ace Glass'],
     selectionTips: [
-      'Choose free chlorine for real-time disinfection monitoring',
-      'Total chlorine includes combined chlorine (chloramines)',
-      'Consider amperometric sensors for lowest maintenance'
+      'Choose application-specific kits over general collections for better value',
+      'Verify all joint sizes match before purchasing — 24/40 is most common',
+      'Consider kits with PTFE stopcocks for acid/base resistance'
     ],
-    commonApplications: ['Drinking water disinfection', 'Pool and spa monitoring', 'Cooling tower cycles', 'Process water'],
-    relatedKnowledge: '/knowledge/compare/ph-meter-vs-orp-meter'
+    commonApplications: ['Lab startup kits', 'Teaching labs', 'Field testing setups', 'Gift kits for new researchers'],
+    relatedKnowledge: '/knowledge/what-is/graduated-cylinder'
   }
 }
 

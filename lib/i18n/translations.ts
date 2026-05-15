@@ -220,6 +220,7 @@ export type TranslationKeys = {
   footer_account_col: string
   footer_products_col: string
   footer_services_col: string
+  footer_knowledge_base: string
   footer_quick_links: string
   footer_all_products: string
   footer_sign_in: string
@@ -909,6 +910,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     footer_account_col: 'My Account',
     footer_products_col: 'Products',
     footer_services_col: 'Services',
+    footer_knowledge_base: 'Knowledge Base',
     footer_quick_links: 'Quick Links',
     footer_all_products: 'All Products',
     footer_sign_in: 'Sign In',
@@ -1566,6 +1568,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     footer_returns: '退货政策',
     footer_returns_policy: '退货政策',
     footer_services_col: '服务',
+    footer_knowledge_base: '知识库',
     footer_shipping: '配送信息',
     footer_sign_in: '登录',
     footer_subscribe: '订阅',
@@ -2245,6 +2248,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     footer_returns: 'Devoluciones',
     footer_returns_policy: 'Politica de devoluciones',
     footer_services_col: 'Servicios',
+    footer_knowledge_base: 'Base de conocimiento',
     footer_shipping: 'Envio',
     footer_sign_in: 'Iniciar sesion',
     footer_subscribe: 'Suscribirse',
@@ -2924,6 +2928,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     footer_returns: '返品',
     footer_returns_policy: '返品ポリシー',
     footer_services_col: 'サービス',
+    footer_knowledge_base: 'ナレッジベース',
     footer_shipping: '配送',
     footer_sign_in: 'ログイン',
     footer_subscribe: '購読',
@@ -3599,6 +3604,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     footer_returns: 'वापसी',
     footer_returns_policy: 'वापसी नीति',
     footer_services_col: 'सेवाएं',
+    footer_knowledge_base: 'ज्ञान आधार',
     footer_shipping: 'शिपिंग',
     footer_sign_in: 'साइन इन',
     footer_subscribe: 'सदस्यता लें',
@@ -4274,6 +4280,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     footer_returns: 'المرتجعات',
     footer_returns_policy: 'سياسة الإرجاع',
     footer_services_col: 'الخدمات',
+    footer_knowledge_base: 'قاعدة المعرفة',
     footer_shipping: 'الشحن',
     footer_sign_in: 'تسجيل الدخول',
     footer_subscribe: 'اشترك',
@@ -4949,6 +4956,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     footer_returns: 'Devolucoes',
     footer_returns_policy: 'Politica de devolucao',
     footer_services_col: 'Servicos',
+    footer_knowledge_base: 'Base de Conhecimento',
     footer_shipping: 'Envio',
     footer_sign_in: 'Entrar',
     footer_subscribe: 'Assinar',

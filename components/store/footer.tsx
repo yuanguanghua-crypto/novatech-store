@@ -32,10 +32,20 @@ export function Footer() {
     [t.footer_address_book, '/account/addresses'],
   ]
 
+  const knowledgeLinks = [
+    ['/knowledge/how-to-choose/laboratory-glassware', 'Laboratory Glassware'],
+    ['/knowledge/compare/borosilicate-vs-soda-lime', 'Borosilicate vs Soda Lime'],
+    ['/knowledge/compare/class-a-vs-class-b', 'Class A vs Class B'],
+    ['/knowledge/what-is/graduated-cylinder', 'Graduated Cylinder'],
+    ['/knowledge/what-is/distillation', 'Distillation'],
+    ['/knowledge/how-to-choose/vacuum-pump', 'Vacuum Pump'],
+    ['/knowledge/how-to-use/glassware-care', 'Glassware Care'],
+  ]
+
   return (
     <footer className="bg-gray-800 text-gray-300 mt-16">
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div>
             <div className="mb-4">
@@ -99,6 +109,20 @@ export function Footer() {
                 <li key={href}>
                   <Link href={href} className="hover:text-white transition-colors duration-200">
                     {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Knowledge Base */}
+          <div>
+            <h3 className="font-semibold text-white mb-4 font-display">{t.footer_knowledge_base || 'Knowledge Base'}</h3>
+            <ul className="space-y-2.5 text-sm">
+              {knowledgeLinks.map(([href, name]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-white transition-colors duration-200">
+                    {getCategoryName(name, locale)}
                   </Link>
                 </li>
               ))}

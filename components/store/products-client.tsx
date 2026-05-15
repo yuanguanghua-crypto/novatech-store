@@ -17,16 +17,8 @@ interface Product {
   images: { url: string }[]
 }
 
-interface Brand {
-  id: string
-  name: string
-  slug: string
-  _count: { products: number }
-}
-
 interface ProductsClientProps {
   products: Product[]
-  brands: Brand[]
   total: number
   page: number
   pageSize: number
@@ -68,7 +60,7 @@ function Pagination({ page, totalPages, searchParams }: { page: number; totalPag
   )
 }
 
-export function ProductsClient({ products, brands, total, page, pageSize, searchParams }: ProductsClientProps) {
+export function ProductsClient({ products, total, page, pageSize, searchParams }: ProductsClientProps) {
   const { t } = useI18n()
   const totalPages = Math.ceil(total / pageSize)
   const start = Math.min((page - 1) * pageSize + 1, total)
@@ -88,7 +80,7 @@ export function ProductsClient({ products, brands, total, page, pageSize, search
       <div className="flex gap-8">
         {/* Sidebar Filters */}
         <aside className="hidden lg:block w-64 flex-shrink-0">
-          <ProductFilters brands={brands} searchParams={searchParams} />
+          <ProductFilters searchParams={searchParams} />
         </aside>
 
         {/* Product Grid */}

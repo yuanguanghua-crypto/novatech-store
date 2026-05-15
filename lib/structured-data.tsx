@@ -119,11 +119,11 @@ export function generateOrganizationSchema(baseUrl: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'NovaTech-USA / LabProGlobal',
+    name: 'NovaTech',
     url: baseUrl,
     logo: `${baseUrl}/logo.png`,
     description:
-      'NovaTech-USA provides over 15,000 industrial detection and laboratory instruments. Authorized distributor of LMI, Pulsafeeder, Lovibond, and other major brands. Serving water treatment, pharmaceutical, environmental monitoring, and food & beverage industries.',
+      'NovaTech manufactures precision borosilicate 3.3 laboratory glassware for analytical chemistry, research labs, and industrial quality control. From beakers and flasks to distillation and filtration systems.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'US',

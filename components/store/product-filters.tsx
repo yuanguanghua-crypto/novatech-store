@@ -6,26 +6,17 @@ import { ChevronDown, Check } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/context'
 import { cn } from '@/lib/utils'
 
-interface Brand {
-  id: string
-  name: string
-  slug: string
-  _count: { products: number }
-}
-
 interface ProductFiltersProps {
-  brands: Brand[]
   searchParams: Record<string, string | undefined>
 }
 
-export function ProductFilters({ brands, searchParams }: ProductFiltersProps) {
+export function ProductFilters({ searchParams }: ProductFiltersProps) {
   const { t } = useI18n()
   const router = useRouter()
   const pathname = usePathname()
   const [expandedSections, setExpandedSections] = useState({
     availability: true,
     price: true,
-    brand: true,
   })
 
   const toggleSection = (section: keyof typeof expandedSections) => {
@@ -146,64 +137,6 @@ export function ProductFilters({ brands, searchParams }: ProductFiltersProps) {
                 </button>
               ))}
             </div>
-          </div>
-        )}
-      </div>
-
-      {/* Brand Filter */}
-      <div className="p-4">
-        <button
-          onClick={() => toggleSection('brand')}
-          className="flex items-center justify-between w-full font-semibold text-gray-900 mb-3"
-        >
-          <span>{t.filter_brand}</span>
-          <ChevronDown className={cn(
-            "w-4 h-4 transition-transform",
-            expandedSections.brand ? "rotate-180" : ""
-          )} />
-        </button>
-        {expandedSections.brand && (
-          <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
-            {brands.map((brand) => {
-              const isSelected = searchParams.brand === brand.slug
-              return (
-                <label 
-                  key={brand.id} 
-                  className={cn(
-                    "flex items-center justify-between cursor-pointer group py-1 px-2 rounded-lg transition-colors",
-                    isSelected ? "bg-blue-50" : "hover:bg-gray-50"
-                  )}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={cn(
-                      "w-5 h-5 rounded border-2 flex items-center justify-center transition-all",
-                      isSelected
-                        ? "bg-blue-600 border-blue-600"
-                        : "border-gray-300 group-hover:border-blue-400"
-                    )}>
-                      {isSelected && (
-                        <Check className="w-3 h-3 text-white" />
-                      )}
-                    </div>
-                    <input
-                      type="checkbox"
-                      checked={isSelected}
-                      onChange={(e) => updateFilter('brand', e.target.checked ? brand.slug : null)}
-                      className="sr-only"
-                    />
-                    <span className={cn(
-                      "text-sm transition-colors",
-                      isSelected ? "text-blue-700 font-medium" : "text-gray-700 group-hover:text-blue-600"
-                    )}>
-                      {brand.name}
-                    </span>
-                  </div>
-                  <span className="text-xs text-gray-400 font-mono">
-                    ({brand._count.products.toLocaleString()})
-                  </span>
-                </label>
-              )
-            })}
           </div>
         )}
       </div>
