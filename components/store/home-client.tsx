@@ -75,7 +75,7 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6 animate-fade-in">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              <span className="text-sm text-white/90">Trusted by 5,000+ Laboratories Worldwide</span>
+              <span className="text-sm text-white/90">Professional Laboratory Glassware Manufacturer</span>
             </div>
             
             {/* Main Heading */}
@@ -122,8 +122,8 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: '15,000+', label: 'Products Available' },
-              { number: '50+', label: 'Trusted Brands' },
+              { number: '100%', label: 'Quality Assured' },
+              { number: '7+', label: 'Product Categories' },
               { number: '24/7', label: 'Technical Support' },
               { number: '99%', label: 'Customer Satisfaction' },
             ].map(({ number, label }) => (
@@ -171,7 +171,7 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
             {/* Section Header */}
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display">{t.home_categories_title}</h2>
-              <p className="text-gray-500 max-w-xl mx-auto">Browse our comprehensive selection of laboratory and industrial equipment</p>
+              <p className="text-gray-500 max-w-xl mx-auto">Browse our comprehensive selection of laboratory glassware</p>
             </div>
             
             {/* Category Cards */}
@@ -267,9 +267,6 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
                   
                   {/* Product Info */}
                   <div className="p-5">
-                    {product.brand && (
-                      <div className="text-xs text-brand-600 font-bold uppercase tracking-wider mb-2">{product.brand.name}</div>
-                    )}
                     <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-brand-600 transition-colors leading-snug mb-2">
                       {product.name}
                     </h3>
@@ -316,165 +313,38 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
         </div>
       </section>
 
-      {/* ===== Brands Showcase - Premium Marquee ===== */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        {/* Decorative Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-brand-500/5 via-accent-400/5 to-brand-500/5 rounded-full blur-3xl" />
-        </div>
-        
-        {/* Section Header */}
-        <div className="container relative z-10 mb-12">
-          <div className="text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 rounded-full px-4 py-1.5 mb-4">
-              <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-pulse"></span>
-              <span className="text-xs text-brand-700 font-semibold tracking-wide uppercase">Global Partnerships</span>
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 font-display">
-              Trusted by Industry Leaders
-            </h2>
+      {/* ===== Quality Guarantee Section ===== */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display">NovaTech Quality Guarantee</h2>
             <p className="text-gray-500 max-w-lg mx-auto">
-              We partner with the world's most renowned manufacturers to bring you premium laboratory equipment
+              Every product is manufactured to the highest standards with rigorous quality control
             </p>
           </div>
-        </div>
-        
-        {/* Marquee Track - First Row (Left to Right) */}
-        <div className="relative mb-6">
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
-          
-          <div className="flex overflow-hidden">
-            <div className="flex gap-3 sm:gap-4 animate-marquee-slow hover:pause" style={{ width: 'max-content' }}>
-              {/* First set of brand cards */}
-              {[
-                { name: 'Pulsafeeder', color: 'from-blue-500 to-blue-700', initial: 'PF' },
-                { name: 'LMI', color: 'from-cyan-500 to-cyan-700', initial: 'LM' },
-                { name: 'Lovibond', color: 'from-amber-500 to-orange-600', initial: 'LV' },
-                { name: 'Hach', color: 'from-emerald-500 to-teal-600', initial: 'HC' },
-                { name: 'Ohaus', color: 'from-violet-500 to-purple-600', initial: 'OH' },
-                { name: 'Mettler Toledo', color: 'from-rose-500 to-pink-600', initial: 'MT' },
-              ].map((brand) => (
-                <div key={brand.name} className="flex-shrink-0 group cursor-pointer">
-                  <div className="w-28 sm:w-40 h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm 
-                                  hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
-                                  transition-all duration-300 flex flex-col items-center justify-center
-                                  relative overflow-hidden p-2 sm:p-0">
-                    {/* Hover Glow Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
-                    
-                    {/* Brand Initial Badge */}
-                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-1 sm:mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                      <span className="text-white font-bold text-xs sm:text-sm">{brand.initial}</span>
-                    </div>
-                    
-                    {/* Brand Name */}
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10 text-center leading-tight">
-                      {brand.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-              
-              {/* Duplicate for seamless loop */}
-              {[
-                { name: 'Pulsafeeder', color: 'from-blue-500 to-blue-700', initial: 'PF' },
-                { name: 'LMI', color: 'from-cyan-500 to-cyan-700', initial: 'LM' },
-                { name: 'Lovibond', color: 'from-amber-500 to-orange-600', initial: 'LV' },
-                { name: 'Hach', color: 'from-emerald-500 to-teal-600', initial: 'HC' },
-                { name: 'Ohaus', color: 'from-violet-500 to-purple-600', initial: 'OH' },
-                { name: 'Mettler Toledo', color: 'from-rose-500 to-pink-600', initial: 'MT' },
-              ].map((brand) => (
-                <div key={`dup1-${brand.name}`} className="flex-shrink-0 group cursor-pointer">
-                  <div className="w-28 sm:w-40 h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm 
-                                  hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
-                                  transition-all duration-300 flex flex-col items-center justify-center
-                                  relative overflow-hidden p-2 sm:p-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
-                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-1 sm:mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                      <span className="text-white font-bold text-xs sm:text-sm">{brand.initial}</span>
-                    </div>
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10 text-center leading-tight">
-                      {brand.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
+              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <ShieldCheck className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 mb-2">Premium Materials</h3>
+              <p className="text-sm text-gray-500">Borosilicate glass 3.3, FDA-grade materials, and certified components</p>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
+              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 mb-2">Factory Direct Pricing</h3>
+              <p className="text-sm text-gray-500">No middlemen, no markup — professional quality at fair prices</p>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
+              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <HeadphonesIcon className="w-8 h-8 text-purple-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 mb-2">Expert Support</h3>
+              <p className="text-sm text-gray-500">Technical consultation, product training, and after-sales service</p>
             </div>
           </div>
-        </div>
-        
-        {/* Marquee Track - Second Row (Right to Left) */}
-        <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
-          
-          <div className="flex overflow-hidden">
-            <div className="flex gap-3 sm:gap-4 animate-marquee-reverse hover:pause" style={{ width: 'max-content' }}>
-              {/* First set of brand cards */}
-              {[
-                { name: 'Sartorius', color: 'from-indigo-500 to-indigo-700', initial: 'SR' },
-                { name: 'Eppendorf', color: 'from-red-500 to-red-700', initial: 'EP' },
-                { name: 'Thermo Fisher', color: 'from-orange-500 to-orange-700', initial: 'TF' },
-                { name: 'Shimadzu', color: 'from-yellow-500 to-yellow-700', initial: 'SH' },
-                { name: 'Denver Instr.', color: 'from-green-500 to-green-700', initial: 'DI' },
-                { name: 'A&D Weighing', color: 'from-blue-400 to-blue-600', initial: 'AD' },
-              ].map((brand) => (
-                <div key={brand.name} className="flex-shrink-0 group cursor-pointer">
-                  <div className="w-28 sm:w-40 h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm 
-                                  hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
-                                  transition-all duration-300 flex flex-col items-center justify-center
-                                  relative overflow-hidden p-2 sm:p-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
-                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-1 sm:mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                      <span className="text-white font-bold text-xs sm:text-sm">{brand.initial}</span>
-                    </div>
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10 text-center leading-tight">
-                      {brand.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-              
-              {/* Duplicate for seamless loop */}
-              {[
-                { name: 'Sartorius', color: 'from-indigo-500 to-indigo-700', initial: 'SR' },
-                { name: 'Eppendorf', color: 'from-red-500 to-red-700', initial: 'EP' },
-                { name: 'Thermo Fisher', color: 'from-orange-500 to-orange-700', initial: 'TF' },
-                { name: 'Shimadzu', color: 'from-yellow-500 to-yellow-700', initial: 'SH' },
-                { name: 'Denver Instr.', color: 'from-green-500 to-green-700', initial: 'DI' },
-                { name: 'A&D Weighing', color: 'from-blue-400 to-blue-600', initial: 'AD' },
-              ].map((brand) => (
-                <div key={`dup2-${brand.name}`} className="flex-shrink-0 group cursor-pointer">
-                  <div className="w-28 sm:w-40 h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm 
-                                  hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 
-                                  transition-all duration-300 flex flex-col items-center justify-center
-                                  relative overflow-hidden p-2 sm:p-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-50/0 to-brand-50/0 group-hover:from-brand-50/50 group-hover:to-accent-50/50 transition-all duration-300" />
-                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center mb-1 sm:mb-2 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                      <span className="text-white font-bold text-xs sm:text-sm">{brand.initial}</span>
-                    </div>
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-600 transition-colors relative z-10 text-center leading-tight">
-                      {brand.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        
-        {/* View All Brands Link */}
-        <div className="container relative z-10 mt-10 text-center">
-          <Link
-            href="/brands"
-            className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-semibold transition-colors group"
-          >
-            View All 50+ Partners
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
       </section>
     </>

@@ -73,11 +73,6 @@ function ProductCard({ product, index = 0 }: { product: Product; index?: number 
       
       {/* Product Info */}
       <div className="p-4">
-        {product.brand && (
-          <p className="text-xs text-blue-600 font-semibold uppercase tracking-wide mb-1">
-            {product.brand.name}
-          </p>
-        )}
         <h3 className="text-sm font-medium text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors leading-snug mb-1">
           {product.name}
         </h3>

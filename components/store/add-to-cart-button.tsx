@@ -3,25 +3,37 @@
 import { ShoppingCart, Check } from 'lucide-react'
 import { useCartStore } from '@/hooks/use-cart'
 import { useI18n } from '@/lib/i18n/context'
+import { useToast } from '@/components/store/toast'
 import { useState } from 'react'
 
 interface AddToCartButtonProps {
   productId: string
   sku: string
   name: string
-  price: number
+  price: number | string | null | undefined
   imageUrl?: string
 }
 
 export function AddToCartButton({ productId, sku, name, price, imageUrl }: AddToCartButtonProps) {
   const { addItem } = useCartStore()
   const { t } = useI18n()
+  const { showToast } = useToast()
   const [qty, setQty] = useState(1)
   const [added, setAdded] = useState(false)
 
+  // Safe price parsing — handle Prisma Decimal, string, null, undefined
+  const safePrice = typeof price === 'number' ? price
+    : typeof price === 'string' ? parseFloat(price) || 0
+    : 0
+
   const handleAdd = () => {
-    addItem({ productId, sku, name, price, imageUrl, quantity: qty })
+    if (safePrice <= 0) {
+      showToast('Please request a quote for this item', 'error')
+      return
+    }
+    addItem({ productId, sku, name, price: safePrice, imageUrl, quantity: qty })
     setAdded(true)
+    showToast(`${name} (${sku}) — ${t.cart_item_added}`, 'success')
     setTimeout(() => setAdded(false), 2000)
   }
 

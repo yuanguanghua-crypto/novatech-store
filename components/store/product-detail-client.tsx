@@ -101,13 +101,6 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
 
         {/* Product Info */}
         <div>
-          {/* Brand */}
-          {product.brand && (
-            <Link href={`/brands/${product.brand.slug}`} className="text-sm font-semibold text-blue-600 uppercase tracking-wide hover:text-blue-700 transition-colors">
-              {product.brand.name}
-            </Link>
-          )}
-          
           {/* Product Name */}
           <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mt-1 mb-2 font-display">{product.name}</h1>
           
@@ -164,7 +157,7 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
               productId={product.id}
               sku={product.sku}
               name={product.name}
-              price={parseFloat(product.ourPrice.toString())}
+              price={product.ourPrice}
               imageUrl={primaryImage?.url}
             />
             <AddToQuoteButton
@@ -236,7 +229,6 @@ export function ProductDetailClient({ product, related }: ProductDetailClientPro
                   )}
                 </div>
                 <div className="p-3">
-                  <p className="text-xs text-blue-600 font-semibold uppercase tracking-wide">{p.brand?.name}</p>
                   <p className="text-sm font-medium text-gray-800 line-clamp-2 group-hover:text-blue-600 mt-1 transition-colors">{p.name}</p>
                   <p className="font-bold text-gray-900 mt-2">{formatPrice(p.ourPrice?.toString())}</p>
                 </div>

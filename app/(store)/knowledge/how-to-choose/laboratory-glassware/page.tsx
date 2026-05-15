@@ -126,8 +126,8 @@ export default function HowToChooseGlasswarePage() {
             answer: 'Start with: graduated cylinders (10, 25, 50, 100 mL), Erlenmeyer flasks (125, 250, 500 mL), beakers (50, 100, 250, 500 mL), volumetric flasks (100, 250, 500, 1000 mL), and a set of volumetric pipettes.',
           },
           {
-            question: 'Can I mix brands of glassware in one setup?',
-            answer: 'Yes, as long as the joint sizes are compatible (e.g., all 24/40). However, using the same brand ensures the tightest fit and consistent joint taper.',
+            question: 'Can I mix different glassware pieces in one setup?',
+            answer: 'Yes, as long as the joint sizes are compatible (e.g., all 24/40). Using glassware from the same manufacturer ensures the tightest fit and consistent joint taper.',
           },
         ]}
       />
