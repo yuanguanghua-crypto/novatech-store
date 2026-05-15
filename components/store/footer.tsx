@@ -9,11 +9,13 @@ export function Footer() {
   const { t, locale } = useI18n()
 
   const productLinks = [
-    ['Diaphragm Metering Pumps', '/categories/diaphragm-metering-pumps'],
-    ['pH & ORP Controllers', '/categories/ph-orp-controllers'],
-    ['Precision Balances', '/categories/precision-balances'],
-    ['Autoclaves', '/categories/autoclaves'],
-    ['Compound Microscopes', '/categories/compound-microscopes'],
+    ['Basic Glassware', '/categories/basic-glassware'],
+    ['Analytical Glassware', '/categories/analytical-glassware'],
+    ['Reaction Systems', '/categories/reaction-systems'],
+    ['Distillation Systems', '/categories/distillation-systems'],
+    ['Filtration Systems', '/categories/filtration-systems'],
+    ['Storage Systems', '/categories/storage-systems'],
+    ['Kit Products', '/categories/kit-products'],
   ]
 
   const serviceLinks = [
