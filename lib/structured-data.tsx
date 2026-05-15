@@ -39,11 +39,11 @@ export function generateProductSchema(product: ProductSchemaData, baseUrl: strin
     '@type': 'Product',
     name: product.name,
     sku: product.sku,
-    description: product.description || `${product.name} - Industrial ${product.categoryName || 'equipment'} from ${product.brandName || 'NovaTech-USA'}`,
+    description: product.description || `${product.name} - Industrial ${product.categoryName || 'equipment'} from ${product.brandName || 'LABPRO'}`,
     image: product.imageUrl ? [product.imageUrl] : undefined,
     brand: {
       '@type': 'Brand',
-      name: product.brandName || 'NovaTech-USA',
+      name: product.brandName || 'LABPRO',
     },
     category: product.categoryName,
     offers: {
@@ -54,7 +54,7 @@ export function generateProductSchema(product: ProductSchemaData, baseUrl: strin
       availability: availabilityMap[product.availability] || 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
-        name: 'NovaTech-USA',
+        name: 'LABPRO',
         url: baseUrl,
       },
     },
@@ -119,11 +119,11 @@ export function generateOrganizationSchema(baseUrl: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'NovaTech',
+    name: 'LABPRO',
     url: baseUrl,
     logo: `${baseUrl}/logo.png`,
     description:
-      'NovaTech manufactures precision borosilicate 3.3 laboratory glassware for analytical chemistry, research labs, and industrial quality control. From beakers and flasks to distillation and filtration systems.',
+      'LABPRO manufactures precision borosilicate 3.3 laboratory glassware for analytical chemistry, research labs, and industrial quality control. From beakers and flasks to distillation and filtration systems.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'US',
@@ -131,12 +131,12 @@ export function generateOrganizationSchema(baseUrl: string) {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'support@novatech-usa.com',
+      email: 'support@labpro.com',
       contactType: 'customer service',
       availableLanguage: ['English', 'Chinese', 'Spanish', 'Japanese'],
     },
     sameAs: [
-      'https://www.novatech-usa.com',
+      'https://www.labpro.com',
     ],
   }
 }

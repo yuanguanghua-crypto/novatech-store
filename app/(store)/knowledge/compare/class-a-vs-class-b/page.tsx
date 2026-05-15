@@ -4,7 +4,7 @@ import { BarChart3 } from 'lucide-react'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'Class A vs Class B Glassware: Accuracy Comparison Guide | NovaTech',
+  title: 'Class A vs Class B Glassware: Accuracy Comparison Guide | LABPRO',
   description:
     'Understand the difference between Class A and Class B laboratory glassware — tolerance standards, when to use each, and how to choose based on your application requirements.',
   keywords: ['Class A vs Class B', 'glassware accuracy', 'tolerance standards', 'laboratory measurement', 'ISO 1042'],
@@ -18,7 +18,7 @@ export default function ClassAvsClassBPage() {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: 'Class A vs Class B Glassware: Accuracy Comparison Guide',
-          author: { '@type': 'Organization', name: 'NovaTech' },
+          author: { '@type': 'Organization', name: 'LABPRO' },
         }),
       }} />
       <KnowledgePageTemplate

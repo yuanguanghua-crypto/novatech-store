@@ -54,7 +54,7 @@ export function ReturnsClient() {
         <div className="bg-brand-50 rounded-lg p-4">
           <p className="text-sm text-brand-800">
             <strong>{t.returns_need_help}</strong> {t.returns_contact}{' '}
-            <a href="mailto:returns@novatechstore.com" className="underline">returns@novatechstore.com</a>
+            <a href="mailto:returns@labprostore.com" className="underline">returns@labprostore.com</a>
           </p>
         </div>
       </div>

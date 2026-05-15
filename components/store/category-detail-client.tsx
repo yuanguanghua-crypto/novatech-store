@@ -193,15 +193,6 @@ export function CategoryDetailClient({
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-3">Top Brands</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {categoryProfile.topBrands.map((brand, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-brand-100 rounded-full text-xs text-brand-700 font-medium">
-                          {brand}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-3">Applications</h3>
                     <ul className="text-sm text-gray-600 space-y-1">

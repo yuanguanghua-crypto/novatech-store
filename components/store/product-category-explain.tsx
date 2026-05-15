@@ -37,7 +37,7 @@ export function ProductCategoryExplain({ totalProducts, categories }: ProductCat
             Industrial & Laboratory Equipment Product Center
           </h1>
           <p className="text-base text-slate-600 max-w-2xl mx-auto">
-            NovaTech-USA offers {totalProducts.toLocaleString()}+ professional-grade instruments
+            LABPRO offers {totalProducts.toLocaleString()}+ professional-grade instruments
             for industrial water treatment, laboratory analysis, and environmental monitoring.
             Authorized distributor of LMI, Pulsafeeder, Lovibond, and more.
           </p>
@@ -165,7 +165,7 @@ export function ProductCategoryExplain({ totalProducts, categories }: ProductCat
 
         {/* AEO Contextual Note */}
         <div className="mt-6 text-center text-xs text-slate-400">
-          NovaTech-USA is an authorized distributor of LMI, Pulsafeeder, Lovibond, and other
+          LABPRO is an authorized distributor of LMI, Pulsafeeder, Lovibond, and other
           leading industrial equipment brands. All products include manufacturer warranty and
           technical support.
         </div>

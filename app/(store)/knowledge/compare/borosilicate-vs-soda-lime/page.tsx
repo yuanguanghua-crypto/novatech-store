@@ -4,7 +4,7 @@ import { Scale } from 'lucide-react'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'Borosilicate vs Soda-Lime Glass: Which is Better for Lab Glassware? | NovaTech',
+  title: 'Borosilicate vs Soda-Lime Glass: Which is Better for Lab Glassware? | LABPRO',
   description:
     'Detailed comparison of borosilicate 3.3 and soda-lime glass for laboratory use — thermal shock resistance, chemical durability, cost analysis, and application recommendations.',
   keywords: ['borosilicate vs soda-lime', 'lab glassware comparison', 'glass types', 'thermal shock resistance', 'chemical durability'],
@@ -18,7 +18,7 @@ export default function BorosilicateVsSodaLimePage() {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: 'Borosilicate vs Soda-Lime Glass: Complete Comparison',
-          author: { '@type': 'Organization', name: 'NovaTech' },
+          author: { '@type': 'Organization', name: 'LABPRO' },
         }),
       }} />
       <KnowledgePageTemplate

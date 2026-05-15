@@ -51,7 +51,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <img src="/logo.png" alt="NovaTech" className="h-10 w-auto" />
+              <img src="/logo.png" alt="LABPRO" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed text-gray-400">
               {t.footer_description}
@@ -63,8 +63,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 flex-shrink-0 text-blue-400" />
-                <a href="mailto:sales@novatechstore.com" className="hover:text-white transition-colors">
-                  sales@novatechstore.com
+                <a href="mailto:sales@labprostore.com" className="hover:text-white transition-colors">
+                  sales@labprostore.com
                 </a>
               </div>
             </div>
@@ -136,7 +136,7 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-gray-700">
         <div className="container-custom py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} NovaTech. {t.footer_rights}</p>
+          <p>© {new Date().getFullYear()} LABPRO. {t.footer_rights}</p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-gray-300 transition-colors">{t.footer_privacy}</Link>
             <Link href="/terms" className="hover:text-gray-300 transition-colors">{t.footer_terms}</Link>

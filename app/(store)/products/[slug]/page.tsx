@@ -46,10 +46,10 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   if (!product) return {}
 
   return {
-    title: `${product.name} | ${product.brand?.name || 'NovaTech-USA'}`,
+    title: `${product.name} | ${product.brand?.name || 'LABPRO'}`,
     description:
       product.description?.slice(0, 160) ||
-      `${product.name} (SKU: ${product.sku}) - ${product.brand?.name || 'NovaTech-USA'} ${product.category?.name || 'industrial equipment'}. ${product.availability === 'in_stock' ? 'In stock.' : 'Contact for availability.'} Request a quote today.`,
+      `${product.name} (SKU: ${product.sku}) - ${product.brand?.name || 'LABPRO'} ${product.category?.name || 'industrial equipment'}. ${product.availability === 'in_stock' ? 'In stock.' : 'Contact for availability.'} Request a quote today.`,
     keywords: [
       product.name,
       product.sku,
@@ -58,10 +58,10 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       'industrial equipment',
       'laboratory instruments',
       'water treatment',
-      'NovaTech-USA',
+      'LABPRO',
     ],
     openGraph: {
-      title: `${product.name} | ${product.brand?.name || 'NovaTech-USA'}`,
+      title: `${product.name} | ${product.brand?.name || 'LABPRO'}`,
       description: product.description?.slice(0, 160) || `${product.name} - Industrial equipment`,
       images: product.images[0]?.url ? [{ url: product.images[0].url }] : [],
       type: 'website',

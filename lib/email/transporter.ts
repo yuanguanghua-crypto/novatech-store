@@ -26,7 +26,7 @@ export async function sendEmail({
   }
 
   await transporter.sendMail({
-    from: process.env.EMAIL_FROM || 'noreply@novatech-store.com',
+    from: process.env.EMAIL_FROM || 'noreply@labpro-store.com',
     to,
     subject,
     html,

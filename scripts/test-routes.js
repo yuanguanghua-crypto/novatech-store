@@ -1,5 +1,5 @@
 /**
- * Novatech Store - Automated Route Testing System v2
+ * LABPRO Store - Automated Route Testing System v2
  *
  * Features:
  * 1. Scan ALL pages (including route groups like (store))
@@ -170,7 +170,7 @@ async function testDbRoutes() {
 // ====== Main ======
 async function main() {
   console.log('='.repeat(70))
-  console.log('Novatech Store - Automated Route Testing System v2')
+  console.log('LABPRO Store - Automated Route Testing System v2')
   console.log('='.repeat(70))
   console.log('Server: ' + SERVER)
 

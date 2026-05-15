@@ -4,7 +4,7 @@ import { Wind } from 'lucide-react'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'What is Vacuum Filtration? Laboratory Filtration Glassware Guide | NovaTech',
+  title: 'What is Vacuum Filtration? Laboratory Filtration Glassware Guide | LABPRO',
   description:
     'Learn how vacuum filtration works, Büchner funnel and filter flask setup, selection criteria for fritted glass vs paper filtration, and common applications in analytical chemistry.',
   keywords: ['vacuum filtration', 'buchner funnel', 'filter flask', 'fritted glass', 'laboratory filtration', 'gravimetric analysis'],
@@ -18,7 +18,7 @@ export default function VacuumPumpPage() {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: 'What is Vacuum Filtration? Laboratory Filtration Glassware Guide',
-          author: { '@type': 'Organization', name: 'NovaTech' },
+          author: { '@type': 'Organization', name: 'LABPRO' },
         }),
       }} />
       <KnowledgePageTemplate

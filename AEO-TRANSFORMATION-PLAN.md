@@ -1,4 +1,4 @@
-# Novatech 网站 AEO 改造方案
+# LABPRO 网站 AEO 改造方案
 
 > 制定时间：2026-04-28
 > 网站地址：https://novatech-store-inky.vercel.app
@@ -61,7 +61,7 @@ export default async function ProductsPage() {
           <div>
             <h2 className="text-xl font-semibold mb-3">我们提供哪些设备？</h2>
             <p className="text-gray-600">
-              NovaTech-USA 提供超过 15,000 种工业检测与实验室仪器，
+              LABPRO 提供超过 15,000 种工业检测与实验室仪器，
               涵盖 pH 计、电导率仪、计量泵、浊度仪等，应用于水处理、
               制药、环保、食品饮料等领域。
             </p>
@@ -111,7 +111,7 @@ const generateProductFAQs = (product: Product) => {
   return [
     {
       question: `${name} 主要用于什么应用场景？`,
-      answer: `${name} 是 ${brand || 'NovaTech'} 品牌的 ${category}，
+      answer: `${name} 是 ${brand || 'LABPRO'} 品牌的 ${category}，
         广泛应用于工业水处理、实验室分析、环境监测等领域。
         具体参数：${Object.entries(specs).slice(0,3).map(([k,v])=>`${k}: ${v}`).join('；')}`
     },
@@ -122,7 +122,7 @@ const generateProductFAQs = (product: Product) => {
     },
     {
       question: `${name} 是否支持工业环境使用？`,
-      answer: `${brand || 'NovaTech'} 设备支持工业级应用，
+      answer: `${brand || 'LABPRO'} 设备支持工业级应用，
         典型防护等级 IP65 及以上，工作温度范围 -10°C 至 60°C。
         详细环境参数请见规格表。`
     },
@@ -165,7 +165,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     description: product.description,
     brand: {
       '@type': 'Brand',
-      name: product.brand?.name || 'NovaTech'
+      name: product.brand?.name || 'LABPRO'
     },
     image: product.images[0]?.url,
     offers: {
@@ -218,7 +218,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
 #### 4. 新增 3 类 AI 高引用知识页
 
-基于 Novatech 的行业特性（工业检测/实验室设备），创建：
+基于 LABPRO 的行业特性（工业检测/实验室设备），创建：
 
 **类型 A - /what-is-[category] "是什么"页**
 ```

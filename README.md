@@ -1,4 +1,4 @@
-# NovatechStore
+# LabProStore
 
 工业品跨境电商平台 — 面向海外客户，基于中国供应链。
 
@@ -66,7 +66,7 @@ npm run dev
 ## 项目结构
 
 ```
-novatech-store/
+labpro-store/
 ├── app/
 │   ├── (store)/          # 前台页面
 │   │   ├── page.tsx         首页
@@ -114,7 +114,7 @@ novatech-store/
 docker-compose up -d postgres redis
 
 # 修改 .env.local 中的 DATABASE_URL:
-# DATABASE_URL="postgresql://postgres:changeme@localhost:5432/novatech_store"
+# DATABASE_URL="postgresql://postgres:changeme@localhost:5432/labpro_store"
 
 npm run db:push
 npm run db:import
@@ -126,7 +126,7 @@ npm run dev
 ### 前置条件
 
 1. AWS 账号，已配置 CLI (`aws configure`)
-2. 创建 ECR 仓库：`aws ecr create-repository --repository-name novatech-store`
+2. 创建 ECR 仓库：`aws ecr create-repository --repository-name labpro-store`
 3. 创建 ECS 集群（Fargate 模式）
 4. 创建 RDS PostgreSQL 实例（db.t3.medium 推荐）
 5. 创建 S3 存储桶（产品图片）

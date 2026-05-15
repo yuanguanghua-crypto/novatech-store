@@ -70,7 +70,7 @@ export function Navbar() {
           <span className="hidden sm:inline">{t.nav_free_shipping}</span>
           <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-xs">
             <a href="tel:+1-800-000-0000" className="hover:text-brand-200 whitespace-nowrap">+1 (800) 000-0000</a>
-            <a href="mailto:sales@novatechstore.com" className="hover:text-brand-200 hidden sm:inline">sales@novatechstore.com</a>
+            <a href="mailto:sales@labprostore.com" className="hover:text-brand-200 hidden sm:inline">sales@labprostore.com</a>
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@ export function Navbar() {
       <div className="container-custom py-3 flex items-center gap-4">
         {/* Logo - Right side in RTL */}
         <Link href="/" className="flex-shrink-0 order-2 lg:order-1 rtl:order-2">
-          <img src="/logo.png" alt="NovaTech" className="h-10 w-auto" />
+          <img src="/logo.png" alt="LABPRO" className="h-10 w-auto" />
         </Link>
 
         {/* Search Bar */}

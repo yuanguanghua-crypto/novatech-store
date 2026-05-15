@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Novatech Products Import Script - Optimized Version
+ * LABPRO Products Import Script - Optimized Version
  * 
  * 优化点：
  * 1. 使用更小的批次大小（20个）避免连接池耗尽
@@ -67,7 +67,7 @@ async function main() {
   const startTime = Date.now()
   
   console.log('='.repeat(60))
-  console.log('Novatech Products Import - Optimized Version')
+  console.log('LABPRO Products Import - Optimized Version')
   console.log(DRY_RUN ? '>>> DRY RUN MODE <<<' : '>>> LIVE MODE <<<')
   console.log('='.repeat(60))
   console.log(`Batch size: ${BATCH_SIZE}`)

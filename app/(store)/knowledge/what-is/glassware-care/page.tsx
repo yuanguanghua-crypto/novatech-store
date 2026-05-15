@@ -4,7 +4,7 @@ import { Shield } from 'lucide-react'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'Laboratory Glassware Care & Maintenance Guide | NovaTech',
+  title: 'Laboratory Glassware Care & Maintenance Guide | LABPRO',
   description:
     'Learn how to clean, store, and maintain borosilicate laboratory glassware. Tips on washing, autoclaving, removing stains, and extending the life of your glassware.',
   keywords: ['laboratory glassware care', 'glassware cleaning', 'borosilicate maintenance', 'autoclave glassware', 'glassware storage'],
@@ -18,7 +18,7 @@ export default function GlasswareCarePage() {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: 'Laboratory Glassware Care & Maintenance Guide',
-          author: { '@type': 'Organization', name: 'NovaTech' },
+          author: { '@type': 'Organization', name: 'LABPRO' },
         }),
       }} />
       <KnowledgePageTemplate

@@ -42,7 +42,7 @@ async function testRegister() {
     email: '55248125@qq.com',
     password: 'Test@123456',
     confirmPassword: 'Test@123456',
-    company: 'Novatech Global LLC',
+    company: 'LabProGlobal LLC',
     phone: '+1-800-555-0123',
     country: 'United States',
   }
@@ -355,7 +355,7 @@ async function testQuotePage() {
       body: JSON.stringify({
         email: '55248125@qq.com',
         name: 'Kevin Yuan',
-        company: 'Novatech Global LLC',
+        company: 'LabProGlobal LLC',
         message: 'Automated E2E Test - Requesting quote for metering pumps',
         items: JSON.stringify([
           { sku: 'PUL-MILROYAL-001', quantity: 5 },

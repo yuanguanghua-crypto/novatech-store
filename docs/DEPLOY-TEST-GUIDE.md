@@ -83,7 +83,7 @@ node scripts/seed.js
 ```
 
 这会创建：
-- **管理员账号**: admin@novatech.com / admin123
+- **管理员账号**: admin@labpro.com / admin123
 - **测试客户账号**: customer@test.com / test123
 
 ---
@@ -142,7 +142,7 @@ node scripts/seed.js
 
 ### 4.2 验证后台管理
 - 🔐 **管理后台**: https://labproglobal-test.vercel.app/admin
-- 登录账号: `admin@novatech.com` / `admin123`
+- 登录账号: `admin@labpro.com` / `admin123`
 
 ### 4.3 验证功能清单
 
@@ -272,7 +272,7 @@ node scripts/seed.js
 - 管理后台：https://labproglobal-test.vercel.app/admin
 
 🔑 测试账号：
-- 管理员：admin@novatech.com / admin123
+- 管理员：admin@labpro.com / admin123
 - 测试客户：customer@test.com / test123
 
 📋 测试任务：

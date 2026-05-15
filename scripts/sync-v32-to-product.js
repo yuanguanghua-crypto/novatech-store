@@ -22,10 +22,10 @@ const colors = {
 // ── Brand 定义 ──────────────────────────────────────────────
 const BRANDS = [
   {
-    name: 'NovaTech',
-    slug: 'novatech',
-    description: 'NovaTech laboratory glassware manufacturer — borosilicate 3.3 precision instruments',
-    website: 'https://novatech-usa.com',
+    name: 'LABPRO',
+    slug: 'labpro',
+    description: 'LABPRO laboratory glassware manufacturer — borosilicate 3.3 precision instruments',
+    website: 'https://labpro.com',
     country: 'CN',
   },
 ];
@@ -112,7 +112,7 @@ async function main() {
 
     console.log(colors.cyan(`  找到 ${variants.length} 个活跃变体`));
 
-    const brandId = brandRecords['NovaTech'];
+    const brandId = brandRecords['LABPRO'];
     let createdCount = 0;
     let updatedCount = 0;
     let skipCount = 0;
@@ -184,7 +184,7 @@ async function main() {
         specs,
         specsFlat,
         metaTitle: v.metaTitle || v.variantName,
-        metaDesc: v.metaDescription || `${v.variantName} — NovaTech Laboratory Glassware`,
+        metaDesc: v.metaDescription || `${v.variantName} — LABPRO Laboratory Glassware`,
         isActive: v.isActive,
         isFeatured: v.spuId === 'GF-LF' && v.volumeMl === 500, // 选一个主推款
         supplierMasterId: 'SUP-001',

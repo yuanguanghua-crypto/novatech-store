@@ -317,7 +317,7 @@ export function HomeClient({ featuredProducts, categories }: HomeClientProps) {
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display">NovaTech Quality Guarantee</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display">LABPRO Quality Guarantee</h2>
             <p className="text-gray-500 max-w-lg mx-auto">
               Every product is manufactured to the highest standards with rigorous quality control
             </p>

@@ -4,7 +4,7 @@ import { Droplets } from 'lucide-react'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'What is Distillation? Laboratory Distillation Glassware Guide | NovaTech',
+  title: 'What is Distillation? Laboratory Distillation Glassware Guide | LABPRO',
   description:
     'Learn how laboratory distillation works, types of condensers (Liebig, Graham, Allihn), complete distillation glassware setups, and selection tips for solvent purification and chemical analysis.',
   keywords: ['distillation', 'liebig condenser', 'allihn condenser', 'borosilicate glass', 'laboratory distillation', 'solvent purification'],
@@ -18,7 +18,7 @@ export default function DistillationPage() {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: 'What is Distillation? Laboratory Distillation Glassware Guide',
-          author: { '@type': 'Organization', name: 'NovaTech' },
+          author: { '@type': 'Organization', name: 'LABPRO' },
         }),
       }} />
       <KnowledgePageTemplate

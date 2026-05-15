@@ -982,7 +982,7 @@ export function ProductForm({ product, mode }: Props) {
               value={form.name}
               onChange={e => updateField('name', e.target.value)}
               required
-              placeholder="e.g. Pulsafeeder LMI Miltonroy Diaphragm Metering Pump"
+              placeholder="e.g. 250mL Borosilicate Glass Beaker"
             />
           </div>
           

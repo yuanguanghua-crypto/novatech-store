@@ -176,7 +176,7 @@ children.push(
   new Paragraph({ heading: HeadingLevel.HEADING_2, children: [new TextRun({ text: '1.1 Product Description', font: 'Arial', size: 28 })] }),
   p('LabProGlobal is a B2B e-commerce platform focused on industrial and laboratory equipment, developed using Next.js, Prisma, and PostgreSQL. The platform enables global sourcing of laboratory supplies from Chinese manufacturers, with a particular emphasis on chemical metering pumps, water quality analyzers, and precision instruments.'),
   gap(),
-  p('Core product catalog sourced from Novatech-USA includes 15,259+ SKUs across 52 brands (Pulsafeeder, LMI, Lovibond, United Scientific, etc.) spanning 140 subcategories.'),
+  p('Core product catalog sourced from LABPRO includes 15,259+ SKUs across 52 brands (Pulsafeeder, LMI, Lovibond, United Scientific, etc.) spanning 140 subcategories.'),
   gap(),
 
   new Paragraph({ heading: HeadingLevel.HEADING_2, children: [new TextRun({ text: '1.2 Key Features', font: 'Arial', size: 28 })] }),
@@ -227,7 +227,7 @@ children.push(
   gap(),
 
   new Paragraph({ heading: HeadingLevel.HEADING_2, children: [new TextRun({ text: '2.1 Directory Layout', font: 'Arial', size: 28 })] }),
-  code('novatech-store/                   # Project root'),
+  code('labpro-store/                    # Project root'),
   code('├── app/                         # Next.js App Router'),
   code('│   ├── (store)/                  # Store front (public)'),
   code('│   │   ├── page.tsx              # Homepage'),
@@ -293,7 +293,7 @@ children.push(
   code('└── scripts/'),
   code('    ├── seed.js                   # Admin account seeding'),
   code('    ├── test-admin.js             # Automated test suite'),
-  code('    └── import-products.js        # Novatech data import'),
+  code('    └── import-products.js        # LABPRO data import'),
   gap(),
   new Paragraph({ children: [new PageBreak()] })
 );
@@ -353,7 +353,7 @@ children.push(
       new TableRow({ children: [makeHeaderCell('Field', 2800), makeHeaderCell('Type', 2000), makeHeaderCell('Description', 4560)] }),
       new TableRow({ children: [makeCell('id', 2800), makeCell('String (cuid)', 2000), makeCell('Primary key', 4560)] }),
       new TableRow({ children: [makeCell('sku', 2800), makeCell('String (unique)', 2000), makeCell('Stock Keeping Unit — unique product code', 4560, true)] }),
-      new TableRow({ children: [makeCell('internalId', 2800), makeCell('String? (unique)', 2000), makeCell('Novatech original ID', 4560)] }),
+      new TableRow({ children: [makeCell('internalId', 2800), makeCell('String? (unique)', 2000), makeCell('LABPRO original ID', 4560)] }),
       new TableRow({ children: [makeCell('name', 2800), makeCell('String', 2000), makeCell('Product display name', 4560, true)] }),
       new TableRow({ children: [makeCell('slug', 2800), makeCell('String (unique)', 2000), makeCell('URL-friendly product identifier', 4560)] }),
       new TableRow({ children: [makeCell('description', 2800), makeCell('String? (Text)', 2000), makeCell('Full product description', 4560)] }),
@@ -714,7 +714,7 @@ children.push(
   gap(),
   new Paragraph({ spacing: { before: 80, after: 60 }, children: [new TextRun({ text: 'Step 1: Environment Configuration', bold: true, font: 'Arial', size: 22 })] }),
   p('Create .env.local in the project root:'),
-  code('DATABASE_URL=postgresql://user:password@host:5432/novatech'),
+  code('DATABASE_URL=postgresql://user:password@host:5432/labpro'),
   code('NEXTAUTH_SECRET=your-secret-key-here'),
   code('NEXTAUTH_URL=http://localhost:3000'),
   code('GOOGLE_CLIENT_ID=your-google-client-id        # Optional'),
@@ -736,7 +736,7 @@ children.push(
   gap(),
 
   new Paragraph({ spacing: { before: 80, after: 60 }, children: [new TextRun({ text: 'Step 4: Import Products', bold: true, font: 'Arial', size: 22 })] }),
-  p('Import Novatech product data:'),
+  p('Import LABPRO product data:'),
   code('node scripts/import-products.js novatech_nova_products.json'),
   gap(),
 

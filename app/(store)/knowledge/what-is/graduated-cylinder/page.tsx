@@ -6,7 +6,7 @@ import Script from 'next/script'
 const BASE_URL = 'https://novatech-store-inky.vercel.app'
 
 export const metadata: Metadata = {
-  title: 'What is a Graduated Cylinder? Complete Laboratory Glassware Guide | NovaTech',
+  title: 'What is a Graduated Cylinder? Complete Laboratory Glassware Guide | LABPRO',
   description:
     'Learn what a graduated cylinder is, how it works, key selection parameters (volume, accuracy class, material), and common applications in analytical chemistry and research labs.',
   keywords: ['graduated cylinder', 'borosilicate glass', 'laboratory glassware', 'volumetric measurement', 'Class A', 'ASTM E1288'],
@@ -24,8 +24,8 @@ export default function GraduatedCylinderPage() {
             '@type': 'Article',
             headline: 'What is a Graduated Cylinder? Complete Laboratory Glassware Guide',
             description: 'Comprehensive guide to graduated cylinders: types, selection criteria, and applications in analytical chemistry.',
-            author: { '@type': 'Organization', name: 'NovaTech' },
-            publisher: { '@type': 'Organization', name: 'NovaTech' },
+            author: { '@type': 'Organization', name: 'LABPRO' },
+            publisher: { '@type': 'Organization', name: 'LABPRO' },
           }),
         }}
       />

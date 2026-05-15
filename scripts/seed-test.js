@@ -14,7 +14,7 @@ const prisma = new PrismaClient()
 
 const TEST_ACCOUNTS = [
   {
-    email: 'admin@novatech.com',
+    email: 'admin@labpro.com',
     name: 'Admin',
     password: 'admin123',
     role: 'admin',

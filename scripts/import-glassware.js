@@ -1,11 +1,11 @@
 /**
- * Import 104 glassware products from Excel into NovaTech Store database.
- * 
+ * Import 104 glassware products from Excel into LABPRO Store database.
+ *
  * Steps:
- * 1. Delete existing products (old Novatech-USA products)
+ * 1. Delete existing products (old LABPRO products)
  * 2. Read Excel file
  * 3. Map categories (Kit products → Kit Products category)
- * 4. Create 104 products with NovaTech brand
+ * 4. Create 104 products with LABPRO brand
  *
  * Usage: node scripts/import-glassware.js
  */
@@ -63,7 +63,7 @@ function buildSpecsFlat(row) {
 }
 
 async function main() {
-  console.log('=== NovaTech Glassware Import ===\n');
+  console.log('=== LABPRO Glassware Import ===\n');
 
   // 1. Read Excel
   console.log(`Reading Excel: ${EXCEL_PATH}`);
@@ -82,10 +82,10 @@ async function main() {
   }
   console.log('Category IDs:', Object.entries(catMap).map(([k, v]) => `${k}: ${v.substring(0, 12)}...`).join(', '));
 
-  // Get NovaTech brand ID
-  const brand = await prisma.brand.findFirst({ where: { slug: 'novatech' } });
-  if (!brand) throw new Error('NovaTech brand not found. Run seed-categories.js first.');
-  console.log(`NovaTech brand ID: ${brand.id.substring(0, 12)}...\n`);
+  // Get LABPRO brand ID
+  const brand = await prisma.brand.findFirst({ where: { slug: 'labpro' } });
+  if (!brand) throw new Error('LABPRO brand not found. Run seed-categories.js first.');
+  console.log(`LABPRO brand ID: ${brand.id.substring(0, 12)}...\n`);
 
   // 3. Delete existing products (order matters for FK constraints)
   const existingCount = await prisma.product.count();

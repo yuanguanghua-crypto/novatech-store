@@ -42,7 +42,7 @@ export function TermsClient() {
         <p>{t.terms_item9}</p>
 
         <h2 className="text-lg font-semibold text-gray-900">{t.terms_section10}</h2>
-        <p>{t.terms_item10} <a href="mailto:legal@novatechstore.com" className="text-brand-700 underline">legal@novatechstore.com</a>.</p>
+        <p>{t.terms_item10} <a href="mailto:legal@labprostore.com" className="text-brand-700 underline">legal@labprostore.com</a>.</p>
       </div>
     </div>
   )

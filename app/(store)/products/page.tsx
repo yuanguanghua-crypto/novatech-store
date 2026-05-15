@@ -7,7 +7,7 @@ import Script from 'next/script'
 const BASE_URL = 'https://novatech-store-inky.vercel.app'
 
 export const metadata: Metadata = {
-  title: 'Industrial & Laboratory Equipment | NovaTech-USA',
+  title: 'Laboratory Glassware | LABPRO',
   description:
     'Browse laboratory borosilicate glassware: beakers, flasks, cylinders, burettes, pipettes, condensers, and filtration systems. Precision instruments for analytical chemistry, research labs, and industrial QC.',
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     'round bottom flask',
     'condenser',
     'filtration kit',
-    'NovaTech',
+    'LABPRO',
     'laboratory equipment',
   ],
 }

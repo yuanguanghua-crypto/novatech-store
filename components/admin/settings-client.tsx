@@ -57,7 +57,7 @@ export function SettingsClient() {
           <div className="space-y-3 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-500">{t.settings_store_name}</span>
-              <span className="font-medium text-gray-900">NovaTech</span>
+              <span className="font-medium text-gray-900">LABPRO</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-500">{t.settings_contact_email}</span>

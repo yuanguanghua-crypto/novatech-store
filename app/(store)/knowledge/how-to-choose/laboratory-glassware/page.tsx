@@ -4,7 +4,7 @@ import { FlaskConical } from 'lucide-react'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'How to Choose Laboratory Glassware? Complete Selection Guide | NovaTech',
+  title: 'How to Choose Laboratory Glassware? Complete Selection Guide | LABPRO',
   description:
     'Expert guide to selecting the right laboratory glassware — material choice (borosilicate vs soda-lime), accuracy classes, joint sizes, and application-specific recommendations.',
   keywords: ['laboratory glassware selection', 'borosilicate glass', 'Class A glassware', 'glassware buying guide', 'lab equipment selection'],

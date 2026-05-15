@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Novatech Products Import Script
+ * LABPRO Products Import Script
  * 
  * 将 novatech_nova_products.json 导入 PostgreSQL 数据库
  * 
@@ -66,7 +66,7 @@ function uniqueSlug(base, index) {
 // ====== 主流程 ======
 async function main() {
   console.log('=' .repeat(60))
-  console.log('Novatech Products Import')
+  console.log('LABPRO Products Import')
   console.log(DRY_RUN ? '>>> DRY RUN MODE (no writes) <<<' : '>>> LIVE MODE <<<')
   console.log('=' .repeat(60))
 

@@ -25,9 +25,9 @@ async function main() {
   const d = await prisma.category.updateMany({ where: { slug: { notIn: slugs }, isActive: true }, data: { isActive: false } })
   console.log(`Deactivated ${d.count} old categories`)
   const b = await prisma.brand.upsert({
-    where: { slug: 'novatech' },
-    update: { name: 'NovaTech', description: 'Precision laboratory glassware manufacturer.', isActive: true },
-    create: { name: 'NovaTech', slug: 'novatech', description: 'Precision laboratory glassware manufacturer.', country: 'USA', isActive: true },
+    where: { slug: 'labpro' },
+    update: { name: 'LABPRO', description: 'Precision laboratory glassware manufacturer.', isActive: true },
+    create: { name: 'LABPRO', slug: 'labpro', description: 'Precision laboratory glassware manufacturer.', country: 'USA', isActive: true },
   })
   console.log(`Brand: ${b.name}`)
   console.log('Done!')

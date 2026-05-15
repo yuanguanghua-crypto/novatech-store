@@ -251,7 +251,7 @@ async function importData() {
       where: { supplierId: 'SUP-001' },
       create: {
         supplierId: 'SUP-001',
-        supplierName: 'NovaTech China Factory',
+        supplierName: 'LABPRO China Factory',
         country: 'CN',
         leadTimeDays: 25,
         rating: 4.5,
@@ -262,7 +262,7 @@ async function importData() {
       where: { supplierId: 'SUP-002' },
       create: {
         supplierId: 'SUP-002',
-        supplierName: 'NovaTech China Factory B',
+        supplierName: 'LABPRO China Factory B',
         country: 'CN',
         leadTimeDays: 30,
         rating: 4.2,

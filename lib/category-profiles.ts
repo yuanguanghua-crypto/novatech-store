@@ -1,4 +1,4 @@
-// Category semantic profiles for NovaTech laboratory glassware
+// Category semantic profiles for LABPRO laboratory glassware
 // This data provides AI-readable content about each product category
 
 export interface CategoryProfile {
@@ -27,7 +27,7 @@ export const categoryProfiles: Record<string, CategoryProfile> = {
       { name: 'Thermal Shock', unit: '°C', description: 'Max ΔT without cracking (~170°C continuous)' }
     ],
     industries: ['Research Laboratories', 'Education', 'Quality Control', 'Clinical Labs', 'Industrial Testing'],
-    topBrands: ['NovaTech', 'DWK Life Sciences', 'Pyrex', 'Schott'],
+    topBrands: ['LABPRO'],
     selectionTips: [
       'Choose Class A (ISO 1042) for analytical work; Class B for general use',
       'Match flask shape to application: conical for mixing, flat for evaporation',
@@ -48,7 +48,7 @@ export const categoryProfiles: Record<string, CategoryProfile> = {
       { name: 'Joint Type', unit: '', description: 'Standard taper ground glass joints' }
     ],
     industries: ['Analytical Chemistry', 'Pharmaceutical QC', 'Environmental Testing', 'Food Testing', 'Clinical Chemistry'],
-    topBrands: ['NovaTech', 'DURAN', 'Hirschmann', 'Kimble'],
+    topBrands: ['LABPRO'],
     selectionTips: [
       'Always use Class A for regulatory compliance and traceable results',
       'Burettes: choose PTFE stopcock for acid/alkali resistance',
@@ -69,7 +69,7 @@ export const categoryProfiles: Record<string, CategoryProfile> = {
       { name: 'Wall Thickness', unit: 'mm', description: 'Uniform wall for even heat distribution' }
     ],
     industries: ['Organic Chemistry', 'Pharmaceutical R&D', 'Materials Science', 'Catalysis Research', 'Petrochemical'],
-    topBrands: ['NovaTech', 'Corning', 'DWK Life Sciences', 'Sigma-Aldrich'],
+    topBrands: ['LABPRO'],
     selectionTips: [
       'Match joint size to your condenser and addition funnel setup',
       'Use three-neck flasks for complex reactions requiring multiple attachments',
@@ -90,7 +90,7 @@ export const categoryProfiles: Record<string, CategoryProfile> = {
       { name: 'Cooling', unit: '', description: 'Water jacket flow rate and temperature' }
     ],
     industries: ['Chemical Manufacturing', 'Pharmaceutical', 'Essential Oil Extraction', 'Solvent Recovery', 'Academic Research'],
-    topBrands: ['NovaTech', 'Corning', 'Ace Glass', 'Chemglass'],
+    topBrands: ['LABPRO'],
     selectionTips: [
       'Liebig condenser: best for general distillation (simple, efficient)',
       'Graham condenser: highest surface area for low-boiling solvents',
@@ -111,7 +111,7 @@ export const categoryProfiles: Record<string, CategoryProfile> = {
       { name: 'Vacuum Rating', unit: 'inHg', description: 'Max vacuum for filter flask (typically 25 inHg)' }
     ],
     industries: ['Analytical Chemistry', 'Environmental Testing', 'Pharmaceutical', 'Food & Beverage', 'Quality Control'],
-    topBrands: ['NovaTech', 'Sartorius', 'Whatman', 'Pall'],
+    topBrands: ['LABPRO'],
     selectionTips: [
       'Fritted glass funnels: reusable, no filter paper needed, choose pore by particle size',
       'Büchner funnels: require filter paper, more economical for routine filtration',
@@ -132,7 +132,7 @@ export const categoryProfiles: Record<string, CategoryProfile> = {
       { name: 'Autoclavable', unit: '', description: 'Yes — up to 140°C' }
     ],
     industries: ['Research Labs', 'Pharmaceutical', 'Chemical Manufacturing', 'Food Testing', 'Clinical Labs'],
-    topBrands: ['NovaTech', 'DWK Life Sciences', 'Wheaton', 'Thermo Fisher'],
+    topBrands: ['LABPRO'],
     selectionTips: [
       'Amber bottles for light-sensitive chemicals (silver nitrate, hydrogen peroxide)',
       'GL45-thread bottles for compatibility with most dispensing caps',
@@ -153,7 +153,7 @@ export const categoryProfiles: Record<string, CategoryProfile> = {
       { name: 'Storage', unit: '', description: 'Some kits include foam inserts or carrying cases' }
     ],
     industries: ['Educational Labs', 'Startup Labs', 'Field Research', 'Quality Control', 'DIY Chemistry'],
-    topBrands: ['NovaTech', 'Corning', 'Chemglass', 'Ace Glass'],
+    topBrands: ['LABPRO'],
     selectionTips: [
       'Choose application-specific kits over general collections for better value',
       'Verify all joint sizes match before purchasing — 24/40 is most common',

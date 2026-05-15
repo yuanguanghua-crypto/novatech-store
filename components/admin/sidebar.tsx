@@ -30,9 +30,9 @@ export function AdminSidebar() {
       {/* Logo */}
       <div className="p-4 border-b border-gray-200">
         <Link href="/admin" className="flex items-center gap-2">
-          <img src="/logo.svg" alt="NovaTech" className="h-7 w-auto" />
+          <img src="/logo.svg" alt="LABPRO" className="h-7 w-auto" />
           <div>
-            <p className="font-bold text-sm text-gray-900">NovaTech</p>
+            <p className="font-bold text-sm text-gray-900">LABPRO</p>
             <p className="text-xs text-gray-400">{t.nav_admin_panel}</p>
           </div>
         </Link>

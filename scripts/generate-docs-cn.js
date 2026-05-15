@@ -136,7 +136,7 @@ children.push(
   h(HeadingLevel.HEADING_2, '1.1 产品简介'),
   p('LabProGlobal 是一个专注于工业和实验室设备的 B2B 跨境电商平台，基于 Next.js、Prisma 和 PostgreSQL 构建。平台旨在帮助全球客户从中国制造商采购实验室用品，尤其侧重于化学计量泵、水质分析仪和精密仪器等品类。'),
   gap(),
-  p('核心产品目录来源于 Novatech-USA 的数据采集，共涵盖 15,259+ 个 SKU，横跨 52 个品牌（如 Pulsafeeder、LMI、Lovibond、United Scientific 等），分布在 140 个子分类下。'),
+  p('核心产品目录来源于 LABPRO 的数据采集，共涵盖 15,259+ 个 SKU，横跨 52 个品牌（如 Pulsafeeder、LMI、Lovibond、United Scientific 等），分布在 140 个子分类下。'),
   gap(),
 
   h(HeadingLevel.HEADING_2, '1.2 核心功能亮点'),
@@ -189,7 +189,7 @@ children.push(
   h(HeadingLevel.HEADING_2, '2.1 目录布局'),
   new Paragraph({
     spacing: { after: 60 },
-    children: [new TextRun({ text: 'novatech-store/                        # 项目根目录', font: 'Courier New', size: 18 })],
+    children: [new TextRun({ text: 'labpro-store/                         # 项目根目录', font: 'Courier New', size: 18 })],
   }),
   new Paragraph({
     spacing: { after: 60 },
@@ -513,7 +513,7 @@ children.push(
   new Paragraph({
     spacing: { after: 40 },
     indent: { left: 360 },
-    children: [new TextRun({ text: '└── import-products.js           # Novatech 数据导入脚本', font: 'Courier New', size: 18 })],
+    children: [new TextRun({ text: '└── import-products.js           # LABPRO 数据导入脚本', font: 'Courier New', size: 18 })],
   }),
   gap(),
   new Paragraph({ children: [new PageBreak()] })
@@ -575,7 +575,7 @@ children.push(
       new TableRow({ children: [makeHeaderCell('字段名', 2800), makeHeaderCell('类型', 2000), makeHeaderCell('说明', 4560)] }),
       new TableRow({ children: [makeCell('id', 2800), makeCell('String (cuid)', 2000), makeCell('主键', 4560)] }),
       new TableRow({ children: [makeCell('sku', 2800), makeCell('String (唯一)', 2000), makeCell('产品唯一代码', 4560, true)] }),
-      new TableRow({ children: [makeCell('internalId', 2800), makeCell('String? (唯一)', 2000), makeCell('Novatech 原始 ID', 4560)] }),
+      new TableRow({ children: [makeCell('internalId', 2800), makeCell('String? (唯一)', 2000), makeCell('LABPRO 原始 ID', 4560)] }),
       new TableRow({ children: [makeCell('name', 2800), makeCell('String', 2000), makeCell('产品显示名称', 4560, true)] }),
       new TableRow({ children: [makeCell('slug', 2800), makeCell('String (唯一)', 2000), makeCell('URL 友好标识符', 4560)] }),
       new TableRow({ children: [makeCell('description', 2800), makeCell('String? (Text)', 2000), makeCell('完整产品描述', 4560)] }),
@@ -868,7 +868,7 @@ children.push(
     children: [new TextRun({ text: 'npx prisma db push && node scripts/seed.js', font: 'Courier New', size: 18, color: '2E75B6' })],
     indent: { left: 360 },
   }),
-  p('默认管理员账号：admin@novatech.com / admin123（请在生产环境立即修改密码）'),
+  p('默认管理员账号：admin@labpro.com / admin123（请在生产环境立即修改密码）'),
   gap(),
 
   h(HeadingLevel.HEADING_2, '7.2 产品导入流程'),
@@ -963,7 +963,7 @@ children.push(
   }),
   new Paragraph({
     spacing: { after: 80 },
-    children: [new TextRun({ text: 'DATABASE_URL="postgresql://user:password@localhost:5432/novatech"', font: 'Courier New', size: 18, color: '2E75B6' })],
+    children: [new TextRun({ text: 'DATABASE_URL="postgresql://user:password@localhost:5432/labpro"', font: 'Courier New', size: 18, color: '2E75B6' })],
     indent: { left: 360 },
   }),
   new Paragraph({
@@ -1015,7 +1015,7 @@ children.push(
   }),
   new Paragraph({
     spacing: { after: 80 },
-    children: [new TextRun({ text: 'AWS_S3_BUCKET="novatech-store"', font: 'Courier New', size: 18, color: '2E75B6' })],
+    children: [new TextRun({ text: 'AWS_S3_BUCKET="labpro-store"', font: 'Courier New', size: 18, color: '2E75B6' })],
     indent: { left: 360 },
   }),
   gap(),

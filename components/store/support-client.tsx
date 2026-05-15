@@ -37,7 +37,7 @@ export function SupportClient() {
         <div className="card p-6 text-center">
           <Mail className="w-8 h-8 text-brand-700 mx-auto mb-3" />
           <h3 className="font-semibold text-gray-900 mb-1">{t.support_email}</h3>
-          <p className="text-brand-700 font-medium">support@novatechstore.com</p>
+          <p className="text-brand-700 font-medium">support@labprostore.com</p>
           <p className="text-sm text-gray-500 mt-1">{t.support_email_desc}</p>
         </div>
         <div className="card p-6 text-center">

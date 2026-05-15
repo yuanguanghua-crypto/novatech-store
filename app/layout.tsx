@@ -12,15 +12,15 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: 'NovaTech - Industrial & Laboratory Equipment',
-    template: '%s | NovaTech',
+    default: 'LABPRO - Professional Laboratory Glassware',
+    template: '%s | LABPRO',
   },
   description:
-    'NovaTech — Trusted supplier of chemical metering pumps, water quality analyzers, laboratory balances and industrial instruments. Fast shipping worldwide.',
+    'LABPRO — Professional laboratory borosilicate glassware supplier. Beakers, flasks, cylinders, burettes, condensers, and filtration systems. ASTM & ISO certified.',
   keywords: [
-    'metering pumps', 'chemical dosing pump', 'water quality analyzer',
-    'laboratory balance', 'industrial instruments', 'Pulsafeeder', 'LMI pumps',
-    'lab equipment', 'laboratory supplies',
+    'laboratory glassware', 'borosilicate 3.3', 'beaker', 'erlenmeyer flask',
+    'graduated cylinder', 'volumetric flask', 'condenser', 'filtration kit',
+    'LABPRO', 'lab equipment',
   ],
   icons: {
     icon: '/favicon.svg',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: process.env.NEXT_PUBLIC_APP_URL || 'https://novatechstore.com',
-    siteName: 'NovaTech',
+    url: process.env.NEXT_PUBLIC_APP_URL || 'https://labprostore.com',
+    siteName: 'LABPRO',
   },
   robots: {
     index: true,
