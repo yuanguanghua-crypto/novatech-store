@@ -249,7 +249,7 @@ export function CategoryDetailClient({
                 {pageNum > 1 && (
                   <Link
                     href={`/categories/${slug}?sort=${sort}&page=${pageNum - 1}`}
-                    className="px-4 py-2 rounded hover:bg-gray-50"
+                    className="px-4 py-2 rounded hover:bg-surface-50"
                     style={{ border: '1px solid var(--surface-200)' }}
                   >
                     {t.categories_prev}
@@ -263,7 +263,7 @@ export function CategoryDetailClient({
                 {pageNum < totalPages && (
                   <Link
                     href={`/categories/${slug}?sort=${sort}&page=${pageNum + 1}`}
-                    className="px-4 py-2 rounded hover:bg-gray-50"
+                    className="px-4 py-2 rounded hover:bg-surface-50"
                     style={{ border: '1px solid var(--surface-200)' }}
                   >
                     {t.categories_next}

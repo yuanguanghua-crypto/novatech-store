@@ -63,10 +63,10 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
               <div className={cn(
                 "w-5 h-5 rounded border-2 flex items-center justify-center transition-all",
                 searchParams.availability === 'in_stock'
-                  ? "bg-blue-600 border-blue-600"
-                  : "group-hover:border-blue-400"
+                  ? "border-[#0F4C81]"
+                  : "group-hover:border-[#4A9AD0]"
               )}
-              style={searchParams.availability !== 'in_stock' ? { borderColor: 'var(--surface-300)' } : undefined}>
+              style={searchParams.availability === 'in_stock' ? { backgroundColor: '#0F4C81', borderColor: '#0F4C81' } : { borderColor: 'var(--surface-300)' }}>
                 {searchParams.availability === 'in_stock' && (
                   <Check className="w-3 h-3 text-white" />
                 )}
@@ -77,7 +77,7 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
                 onChange={(e) => updateFilter('availability', e.target.checked ? 'in_stock' : null)}
                 className="sr-only"
               />
-              <span className="text-sm group-hover:text-blue-600 transition-colors" style={{ color: 'var(--text-secondary)' }}>
+              <span className="text-sm transition-colors" style={{ color: 'var(--text-secondary)' }}>
                 {t.filter_in_stock_only}
               </span>
             </label>
@@ -130,12 +130,9 @@ export function ProductFilters({ searchParams }: ProductFiltersProps) {
                   key={label}
                   onClick={() => updateFilters({ minPrice: min || null, maxPrice: max || null })}
                   className={cn(
-                    "text-xs border rounded-lg px-3 py-1.5 font-medium transition-all",
-                    searchParams.minPrice === min && searchParams.maxPrice === max
-                      ? "bg-blue-100 border-blue-500 text-blue-700"
-                      : "hover:border-blue-300 hover:bg-blue-50"
+                    "filter-price-btn",
+                    searchParams.minPrice === min && searchParams.maxPrice === max && "active"
                   )}
-                  style={searchParams.minPrice !== min || searchParams.maxPrice !== max ? { borderColor: 'var(--surface-200)', color: 'var(--text-secondary)' } : undefined}
                 >
                   {label}
                 </button>

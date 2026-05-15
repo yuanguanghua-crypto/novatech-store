@@ -38,7 +38,7 @@ export function KnowledgePageTemplate({
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--surface-50)' }}>
       {/* Hero Section */}
       <section className="bg-white border-b">
         <div className="container py-12 md:py-16">
@@ -47,12 +47,12 @@ export function KnowledgePageTemplate({
               {category}
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
             {icon && <span className="mr-3">{icon}</span>}
             {title}
           </h1>
           {subtitle && (
-            <p className="text-lg text-gray-600 max-w-3xl">{subtitle}</p>
+            <p className="text-lg max-w-3xl" style={{ color: 'var(--text-secondary)' }}>{subtitle}</p>
           )}
         </div>
       </section>
@@ -63,8 +63,8 @@ export function KnowledgePageTemplate({
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-12">
             {sections.map((section, idx) => (
-              <section key={idx} className="bg-white rounded-xl border p-6 md:p-8">
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+              <section key={idx} className="bg-white rounded-xl p-6 md:p-8" style={{ border: '1px solid var(--surface-200)' }}>
+                <h2 className="text-xl md:text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
                   {section.title}
                 </h2>
                 <div className="prose prose-gray max-w-none">
@@ -75,18 +75,19 @@ export function KnowledgePageTemplate({
 
             {/* FAQ Section */}
             {faqs.length > 0 && (
-              <section className="bg-white rounded-xl border p-6 md:p-8">
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+              <section className="bg-white rounded-xl p-6 md:p-8" style={{ border: '1px solid var(--surface-200)' }}>
+                <h2 className="text-xl md:text-2xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
                   {t.faq_title}
                 </h2>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
-                    <div key={idx} className="border border-gray-200 rounded-lg overflow-hidden">
+                    <div key={idx} className="rounded-lg overflow-hidden" style={{ border: '1px solid var(--surface-200)' }}>
                       <button
                         onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                        className="w-full px-4 py-3 text-left flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors"
+                        className="w-full px-4 py-3 text-left flex items-center justify-between transition-colors"
+                        style={{ backgroundColor: 'var(--surface-50)' }}
                       >
-                        <span className="font-medium text-gray-900">{faq.question}</span>
+                        <span className="font-medium" style={{ color: 'var(--text-primary)' }}>{faq.question}</span>
                         <svg
                           className={`w-5 h-5 text-gray-500 transition-transform ${openFaq === idx ? 'rotate-180' : ''}`}
                           fill="none"

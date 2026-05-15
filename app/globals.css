@@ -232,6 +232,27 @@
   .divider {
     border-top: 1px solid var(--surface-200);
   }
+
+  /* =====================================
+     Filter Price Button
+     ===================================== */
+  .filter-price-btn {
+    @apply text-xs border rounded-lg px-3 py-1.5 font-medium transition-all cursor-pointer;
+    border-color: var(--surface-200);
+    color: var(--text-secondary);
+    background: white;
+  }
+
+  .filter-price-btn:hover {
+    border-color: var(--brand-300);
+    background-color: var(--brand-50);
+  }
+
+  .filter-price-btn.active {
+    border-color: var(--brand-400);
+    background-color: var(--brand-50);
+    color: var(--brand-600);
+  }
 }
 
 /* =====================================

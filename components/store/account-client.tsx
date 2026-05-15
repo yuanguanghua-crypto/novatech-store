@@ -14,45 +14,45 @@ export function AccountClient({ userName, userEmail }: AccountClientProps) {
 
   return (
     <div className="container py-8">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">
+      <h1 className="text-2xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
         {t.account_title}
       </h1>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <Link href="/account/orders" className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow group">
+        <Link href="/account/orders" className="bg-white rounded-xl p-6 hover:shadow-md transition-shadow group" style={{ border: '1px solid var(--surface-200)' }}>
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-              <Package className="w-5 h-5 text-brand-700" />
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--brand-100)' }}>
+              <Package className="w-5 h-5" style={{ color: 'var(--brand-700)' }} />
             </div>
             <div>
-              <h2 className="font-semibold text-gray-900 group-hover:text-brand-700">{t.account_orders}</h2>
-              <p className="text-sm text-gray-500">{t.account_orders_desc}</p>
+              <h2 className="font-semibold group-hover:text-brand-700" style={{ color: 'var(--text-primary)' }}>{t.account_orders}</h2>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{t.account_orders_desc}</p>
             </div>
           </div>
-          <ChevronRight className="w-4 h-4 text-gray-400" />
+          <ChevronRight className="w-4 h-4" style={{ color: 'var(--text-tertiary)' }} />
         </Link>
 
-        <Link href="/account/quotes" className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow group">
+        <Link href="/account/quotes" className="bg-white rounded-xl p-6 hover:shadow-md transition-shadow group" style={{ border: '1px solid var(--surface-200)' }}>
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-              <FileText className="w-5 h-5 text-gray-700" />
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--surface-100)' }}>
+              <FileText className="w-5 h-5" style={{ color: 'var(--text-primary)' }} />
             </div>
             <div>
-              <h2 className="font-semibold text-gray-900 group-hover:text-brand-700">{t.account_quotes}</h2>
-              <p className="text-sm text-gray-500">{t.account_quotes_desc}</p>
+              <h2 className="font-semibold group-hover:text-brand-700" style={{ color: 'var(--text-primary)' }}>{t.account_quotes}</h2>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{t.account_quotes_desc}</p>
             </div>
           </div>
-          <ChevronRight className="w-4 h-4 text-gray-400" />
+          <ChevronRight className="w-4 h-4" style={{ color: 'var(--text-tertiary)' }} />
         </Link>
 
-        <div className="bg-white border border-gray-200 rounded-xl p-6">
+        <div className="bg-white rounded-xl p-6" style={{ border: '1px solid var(--surface-200)' }}>
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-              <User className="w-5 h-5 text-blue-700" />
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--brand-100)' }}>
+              <User className="w-5 h-5" style={{ color: 'var(--brand-700)' }} />
             </div>
             <div>
-              <h2 className="font-semibold text-gray-900">{userName || 'User'}</h2>
-              <p className="text-sm text-gray-500">{userEmail}</p>
+              <h2 className="font-semibold" style={{ color: 'var(--text-primary)' }}>{userName || 'User'}</h2>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{userEmail}</p>
             </div>
           </div>
         </div>

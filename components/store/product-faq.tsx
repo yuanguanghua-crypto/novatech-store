@@ -22,32 +22,34 @@ export function ProductFAQ({ faqs, productName }: ProductFAQProps) {
 
   return (
     <div className="mt-12">
-      <h2 className="text-xl font-bold text-gray-900 mb-6 font-display">
+      <h2 className="text-xl font-bold mb-6 font-display" style={{ color: 'var(--text-primary)' }}>
         {productName ? `Frequently Asked Questions about ${productName}` : t.faq_title}
       </h2>
       <div className="space-y-3">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-200"
+            className="bg-white rounded-xl overflow-hidden transition-all duration-200"
+            style={{ border: '1px solid var(--surface-200)' }}
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-50 transition-colors"
+              className="w-full flex items-center justify-between px-5 py-4 text-left transition-colors hover:bg-surface-50"
               aria-expanded={openIndex === index}
             >
-              <span className="font-medium text-gray-900 pr-4 text-sm leading-relaxed">
+              <span className="font-medium pr-4 text-sm leading-relaxed" style={{ color: 'var(--text-primary)' }}>
                 {faq.question}
               </span>
               <ChevronDown
-                className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200 ${
+                className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
                   openIndex === index ? 'rotate-180' : ''
                 }`}
+                style={{ color: 'var(--text-tertiary)' }}
               />
             </button>
             {openIndex === index && (
               <div className="px-5 pb-5">
-                <p className="text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                <p className="text-sm leading-relaxed pt-4" style={{ color: 'var(--text-secondary)', borderTop: '1px solid var(--surface-100)' }}>
                   {faq.answer}
                 </p>
               </div>

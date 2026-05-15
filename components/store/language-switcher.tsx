@@ -58,9 +58,9 @@ export function LanguageSwitcher({
         aria-label={t.aria_select_language}
         className={cn(
           'flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors',
-          'text-gray-600 hover:text-brand-700 hover:bg-gray-50',
-          open && 'text-brand-700 bg-gray-50',
+          open ? 'text-brand-700' : 'text-secondary',
         )}
+        style={open ? { backgroundColor: 'var(--brand-50)' } : undefined}
       >
         <Globe className="w-4 h-4 flex-shrink-0" />
         {variant === 'icon-text' ? (
@@ -82,13 +82,14 @@ export function LanguageSwitcher({
           role="listbox"
           aria-label={t.aria_language_options}
           className={cn(
-            'absolute right-0 z-[60] w-52 rounded-xl border border-gray-200 bg-white shadow-xl',
+            'absolute right-0 z-[60] w-52 rounded-xl bg-white shadow-xl',
             'py-1.5 overflow-hidden',
             direction === 'up' ? 'bottom-full mb-1' : 'top-full mt-1',
           )}
+          style={{ border: '1px solid var(--surface-200)' }}
         >
           {/* 标题 */}
-          <div className="px-3 py-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wide border-b border-gray-100 mb-1">
+          <div className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: 'var(--text-tertiary)', borderBottom: '1px solid var(--surface-100)' }}>
             Language / 语言
           </div>
 
@@ -102,7 +103,7 @@ export function LanguageSwitcher({
                 'w-full flex items-center justify-between gap-2 px-3 py-2 text-sm transition-colors',
                 lang.code === locale
                   ? 'bg-brand-50 text-brand-700 font-medium'
-                  : 'text-gray-700 hover:bg-gray-50',
+                  : 'text-primary',
               )}
             >
               <span className="flex items-center gap-2.5">

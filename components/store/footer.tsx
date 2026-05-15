@@ -47,7 +47,7 @@ export function Footer() {
   ]
 
   return (
-    <footer style={{ backgroundColor: '#0B1120' }} className="text-gray-400">
+    <footer style={{ backgroundColor: '#061A30', color: '#94A3B8' }}>
       <div className="container-custom py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Column 1: Brand Info (wider) */}
@@ -55,7 +55,7 @@ export function Footer() {
             <div className="mb-5">
               <img src="/logo.png" alt="LABPRO" className="h-10 w-auto brightness-0 invert" />
             </div>
-            <p className="text-sm leading-relaxed text-gray-400 mb-5">
+            <p className="text-sm leading-relaxed mb-5" style={{ color: '#94A3B8' }}>
               Professional laboratory borosilicate glassware supplier. Precision instruments for analytical chemistry, research labs, and industrial QC.
             </p>
             <div className="space-y-3 text-sm">
@@ -171,11 +171,11 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-        <div className="container-custom py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
+        <div className="container-custom py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm" style={{ color: '#64748B' }}>
           <p>© {new Date().getFullYear()} LABPRO. {t.footer_rights}</p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-gray-300 transition-colors">{t.footer_privacy}</Link>
-            <Link href="/terms" className="hover:text-gray-300 transition-colors">{t.footer_terms}</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">{t.footer_privacy}</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">{t.footer_terms}</Link>
           </div>
         </div>
       </div>
@@ -211,7 +211,7 @@ function SocialIcon({ name }: { name: string }) {
       return (
         <svg {...iconProps} viewBox="0 0 24 24">
           <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
-          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#0B1120"/>
+          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#061A30"/>
         </svg>
       )
     default:
