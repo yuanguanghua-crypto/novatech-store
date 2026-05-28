@@ -3,6 +3,7 @@ import prisma from '@/lib/prisma'
 import { ProductsClient } from '@/components/store/products-client'
 import { generateOrganizationSchema } from '@/lib/structured-data'
 import Script from 'next/script'
+import { buildProductWhereClause, buildProductOrderBy } from '@/lib/catalog-filters'
 
 const BASE_URL = 'https://novatech-store-inky.vercel.app'
 
@@ -33,7 +34,9 @@ interface ProductsPageProps {
   searchParams: {
     page?: string
     sort?: string
+    q?: string
     category?: string
+    brand?: string
     minPrice?: string
     maxPrice?: string
     availability?: string
@@ -46,25 +49,16 @@ const PAGE_SIZE = 24
 async function getProducts(searchParams: ProductsPageProps['searchParams']) {
   const page = parseInt(searchParams.page || '1')
   const skip = (page - 1) * PAGE_SIZE
-
-  const where: any = { isActive: true }
-  if (searchParams.category) where.category = { slug: searchParams.category }
-  if (searchParams.featured === 'true') where.isFeatured = true
-  if (searchParams.availability === 'in_stock') where.availability = 'in_stock'
-  if (searchParams.minPrice || searchParams.maxPrice) {
-    where.ourPrice = {}
-    if (searchParams.minPrice) where.ourPrice.gte = parseFloat(searchParams.minPrice)
-    if (searchParams.maxPrice) where.ourPrice.lte = parseFloat(searchParams.maxPrice)
-  }
-
-  const orderBy: any =
-    searchParams.sort === 'price_asc'
-      ? { ourPrice: 'asc' }
-      : searchParams.sort === 'price_desc'
-      ? { ourPrice: 'desc' }
-      : searchParams.sort === 'newest'
-      ? { createdAt: 'desc' }
-      : { isFeatured: 'desc' }
+  const where: any = buildProductWhereClause({
+    search: searchParams.q || '',
+    category: searchParams.category,
+    brand: searchParams.brand,
+    availability: searchParams.availability,
+    featured: searchParams.featured,
+    minPrice: searchParams.minPrice,
+    maxPrice: searchParams.maxPrice,
+  })
+  const orderBy: any = buildProductOrderBy(searchParams.sort)
 
   const [products, total] = await Promise.all([
     prisma.product.findMany({

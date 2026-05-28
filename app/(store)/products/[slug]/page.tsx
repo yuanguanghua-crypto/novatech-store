@@ -19,7 +19,7 @@ interface ProductPageProps {
 }
 
 async function getProduct(slug: string) {
-  return prisma.product.findUnique({
+  return prisma.product.findFirst({
     where: { slug, isActive: true },
     include: {
       images: { orderBy: { sortOrder: 'asc' } },
@@ -41,28 +41,41 @@ async function getRelatedProducts(categoryId: string, excludeId: string) {
   })
 }
 
+function buildAdditionalProperties(specs: Array<{ key: string; value: string }>) {
+  return specs.slice(0, 8).map((spec) => ({
+    name: spec.key,
+    value: spec.value,
+  }))
+}
+
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const product = await getProduct(params.slug)
   if (!product) return {}
 
+  const title = product.metaTitle || `${product.name} | ${product.brand?.name || 'LABPRO'}`
+  const description =
+    product.metaDesc ||
+    product.description?.slice(0, 160) ||
+    `${product.name} (SKU: ${product.sku}) - ${product.brand?.name || 'LABPRO'} ${product.category?.name || 'laboratory glassware'}. ${
+      product.availability === 'in_stock' ? 'In stock.' : 'Contact us for availability.'
+    } Request a quote today.`
+
   return {
-    title: `${product.name} | ${product.brand?.name || 'LABPRO'}`,
-    description:
-      product.description?.slice(0, 160) ||
-      `${product.name} (SKU: ${product.sku}) - ${product.brand?.name || 'LABPRO'} ${product.category?.name || 'industrial equipment'}. ${product.availability === 'in_stock' ? 'In stock.' : 'Contact for availability.'} Request a quote today.`,
+    title,
+    description,
     keywords: [
       product.name,
       product.sku,
       product.brand?.name || '',
       product.category?.name || '',
-      'industrial equipment',
-      'laboratory instruments',
-      'water treatment',
+      'borosilicate glassware',
+      'laboratory glassware',
+      'lab glassware',
       'LABPRO',
     ],
     openGraph: {
-      title: `${product.name} | ${product.brand?.name || 'LABPRO'}`,
-      description: product.description?.slice(0, 160) || `${product.name} - Industrial equipment`,
+      title,
+      description,
       images: product.images[0]?.url ? [{ url: product.images[0].url }] : [],
       type: 'website',
     },
@@ -75,7 +88,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   const related = await getRelatedProducts(product.categoryId, product.id)
 
-  // Safely parse specs
   let specsObj: Record<string, string> = {}
   try {
     if (product.specs && typeof product.specs === 'object' && !Array.isArray(product.specs)) {
@@ -83,10 +95,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     }
   } catch {}
 
-  // Format specs for FAQ generation
   const specs = formatSpecs(specsObj)
+  const additionalProperties = buildAdditionalProperties(specs)
 
-  // Generate FAQs based on product data (with fallbacks)
   let faqs: ProductFAQItem[] = []
   try {
     faqs = generateProductFAQs({
@@ -102,14 +113,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     console.error('FAQ generation failed:', e)
   }
 
-  // Generate JSON-LD Schemas (with fallbacks)
   let productSchema: any = {}
   try {
     productSchema = generateProductSchema(
       {
         name: product.name,
         sku: product.sku,
-        description: product.description,
+        description: product.metaDesc || product.description,
         brandName: product.brand?.name,
         imageUrl: product.images[0]?.url,
         price: product.ourPrice != null ? product.ourPrice.toString() : '0',
@@ -119,6 +129,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         categoryName: product.category?.name,
         ratingValue: '4.8',
         reviewCount: '126',
+        additionalProperties,
       },
       BASE_URL
     )
@@ -142,7 +153,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <>
-      {/* JSON-LD Structured Data - AEO Core */}
       <Script
         id="product-schema"
         type="application/ld+json"
@@ -164,10 +174,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
 
-      {/* Product Detail Component */}
       <ProductDetailClient product={product} related={related} />
 
-      {/* AEO: Product FAQ Section */}
       <div className="container-custom pb-16">
         <ProductFAQ faqs={faqs} productName={product.name} />
       </div>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
+import { buildProductWhereClause, buildProductOrderBy } from '@/lib/catalog-filters'
 
 // GET /api/products - 公开产品列表（供前端页面使用）
 export async function GET(req: NextRequest) {
@@ -8,34 +9,26 @@ export async function GET(req: NextRequest) {
   const limit = Math.min(parseInt(searchParams.get('limit') || '12'), 100)
   const offset = parseInt(searchParams.get('offset') || '0')
   const search = searchParams.get('search')
+  const q = searchParams.get('q')
   const categorySlug = searchParams.get('category')
+  const brandSlug = searchParams.get('brand')
   const sort = searchParams.get('sort') || 'name'
   const minPrice = parseFloat(searchParams.get('minPrice') || '0') || 0
   const maxPrice = parseFloat(searchParams.get('maxPrice') || '9999999')
-
-  const where: any = {
-    isActive: true,
-    ourPrice: { gte: minPrice, lte: maxPrice },
-  }
-
-  if (search) {
-    where.OR = [
-      { name: { contains: search, mode: 'insensitive' } },
-      { description: { contains: search, mode: 'insensitive' } },
-      { sku: { contains: search, mode: 'insensitive' } },
-      { specsFlat: { contains: search, mode: 'insensitive' } },
-    ]
-  }
-
-  if (categorySlug) {
-    where.category = { slug: categorySlug }
-  }
+  const where: any = buildProductWhereClause({
+    search: q || search || '',
+    category: categorySlug || undefined,
+    brand: brandSlug || undefined,
+    availability: searchParams.get('availability') || undefined,
+    featured: searchParams.get('featured') || undefined,
+    minPrice: String(minPrice),
+    maxPrice: String(maxPrice),
+  })
 
   const orderBy: any =
-    sort === 'price_asc' ? { ourPrice: 'asc' } :
-    sort === 'price_desc' ? { ourPrice: 'desc' } :
-    sort === 'newest' ? { createdAt: 'desc' } :
-    { name: 'asc' }
+    sort === 'name'
+      ? { name: 'asc' }
+      : buildProductOrderBy(sort)
 
   const [products, total] = await Promise.all([
     prisma.product.findMany({

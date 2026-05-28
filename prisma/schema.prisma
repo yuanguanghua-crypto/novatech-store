@@ -89,6 +89,8 @@ model Product {
   // SEO
   metaTitle String?
   metaDesc  String?
+  videoUrl  String?
+  shippingMethods Json?
 
   // 源数据
   sourceUrl String?

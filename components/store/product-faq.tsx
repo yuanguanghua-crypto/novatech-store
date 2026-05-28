@@ -62,8 +62,8 @@ export function ProductFAQ({ faqs, productName }: ProductFAQProps) {
 }
 
 /**
- * Generate contextual FAQs based on product attributes
- * This provides AI-citable structured Q&A content
+ * Generate contextual FAQs based on product attributes.
+ * These questions are tuned for laboratory glassware procurement.
  */
 export function generateProductFAQs(params: {
   productName: string
@@ -76,16 +76,49 @@ export function generateProductFAQs(params: {
 }): ProductFAQItem[] {
   const { productName, sku, brand, category, availability, specs = {}, price } = params
 
-  const accuracy = specs['Accuracy'] || specs['精度'] || specs['accuracy'] || null
-  const range = specs['Range'] || specs['测量范围'] || specs['range'] || null
-  const material = specs['Material'] || specs['材质'] || null
-  const pressure = specs['Pressure'] || specs['压力'] || specs['pressure'] || null
+  const material = specs.Material || specs.材质 || specs.material || null
+  const capacity = specs.Capacity || specs.容量 || specs.capacity || null
+  const volume = specs.Volume || specs.体积 || specs.volume || null
+  const jointSize = specs['Joint Size'] || specs.接口尺寸 || specs.joint_size || null
+  const standard = specs.Standard || specs.标准 || specs.standard || null
+  const graduation = specs.Graduation || specs.刻度 || specs.graduation || null
 
-  const availabilityText = availability === 'in_stock'
-    ? 'This product is typically in stock and ships within 3-7 business days.'
-    : availability === 'out_of_stock'
-    ? 'This product is currently out of stock. Please contact us for availability and estimated restocking time.'
-    : 'This product may require a lead time. Contact us for specific delivery estimates.'
+  const productContext = [
+    productName,
+    category || '',
+    material || '',
+    capacity || '',
+    volume || '',
+    jointSize || '',
+  ]
+    .join(' ')
+    .toLowerCase()
+
+  const useCases: string[] = ['sample preparation', 'routine lab workflows', 'quality control']
+  if (productContext.includes('burette') || productContext.includes('pipette') || productContext.includes('cylinder') || graduation) {
+    useCases.unshift('accurate liquid measurement', 'titration')
+  }
+  if (productContext.includes('flask') || productContext.includes('beaker') || productContext.includes('reaction')) {
+    useCases.unshift('mixing and reaction setup')
+  }
+  if (productContext.includes('distillation') || productContext.includes('condenser') || jointSize) {
+    useCases.unshift('distillation and solvent recovery')
+  }
+  if (productContext.includes('filter') || productContext.includes('filtration')) {
+    useCases.unshift('filtration and purification')
+  }
+  if (useCases.length < 4) {
+    useCases.push('education and research', 'analytical chemistry')
+  }
+
+  const uniqueUseCases = Array.from(new Set(useCases)).slice(0, 5)
+
+  const availabilityText =
+    availability === 'in_stock'
+      ? 'This product is typically in stock and ships within 3-7 business days.'
+      : availability === 'out_of_stock'
+        ? 'This product is currently out of stock. Please contact us for availability and estimated restocking time.'
+        : 'This product may require a lead time. Contact us for specific delivery estimates.'
 
   const specsList = Object.entries(specs)
     .filter(([_, v]) => v && String(v).length > 0 && String(v).length < 100)
@@ -93,39 +126,49 @@ export function generateProductFAQs(params: {
     .map(([k, v]) => `${k}: ${v}`)
     .join('; ')
 
+  const standardsLine = [
+    standard ? `standard: ${standard}` : null,
+    material ? `material: ${material}` : null,
+    graduation ? `graduation: ${graduation}` : null,
+  ]
+    .filter(Boolean)
+    .join('; ')
+
   return [
     {
       question: `What is ${productName} used for?`,
-      answer: `${productName} (SKU: ${sku}) is a ${category || 'industrial'} product${
-        brand ? ` from ${brand}` : ''
-      }. It is used in industrial water treatment, laboratory analysis, environmental monitoring, and manufacturing quality control applications. Key specifications include: ${specsList || 'see full specifications below'}. ${availabilityText}`,
+      answer: `${productName} (SKU: ${sku}) is a laboratory product${brand ? ` from ${brand}` : ''}. It is commonly used for ${uniqueUseCases.join(', ')}. ${specsList ? `Key specifications include ${specsList}.` : 'Please review the full specifications below.'} ${availabilityText}`,
     },
     {
-      question: `What is the measurement accuracy of ${productName}?`,
-      answer: accuracy
-        ? `The ${productName} offers ${accuracy} measurement accuracy. This precision makes it suitable for ${category || 'industrial monitoring'} applications where reliable data is critical. For detailed calibration procedures, refer to the product manual or contact our technical support team.`
-        : `The ${productName} features precision engineering consistent with ${brand || 'industrial-grade'} standards. For specific accuracy specifications, please refer to the full specifications table above or contact our technical support team at support@labpro.com.`,
+      question: `What should I check before ordering ${productName}?`,
+      answer: `Before ordering ${productName}, confirm the fit-critical details for your lab setup: ${[
+        capacity ? `capacity ${capacity}` : null,
+        volume ? `volume ${volume}` : null,
+        jointSize ? `joint size ${jointSize}` : null,
+        material ? `material ${material}` : null,
+      ]
+        .filter(Boolean)
+        .join(', ') || 'dimensions, material, and compatibility with your workflow'}. ${standardsLine ? `Relevant standards/specs: ${standardsLine}.` : ''} If you need a custom recommendation, our sales team can help match the product to your apparatus.`,
     },
     {
-      question: `Is ${productName} suitable for industrial environments?`,
-      answer: `${brand || 'LABPRO'} products are designed for industrial-grade applications. ` +
-        (pressure ? `The unit supports operating pressures up to ${pressure}. ` : '') +
-        (material ? `Constructed with ${material} for chemical and corrosion resistance. ` : '') +
-        `Typical operating temperature range: -10°C to 60°C. IP65 or higher protection rating available for harsh environments. For specific environmental requirements, please verify with our technical team before ordering.`,
+      question: `Is ${productName} compatible with standard lab equipment?`,
+      answer: `${productName} is intended for standard laboratory workflows. Compatibility depends on the connection and dimensional details in the specification sheet${jointSize ? `, especially the joint size ${jointSize}` : ''}. ${material ? `It is constructed with ${material} for chemical durability and repeatable use.` : 'Its material and finish are selected for routine lab use.'} Please compare the listed dimensions and interfaces with your existing glassware before ordering.`,
     },
     {
-      question: `What is the difference between ${productName} and similar models?`,
-      answer: `${productName} differs from comparable models primarily in its ` +
-        `${Object.keys(specs).slice(0, 2).join(' and ').toLowerCase() || 'specifications'}. ` +
-        `The ${brand || 'LABPRO'} product line offers various models optimized for different applications: ` +
-        `precision laboratory models, standard industrial models, and heavy-duty process models. ` +
-        `Compare specifications using our category pages or contact sales for personalized recommendations.`,
+      question: `How do I compare ${productName} with similar models?`,
+      answer: `${productName} should be compared on the fit-critical details: ${[
+        capacity ? 'capacity' : null,
+        volume ? 'volume' : null,
+        jointSize ? 'joint size' : null,
+        material ? 'material grade' : null,
+        standard ? 'standard compliance' : null,
+      ]
+        .filter(Boolean)
+        .join(', ') || 'capacity, dimensions, and material'}. The fastest way to compare is to review the full spec table and confirm which model matches your workflow, not just the headline name.`,
     },
     {
       question: `What is the warranty and delivery time for ${productName}?`,
-      answer: `Standard warranty covers ${brand || 'LABPRO'} ${category || 'industrial equipment'} products for 12 months from delivery date. ` +
-        `Delivery: ${availability === 'in_stock' ? '3-7 business days for standard orders. Bulk orders may take 1-3 weeks.' : '1-3 weeks depending on stock availability. Contact us for precise lead times.'} ` +
-        `Price: ${price || 'Request a quote for current pricing'}. All products ship with calibration certificates and user manuals.`,
+      answer: `Standard warranty covers ${brand || 'LABPRO'} ${category || 'laboratory glassware'} products for 12 months from delivery date. Delivery: ${availability === 'in_stock' ? '3-7 business days for standard orders. Bulk orders may take 1-3 weeks.' : '1-3 weeks depending on stock availability. Contact us for precise lead times.'} Price: ${price || 'Request a quote for current pricing'}. If you need shipping or document confirmation before purchase, please request a quotation.`,
     },
   ]
 }

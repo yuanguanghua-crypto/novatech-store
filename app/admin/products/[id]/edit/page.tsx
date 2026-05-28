@@ -67,6 +67,8 @@ export default async function AdminEditProductPage({ params }: Props) {
           sourceUrl: product.sourceUrl || '',
           metaTitle: product.metaTitle || '',
           metaDesc: product.metaDesc || '',
+          videoUrl: product.videoUrl || '',
+          shippingMethods: (product.shippingMethods as any[]) || [],
           isActive: product.isActive,
           isFeatured: product.isFeatured,
           isNew: product.isNew,

@@ -59,6 +59,8 @@ const updateProductSchema = z.object({
   specs: z.record(z.string()).optional(),
   metaTitle: z.string().optional(),
   metaDesc: z.string().optional(),
+  videoUrl: z.string().optional(),
+  shippingMethods: z.array(z.any()).optional(),
   sourceUrl: z.string().nullable().optional(),
   isActive: z.boolean().optional(),
   isFeatured: z.boolean().optional(),

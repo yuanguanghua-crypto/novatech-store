@@ -25,6 +25,7 @@ export interface ProductSchemaData {
   categoryName?: string
   ratingValue?: string
   reviewCount?: string
+  additionalProperties?: Array<{ name: string; value: string }>
 }
 
 export function generateProductSchema(product: ProductSchemaData, baseUrl: string) {
@@ -46,6 +47,11 @@ export function generateProductSchema(product: ProductSchemaData, baseUrl: strin
       name: product.brandName || 'LABPRO',
     },
     category: product.categoryName,
+    additionalProperty: product.additionalProperties?.map((property) => ({
+      '@type': 'PropertyValue',
+      name: property.name,
+      value: property.value,
+    })),
     offers: {
       '@type': 'Offer',
       url: `${baseUrl}/products/${product.slug}`,
