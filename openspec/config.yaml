@@ -1,0 +1,65 @@
+# OpenSpec 项目配置
+# 参见: https://github.com/fission-ai/openspec
+
+schema: spec-driven
+
+context: |
+  ## Project Identity
+  Project: Novatech Labware Store (labpro-store)
+  Description: Lab glassware e-commerce targeting US biochemistry labs.
+  Data model: V3.2 PIM/MDM (SupplierMaster → SPU → ProductVariant → ERPSKU).
+  Old prisma.product model is deprecated - do NOT use it.
+
+  ## Tech Stack
+  - Next.js 14 (App Router) + TypeScript (strict mode)
+  - PostgreSQL + Prisma ORM (V3.2 tables only)
+  - Tailwind CSS + Radix UI + Lucide icons
+  - Zustand for cart/quote state
+  - NextAuth.js for authentication
+  - Stripe for payment (not fully wired yet)
+  - Framer Motion for animations
+  - 7-language i18n (en/zh/es/ja/hi/ar/pt)
+
+  ## Business Rules
+  - Products: lab glassware only (beakers, flasks, condensers, cylinders, funnels, adapters, kits)
+  - Dual warehouse: Houston (US orders) + China (international orders)
+  - Pricing: USD only, tiered by quantity (1-5 / 6-20 / 21-100 / 100+)
+  - Auto checkout: ≤5 items + US address (Stripe)
+  - Quote flow: ≥6 items or international address
+  - Category: product-type based (beakers/flasks/condensers/...)
+
+  ## Conventions
+  - Colors from tailwind.config.ts design tokens - no hardcoded hex
+  - Text from useI18n() - no hardcoded English
+  - Conventional Commits for git
+  - Schema changes require ADR in docs/decisions/
+  - Product list = SPU-aggregated; detail = SPU + Variant selector
+
+  ## Immutable Constraints
+  - DO NOT read/write prisma.product (deprecated)
+  - DO NOT hardcode colors or visible text
+  - DO NOT use JSON fields as search/filter criteria
+  - DO NOT change DB schema without ADR
+
+rules:
+  proposal:
+    - Include affected module(s) in scope
+    - Note dual-warehouse implications if order flow is involved
+    - Identify packaging/shipping cost impact
+  specs:
+    - Use Given/When/Then format for user-facing scenarios
+    - Specify which warehouse(s) are affected
+  design:
+    - Include data flow diagrams for complex flows
+    - Note any V3.2 schema changes needed
+  tasks:
+    - Separate frontend/backend/db tasks
+    - Estimate relative complexity (small/medium/large)
+
+  ## Navigation Model (inspired by Laboy Glass)
+  - Three-dimensional cross-navigation: product type × joint size × material
+  - Joint size navigation: /products?jointSize=24-40 (navbar dropdown)
+  - Material navigation: /products?material=borosilicate (navbar dropdown)
+  - Quick View: product list hover card with key specs, price, stock
+  - Compare: floating bar at bottom, 2-4 products, side-by-side specs
+  - Sell As Lot: excess inventory sold as batch lots (future)

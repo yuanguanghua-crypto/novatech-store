@@ -23,7 +23,6 @@ model Category {
   parentId    String?
   parent      Category?  @relation("CategoryTree", fields: [parentId], references: [id])
   children    Category[] @relation("CategoryTree")
-  products    Product[]
   sortOrder   Int        @default(0)
   isActive    Boolean    @default(true)
   createdAt   DateTime   @default(now())
@@ -42,110 +41,13 @@ model Brand {
   website     String?
   country     String?   @default("USA")
   isActive    Boolean   @default(true)
-  products    Product[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
   @@index([slug])
 }
 
-model Product {
-  id          String  @id @default(cuid())
-  sku         String  @unique
-  internalId  String? @unique // Novatech internal ID
-  name        String
-  slug        String  @unique
-  description String? @db.Text
 
-  // 分类 & 品牌
-  categoryId String
-  category   Category @relation(fields: [categoryId], references: [id])
-  brandId    String?
-  brand      Brand?   @relation(fields: [brandId], references: [id])
-
-  // 定价
-  ourPrice  Decimal  @db.Decimal(10, 2)
-  listPrice Decimal? @db.Decimal(10, 2)
-  costPrice Decimal? @db.Decimal(10, 2) // 采购成本（不对外展示）
-  currency  String   @default("USD")
-
-  // 库存
-  availability String @default("in_stock") // in_stock / out_of_stock / lead_time
-  stockQty     Int    @default(0)
-  leadTimeDays Int?
-
-  // 物理属性
-  weight     Decimal? @db.Decimal(8, 3)
-  weightUnit String?  @default("lbs")
-  dimension  String?
-
-  // 媒体
-  images ProductImage[]
-
-  // 规格参数（JSON 存储，灵活扩展）
-  specs     Json?
-  specsFlat String? @db.Text
-
-  // SEO
-  metaTitle String?
-  metaDesc  String?
-  videoUrl  String?
-  shippingMethods Json?
-
-  // 源数据
-  sourceUrl String?
-
-  // 状态
-  isActive   Boolean @default(true)
-  isFeatured Boolean @default(false)
-  isNew      Boolean @default(false)
-
-  // 关联
-  orderItems OrderItem[]
-  quoteItems QuoteItem[]
-  suppliers  ProductSupplier[]
-
-  // V3.2 映射字段（渐进式适配）
-  supplierMasterId String? @map("supplier_master_id") @db.VarChar(20)
-  spuId            String? @map("spu_id") @db.VarChar(20)
-  variantId        String? @map("variant_id") @db.VarChar(50)
-  erpSkuCode       String? @map("erp_sku_code") @db.VarChar(30)
-  businessSku      String? @map("business_sku") @db.VarChar(30)
-
-  // V3.2 关系
-  supplierMaster SupplierMaster? @relation(fields: [supplierMasterId], references: [supplierId])
-  spu            SPU?            @relation(fields: [spuId], references: [spuId])
-  v32variant     ProductVariant? @relation(fields: [variantId], references: [variantId])
-
-  // 搜索
-  searchVector String? @db.Text // 全文搜索预处理字段
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([slug])
-  @@index([sku])
-  @@index([categoryId])
-  @@index([brandId])
-  @@index([isActive])
-  @@index([isFeatured])
-  @@index([supplierMasterId])
-  @@index([spuId])
-  @@index([variantId])
-}
-
-model ProductImage {
-  id        String   @id @default(cuid())
-  productId String
-  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url       String
-  altText   String?
-  sortOrder Int      @default(0)
-  isPrimary Boolean  @default(false)
-  createdAt DateTime @default(now())
-
-  @@index([productId])
-}
 
 // ============================================================
 // 供应商管理
@@ -167,32 +69,11 @@ model Supplier {
   notes          String?           @db.Text
   rating         Int?              @default(3) // 1-5 星评级
   isActive       Boolean           @default(true)
-  products       ProductSupplier[]
   purchaseOrders PurchaseOrder[]
   createdAt      DateTime          @default(now())
   updatedAt      DateTime          @updatedAt
 }
 
-model ProductSupplier {
-  id           String   @id @default(cuid())
-  productId    String
-  product      Product  @relation(fields: [productId], references: [id])
-  supplierId   String
-  supplier     Supplier @relation(fields: [supplierId], references: [id])
-  supplierSku  String? // 供应商的产品编码
-  costPrice    Decimal? @db.Decimal(10, 2)
-  currency     String   @default("CNY")
-  leadTimeDays Int?
-  moq          Int?     @default(1) // 最小起订量
-  notes        String?
-  isPrimary    Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
-  @@unique([productId, supplierId])
-  @@index([productId])
-  @@index([supplierId])
-}
 
 model PurchaseOrder {
   id          String   @id @default(cuid())
@@ -353,8 +234,8 @@ model OrderItem {
   id        String  @id @default(cuid())
   orderId   String
   order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  productId String
-  product   Product @relation(fields: [productId], references: [id])
+  erpSkuId String
+  erpSku   ERPSKU  @relation(fields: [erpSkuId], references: [erpSku])
 
   // 快照（防止产品信息变更影响历史订单）
   sku       String
@@ -365,7 +246,7 @@ model OrderItem {
   total     Decimal @db.Decimal(10, 2)
 
   @@index([orderId])
-  @@index([productId])
+  @@index([erpSkuId])
 }
 
 // ============================================================
@@ -408,8 +289,8 @@ model QuoteItem {
   id        String   @id @default(cuid())
   quoteId   String
   quote     Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
-  productId String
-  product   Product  @relation(fields: [productId], references: [id])
+  erpSkuId String
+  erpSku   ERPSKU  @relation(fields: [erpSkuId], references: [erpSku])
   quantity  Int      @default(1)
   notes     String?
   unitPrice Decimal? @db.Decimal(10, 2) // 报价后填写
@@ -422,6 +303,25 @@ model QuoteItem {
 // ============================================================
 
 // L0: 供应商主表（替代Brand用于前端展示）
+
+// ============================================================
+// 分类组（产品类型维度，用于前端导航与SEO）
+// ============================================================
+
+model CategoryGroup {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?   @db.Text
+  sortOrder   Int       @default(0)
+  isActive    Boolean   @default(true)
+  spus        SPU[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("category_group")
+}
+
 model SupplierMaster {
   supplierId   String   @id @map("supplier_id") @db.VarChar(20)
   supplierName String   @map("supplier_name") @db.VarChar(100)
@@ -433,7 +333,6 @@ model SupplierMaster {
   updatedAt    DateTime @updatedAt @map("updated_at")
 
   variants VariantSupplierMap[]
-  products Product[]
 
   @@map("supplier_master")
 }
@@ -443,14 +342,16 @@ model SPU {
   spuId             String   @id @map("spu_id") @db.VarChar(20)
   productFamilyName String   @map("product_family_name") @db.VarChar(100)
   categoryL1        String   @map("category_l1") @db.VarChar(50)
+  categoryGroupId String? @map("category_group_id") @db.VarChar(50)
+  categoryGroup CategoryGroup? @relation(fields: [categoryGroupId], references: [id])
   seoTitle          String?  @map("seo_title") @db.VarChar(200)
+  slug             String?  @unique @map("slug") @db.VarChar(200)
   metadata          Json?    @default("{}")
   isActive          Boolean  @default(true) @map("is_active")
   createdAt         DateTime @default(now()) @map("created_at")
   updatedAt         DateTime @updatedAt @map("updated_at")
 
   variants ProductVariant[]
-  products Product[]
 
   @@map("spu")
 }
@@ -490,7 +391,6 @@ model ProductVariant {
   kitComponents  KitBOM[]              @relation("KitComponents")
   compatibilityA CompatibilityMatrix[] @relation("VariantA")
   compatibilityB CompatibilityMatrix[] @relation("VariantB")
-  products       Product[]
 
   @@index([spuId])
   @@index([materialFamily])
@@ -507,11 +407,18 @@ model ERPSKU {
   businessSku      String   @map("business_sku") @db.VarChar(30)
   initialStockQty  Int      @default(0) @map("initial_stock_qty")
   lowStockAlertQty Int      @default(0) @map("low_stock_alert_qty")
+  stockHouston         Int  @default(500) @map("stock_houston")
+  stockChina           Int  @default(500) @map("stock_china")
+  lowStockAlertHouston Int  @default(100) @map("low_stock_alert_houston")
+  lowStockAlertChina   Int  @default(100) @map("low_stock_alert_china")
   isActive         Boolean  @default(true) @map("is_active")
   createdAt        DateTime @default(now()) @map("created_at")
   updatedAt        DateTime @updatedAt @map("updated_at")
 
   variant ProductVariant @relation(fields: [variantId], references: [variantId])
+
+  orderItems OrderItem[]
+  quoteItems QuoteItem[]
 
   @@index([variantId])
   @@index([businessSku])
@@ -548,6 +455,7 @@ model ProductStandard {
   updatedAt     DateTime @updatedAt @map("updated_at")
 
   variant ProductVariant @relation(fields: [variantId], references: [variantId])
+
 
   @@id([variantId, standardName])
   @@map("product_standards")

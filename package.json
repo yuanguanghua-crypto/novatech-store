@@ -13,14 +13,16 @@
     "db:seed": "node scripts/seed.js",
     "db:seed-test": "node scripts/seed-test.js",
     "db:import": "node scripts/import-products.js",
-    "db:setup": "npm run db:push && npm run db:seed-test && npm run db:import"
+    "db:setup": "npm run db:push && npm run db:seed-test && npm run db:import",
+    "db:setup-v32": "npm run db:push && node scripts/import-v32-glassware.js",
+    "db:setup-v32:dry-run": "node scripts/import-v32-glassware.js --dry-run"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.4.1",
     "@aws-sdk/client-s3": "^3.600.0",
     "@aws-sdk/s3-request-presigner": "^3.600.0",
     "@hookform/resolvers": "^3.6.0",
-    "@prisma/client": "^5.14.0",
+    "@prisma/client": "^5.22.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-checkbox": "^1.1.1",
@@ -47,7 +49,7 @@
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "nodemailer": "^7.0.7",
-    "prisma": "^5.14.0",
+    "prisma": "^5.22.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.51.5",

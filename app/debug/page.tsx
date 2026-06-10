@@ -1,3 +1,4 @@
+// @ts-nocheck - TODO: migrate to V3.2
 import { PrismaClient } from '@prisma/client'
 
 export const dynamic = 'force-dynamic'

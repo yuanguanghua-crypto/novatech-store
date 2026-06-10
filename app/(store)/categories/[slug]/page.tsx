@@ -10,54 +10,78 @@ interface Props {
   searchParams: Promise<{ sort?: string; page?: string }>
 }
 
+// Get CategoryGroup + SPU count (V3.2)
 async function getCategory(slug: string) {
   try {
-    return await prisma.category.findUnique({
+    const group = await prisma.categoryGroup.findUnique({
       where: { slug, isActive: true },
       include: {
-        _count: { select: { products: { where: { isActive: true } } } },
-        children: {
-          where: { isActive: true },
-          select: {
-            id: true,
-            name: true,
-            slug: true,
-            _count: { select: { products: { where: { isActive: true } } } },
-          },
-          orderBy: { name: 'asc' },
-        },
-        parent: {
-          select: { id: true, name: true, slug: true },
-        },
+        _count: { select: { spus: true } },
       },
     })
+    if (!group) return null
+
+    return {
+      id: group.id,
+      name: group.name,
+      slug: group.slug,
+      description: group.description,
+      imageUrl: null as string | null,
+      parentId: null as string | null,
+      parent: null,
+      children: [] as any[],
+      sortOrder: group.sortOrder,
+      isActive: group.isActive,
+      createdAt: group.createdAt,
+      updatedAt: group.updatedAt,
+      _count: { products: group._count.spus },
+    }
   } catch {
     return null
   }
 }
 
-async function getCategoryProducts(slug: string, sort = 'featured', page = 1) {
+// Get variants for a category (V3.2)
+async function getCategoryProducts(slug: string, _sort = 'featured', page = 1) {
   const PAGE_SIZE = 24
   const skip = (page - 1) * PAGE_SIZE
 
-  let orderBy: any = { isFeatured: 'desc' }
-  if (sort === 'price_asc') orderBy = { ourPrice: 'asc' }
-  if (sort === 'price_desc') orderBy = { ourPrice: 'desc' }
-  if (sort === 'newest') orderBy = { createdAt: 'desc' }
+  let orderBy: { sellingPriceUsd: 'asc' | 'desc' } = { sellingPriceUsd: 'asc' }
+  if (_sort === 'price_desc') orderBy = { sellingPriceUsd: 'desc' as const }
 
-  const [products, total] = await Promise.all([
-    prisma.product.findMany({
-      where: { category: { slug }, isActive: true },
+  const [variants, total] = await Promise.all([
+    prisma.productVariant.findMany({
+      where: {
+        isActive: true,
+        spu: { categoryGroup: { slug } },
+      },
       include: {
-        images: { where: { isPrimary: true }, take: 1 },
-        brand: { select: { name: true, slug: true } },
+        spu: { select: { productFamilyName: true } },
+        erpSkus: { take: 1 },
       },
       orderBy,
       skip,
       take: PAGE_SIZE,
     }),
-    prisma.product.count({ where: { category: { slug }, isActive: true } }),
+    prisma.productVariant.count({
+      where: {
+        isActive: true,
+        spu: { categoryGroup: { slug } },
+      },
+    }),
   ])
+
+  const products = variants.map((v) => ({
+    id: v.variantId,
+    slug: v.slug || v.variantId.toLowerCase(),
+    sku: v.erpSkus[0]?.erpSku || v.variantId,
+    name: v.variantName,
+    ourPrice: v.sellingPriceUsd,
+    isFeatured: false,
+    availability: v.erpSkus[0]?.stockHouston > 0 ? 'in_stock' as const : 'out_of_stock' as const,
+    images: [] as { url: string; isPrimary: boolean }[],
+    brand: { name: v.spu.productFamilyName, slug: v.spuId.toLowerCase() },
+  }))
 
   return { products, total, pageSize: PAGE_SIZE }
 }
@@ -65,12 +89,7 @@ async function getCategoryProducts(slug: string, sort = 'featured', page = 1) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const cat = await getCategory(slug)
-  if (!cat) return { title: 'Category Not Found' }
-  const profile = getCategoryProfile(slug)
-  return {
-    title: `${cat.name} - ${profile?.keyParameters?.[0]?.name || 'Professional Equipment'}`,
-    description: profile?.definition || `Browse ${cat.name} products. ${cat._count?.products || 0} products available.`,
-  }
+  return { title: cat?.name || 'Category' }
 }
 
 export default async function CategoryPage({ params, searchParams }: Props) {
@@ -85,13 +104,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   const categoryProfile = getCategoryProfile(slug)
 
   if (isParent) {
-    return (
-      <CategoryDetailClient
-        category={category}
-        slug={slug}
-        isParent={true}
-      />
-    )
+    return <CategoryDetailClient category={category} slug={slug} isParent={true} />
   }
 
   const { products, total, pageSize } = await getCategoryProducts(slug, sort, pageNum)

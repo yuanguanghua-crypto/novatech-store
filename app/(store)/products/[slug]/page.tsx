@@ -1,184 +1,100 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Script from 'next/script'
 import prisma from '@/lib/prisma'
-import { ProductDetailClient } from '@/components/store/product-detail-client'
-import { ProductFAQ, generateProductFAQs, type ProductFAQItem } from '@/components/store/product-faq'
-import {
-  generateProductSchema,
-  generateFAQSchema,
-  generateBreadcrumbSchema,
-  generateOrganizationSchema,
-} from '@/lib/structured-data'
-import { formatSpecs } from '@/lib/utils'
+import { ProductDetailV2 } from '@/components/store/product-detail/product-detail-v2'
+import { formatPrice } from '@/lib/utils'
 
-const BASE_URL = 'https://novatech-store-inky.vercel.app'
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3001'
 
-interface ProductPageProps {
+interface PageProps {
   params: { slug: string }
 }
 
-async function getProduct(slug: string) {
-  return prisma.product.findFirst({
+// Fetch variant + SPU data for the given slug
+async function getVariant(slug: string) {
+  const variant = await prisma.productVariant.findFirst({
     where: { slug, isActive: true },
     include: {
-      images: { orderBy: { sortOrder: 'asc' } },
-      category: true,
-      brand: true,
+      spu: {
+        include: { categoryGroup: true },
+      },
+      erpSkus: { take: 1 },
     },
   })
-}
+  if (!variant) return null
 
-async function getRelatedProducts(categoryId: string, excludeId: string) {
-  return prisma.product.findMany({
-    where: { categoryId, isActive: true, id: { not: excludeId } },
-    include: {
-      images: { where: { isPrimary: true }, take: 1 },
-      brand: { select: { name: true } },
-    },
-    take: 4,
-    orderBy: { isFeatured: 'desc' },
+  const spu = variant.spu
+  const erpSku = variant.erpSkus[0]
+
+  // Build specs
+  const specs: { label: string; value: string }[] = []
+  if (variant.volumeMl) specs.push({ label: 'Capacity', value: `${variant.volumeMl} ml` })
+  if (variant.materialFamily) specs.push({ label: 'Material', value: variant.materialFamily })
+  if (variant.wallType) specs.push({ label: 'Wall Type', value: variant.wallType })
+  if (variant.jointType) specs.push({ label: 'Joint Type', value: variant.jointType })
+  if (variant.jointSize) specs.push({ label: 'Joint Size', value: variant.jointSize })
+  if (variant.accuracyClass) specs.push({ label: 'Accuracy Class', value: variant.accuracyClass })
+  if (variant.lengthMm) specs.push({ label: 'Length', value: `${variant.lengthMm} mm` })
+  if (variant.color) specs.push({ label: 'Color', value: variant.color })
+
+  // Get sibling variants
+  const siblings = await prisma.productVariant.findMany({
+    where: { spuId: spu.spuId, isActive: true, variantId: { not: variant.variantId } },
+    orderBy: { volumeMl: 'asc' },
   })
-}
-
-function buildAdditionalProperties(specs: Array<{ key: string; value: string }>) {
-  return specs.slice(0, 8).map((spec) => ({
-    name: spec.key,
-    value: spec.value,
-  }))
-}
-
-export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
-  const product = await getProduct(params.slug)
-  if (!product) return {}
-
-  const title = product.metaTitle || `${product.name} | ${product.brand?.name || 'LABPRO'}`
-  const description =
-    product.metaDesc ||
-    product.description?.slice(0, 160) ||
-    `${product.name} (SKU: ${product.sku}) - ${product.brand?.name || 'LABPRO'} ${product.category?.name || 'laboratory glassware'}. ${
-      product.availability === 'in_stock' ? 'In stock.' : 'Contact us for availability.'
-    } Request a quote today.`
 
   return {
-    title,
-    description,
-    keywords: [
-      product.name,
-      product.sku,
-      product.brand?.name || '',
-      product.category?.name || '',
-      'borosilicate glassware',
-      'laboratory glassware',
-      'lab glassware',
-      'LABPRO',
-    ],
+    variant: {
+      id: variant.variantId,
+      slug: variant.slug || slug,
+      name: variant.variantName,
+      sku: erpSku?.erpSku || '',
+      description: spu.seoTitle || '',
+      price: Number(variant.sellingPriceUsd),
+      specs,
+      stockHouston: erpSku?.stockHouston || 0,
+      stockChina: erpSku?.stockChina || 0,
+    },
+    spu: {
+      id: spu.spuId,
+      name: spu.productFamilyName,
+      categoryName: spu.categoryGroup?.name || spu.categoryL1,
+      categorySlug: spu.categoryGroup?.slug || '',
+    },
+    siblingVariants: siblings.map((s) => ({
+      variantId: s.variantId,
+      slug: s.slug || '',
+      volumeMl: s.volumeMl,
+      materialFamily: s.materialFamily,
+      price: Number(s.sellingPriceUsd),
+    })),
+  }
+}
+
+// SEO: Generate metadata from variant data
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const data = await getVariant(params.slug).catch(() => null)
+  if (!data) return { title: 'Product Not Found' }
+
+  return {
+    title: `${data.variant.name} | ${data.spu.categoryName} | LabPro Store`,
+    description: data.variant.specs
+      .map((s) => `${s.label}: ${s.value}`)
+      .join(', ') || data.variant.description,
     openGraph: {
-      title,
-      description,
-      images: product.images[0]?.url ? [{ url: product.images[0].url }] : [],
-      type: 'website',
+      title: data.variant.name,
+      description: `${formatPrice(data.variant.price)} - ${data.spu.name}`,
     },
   }
 }
 
-export default async function ProductDetailPage({ params }: ProductPageProps) {
-  const product = await getProduct(params.slug)
-  if (!product) notFound()
+export default async function ProductPage({ params }: PageProps) {
+  const data = await getVariant(params.slug)
+  if (!data) notFound()
 
-  const related = await getRelatedProducts(product.categoryId, product.id)
-
-  let specsObj: Record<string, string> = {}
-  try {
-    if (product.specs && typeof product.specs === 'object' && !Array.isArray(product.specs)) {
-      specsObj = product.specs as Record<string, string>
-    }
-  } catch {}
-
-  const specs = formatSpecs(specsObj)
-  const additionalProperties = buildAdditionalProperties(specs)
-
-  let faqs: ProductFAQItem[] = []
-  try {
-    faqs = generateProductFAQs({
-      productName: product.name,
-      sku: product.sku,
-      brand: product.brand?.name,
-      category: product.category?.name,
-      availability: product.availability,
-      specs: Object.fromEntries(specs.map((s) => [s.key, s.value])),
-      price: product.ourPrice != null ? `$${parseFloat(product.ourPrice.toString()).toFixed(2)}` : 'Request a Quote',
-    })
-  } catch (e) {
-    console.error('FAQ generation failed:', e)
-  }
-
-  let productSchema: any = {}
-  try {
-    productSchema = generateProductSchema(
-      {
-        name: product.name,
-        sku: product.sku,
-        description: product.metaDesc || product.description,
-        brandName: product.brand?.name,
-        imageUrl: product.images[0]?.url,
-        price: product.ourPrice != null ? product.ourPrice.toString() : '0',
-        currency: product.currency || 'USD',
-        availability: product.availability,
-        slug: product.slug,
-        categoryName: product.category?.name,
-        ratingValue: '4.8',
-        reviewCount: '126',
-        additionalProperties,
-      },
-      BASE_URL
-    )
-  } catch (e) {
-    console.error('Product schema generation failed:', e)
-  }
-
-  const faqSchema = generateFAQSchema(faqs, BASE_URL)
-
-  const breadcrumbSchema = generateBreadcrumbSchema(
-    [
-      { name: 'Home', url: BASE_URL },
-      { name: 'Products', url: `${BASE_URL}/products` },
-      { name: product.category?.name || 'Products', url: `${BASE_URL}/categories/${product.category?.slug}` },
-      { name: product.name, url: `${BASE_URL}/products/${product.slug}` },
-    ],
-    BASE_URL
-  )
-
-  const orgSchema = generateOrganizationSchema(BASE_URL)
-
-  return (
-    <>
-      <Script
-        id="product-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <Script
-        id="org-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-      />
-
-      <ProductDetailClient product={product} related={related} />
-
-      <div className="container-custom pb-16">
-        <ProductFAQ faqs={faqs} productName={product.name} />
-      </div>
-    </>
-  )
+  return <ProductDetailV2
+    variant={data.variant}
+    spu={data.spu}
+    siblingVariants={data.siblingVariants}
+  />
 }

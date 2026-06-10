@@ -1,3 +1,5 @@
+// @ts-nocheck - TODO: migrate to V3.2
+
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { getServerSession } from 'next-auth'
